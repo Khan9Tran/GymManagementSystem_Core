@@ -28,12 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.elipseControl1 = new GymManagementSystem.ElipseControl();
+            this.SuspendLayout();
+            // 
+            // elipseControl1
+            // 
+            this.elipseControl1.CornerRadius = 30;
+            this.elipseControl1.TargetControl = null;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private ElipseControl elipseControl1;
     }
 }
