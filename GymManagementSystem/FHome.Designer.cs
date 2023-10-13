@@ -53,8 +53,8 @@
             btnHome.FlatAppearance.MouseDownBackColor = Color.FromArgb(99, 63, 91);
             btnHome.FlatAppearance.MouseOverBackColor = Color.FromArgb(99, 63, 91);
             btnHome.FlatStyle = FlatStyle.Flat;
-            btnHome.Location = new Point(20, 20);
-            btnHome.Margin = new Padding(20, 20, 20, 0);
+            btnHome.Location = new Point(23, 27);
+            btnHome.Margin = new Padding(23, 27, 23, 0);
             btnHome.Name = "btnHome";
             btnHome.Size = new Size(60, 60);
             btnHome.TabIndex = 0;
@@ -62,10 +62,11 @@
             // 
             // FHome
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1904, 1041);
+            ClientSize = new Size(1902, 1033);
             Controls.Add(flowLayoutPanel1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FHome";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
