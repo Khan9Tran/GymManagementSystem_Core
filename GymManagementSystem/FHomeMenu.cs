@@ -10,19 +10,11 @@ using System.Windows.Forms;
 
 namespace GymManagementSystem
 {
-    public partial class FHome : Form
+    public partial class FHomeMenu : Form
     {
-
-        OpenChildForm openChildForm;
-        public FHome()
+        public FHomeMenu()
         {
             InitializeComponent();
-            openChildForm = new OpenChildForm(pnlLoad);
-        }
-
-        private void FHome_Load(object sender, EventArgs e)
-        {
-            openChildForm.Open(new FHomeMenu());
         }
     }
 }

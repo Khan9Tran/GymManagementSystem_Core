@@ -30,6 +30,7 @@
         {
             flowLayoutPanel1 = new FlowLayoutPanel();
             btnHome = new Button();
+            pnlLoad = new Panel();
             flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -60,16 +61,26 @@
             btnHome.TabIndex = 0;
             btnHome.UseVisualStyleBackColor = false;
             // 
+            // pnlLoad
+            // 
+            pnlLoad.Location = new Point(100, 0);
+            pnlLoad.Margin = new Padding(0);
+            pnlLoad.Name = "pnlLoad";
+            pnlLoad.Size = new Size(1820, 1080);
+            pnlLoad.TabIndex = 1;
+            // 
             // FHome
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1902, 1033);
+            Controls.Add(pnlLoad);
             Controls.Add(flowLayoutPanel1);
             Margin = new Padding(3, 4, 3, 4);
             Name = "FHome";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
+            Load += FHome_Load;
             flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -78,5 +89,6 @@
 
         private FlowLayoutPanel flowLayoutPanel1;
         private Button btnHome;
+        private Panel pnlLoad;
     }
 }
