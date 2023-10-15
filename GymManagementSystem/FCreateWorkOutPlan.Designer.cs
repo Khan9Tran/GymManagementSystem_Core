@@ -44,7 +44,7 @@
             this.rjPanel4 = new GymManagementSystem.RJPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNumberOfWorkouts = new System.Windows.Forms.TextBox();
             this.rjPanel7 = new GymManagementSystem.RJPanel();
             this.flpnlBranch = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlBranch = new GymManagementSystem.RJPanel();
@@ -59,7 +59,7 @@
             this.txtTrainer = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.rjPanel10 = new GymManagementSystem.RJPanel();
-            this.dtpCompletionTime = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.txtSum = new GymManagementSystem.RJPanel();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -145,7 +145,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(181)))), ((int)(((byte)(244)))));
-            this.label2.Location = new System.Drawing.Point(156, 382);
+            this.label2.Location = new System.Drawing.Point(156, 406);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(162, 46);
             this.label2.TabIndex = 7;
@@ -176,12 +176,15 @@
             // dtpTime
             // 
             this.dtpTime.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtpTime.CustomFormat = "HH:mm";
             this.dtpTime.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dtpTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpTime.Location = new System.Drawing.Point(75, 523);
+            this.dtpTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpTime.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.dtpTime.Location = new System.Drawing.Point(162, 533);
             this.dtpTime.Name = "dtpTime";
-            this.dtpTime.Size = new System.Drawing.Size(342, 36);
+            this.dtpTime.Size = new System.Drawing.Size(156, 36);
             this.dtpTime.TabIndex = 4;
+            this.dtpTime.Value = new System.DateTime(2023, 10, 16, 0, 35, 0, 0);
             // 
             // dtpDate
             // 
@@ -267,15 +270,17 @@
             this.label6.TabIndex = 5;
             this.label6.Text = "Workout";
             // 
-            // textBox1
+            // txtNumberOfWorkouts
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(87)))), ((int)(((byte)(95)))));
-            this.textBox1.Location = new System.Drawing.Point(26, 8);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(115, 29);
-            this.textBox1.TabIndex = 7;
+            this.txtNumberOfWorkouts.BackColor = System.Drawing.Color.White;
+            this.txtNumberOfWorkouts.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNumberOfWorkouts.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtNumberOfWorkouts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(87)))), ((int)(((byte)(95)))));
+            this.txtNumberOfWorkouts.Location = new System.Drawing.Point(26, 8);
+            this.txtNumberOfWorkouts.Name = "txtNumberOfWorkouts";
+            this.txtNumberOfWorkouts.ReadOnly = true;
+            this.txtNumberOfWorkouts.Size = new System.Drawing.Size(115, 29);
+            this.txtNumberOfWorkouts.TabIndex = 7;
             // 
             // rjPanel7
             // 
@@ -452,7 +457,7 @@
             this.rjPanel10.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.rjPanel10.BorderRadius = 40;
             this.rjPanel10.BorderSize = 0;
-            this.rjPanel10.Controls.Add(this.dtpCompletionTime);
+            this.rjPanel10.Controls.Add(this.dateTimePicker1);
             this.rjPanel10.Controls.Add(this.txtSum);
             this.rjPanel10.Controls.Add(this.label7);
             this.rjPanel10.Controls.Add(this.label5);
@@ -462,16 +467,19 @@
             this.rjPanel10.Size = new System.Drawing.Size(613, 184);
             this.rjPanel10.TabIndex = 10;
             // 
-            // dtpCompletionTime
+            // dateTimePicker1
             // 
-            this.dtpCompletionTime.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.dtpCompletionTime.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dtpCompletionTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpCompletionTime.ImeMode = System.Windows.Forms.ImeMode.AlphaFull;
-            this.dtpCompletionTime.Location = new System.Drawing.Point(365, 118);
-            this.dtpCompletionTime.Name = "dtpCompletionTime";
-            this.dtpCompletionTime.Size = new System.Drawing.Size(177, 36);
-            this.dtpCompletionTime.TabIndex = 8;
+            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker1.CustomFormat = "HH:mm";
+            this.dateTimePicker1.Enabled = false;
+            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.dateTimePicker1.Location = new System.Drawing.Point(365, 118);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(177, 36);
+            this.dateTimePicker1.TabIndex = 10;
+            this.dateTimePicker1.Value = new System.DateTime(2023, 10, 16, 0, 35, 0, 0);
             // 
             // txtSum
             // 
@@ -479,7 +487,7 @@
             this.txtSum.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(181)))), ((int)(((byte)(244)))));
             this.txtSum.BorderRadius = 40;
             this.txtSum.BorderSize = 2;
-            this.txtSum.Controls.Add(this.textBox1);
+            this.txtSum.Controls.Add(this.txtNumberOfWorkouts);
             this.txtSum.ForeColor = System.Drawing.Color.White;
             this.txtSum.Location = new System.Drawing.Point(365, 32);
             this.txtSum.Name = "txtSum";
@@ -583,7 +591,6 @@
         private RJPanel rjPanel9;
         private Label label4;
         private RJPanel rjPanel10;
-        private DateTimePicker dtpCompletionTime;
         private RJPanel txtSum;
         private Label label7;
         private Label label5;
@@ -595,12 +602,13 @@
         private RJButton rjButton7;
         private RJButton rjButton1;
         private RJButton rjButton3;
-        private TextBox textBox1;
+        private TextBox txtNumberOfWorkouts;
         private Label lblBranch;
         private Label lblTrainer;
         private FlowLayoutPanel flpnlBranch;
         private FlowLayoutPanel flowLayoutPanel2;
         private FlowLayoutPanel flpnlTrainer;
         private RJButton btnNoTrainer;
+        private DateTimePicker dateTimePicker1;
     }
 }
