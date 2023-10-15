@@ -42,6 +42,7 @@
             this.rjButton3 = new GymManagementSystem.RJButton();
             this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.rjPanel4 = new GymManagementSystem.RJPanel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.rjPanel7 = new GymManagementSystem.RJPanel();
@@ -51,6 +52,7 @@
             this.txtBranch = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.rjPanel6 = new GymManagementSystem.RJPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.rjPanel9 = new GymManagementSystem.RJPanel();
             this.rjButton1 = new GymManagementSystem.RJButton();
             this.txtTrainer = new System.Windows.Forms.TextBox();
@@ -61,8 +63,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnConfirm = new GymManagementSystem.RJButton();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.rjPanel1.SuspendLayout();
             this.rjPanel3.SuspendLayout();
             this.rjPanel2.SuspendLayout();
@@ -247,6 +247,14 @@
             this.rjPanel4.Size = new System.Drawing.Size(624, 742);
             this.rjPanel4.TabIndex = 8;
             // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.AutoScroll = true;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(11, 94);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(610, 628);
+            this.flowLayoutPanel2.TabIndex = 7;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -267,7 +275,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(115, 29);
             this.textBox1.TabIndex = 7;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // rjPanel7
             // 
@@ -358,6 +365,14 @@
             this.rjPanel6.Name = "rjPanel6";
             this.rjPanel6.Size = new System.Drawing.Size(529, 422);
             this.rjPanel6.TabIndex = 9;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(17, 111);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(509, 243);
+            this.flowLayoutPanel1.TabIndex = 8;
             // 
             // rjPanel9
             // 
@@ -490,22 +505,6 @@
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = false;
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(17, 111);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(509, 243);
-            this.flowLayoutPanel1.TabIndex = 8;
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.AutoScroll = true;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(11, 94);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(610, 628);
-            this.flowLayoutPanel2.TabIndex = 7;
-            // 
             // FCreateWorkOutPlan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -521,7 +520,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FCreateWorkOutPlan";
             this.Text = "CreateWorkOutPlan";
-            this.Load += new System.EventHandler(this.FCreateWorkOutPlan_Load);
             this.rjPanel1.ResumeLayout(false);
             this.rjPanel1.PerformLayout();
             this.rjPanel3.ResumeLayout(false);

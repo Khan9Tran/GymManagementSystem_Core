@@ -13,6 +13,8 @@ namespace GymManagementSystem
     public partial class USBranch : UserControl
     {
         private string iD;
+        public event EventHandler BranchClicked;
+        
         public USBranch(String BranchName, String ID)
         {
             InitializeComponent();
@@ -20,6 +22,17 @@ namespace GymManagementSystem
             iD = ID;
         }
 
-        public string ID { get => ID; set => ID = value; }
+
+        public string ID { get => iD; set => iD = value; }
+
+        private void btnBranch_Click(object sender, EventArgs e)
+        {
+            BranchClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void USBranch_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -46,6 +46,7 @@
             this.btnBranch.Size = new System.Drawing.Size(234, 54);
             this.btnBranch.TabIndex = 0;
             this.btnBranch.UseVisualStyleBackColor = false;
+            this.btnBranch.Click += new System.EventHandler(this.btnBranch_Click);
             // 
             // USBranch
             // 
@@ -55,12 +56,13 @@
             this.Controls.Add(this.btnBranch);
             this.Name = "USBranch";
             this.Size = new System.Drawing.Size(234, 54);
+            this.Click += new System.EventHandler(this.USBranch_Click);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private RJButton btnBranch;
+        public RJButton btnBranch;
     }
 }
