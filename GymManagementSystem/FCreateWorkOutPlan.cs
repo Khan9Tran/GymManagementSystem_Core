@@ -34,15 +34,5 @@ namespace GymManagementSystem
             MessageBox.Show("Đã nhấp vào USBranch có ID: " + clickedID);
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FCreateWorkOutPlan_Load(object sender, EventArgs e)
-        {
-           
-        }
-
     }
 }
