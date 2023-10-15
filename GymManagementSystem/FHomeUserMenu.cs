@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GymManagementSystem
 {
-    public partial class FHomeMenu : Form
+    public partial class FHomeUserMenu : Form
     {
-        public FHomeMenu()
+        public FHomeUserMenu()
         {
             InitializeComponent();
         }

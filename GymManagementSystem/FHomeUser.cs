@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace GymManagementSystem
 {
-    public partial class FHome : Form
+    public partial class FHomeUser : Form
     {
 
         OpenChildForm openChildForm;
-        public FHome()
+        public FHomeUser()
         {
             InitializeComponent();
             openChildForm = new OpenChildForm(pnlLoad);
@@ -22,7 +22,7 @@ namespace GymManagementSystem
 
         private void FHome_Load(object sender, EventArgs e)
         {
-            openChildForm.Open(new FHomeMenu());
+            openChildForm.Open(new FHomeUserMenu());
         }
     }
 }

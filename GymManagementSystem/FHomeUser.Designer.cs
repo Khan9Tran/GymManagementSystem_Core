@@ -1,6 +1,6 @@
 ﻿namespace GymManagementSystem
 {
-    partial class FHome
+    partial class FHomeUser
     {
         /// <summary>
         /// Required designer variable.
