@@ -14,6 +14,7 @@ namespace GymManagementSystem
     public partial class FCreateWorkOutPlan : Form
     {
         private string branchId = null;
+        private string trainerId = null;
         public FCreateWorkOutPlan()
         {
             InitializeComponent();
@@ -54,9 +55,19 @@ namespace GymManagementSystem
         private void Trainer_TrainerClicked(object? sender, EventArgs e)
         {
             USTrainer clickedUSTrainer = (USTrainer)sender;
-            string clickedID = clickedUSTrainer.TrainerID;
+            trainerId = clickedUSTrainer.TrainerID;
 
-            MessageBox.Show("Đã nhấp vào Trainer: " + clickedID);
+            foreach (var ctr in flpnlTrainer.Controls)
+            {
+                if (((USTrainer)ctr).TrainerID != trainerId)
+                {
+                    ((USTrainer)ctr).changeColor(0);
+                }
+                else
+                {
+                    ((USTrainer)ctr).changeColor(1);
+                }
+            }
         }
     }
 }
