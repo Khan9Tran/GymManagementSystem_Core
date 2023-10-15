@@ -30,6 +30,8 @@
         {
             this.pnlLoad = new GymManagementSystem.RJPanel();
             this.rjPanel5 = new GymManagementSystem.RJPanel();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,6 +48,7 @@
             this.rjPanel7 = new GymManagementSystem.RJPanel();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.pnlLoad.SuspendLayout();
+            this.rjPanel5.SuspendLayout();
             this.rjPanel2.SuspendLayout();
             this.rjPanel1.SuspendLayout();
             this.rjPanel4.SuspendLayout();
@@ -70,6 +73,7 @@
             this.pnlLoad.Name = "pnlLoad";
             this.pnlLoad.Size = new System.Drawing.Size(772, 880);
             this.pnlLoad.TabIndex = 0;
+            this.pnlLoad.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlLoad_Paint_1);
             // 
             // rjPanel5
             // 
@@ -77,18 +81,45 @@
             this.rjPanel5.BorderColor = System.Drawing.Color.White;
             this.rjPanel5.BorderRadius = 40;
             this.rjPanel5.BorderSize = 0;
+            this.rjPanel5.Controls.Add(this.radioButton2);
+            this.rjPanel5.Controls.Add(this.radioButton1);
             this.rjPanel5.ForeColor = System.Drawing.Color.White;
-            this.rjPanel5.Location = new System.Drawing.Point(259, 663);
+            this.rjPanel5.Location = new System.Drawing.Point(259, 626);
             this.rjPanel5.Name = "rjPanel5";
-            this.rjPanel5.Size = new System.Drawing.Size(428, 71);
+            this.rjPanel5.Size = new System.Drawing.Size(455, 125);
             this.rjPanel5.TabIndex = 2;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButton2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.radioButton2.Image = global::GymManagementSystem.Properties.Resources.femenine;
+            this.radioButton2.Location = new System.Drawing.Point(299, 32);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(80, 64);
+            this.radioButton2.TabIndex = 1;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButton1.Image = global::GymManagementSystem.Properties.Resources.male;
+            this.radioButton1.Location = new System.Drawing.Point(73, 35);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(80, 64);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
-            this.label5.Location = new System.Drawing.Point(106, 577);
+            this.label5.Location = new System.Drawing.Point(106, 571);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(111, 37);
             this.label5.TabIndex = 7;
@@ -202,7 +233,7 @@
             this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Location = new System.Drawing.Point(254, 663);
+            this.rjButton1.Location = new System.Drawing.Point(254, 684);
             this.rjButton1.Name = "rjButton1";
             this.rjButton1.Size = new System.Drawing.Size(428, 67);
             this.rjButton1.TabIndex = 6;
@@ -281,6 +312,8 @@
             this.Text = "FCreateMember";
             this.pnlLoad.ResumeLayout(false);
             this.pnlLoad.PerformLayout();
+            this.rjPanel5.ResumeLayout(false);
+            this.rjPanel5.PerformLayout();
             this.rjPanel2.ResumeLayout(false);
             this.rjPanel2.PerformLayout();
             this.rjPanel1.ResumeLayout(false);
@@ -314,5 +347,7 @@
         private RJPanel rjPanel5;
         private Label label5;
         private RJButton rjButton1;
+        private RadioButton radioButton2;
+        private RadioButton radioButton1;
     }
 }

@@ -21,5 +21,10 @@ namespace GymManagementSystem
         {
 
         }
+
+        private void pnlLoad_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
