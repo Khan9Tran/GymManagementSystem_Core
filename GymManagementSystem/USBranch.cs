@@ -34,5 +34,19 @@ namespace GymManagementSystem
         {
 
         }
+
+        public void changeColor(int choice)
+        {
+            if (choice == 1)
+            {
+                btnBranch.BackColor = Color.FromArgb(40, 181, 244);
+                btnBranch.ForeColor = Color.White;
+            }
+            else
+            {
+                btnBranch.BackColor = Color.White;
+                btnBranch.ForeColor = Color.FromArgb(67, 52, 67);
+            }    
+        }
     }
 }

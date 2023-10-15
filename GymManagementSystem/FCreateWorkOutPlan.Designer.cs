@@ -52,7 +52,7 @@
             this.txtBranch = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.rjPanel6 = new GymManagementSystem.RJPanel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpnlTrainer = new System.Windows.Forms.FlowLayoutPanel();
             this.rjPanel9 = new GymManagementSystem.RJPanel();
             this.rjButton1 = new GymManagementSystem.RJButton();
             this.txtTrainer = new System.Windows.Forms.TextBox();
@@ -93,7 +93,7 @@
             this.rjPanel1.ForeColor = System.Drawing.Color.White;
             this.rjPanel1.Location = new System.Drawing.Point(45, 62);
             this.rjPanel1.Name = "rjPanel1";
-            this.rjPanel1.Size = new System.Drawing.Size(529, 921);
+            this.rjPanel1.Size = new System.Drawing.Size(529, 947);
             this.rjPanel1.TabIndex = 0;
             // 
             // lblBranch
@@ -144,7 +144,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(181)))), ((int)(((byte)(244)))));
-            this.label2.Location = new System.Drawing.Point(156, 438);
+            this.label2.Location = new System.Drawing.Point(156, 382);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(162, 46);
             this.label2.TabIndex = 7;
@@ -177,7 +177,7 @@
             this.dtpTime.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtpTime.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtpTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpTime.Location = new System.Drawing.Point(75, 496);
+            this.dtpTime.Location = new System.Drawing.Point(75, 523);
             this.dtpTime.Name = "dtpTime";
             this.dtpTime.Size = new System.Drawing.Size(342, 36);
             this.dtpTime.TabIndex = 4;
@@ -187,7 +187,7 @@
             this.dtpDate.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtpDate.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDate.Location = new System.Drawing.Point(75, 577);
+            this.dtpDate.Location = new System.Drawing.Point(75, 643);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(342, 36);
             this.dtpDate.TabIndex = 3;
@@ -288,7 +288,7 @@
             this.rjPanel7.ForeColor = System.Drawing.Color.White;
             this.rjPanel7.Location = new System.Drawing.Point(1245, 62);
             this.rjPanel7.Name = "rjPanel7";
-            this.rjPanel7.Size = new System.Drawing.Size(529, 383);
+            this.rjPanel7.Size = new System.Drawing.Size(529, 293);
             this.rjPanel7.TabIndex = 8;
             // 
             // flpnlBranch
@@ -296,7 +296,7 @@
             this.flpnlBranch.AutoScroll = true;
             this.flpnlBranch.Location = new System.Drawing.Point(17, 94);
             this.flpnlBranch.Name = "flpnlBranch";
-            this.flpnlBranch.Size = new System.Drawing.Size(509, 243);
+            this.flpnlBranch.Size = new System.Drawing.Size(509, 176);
             this.flpnlBranch.TabIndex = 6;
             // 
             // pnlBranch
@@ -357,22 +357,22 @@
             this.rjPanel6.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.rjPanel6.BorderRadius = 40;
             this.rjPanel6.BorderSize = 0;
-            this.rjPanel6.Controls.Add(this.flowLayoutPanel1);
+            this.rjPanel6.Controls.Add(this.flpnlTrainer);
             this.rjPanel6.Controls.Add(this.rjPanel9);
             this.rjPanel6.Controls.Add(this.label4);
             this.rjPanel6.ForeColor = System.Drawing.Color.White;
-            this.rjPanel6.Location = new System.Drawing.Point(1245, 472);
+            this.rjPanel6.Location = new System.Drawing.Point(1245, 382);
             this.rjPanel6.Name = "rjPanel6";
-            this.rjPanel6.Size = new System.Drawing.Size(529, 422);
+            this.rjPanel6.Size = new System.Drawing.Size(529, 534);
             this.rjPanel6.TabIndex = 9;
             // 
-            // flowLayoutPanel1
+            // flpnlTrainer
             // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(17, 111);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(509, 243);
-            this.flowLayoutPanel1.TabIndex = 8;
+            this.flpnlTrainer.AutoScroll = true;
+            this.flpnlTrainer.Location = new System.Drawing.Point(17, 111);
+            this.flpnlTrainer.Name = "flpnlTrainer";
+            this.flpnlTrainer.Size = new System.Drawing.Size(509, 401);
+            this.flpnlTrainer.TabIndex = 8;
             // 
             // rjPanel9
             // 
@@ -439,7 +439,7 @@
             this.rjPanel10.ForeColor = System.Drawing.Color.White;
             this.rjPanel10.Location = new System.Drawing.Point(606, 825);
             this.rjPanel10.Name = "rjPanel10";
-            this.rjPanel10.Size = new System.Drawing.Size(613, 158);
+            this.rjPanel10.Size = new System.Drawing.Size(613, 184);
             this.rjPanel10.TabIndex = 10;
             // 
             // dtpCompletionTime
@@ -448,7 +448,7 @@
             this.dtpCompletionTime.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtpCompletionTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtpCompletionTime.ImeMode = System.Windows.Forms.ImeMode.AlphaFull;
-            this.dtpCompletionTime.Location = new System.Drawing.Point(365, 98);
+            this.dtpCompletionTime.Location = new System.Drawing.Point(365, 118);
             this.dtpCompletionTime.Name = "dtpCompletionTime";
             this.dtpCompletionTime.Size = new System.Drawing.Size(177, 36);
             this.dtpCompletionTime.TabIndex = 8;
@@ -482,7 +482,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
-            this.label5.Location = new System.Drawing.Point(22, 88);
+            this.label5.Location = new System.Drawing.Point(22, 117);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(234, 37);
             this.label5.TabIndex = 5;
@@ -498,9 +498,9 @@
             this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirm.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnConfirm.ForeColor = System.Drawing.Color.White;
-            this.btnConfirm.Location = new System.Drawing.Point(1245, 916);
+            this.btnConfirm.Location = new System.Drawing.Point(1262, 942);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(529, 67);
+            this.btnConfirm.Size = new System.Drawing.Size(512, 67);
             this.btnConfirm.TabIndex = 11;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = false;
@@ -580,6 +580,6 @@
         private Label lblTrainer;
         private FlowLayoutPanel flpnlBranch;
         private FlowLayoutPanel flowLayoutPanel2;
-        private FlowLayoutPanel flowLayoutPanel1;
+        private FlowLayoutPanel flpnlTrainer;
     }
 }

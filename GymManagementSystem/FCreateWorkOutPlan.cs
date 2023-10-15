@@ -13,6 +13,7 @@ namespace GymManagementSystem
 {
     public partial class FCreateWorkOutPlan : Form
     {
+        private string branchId = null;
         public FCreateWorkOutPlan()
         {
             InitializeComponent();
@@ -23,16 +24,39 @@ namespace GymManagementSystem
                 branch.BranchClicked += Branch_BranchClicked;
 
             }
+            for (int i = 0; i < 10; i++)
+            {
+                USTrainer trainer = new USTrainer("Texttttt", "m", $"{i}",$"{i}");
+                flpnlTrainer.Controls.Add(trainer);
+                trainer.TrainerClicked += Trainer_TrainerClicked;
+
+            }
 
         }
 
         private void Branch_BranchClicked(object? sender, EventArgs e)
         {
             USBranch clickedUSBranch = (USBranch)sender;
-            string clickedID = clickedUSBranch.ID;
-
-            MessageBox.Show("Đã nhấp vào USBranch có ID: " + clickedID);
+            branchId = clickedUSBranch.ID;
+            foreach (var ctr in flpnlBranch.Controls)
+            {
+                if (((USBranch)ctr).ID != branchId)
+                {
+                    ((USBranch)ctr).changeColor(0);
+                }    
+                else
+                {
+                    ((USBranch)ctr).changeColor(1);
+                }    
+            }    
         }
 
+        private void Trainer_TrainerClicked(object? sender, EventArgs e)
+        {
+            USTrainer clickedUSTrainer = (USTrainer)sender;
+            string clickedID = clickedUSTrainer.TrainerID;
+
+            MessageBox.Show("Đã nhấp vào Trainer: " + clickedID);
+        }
     }
 }
