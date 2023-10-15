@@ -462,9 +462,9 @@
             this.rjPanel10.Controls.Add(this.label7);
             this.rjPanel10.Controls.Add(this.label5);
             this.rjPanel10.ForeColor = System.Drawing.Color.White;
-            this.rjPanel10.Location = new System.Drawing.Point(606, 825);
+            this.rjPanel10.Location = new System.Drawing.Point(595, 825);
             this.rjPanel10.Name = "rjPanel10";
-            this.rjPanel10.Size = new System.Drawing.Size(613, 184);
+            this.rjPanel10.Size = new System.Drawing.Size(624, 184);
             this.rjPanel10.TabIndex = 10;
             // 
             // dateTimePicker1
