@@ -52,6 +52,7 @@
             this.txtBranch = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.rjPanel6 = new GymManagementSystem.RJPanel();
+            this.btnNoTrainer = new GymManagementSystem.RJButton();
             this.flpnlTrainer = new System.Windows.Forms.FlowLayoutPanel();
             this.rjPanel9 = new GymManagementSystem.RJPanel();
             this.rjButton1 = new GymManagementSystem.RJButton();
@@ -294,9 +295,9 @@
             // flpnlBranch
             // 
             this.flpnlBranch.AutoScroll = true;
-            this.flpnlBranch.Location = new System.Drawing.Point(17, 94);
+            this.flpnlBranch.Location = new System.Drawing.Point(17, 83);
             this.flpnlBranch.Name = "flpnlBranch";
-            this.flpnlBranch.Size = new System.Drawing.Size(509, 176);
+            this.flpnlBranch.Size = new System.Drawing.Size(509, 187);
             this.flpnlBranch.TabIndex = 6;
             // 
             // pnlBranch
@@ -357,6 +358,7 @@
             this.rjPanel6.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.rjPanel6.BorderRadius = 40;
             this.rjPanel6.BorderSize = 0;
+            this.rjPanel6.Controls.Add(this.btnNoTrainer);
             this.rjPanel6.Controls.Add(this.flpnlTrainer);
             this.rjPanel6.Controls.Add(this.rjPanel9);
             this.rjPanel6.Controls.Add(this.label4);
@@ -366,12 +368,30 @@
             this.rjPanel6.Size = new System.Drawing.Size(529, 534);
             this.rjPanel6.TabIndex = 9;
             // 
+            // btnNoTrainer
+            // 
+            this.btnNoTrainer.BackColor = System.Drawing.Color.White;
+            this.btnNoTrainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnNoTrainer.BorderRadius = 40;
+            this.btnNoTrainer.BorderSize = 0;
+            this.btnNoTrainer.FlatAppearance.BorderSize = 0;
+            this.btnNoTrainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNoTrainer.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnNoTrainer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
+            this.btnNoTrainer.Location = new System.Drawing.Point(25, 443);
+            this.btnNoTrainer.Name = "btnNoTrainer";
+            this.btnNoTrainer.Size = new System.Drawing.Size(486, 77);
+            this.btnNoTrainer.TabIndex = 12;
+            this.btnNoTrainer.Text = "No Trainer";
+            this.btnNoTrainer.UseVisualStyleBackColor = false;
+            this.btnNoTrainer.Click += new System.EventHandler(this.btnNoTrainer_Click);
+            // 
             // flpnlTrainer
             // 
             this.flpnlTrainer.AutoScroll = true;
-            this.flpnlTrainer.Location = new System.Drawing.Point(17, 111);
+            this.flpnlTrainer.Location = new System.Drawing.Point(17, 86);
             this.flpnlTrainer.Name = "flpnlTrainer";
-            this.flpnlTrainer.Size = new System.Drawing.Size(509, 401);
+            this.flpnlTrainer.Size = new System.Drawing.Size(509, 336);
             this.flpnlTrainer.TabIndex = 8;
             // 
             // rjPanel9
@@ -581,5 +601,6 @@
         private FlowLayoutPanel flpnlBranch;
         private FlowLayoutPanel flowLayoutPanel2;
         private FlowLayoutPanel flpnlTrainer;
+        private RJButton btnNoTrainer;
     }
 }

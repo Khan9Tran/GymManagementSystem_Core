@@ -44,7 +44,7 @@
             this.btnTrainer.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTrainer.Location = new System.Drawing.Point(0, 0);
             this.btnTrainer.Name = "btnTrainer";
-            this.btnTrainer.Size = new System.Drawing.Size(480, 100);
+            this.btnTrainer.Size = new System.Drawing.Size(480, 80);
             this.btnTrainer.TabIndex = 0;
             this.btnTrainer.UseVisualStyleBackColor = false;
             this.btnTrainer.Click += new System.EventHandler(this.btnTrainer_Click);
@@ -56,7 +56,7 @@
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.btnTrainer);
             this.Name = "USTrainer";
-            this.Size = new System.Drawing.Size(480, 100);
+            this.Size = new System.Drawing.Size(480, 80);
             this.Click += new System.EventHandler(this.USTrainer_Click);
             this.ResumeLayout(false);
 

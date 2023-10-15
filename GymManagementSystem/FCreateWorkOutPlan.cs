@@ -68,6 +68,25 @@ namespace GymManagementSystem
                     ((USTrainer)ctr).changeColor(1);
                 }
             }
+
+            btnNoTrainer.BackColor = Color.White;
+            btnNoTrainer.ForeColor = Color.FromArgb(67, 52, 67);
+        }
+
+        private void btnNoTrainer_Click(object sender, EventArgs e)
+        {
+            
+            trainerId = null;
+            btnNoTrainer.BackColor = Color.Red;
+            btnNoTrainer.ForeColor = Color.White;
+            foreach (var ctr in flpnlTrainer.Controls)
+            {
+
+                ((USTrainer)ctr).changeColor(0);
+  
+            }
+
+
         }
     }
 }
