@@ -30,23 +30,23 @@
         {
             this.pnlLoad = new GymManagementSystem.RJPanel();
             this.rjPanel5 = new GymManagementSystem.RJPanel();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rdnFemale = new System.Windows.Forms.RadioButton();
+            this.rdbMale = new System.Windows.Forms.RadioButton();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.rjPanel2 = new GymManagementSystem.RJPanel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.rjPanel1 = new GymManagementSystem.RJPanel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.rjPanel4 = new GymManagementSystem.RJPanel();
-            this.rjButton1 = new GymManagementSystem.RJButton();
+            this.btnConfirm = new GymManagementSystem.RJButton();
             this.label4 = new System.Windows.Forms.Label();
             this.rjPanel6 = new GymManagementSystem.RJPanel();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.rjPanel7 = new GymManagementSystem.RJPanel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
             this.pnlLoad.SuspendLayout();
             this.rjPanel5.SuspendLayout();
             this.rjPanel2.SuspendLayout();
@@ -81,38 +81,38 @@
             this.rjPanel5.BorderColor = System.Drawing.Color.White;
             this.rjPanel5.BorderRadius = 40;
             this.rjPanel5.BorderSize = 0;
-            this.rjPanel5.Controls.Add(this.radioButton2);
-            this.rjPanel5.Controls.Add(this.radioButton1);
+            this.rjPanel5.Controls.Add(this.rdnFemale);
+            this.rjPanel5.Controls.Add(this.rdbMale);
             this.rjPanel5.ForeColor = System.Drawing.Color.White;
             this.rjPanel5.Location = new System.Drawing.Point(259, 626);
             this.rjPanel5.Name = "rjPanel5";
             this.rjPanel5.Size = new System.Drawing.Size(455, 125);
             this.rjPanel5.TabIndex = 2;
             // 
-            // radioButton2
+            // rdnFemale
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButton2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioButton2.Image = global::GymManagementSystem.Properties.Resources.femenine;
-            this.radioButton2.Location = new System.Drawing.Point(299, 32);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(80, 64);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rdnFemale.AutoSize = true;
+            this.rdnFemale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rdnFemale.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rdnFemale.Image = global::GymManagementSystem.Properties.Resources.femenine;
+            this.rdnFemale.Location = new System.Drawing.Point(299, 32);
+            this.rdnFemale.Name = "rdnFemale";
+            this.rdnFemale.Size = new System.Drawing.Size(80, 64);
+            this.rdnFemale.TabIndex = 1;
+            this.rdnFemale.TabStop = true;
+            this.rdnFemale.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rdbMale
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButton1.Image = global::GymManagementSystem.Properties.Resources.male;
-            this.radioButton1.Location = new System.Drawing.Point(73, 35);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(80, 64);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rdbMale.AutoSize = true;
+            this.rdbMale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rdbMale.Image = global::GymManagementSystem.Properties.Resources.male;
+            this.rdbMale.Location = new System.Drawing.Point(73, 35);
+            this.rdbMale.Name = "rdbMale";
+            this.rdbMale.Size = new System.Drawing.Size(80, 64);
+            this.rdbMale.TabIndex = 0;
+            this.rdbMale.TabStop = true;
+            this.rdbMale.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -153,23 +153,23 @@
             this.rjPanel2.BorderColor = System.Drawing.Color.White;
             this.rjPanel2.BorderRadius = 40;
             this.rjPanel2.BorderSize = 0;
-            this.rjPanel2.Controls.Add(this.textBox2);
+            this.rjPanel2.Controls.Add(this.txtName);
             this.rjPanel2.ForeColor = System.Drawing.Color.White;
             this.rjPanel2.Location = new System.Drawing.Point(259, 392);
             this.rjPanel2.Name = "rjPanel2";
             this.rjPanel2.Size = new System.Drawing.Size(428, 71);
             this.rjPanel2.TabIndex = 1;
             // 
-            // textBox2
+            // txtName
             // 
-            this.textBox2.BackColor = System.Drawing.Color.White;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(66)))), ((int)(((byte)(67)))));
-            this.textBox2.Location = new System.Drawing.Point(17, 23);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(394, 29);
-            this.textBox2.TabIndex = 1;
+            this.txtName.BackColor = System.Drawing.Color.White;
+            this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtName.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(66)))), ((int)(((byte)(67)))));
+            this.txtName.Location = new System.Drawing.Point(17, 23);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(394, 29);
+            this.txtName.TabIndex = 1;
             // 
             // rjPanel1
             // 
@@ -177,23 +177,23 @@
             this.rjPanel1.BorderColor = System.Drawing.Color.White;
             this.rjPanel1.BorderRadius = 40;
             this.rjPanel1.BorderSize = 0;
-            this.rjPanel1.Controls.Add(this.textBox1);
+            this.rjPanel1.Controls.Add(this.txtID);
             this.rjPanel1.ForeColor = System.Drawing.Color.White;
             this.rjPanel1.Location = new System.Drawing.Point(259, 177);
             this.rjPanel1.Name = "rjPanel1";
             this.rjPanel1.Size = new System.Drawing.Size(428, 71);
             this.rjPanel1.TabIndex = 0;
             // 
-            // textBox1
+            // txtID
             // 
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(66)))), ((int)(((byte)(67)))));
-            this.textBox1.Location = new System.Drawing.Point(17, 21);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(394, 29);
-            this.textBox1.TabIndex = 0;
+            this.txtID.BackColor = System.Drawing.Color.White;
+            this.txtID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtID.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(66)))), ((int)(((byte)(67)))));
+            this.txtID.Location = new System.Drawing.Point(17, 21);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(394, 29);
+            this.txtID.TabIndex = 0;
             // 
             // label2
             // 
@@ -212,7 +212,7 @@
             this.rjPanel4.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.rjPanel4.BorderRadius = 40;
             this.rjPanel4.BorderSize = 0;
-            this.rjPanel4.Controls.Add(this.rjButton1);
+            this.rjPanel4.Controls.Add(this.btnConfirm);
             this.rjPanel4.Controls.Add(this.label4);
             this.rjPanel4.Controls.Add(this.label2);
             this.rjPanel4.Controls.Add(this.rjPanel6);
@@ -223,22 +223,22 @@
             this.rjPanel4.Size = new System.Drawing.Size(772, 880);
             this.rjPanel4.TabIndex = 2;
             // 
-            // rjButton1
+            // btnConfirm
             // 
-            this.rjButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(179)))), ((int)(((byte)(241)))));
-            this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton1.BorderRadius = 40;
-            this.rjButton1.BorderSize = 0;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Location = new System.Drawing.Point(254, 684);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(428, 67);
-            this.rjButton1.TabIndex = 6;
-            this.rjButton1.Text = "Confirm";
-            this.rjButton1.UseVisualStyleBackColor = false;
+            this.btnConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(179)))), ((int)(((byte)(241)))));
+            this.btnConfirm.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnConfirm.BorderRadius = 40;
+            this.btnConfirm.BorderSize = 0;
+            this.btnConfirm.FlatAppearance.BorderSize = 0;
+            this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfirm.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnConfirm.ForeColor = System.Drawing.Color.White;
+            this.btnConfirm.Location = new System.Drawing.Point(254, 684);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(428, 67);
+            this.btnConfirm.TabIndex = 6;
+            this.btnConfirm.Text = "Confirm";
+            this.btnConfirm.UseVisualStyleBackColor = false;
             // 
             // label4
             // 
@@ -257,23 +257,23 @@
             this.rjPanel6.BorderColor = System.Drawing.Color.White;
             this.rjPanel6.BorderRadius = 40;
             this.rjPanel6.BorderSize = 0;
-            this.rjPanel6.Controls.Add(this.textBox5);
+            this.rjPanel6.Controls.Add(this.txtPhoneNumber);
             this.rjPanel6.ForeColor = System.Drawing.Color.White;
             this.rjPanel6.Location = new System.Drawing.Point(254, 392);
             this.rjPanel6.Name = "rjPanel6";
             this.rjPanel6.Size = new System.Drawing.Size(428, 71);
             this.rjPanel6.TabIndex = 1;
             // 
-            // textBox5
+            // txtPhoneNumber
             // 
-            this.textBox5.BackColor = System.Drawing.Color.White;
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(66)))), ((int)(((byte)(67)))));
-            this.textBox5.Location = new System.Drawing.Point(17, 21);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(394, 29);
-            this.textBox5.TabIndex = 1;
+            this.txtPhoneNumber.BackColor = System.Drawing.Color.White;
+            this.txtPhoneNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPhoneNumber.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtPhoneNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(66)))), ((int)(((byte)(67)))));
+            this.txtPhoneNumber.Location = new System.Drawing.Point(17, 21);
+            this.txtPhoneNumber.Name = "txtPhoneNumber";
+            this.txtPhoneNumber.Size = new System.Drawing.Size(394, 29);
+            this.txtPhoneNumber.TabIndex = 1;
             // 
             // rjPanel7
             // 
@@ -281,23 +281,23 @@
             this.rjPanel7.BorderColor = System.Drawing.Color.White;
             this.rjPanel7.BorderRadius = 40;
             this.rjPanel7.BorderSize = 0;
-            this.rjPanel7.Controls.Add(this.textBox4);
+            this.rjPanel7.Controls.Add(this.txtAddress);
             this.rjPanel7.ForeColor = System.Drawing.Color.White;
             this.rjPanel7.Location = new System.Drawing.Point(254, 177);
             this.rjPanel7.Name = "rjPanel7";
             this.rjPanel7.Size = new System.Drawing.Size(428, 71);
             this.rjPanel7.TabIndex = 0;
             // 
-            // textBox4
+            // txtAddress
             // 
-            this.textBox4.BackColor = System.Drawing.Color.White;
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(66)))), ((int)(((byte)(67)))));
-            this.textBox4.Location = new System.Drawing.Point(17, 21);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(394, 29);
-            this.textBox4.TabIndex = 1;
+            this.txtAddress.BackColor = System.Drawing.Color.White;
+            this.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtAddress.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(66)))), ((int)(((byte)(67)))));
+            this.txtAddress.Location = new System.Drawing.Point(17, 21);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(394, 29);
+            this.txtAddress.TabIndex = 1;
             // 
             // FCreateMember
             // 
@@ -336,18 +336,18 @@
         private RJPanel rjPanel4;
         private RJPanel rjPanel6;
         private RJPanel rjPanel7;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox5;
-        private TextBox textBox4;
+        private TextBox txtID;
+        private TextBox txtName;
+        private TextBox txtPhoneNumber;
+        private TextBox txtAddress;
         private Label label3;
         private Label label2;
         private Label label1;
         private Label label4;
         private RJPanel rjPanel5;
         private Label label5;
-        private RJButton rjButton1;
-        private RadioButton radioButton2;
-        private RadioButton radioButton1;
+        private RJButton btnConfirm;
+        private RadioButton rdnFemale;
+        private RadioButton rdbMale;
     }
 }
