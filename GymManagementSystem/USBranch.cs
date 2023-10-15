@@ -10,16 +10,15 @@ using System.Windows.Forms;
 
 namespace GymManagementSystem
 {
-    public partial class FCreateMember : Form
+    public partial class USBranch : UserControl
     {
-        public FCreateMember()
+        public string ID;
+        public USBranch(String BranchName, String ID)
         {
             InitializeComponent();
+            btnBranch.Text = BranchName;
+            this.ID = ID;
         }
 
-        private void Confirm()
-        {
-            //Thực hiện sql đăng ký member
-        }
     }
 }

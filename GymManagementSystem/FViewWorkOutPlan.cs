@@ -16,10 +16,24 @@ namespace GymManagementSystem
         {
             InitializeComponent();
         }
-
-        private void rjFlowLayoutPanel3_Paint(object sender, PaintEventArgs e)
+        enum Filter
         {
-
+            All,
+            Current,
+            Upcoming
+        }
+        Filter select = Filter.All;
+        private void LoadWorkOutPlan()
+        {   
+            //Dựa vào select thực thi sql
+        }
+        private void AddWorkOutPlan() 
+        {
+            //Chuyển Form AddWorkOutPlan
+        }
+        private void RemoveWorkOutPlan() 
+        {
+            //Thực thi câu lệnh sql
         }
     }
 }

@@ -28,35 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.gvWorkOutPlan = new System.Windows.Forms.DataGridView();
             this.rjFlowLayoutPanel1 = new GymManagementSystem.RJFlowLayoutPanel();
-            this.rjButton4 = new GymManagementSystem.RJButton();
-            this.rjButton5 = new GymManagementSystem.RJButton();
-            this.rjButton6 = new GymManagementSystem.RJButton();
+            this.btnAll = new GymManagementSystem.RJButton();
+            this.btnCurrent = new GymManagementSystem.RJButton();
+            this.btnUpcoming = new GymManagementSystem.RJButton();
             this.rjFlowLayoutPanel2 = new GymManagementSystem.RJFlowLayoutPanel();
-            this.rjButton1 = new GymManagementSystem.RJButton();
-            this.rjButton2 = new GymManagementSystem.RJButton();
-            this.rjButton3 = new GymManagementSystem.RJButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnAdd = new GymManagementSystem.RJButton();
+            this.btnEdit = new GymManagementSystem.RJButton();
+            this.btnDelete = new GymManagementSystem.RJButton();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.rjPanel1 = new GymManagementSystem.RJPanel();
             this.rjButton7 = new GymManagementSystem.RJButton();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvWorkOutPlan)).BeginInit();
             this.rjFlowLayoutPanel1.SuspendLayout();
             this.rjFlowLayoutPanel2.SuspendLayout();
             this.rjPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // gvWorkOutPlan
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(77, 212);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(1648, 762);
-            this.dataGridView1.TabIndex = 0;
+            this.gvWorkOutPlan.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.gvWorkOutPlan.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.gvWorkOutPlan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvWorkOutPlan.Location = new System.Drawing.Point(77, 212);
+            this.gvWorkOutPlan.Name = "gvWorkOutPlan";
+            this.gvWorkOutPlan.RowHeadersWidth = 51;
+            this.gvWorkOutPlan.RowTemplate.Height = 29;
+            this.gvWorkOutPlan.Size = new System.Drawing.Size(1648, 762);
+            this.gvWorkOutPlan.TabIndex = 0;
             // 
             // rjFlowLayoutPanel1
             // 
@@ -64,65 +64,65 @@
             this.rjFlowLayoutPanel1.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.rjFlowLayoutPanel1.BorderRadius = 40;
             this.rjFlowLayoutPanel1.BorderSize = 0;
-            this.rjFlowLayoutPanel1.Controls.Add(this.rjButton4);
-            this.rjFlowLayoutPanel1.Controls.Add(this.rjButton5);
-            this.rjFlowLayoutPanel1.Controls.Add(this.rjButton6);
+            this.rjFlowLayoutPanel1.Controls.Add(this.btnAll);
+            this.rjFlowLayoutPanel1.Controls.Add(this.btnCurrent);
+            this.rjFlowLayoutPanel1.Controls.Add(this.btnUpcoming);
             this.rjFlowLayoutPanel1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.rjFlowLayoutPanel1.Location = new System.Drawing.Point(94, 104);
             this.rjFlowLayoutPanel1.Name = "rjFlowLayoutPanel1";
             this.rjFlowLayoutPanel1.Size = new System.Drawing.Size(532, 68);
             this.rjFlowLayoutPanel1.TabIndex = 1;
             // 
-            // rjButton4
+            // btnAll
             // 
-            this.rjButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
-            this.rjButton4.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton4.BorderRadius = 40;
-            this.rjButton4.BorderSize = 0;
-            this.rjButton4.FlatAppearance.BorderSize = 0;
-            this.rjButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton4.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.rjButton4.ForeColor = System.Drawing.Color.White;
-            this.rjButton4.Location = new System.Drawing.Point(3, 3);
-            this.rjButton4.Name = "rjButton4";
-            this.rjButton4.Size = new System.Drawing.Size(167, 65);
-            this.rjButton4.TabIndex = 3;
-            this.rjButton4.Text = "All";
-            this.rjButton4.UseVisualStyleBackColor = false;
+            this.btnAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
+            this.btnAll.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnAll.BorderRadius = 40;
+            this.btnAll.BorderSize = 0;
+            this.btnAll.FlatAppearance.BorderSize = 0;
+            this.btnAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAll.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAll.ForeColor = System.Drawing.Color.White;
+            this.btnAll.Location = new System.Drawing.Point(3, 3);
+            this.btnAll.Name = "btnAll";
+            this.btnAll.Size = new System.Drawing.Size(167, 65);
+            this.btnAll.TabIndex = 3;
+            this.btnAll.Text = "All";
+            this.btnAll.UseVisualStyleBackColor = false;
             // 
-            // rjButton5
+            // btnCurrent
             // 
-            this.rjButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
-            this.rjButton5.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton5.BorderRadius = 40;
-            this.rjButton5.BorderSize = 0;
-            this.rjButton5.FlatAppearance.BorderSize = 0;
-            this.rjButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton5.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.rjButton5.ForeColor = System.Drawing.Color.White;
-            this.rjButton5.Location = new System.Drawing.Point(176, 3);
-            this.rjButton5.Name = "rjButton5";
-            this.rjButton5.Size = new System.Drawing.Size(167, 65);
-            this.rjButton5.TabIndex = 4;
-            this.rjButton5.Text = "Current";
-            this.rjButton5.UseVisualStyleBackColor = false;
+            this.btnCurrent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
+            this.btnCurrent.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnCurrent.BorderRadius = 40;
+            this.btnCurrent.BorderSize = 0;
+            this.btnCurrent.FlatAppearance.BorderSize = 0;
+            this.btnCurrent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCurrent.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCurrent.ForeColor = System.Drawing.Color.White;
+            this.btnCurrent.Location = new System.Drawing.Point(176, 3);
+            this.btnCurrent.Name = "btnCurrent";
+            this.btnCurrent.Size = new System.Drawing.Size(167, 65);
+            this.btnCurrent.TabIndex = 4;
+            this.btnCurrent.Text = "Current";
+            this.btnCurrent.UseVisualStyleBackColor = false;
             // 
-            // rjButton6
+            // btnUpcoming
             // 
-            this.rjButton6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
-            this.rjButton6.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton6.BorderRadius = 40;
-            this.rjButton6.BorderSize = 0;
-            this.rjButton6.FlatAppearance.BorderSize = 0;
-            this.rjButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton6.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.rjButton6.ForeColor = System.Drawing.Color.White;
-            this.rjButton6.Location = new System.Drawing.Point(349, 3);
-            this.rjButton6.Name = "rjButton6";
-            this.rjButton6.Size = new System.Drawing.Size(167, 65);
-            this.rjButton6.TabIndex = 5;
-            this.rjButton6.Text = "Upcoming";
-            this.rjButton6.UseVisualStyleBackColor = false;
+            this.btnUpcoming.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
+            this.btnUpcoming.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnUpcoming.BorderRadius = 40;
+            this.btnUpcoming.BorderSize = 0;
+            this.btnUpcoming.FlatAppearance.BorderSize = 0;
+            this.btnUpcoming.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpcoming.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnUpcoming.ForeColor = System.Drawing.Color.White;
+            this.btnUpcoming.Location = new System.Drawing.Point(349, 3);
+            this.btnUpcoming.Name = "btnUpcoming";
+            this.btnUpcoming.Size = new System.Drawing.Size(167, 65);
+            this.btnUpcoming.TabIndex = 5;
+            this.btnUpcoming.Text = "Upcoming";
+            this.btnUpcoming.UseVisualStyleBackColor = false;
             // 
             // rjFlowLayoutPanel2
             // 
@@ -130,76 +130,76 @@
             this.rjFlowLayoutPanel2.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.rjFlowLayoutPanel2.BorderRadius = 40;
             this.rjFlowLayoutPanel2.BorderSize = 0;
-            this.rjFlowLayoutPanel2.Controls.Add(this.rjButton1);
-            this.rjFlowLayoutPanel2.Controls.Add(this.rjButton2);
-            this.rjFlowLayoutPanel2.Controls.Add(this.rjButton3);
+            this.rjFlowLayoutPanel2.Controls.Add(this.btnAdd);
+            this.rjFlowLayoutPanel2.Controls.Add(this.btnEdit);
+            this.rjFlowLayoutPanel2.Controls.Add(this.btnDelete);
             this.rjFlowLayoutPanel2.ForeColor = System.Drawing.Color.White;
             this.rjFlowLayoutPanel2.Location = new System.Drawing.Point(1252, 104);
             this.rjFlowLayoutPanel2.Name = "rjFlowLayoutPanel2";
             this.rjFlowLayoutPanel2.Size = new System.Drawing.Size(473, 68);
             this.rjFlowLayoutPanel2.TabIndex = 2;
             // 
-            // rjButton1
+            // btnAdd
             // 
-            this.rjButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
-            this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton1.BorderRadius = 40;
-            this.rjButton1.BorderSize = 0;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Location = new System.Drawing.Point(3, 3);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(167, 65);
-            this.rjButton1.TabIndex = 0;
-            this.rjButton1.Text = "Add";
-            this.rjButton1.UseVisualStyleBackColor = false;
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
+            this.btnAdd.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnAdd.BorderRadius = 40;
+            this.btnAdd.BorderSize = 0;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Location = new System.Drawing.Point(3, 3);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(167, 65);
+            this.btnAdd.TabIndex = 0;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = false;
             // 
-            // rjButton2
+            // btnEdit
             // 
-            this.rjButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
-            this.rjButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton2.BorderRadius = 40;
-            this.rjButton2.BorderSize = 0;
-            this.rjButton2.FlatAppearance.BorderSize = 0;
-            this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.rjButton2.ForeColor = System.Drawing.Color.White;
-            this.rjButton2.Location = new System.Drawing.Point(176, 3);
-            this.rjButton2.Name = "rjButton2";
-            this.rjButton2.Size = new System.Drawing.Size(199, 65);
-            this.rjButton2.TabIndex = 1;
-            this.rjButton2.Text = "Edit";
-            this.rjButton2.UseVisualStyleBackColor = false;
+            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
+            this.btnEdit.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnEdit.BorderRadius = 40;
+            this.btnEdit.BorderSize = 0;
+            this.btnEdit.FlatAppearance.BorderSize = 0;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnEdit.ForeColor = System.Drawing.Color.White;
+            this.btnEdit.Location = new System.Drawing.Point(176, 3);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(199, 65);
+            this.btnEdit.TabIndex = 1;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = false;
             // 
-            // rjButton3
+            // btnDelete
             // 
-            this.rjButton3.BackColor = System.Drawing.Color.Transparent;
-            this.rjButton3.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton3.BorderRadius = 40;
-            this.rjButton3.BorderSize = 0;
-            this.rjButton3.FlatAppearance.BorderSize = 0;
-            this.rjButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.rjButton3.ForeColor = System.Drawing.Color.White;
-            this.rjButton3.Image = global::GymManagementSystem.Properties.Resources.delete;
-            this.rjButton3.Location = new System.Drawing.Point(381, 3);
-            this.rjButton3.Name = "rjButton3";
-            this.rjButton3.Size = new System.Drawing.Size(83, 65);
-            this.rjButton3.TabIndex = 2;
-            this.rjButton3.UseVisualStyleBackColor = false;
+            this.btnDelete.BackColor = System.Drawing.Color.Transparent;
+            this.btnDelete.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnDelete.BorderRadius = 40;
+            this.btnDelete.BorderSize = 0;
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Image = global::GymManagementSystem.Properties.Resources.delete;
+            this.btnDelete.Location = new System.Drawing.Point(381, 3);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(83, 65);
+            this.btnDelete.TabIndex = 2;
+            this.btnDelete.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // txtSearch
             // 
-            this.textBox1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(91)))), ((int)(((byte)(92)))));
-            this.textBox1.Location = new System.Drawing.Point(20, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(493, 31);
-            this.textBox1.TabIndex = 0;
+            this.txtSearch.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(91)))), ((int)(((byte)(92)))));
+            this.txtSearch.Location = new System.Drawing.Point(20, 19);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(493, 31);
+            this.txtSearch.TabIndex = 0;
             // 
             // rjPanel1
             // 
@@ -207,7 +207,7 @@
             this.rjPanel1.BorderColor = System.Drawing.Color.Black;
             this.rjPanel1.BorderRadius = 40;
             this.rjPanel1.BorderSize = 1;
-            this.rjPanel1.Controls.Add(this.textBox1);
+            this.rjPanel1.Controls.Add(this.txtSearch);
             this.rjPanel1.Controls.Add(this.rjButton7);
             this.rjPanel1.ForeColor = System.Drawing.Color.White;
             this.rjPanel1.Location = new System.Drawing.Point(644, 104);
@@ -241,11 +241,11 @@
             this.Controls.Add(this.rjPanel1);
             this.Controls.Add(this.rjFlowLayoutPanel2);
             this.Controls.Add(this.rjFlowLayoutPanel1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.gvWorkOutPlan);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FViewWorkOutPlan";
             this.Text = "FViewWorkOutPlan";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvWorkOutPlan)).EndInit();
             this.rjFlowLayoutPanel1.ResumeLayout(false);
             this.rjFlowLayoutPanel2.ResumeLayout(false);
             this.rjPanel1.ResumeLayout(false);
@@ -256,16 +256,16 @@
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView gvWorkOutPlan;
         private RJFlowLayoutPanel rjFlowLayoutPanel1;
         private RJFlowLayoutPanel rjFlowLayoutPanel2;
-        private RJButton rjButton1;
-        private RJButton rjButton2;
-        private RJButton rjButton3;
-        private RJButton rjButton4;
-        private RJButton rjButton5;
-        private RJButton rjButton6;
-        private TextBox textBox1;
+        private RJButton btnAdd;
+        private RJButton btnEdit;
+        private RJButton btnDelete;
+        private RJButton btnAll;
+        private RJButton btnCurrent;
+        private RJButton btnUpcoming;
+        private TextBox txtSearch;
         private RJPanel rjPanel1;
         private RJButton rjButton7;
     }

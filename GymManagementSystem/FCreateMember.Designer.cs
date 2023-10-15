@@ -73,7 +73,6 @@
             this.pnlLoad.Name = "pnlLoad";
             this.pnlLoad.Size = new System.Drawing.Size(772, 880);
             this.pnlLoad.TabIndex = 0;
-            this.pnlLoad.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlLoad_Paint_1);
             // 
             // rjPanel5
             // 
