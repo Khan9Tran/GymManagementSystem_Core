@@ -46,7 +46,7 @@
             dgPackage.Name = "dgPackage";
             dgPackage.RowHeadersWidth = 51;
             dgPackage.RowTemplate.Height = 29;
-            dgPackage.Size = new Size(875, 263);
+            dgPackage.Size = new Size(874, 265);
             dgPackage.TabIndex = 0;
             // 
             // ID
