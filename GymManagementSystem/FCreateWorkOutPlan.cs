@@ -15,10 +15,7 @@ namespace GymManagementSystem
         public FCreateWorkOutPlan()
         {
             InitializeComponent();
-            for (int i = 0; i<10; i++)
-            {
-                flpnlBranch.Controls.Add(new USBranch("Texttttt","1"));
-            }
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -26,8 +23,12 @@ namespace GymManagementSystem
 
         }
 
-        private void flpnlBranch_Click(object sender, EventArgs e)
+        private void FCreateWorkOutPlan_Load(object sender, EventArgs e)
         {
+            for (int i = 0; i < 10; i++)
+            {
+                flpnlBranch.Controls.Add(new USBranch("Texttttt", "1"));
+            }
         }
     }
 }

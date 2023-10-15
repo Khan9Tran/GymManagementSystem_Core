@@ -12,13 +12,14 @@ namespace GymManagementSystem
 {
     public partial class USBranch : UserControl
     {
-        public string ID;
+        private string iD;
         public USBranch(String BranchName, String ID)
         {
             InitializeComponent();
             btnBranch.Text = BranchName;
-            this.ID = ID;
+            iD = ID;
         }
 
+        public string ID { get => ID; set => ID = value; }
     }
 }

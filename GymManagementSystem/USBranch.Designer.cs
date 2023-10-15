@@ -41,7 +41,7 @@
             this.btnBranch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBranch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnBranch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
-            this.btnBranch.Location = new System.Drawing.Point(0, 2);
+            this.btnBranch.Location = new System.Drawing.Point(0, 0);
             this.btnBranch.Name = "btnBranch";
             this.btnBranch.Size = new System.Drawing.Size(234, 54);
             this.btnBranch.TabIndex = 0;
@@ -54,7 +54,7 @@
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.btnBranch);
             this.Name = "USBranch";
-            this.Size = new System.Drawing.Size(234, 57);
+            this.Size = new System.Drawing.Size(234, 54);
             this.ResumeLayout(false);
 
         }

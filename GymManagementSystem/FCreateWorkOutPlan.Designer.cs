@@ -42,13 +42,11 @@
             this.rjButton3 = new GymManagementSystem.RJButton();
             this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.rjPanel4 = new GymManagementSystem.RJPanel();
-            this.flpnlWorkOut = new GymManagementSystem.RJFlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.flpnlTrainer = new GymManagementSystem.RJFlowLayoutPanel();
             this.rjPanel7 = new GymManagementSystem.RJPanel();
-            this.flpnlBranch = new GymManagementSystem.RJFlowLayoutPanel();
-            this.rjPanel5 = new GymManagementSystem.RJPanel();
+            this.flpnlBranch = new System.Windows.Forms.FlowLayoutPanel();
+            this.pnlBranch = new GymManagementSystem.RJPanel();
             this.rjButton7 = new GymManagementSystem.RJButton();
             this.txtBranch = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -63,12 +61,14 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnConfirm = new GymManagementSystem.RJButton();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.rjPanel1.SuspendLayout();
             this.rjPanel3.SuspendLayout();
             this.rjPanel2.SuspendLayout();
             this.rjPanel4.SuspendLayout();
             this.rjPanel7.SuspendLayout();
-            this.rjPanel5.SuspendLayout();
+            this.pnlBranch.SuspendLayout();
             this.rjPanel6.SuspendLayout();
             this.rjPanel9.SuspendLayout();
             this.rjPanel10.SuspendLayout();
@@ -239,26 +239,13 @@
             this.rjPanel4.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.rjPanel4.BorderRadius = 40;
             this.rjPanel4.BorderSize = 0;
-            this.rjPanel4.Controls.Add(this.flpnlWorkOut);
+            this.rjPanel4.Controls.Add(this.flowLayoutPanel2);
             this.rjPanel4.Controls.Add(this.label6);
             this.rjPanel4.ForeColor = System.Drawing.Color.White;
             this.rjPanel4.Location = new System.Drawing.Point(595, 62);
             this.rjPanel4.Name = "rjPanel4";
             this.rjPanel4.Size = new System.Drawing.Size(624, 742);
             this.rjPanel4.TabIndex = 8;
-            // 
-            // flpnlWorkOut
-            // 
-            this.flpnlWorkOut.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.flpnlWorkOut.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.flpnlWorkOut.BorderRadius = 40;
-            this.flpnlWorkOut.BorderSize = 0;
-            this.flpnlWorkOut.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpnlWorkOut.ForeColor = System.Drawing.Color.White;
-            this.flpnlWorkOut.Location = new System.Drawing.Point(23, 84);
-            this.flpnlWorkOut.Name = "flpnlWorkOut";
-            this.flpnlWorkOut.Size = new System.Drawing.Size(574, 635);
-            this.flpnlWorkOut.TabIndex = 7;
             // 
             // label6
             // 
@@ -282,19 +269,6 @@
             this.textBox1.TabIndex = 7;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // flpnlTrainer
-            // 
-            this.flpnlTrainer.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.flpnlTrainer.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.flpnlTrainer.BorderRadius = 40;
-            this.flpnlTrainer.BorderSize = 0;
-            this.flpnlTrainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpnlTrainer.ForeColor = System.Drawing.Color.White;
-            this.flpnlTrainer.Location = new System.Drawing.Point(17, 86);
-            this.flpnlTrainer.Name = "flpnlTrainer";
-            this.flpnlTrainer.Size = new System.Drawing.Size(491, 319);
-            this.flpnlTrainer.TabIndex = 6;
-            // 
             // rjPanel7
             // 
             this.rjPanel7.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -302,46 +276,39 @@
             this.rjPanel7.BorderRadius = 40;
             this.rjPanel7.BorderSize = 0;
             this.rjPanel7.Controls.Add(this.flpnlBranch);
-            this.rjPanel7.Controls.Add(this.rjPanel5);
+            this.rjPanel7.Controls.Add(this.pnlBranch);
             this.rjPanel7.Controls.Add(this.label9);
             this.rjPanel7.ForeColor = System.Drawing.Color.White;
             this.rjPanel7.Location = new System.Drawing.Point(1245, 62);
             this.rjPanel7.Name = "rjPanel7";
-            this.rjPanel7.Size = new System.Drawing.Size(529, 381);
+            this.rjPanel7.Size = new System.Drawing.Size(529, 383);
             this.rjPanel7.TabIndex = 8;
             // 
             // flpnlBranch
             // 
             this.flpnlBranch.AutoScroll = true;
-            this.flpnlBranch.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.flpnlBranch.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.flpnlBranch.BorderRadius = 40;
-            this.flpnlBranch.BorderSize = 0;
-            this.flpnlBranch.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpnlBranch.ForeColor = System.Drawing.Color.White;
-            this.flpnlBranch.Location = new System.Drawing.Point(17, 107);
+            this.flpnlBranch.Location = new System.Drawing.Point(17, 94);
             this.flpnlBranch.Name = "flpnlBranch";
-            this.flpnlBranch.Size = new System.Drawing.Size(486, 255);
-            this.flpnlBranch.TabIndex = 7;
-            this.flpnlBranch.Click += new System.EventHandler(this.flpnlBranch_Click);
+            this.flpnlBranch.Size = new System.Drawing.Size(509, 243);
+            this.flpnlBranch.TabIndex = 6;
             // 
-            // rjPanel5
+            // pnlBranch
             // 
-            this.rjPanel5.BackColor = System.Drawing.Color.White;
-            this.rjPanel5.BorderColor = System.Drawing.Color.Black;
-            this.rjPanel5.BorderRadius = 40;
-            this.rjPanel5.BorderSize = 1;
-            this.rjPanel5.Controls.Add(this.rjButton7);
-            this.rjPanel5.Controls.Add(this.txtBranch);
-            this.rjPanel5.ForeColor = System.Drawing.Color.White;
-            this.rjPanel5.Location = new System.Drawing.Point(167, 14);
-            this.rjPanel5.Name = "rjPanel5";
-            this.rjPanel5.Size = new System.Drawing.Size(341, 51);
-            this.rjPanel5.TabIndex = 1;
+            this.pnlBranch.BackColor = System.Drawing.Color.White;
+            this.pnlBranch.BorderColor = System.Drawing.Color.Black;
+            this.pnlBranch.BorderRadius = 40;
+            this.pnlBranch.BorderSize = 1;
+            this.pnlBranch.Controls.Add(this.rjButton7);
+            this.pnlBranch.Controls.Add(this.txtBranch);
+            this.pnlBranch.ForeColor = System.Drawing.Color.White;
+            this.pnlBranch.Location = new System.Drawing.Point(167, 14);
+            this.pnlBranch.Name = "pnlBranch";
+            this.pnlBranch.Size = new System.Drawing.Size(341, 51);
+            this.pnlBranch.TabIndex = 1;
             // 
             // rjButton7
             // 
-            this.rjButton7.BackColor = System.Drawing.Color.Transparent;
+            this.rjButton7.BackColor = System.Drawing.Color.White;
             this.rjButton7.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.rjButton7.BorderRadius = 40;
             this.rjButton7.BorderSize = 0;
@@ -361,7 +328,7 @@
             this.txtBranch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBranch.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtBranch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(87)))), ((int)(((byte)(95)))));
-            this.txtBranch.Location = new System.Drawing.Point(26, 11);
+            this.txtBranch.Location = new System.Drawing.Point(26, 7);
             this.txtBranch.Name = "txtBranch";
             this.txtBranch.Size = new System.Drawing.Size(210, 29);
             this.txtBranch.TabIndex = 1;
@@ -383,7 +350,7 @@
             this.rjPanel6.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.rjPanel6.BorderRadius = 40;
             this.rjPanel6.BorderSize = 0;
-            this.rjPanel6.Controls.Add(this.flpnlTrainer);
+            this.rjPanel6.Controls.Add(this.flowLayoutPanel1);
             this.rjPanel6.Controls.Add(this.rjPanel9);
             this.rjPanel6.Controls.Add(this.label4);
             this.rjPanel6.ForeColor = System.Drawing.Color.White;
@@ -523,6 +490,22 @@
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = false;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(17, 111);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(509, 243);
+            this.flowLayoutPanel1.TabIndex = 8;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.AutoScroll = true;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(11, 94);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(610, 628);
+            this.flowLayoutPanel2.TabIndex = 7;
+            // 
             // FCreateWorkOutPlan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -538,6 +521,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FCreateWorkOutPlan";
             this.Text = "CreateWorkOutPlan";
+            this.Load += new System.EventHandler(this.FCreateWorkOutPlan_Load);
             this.rjPanel1.ResumeLayout(false);
             this.rjPanel1.PerformLayout();
             this.rjPanel3.ResumeLayout(false);
@@ -548,8 +532,8 @@
             this.rjPanel4.PerformLayout();
             this.rjPanel7.ResumeLayout(false);
             this.rjPanel7.PerformLayout();
-            this.rjPanel5.ResumeLayout(false);
-            this.rjPanel5.PerformLayout();
+            this.pnlBranch.ResumeLayout(false);
+            this.pnlBranch.PerformLayout();
             this.rjPanel6.ResumeLayout(false);
             this.rjPanel6.PerformLayout();
             this.rjPanel9.ResumeLayout(false);
@@ -576,7 +560,7 @@
         private RJPanel rjPanel7;
         private Label label9;
         private RJPanel rjPanel3;
-        private RJPanel rjPanel5;
+        private RJPanel pnlBranch;
         private RJPanel rjPanel6;
         private RJPanel rjPanel9;
         private Label label4;
@@ -593,11 +577,11 @@
         private RJButton rjButton7;
         private RJButton rjButton1;
         private RJButton rjButton3;
-        private RJFlowLayoutPanel flpnlTrainer;
-        private RJFlowLayoutPanel flpnlWorkOut;
-        private RJFlowLayoutPanel flpnlBranch;
         private TextBox textBox1;
         private Label lblBranch;
         private Label lblTrainer;
+        private FlowLayoutPanel flpnlBranch;
+        private FlowLayoutPanel flowLayoutPanel2;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }
