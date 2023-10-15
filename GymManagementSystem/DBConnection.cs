@@ -16,12 +16,17 @@ namespace GymManagementSystem
         {
             if (Account.Role == 1)
             {
-                conn = new SqlConnection(@"Data Source=LAPTOP-TSVFN4HJ;Initial Catalog=GymManagementDB;Integrated Security=True");
+                conn = new SqlConnection(@"Data Source=.;Initial Catalog=GymManagerDB;Integrated Security=True");
             }
             else
             {
                 conn = new SqlConnection(@"Data Source=LAPTOP-TSVFN4HJ;Initial Catalog=GymManagementDB;User Id=" + Account.UserName + ";Password=" + Account.Password + ";");
             }
+        }
+
+        public SqlConnection GetConnection()
+        {
+            return conn;
         }
         public void openConnection()
         {

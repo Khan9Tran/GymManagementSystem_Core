@@ -28,31 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            flowLayoutPanel2 = new FlowLayoutPanel();
-            flowLayoutPanel4 = new FlowLayoutPanel();
+            flpRegisterMember = new RJFlowLayoutPanel();
             rjFlowLayoutPanel1 = new RJFlowLayoutPanel();
-            panel1 = new Panel();
-            panel2 = new Panel();
-            panel3 = new Panel();
-            panel4 = new Panel();
-            rjFlowLayoutPanel1.SuspendLayout();
+            rjFlowLayoutPanel2 = new RJFlowLayoutPanel();
+            rjFlowLayoutPanel3 = new RJFlowLayoutPanel();
             SuspendLayout();
             // 
-            // flowLayoutPanel2
+            // flpRegisterMember
             // 
-            flowLayoutPanel2.BackColor = Color.Lime;
-            flowLayoutPanel2.Location = new Point(165, 428);
-            flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(525, 225);
-            flowLayoutPanel2.TabIndex = 1;
-            // 
-            // flowLayoutPanel4
-            // 
-            flowLayoutPanel4.BackColor = Color.Lime;
-            flowLayoutPanel4.Location = new Point(851, 428);
-            flowLayoutPanel4.Name = "flowLayoutPanel4";
-            flowLayoutPanel4.Size = new Size(525, 225);
-            flowLayoutPanel4.TabIndex = 3;
+            flpRegisterMember.BackColor = Color.MediumSlateBlue;
+            flpRegisterMember.BorderColor = Color.PaleVioletRed;
+            flpRegisterMember.BorderRadius = 40;
+            flpRegisterMember.BorderSize = 0;
+            flpRegisterMember.ForeColor = Color.White;
+            flpRegisterMember.Location = new Point(248, 197);
+            flpRegisterMember.Margin = new Padding(3, 4, 3, 4);
+            flpRegisterMember.Name = "flpRegisterMember";
+            flpRegisterMember.Size = new Size(600, 300);
+            flpRegisterMember.TabIndex = 4;
             // 
             // rjFlowLayoutPanel1
             // 
@@ -60,71 +53,60 @@
             rjFlowLayoutPanel1.BorderColor = Color.PaleVioletRed;
             rjFlowLayoutPanel1.BorderRadius = 40;
             rjFlowLayoutPanel1.BorderSize = 0;
-            rjFlowLayoutPanel1.Controls.Add(panel1);
-            rjFlowLayoutPanel1.Controls.Add(panel2);
-            rjFlowLayoutPanel1.Controls.Add(panel3);
-            rjFlowLayoutPanel1.Controls.Add(panel4);
             rjFlowLayoutPanel1.ForeColor = Color.White;
-            rjFlowLayoutPanel1.Location = new Point(131, 57);
+            rjFlowLayoutPanel1.Location = new Point(248, 586);
+            rjFlowLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
             rjFlowLayoutPanel1.Name = "rjFlowLayoutPanel1";
             rjFlowLayoutPanel1.Size = new Size(600, 300);
-            rjFlowLayoutPanel1.TabIndex = 4;
+            rjFlowLayoutPanel1.TabIndex = 5;
             // 
-            // panel1
+            // rjFlowLayoutPanel2
             // 
-            panel1.BackColor = Color.Lime;
-            panel1.Location = new Point(3, 3);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(200, 100);
-            panel1.TabIndex = 0;
+            rjFlowLayoutPanel2.BackColor = Color.MediumSlateBlue;
+            rjFlowLayoutPanel2.BorderColor = Color.PaleVioletRed;
+            rjFlowLayoutPanel2.BorderRadius = 40;
+            rjFlowLayoutPanel2.BorderSize = 0;
+            rjFlowLayoutPanel2.ForeColor = Color.White;
+            rjFlowLayoutPanel2.Location = new Point(972, 197);
+            rjFlowLayoutPanel2.Margin = new Padding(3, 4, 3, 4);
+            rjFlowLayoutPanel2.Name = "rjFlowLayoutPanel2";
+            rjFlowLayoutPanel2.Size = new Size(600, 300);
+            rjFlowLayoutPanel2.TabIndex = 6;
             // 
-            // panel2
+            // rjFlowLayoutPanel3
             // 
-            panel2.BackColor = Color.GhostWhite;
-            panel2.Location = new Point(209, 3);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(200, 100);
-            panel2.TabIndex = 1;
-            // 
-            // panel3
-            // 
-            panel3.BackColor = Color.Red;
-            panel3.Location = new Point(3, 109);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(200, 100);
-            panel3.TabIndex = 2;
-            // 
-            // panel4
-            // 
-            panel4.BackColor = Color.Yellow;
-            panel4.Location = new Point(209, 109);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(200, 100);
-            panel4.TabIndex = 3;
+            rjFlowLayoutPanel3.BackColor = Color.MediumSlateBlue;
+            rjFlowLayoutPanel3.BorderColor = Color.PaleVioletRed;
+            rjFlowLayoutPanel3.BorderRadius = 40;
+            rjFlowLayoutPanel3.BorderSize = 0;
+            rjFlowLayoutPanel3.ForeColor = Color.White;
+            rjFlowLayoutPanel3.Location = new Point(972, 586);
+            rjFlowLayoutPanel3.Margin = new Padding(3, 4, 3, 4);
+            rjFlowLayoutPanel3.Name = "rjFlowLayoutPanel3";
+            rjFlowLayoutPanel3.Size = new Size(600, 300);
+            rjFlowLayoutPanel3.TabIndex = 5;
             // 
             // FHomeUserMenu
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1592, 810);
+            ClientSize = new Size(1820, 1080);
             ControlBox = false;
+            Controls.Add(rjFlowLayoutPanel3);
+            Controls.Add(rjFlowLayoutPanel2);
             Controls.Add(rjFlowLayoutPanel1);
-            Controls.Add(flowLayoutPanel4);
-            Controls.Add(flowLayoutPanel2);
+            Controls.Add(flpRegisterMember);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FHomeUserMenu";
             Text = "FHomeUserMenu";
-            rjFlowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-        private FlowLayoutPanel flowLayoutPanel2;
-        private FlowLayoutPanel flowLayoutPanel4;
+        private RJFlowLayoutPanel flpRegisterMember;
         private RJFlowLayoutPanel rjFlowLayoutPanel1;
-        private Panel panel1;
-        private Panel panel2;
-        private Panel panel3;
-        private Panel panel4;
+        private RJFlowLayoutPanel rjFlowLayoutPanel2;
+        private RJFlowLayoutPanel rjFlowLayoutPanel3;
     }
 }
