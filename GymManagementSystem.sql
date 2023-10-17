@@ -422,15 +422,14 @@ BEGIN
    FROM PlanDetails pd
    JOIN WorkOut wo ON pd.WorkOutID = wo.ID
    JOIN inserted i ON i.WorkOutPlanID = pd.WorkOutPlanID
-   PRINT @totalDuration
    IF @totalDuration > 120
    BEGIN
-      ROLLBACK TRANSACTION
-      PRINT 'Too long'
+      RAISERROR ('Thời lượng tập quá 2 tiếng',16,1);
+	  ROLLBACK;
    END
 END
 
-DROP TRIGGER TR_OverTimeTraining;
+
 GO
 
 
@@ -699,3 +698,44 @@ BEGIN
 	WHERE (Name LIKE '%' + @Content + '%' OR ID = @Content OR Address LIKE '%' + @Content + '%' OR PhoneNumber LIKE '%' + @Content + '%') AND (BranchID = @Branch)
 END
 
+GO
+CREATE PROCEDURE PROC_AddWorkOutPlan
+    @ID CHAR(6),
+    @MemberID CHAR(6),
+    @TrainerID CHAR(6) = NULL,
+    @BranchID CHAR(6),
+    @Time TIME,
+    @Date DATE
+AS
+BEGIN
+    INSERT INTO WorkOutPlan (ID, MemberID, TrainerID, BranchID, Time, Date)
+    VALUES (@ID, @MemberID, @TrainerID, @BranchID, @Time, @Date)
+END
+
+GO
+CREATE PROCEDURE PROC_AddPlanDetails
+    @WorkOutPlanID CHAR(6),
+    @WorkOutID CHAR(6)
+AS
+BEGIN
+    BEGIN TRANSACTION;
+    
+    BEGIN TRY
+        -- Thêm dòng vào bảng PlanDetails
+        INSERT INTO PlanDetails (WorkOutPlanID, WorkOutID)
+        VALUES (@WorkOutPlanID, @WorkOutID);
+        
+        -- Nếu không có lỗi, commit giao dịch
+        COMMIT TRANSACTION;
+        
+    END TRY
+    BEGIN CATCH
+        -- Nếu có lỗi, rollback giao dịch và xóa dòng tương ứng trong bảng WorkOutPlan
+        ROLLBACK TRANSACTION;
+        
+        DELETE FROM WorkOutPlan
+        WHERE ID = @WorkOutPlanID;
+        
+        RAISERROR ( 'Buổi tập có thời lượng quá 2 tiếng',16,1);
+    END CATCH;
+END

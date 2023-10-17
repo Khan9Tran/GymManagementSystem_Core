@@ -20,6 +20,7 @@ namespace GymManagementSystem
         private Branch branch;
         private Trainer trainer;
         private List<WorkOut> workOuts = new List<WorkOut>();
+        private Member member;
         public FCreateWorkOutPlan()
         {
             InitializeComponent();
@@ -139,7 +140,7 @@ namespace GymManagementSystem
 
         private string FindMember(string phoneNumber)
         {
-            string name = "";
+            member = new Member();
             Employee.Role = 1;
             DBConnection connection = new DBConnection();
             connection.openConnection();
@@ -157,7 +158,8 @@ namespace GymManagementSystem
                 {
                     while (reader.Read())
                     {
-                       name = reader["Name"].ToString();
+                       member.Name = reader["Name"].ToString();
+                        member.ID = reader["ID"].ToString();
                     }
                 }
                 else
@@ -168,7 +170,7 @@ namespace GymManagementSystem
 
             connection.closeConnection();
 
-            return name;
+            return member.Name;
 
         }
 
@@ -321,6 +323,73 @@ namespace GymManagementSystem
         private void dtpTime_ValueChanged(object sender, EventArgs e)
         {
             dtpCompletionTime.Value = (dtpTime.Value).AddMinutes(totalTime);
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            if (ConfirmPlan())
+                ConfirmWorkOut();
+        }
+
+        private bool ConfirmPlan()
+        {
+            Employee.Role = 1;
+            DBConnection connection = new DBConnection();
+            connection.openConnection();
+            try
+            {
+                
+                String query = "PROC_AddWorkOutPlan";
+                SqlCommand command = new SqlCommand(query, connection.GetConnection());
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@MemberID", member.ID);
+                command.Parameters.AddWithValue("@BranchID", branch.ID);
+                if (trainer != null)
+                    command.Parameters.AddWithValue("@TrainerID", trainer.ID);
+                command.Parameters.AddWithValue("@Date", dtpDate.Value);
+                command.Parameters.AddWithValue("@Time", dtpTime.Value.TimeOfDay);
+                command.Parameters.AddWithValue("@ID", txtID.Text);
+                command.ExecuteNonQuery();
+            }
+            catch(Exception ex)
+            {
+               MessageBox.Show(ex.Message);
+                return false;
+            }
+            connection.closeConnection();
+            return true;
+                
+        }
+
+        private void ConfirmWorkOut()
+        {
+            Employee.Role = 1;
+            DBConnection connection = new DBConnection();
+            connection.openConnection();
+            foreach (var workOut in workOuts)
+            {
+                try
+                {
+
+                    String query = "PROC_AddPlanDetails";
+                    SqlCommand command = new SqlCommand(query, connection.GetConnection());
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@WorkOutPlanID", txtID.Text);
+                    command.Parameters.AddWithValue("@WorkOutID", workOut.ID); 
+                    command.ExecuteNonQuery();
+                   
+                }
+                catch
+                (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    connection.closeConnection();
+                    return;
+                }
+                
+            }
+            connection.closeConnection();
+            MessageBox.Show("Thêm thành công");
         }
     }
 }
