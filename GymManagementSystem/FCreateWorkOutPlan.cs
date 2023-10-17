@@ -122,7 +122,7 @@ namespace GymManagementSystem
                 }
                 else
                 {
-                    MessageBox.Show("Không tìm thấy");
+                    MessageBox.Show("Không tìm thấy Member");
                 }
             }
 
