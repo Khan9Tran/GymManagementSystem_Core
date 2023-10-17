@@ -57,7 +57,7 @@ namespace GymManagementSystem
             this.btnNoTrainer = new GymManagementSystem.RJButton();
             this.flpnlTrainer = new System.Windows.Forms.FlowLayoutPanel();
             this.rjPanel9 = new GymManagementSystem.RJPanel();
-            this.rjButton1 = new GymManagementSystem.RJButton();
+            this.btnTrainer = new GymManagementSystem.RJButton();
             this.txtTrainer = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.rjPanel10 = new GymManagementSystem.RJPanel();
@@ -409,7 +409,7 @@ namespace GymManagementSystem
             this.rjPanel9.BorderColor = System.Drawing.Color.Black;
             this.rjPanel9.BorderRadius = 40;
             this.rjPanel9.BorderSize = 1;
-            this.rjPanel9.Controls.Add(this.rjButton1);
+            this.rjPanel9.Controls.Add(this.btnTrainer);
             this.rjPanel9.Controls.Add(this.txtTrainer);
             this.rjPanel9.ForeColor = System.Drawing.Color.White;
             this.rjPanel9.Location = new System.Drawing.Point(167, 14);
@@ -417,22 +417,23 @@ namespace GymManagementSystem
             this.rjPanel9.Size = new System.Drawing.Size(341, 51);
             this.rjPanel9.TabIndex = 2;
             // 
-            // rjButton1
+            // btnTrainer
             // 
-            this.rjButton1.BackColor = System.Drawing.Color.Transparent;
-            this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton1.BorderRadius = 40;
-            this.rjButton1.BorderSize = 0;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Image = global::GymManagementSystem.Properties.Resources.magnifying_glass;
-            this.rjButton1.Location = new System.Drawing.Point(289, 4);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(49, 42);
-            this.rjButton1.TabIndex = 7;
-            this.rjButton1.UseVisualStyleBackColor = false;
+            this.btnTrainer.BackColor = System.Drawing.Color.Transparent;
+            this.btnTrainer.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnTrainer.BorderRadius = 40;
+            this.btnTrainer.BorderSize = 0;
+            this.btnTrainer.FlatAppearance.BorderSize = 0;
+            this.btnTrainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTrainer.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnTrainer.ForeColor = System.Drawing.Color.White;
+            this.btnTrainer.Image = global::GymManagementSystem.Properties.Resources.magnifying_glass;
+            this.btnTrainer.Location = new System.Drawing.Point(289, 4);
+            this.btnTrainer.Name = "btnTrainer";
+            this.btnTrainer.Size = new System.Drawing.Size(49, 42);
+            this.btnTrainer.TabIndex = 7;
+            this.btnTrainer.UseVisualStyleBackColor = false;
+            this.btnTrainer.Click += new System.EventHandler(this.btnTrainer_Click);
             // 
             // txtTrainer
             // 
@@ -604,7 +605,7 @@ namespace GymManagementSystem
         private TextBox txtTrainer;
         private RJButton btnConfirm;
         private RJButton btnFindBranch;
-        private RJButton rjButton1;
+        private RJButton btnTrainer;
         private RJButton btnSearchMember;
         private TextBox txtNumberOfWorkouts;
         private Label lblBranch;

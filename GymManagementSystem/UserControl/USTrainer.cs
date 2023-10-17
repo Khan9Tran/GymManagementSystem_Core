@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GymManagementSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,21 +13,18 @@ namespace GymManagementSystem
 {
     public partial class USTrainer : UserControl
     {
-        private string trainerID;
-        private string branchID;
+        private Trainer trainer;
 
-        public string TrainerID { get => trainerID; set => trainerID = value; }
-        public string BranchID { get => branchID; set => branchID = value; }
+        internal Trainer UsCTrainer { get => trainer; set => trainer = value; }
 
         public event EventHandler TrainerClicked;
 
-        public USTrainer(string Name, string gender, string trainerID, string branchID)
+        public USTrainer(Trainer trainer)
         {
             InitializeComponent();
-            this.trainerID = trainerID;
-            this.branchID = branchID;
-            btnTrainer.Text = Name;
-            if (gender == "f")
+            this.trainer = trainer;
+            btnTrainer.Text = trainer.Name;
+            if (trainer.Gender == "f")
             {
                 btnTrainer.Image = global::GymManagementSystem.Properties.Resources.femenine;
             }

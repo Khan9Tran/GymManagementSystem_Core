@@ -16,8 +16,8 @@ namespace GymManagementSystem
 {
     public partial class FCreateWorkOutPlan : Form
     {
-        private string branchId = null;
-        private string trainerId = null;
+        private Branch branch;
+        private Trainer trainer;
         public FCreateWorkOutPlan()
         {
             InitializeComponent();
@@ -29,41 +29,44 @@ namespace GymManagementSystem
                 branch.BranchClicked += Branch_BranchClicked;
 
             }
-            for (int i = 0; i < 10; i++)
-            {
-                USTrainer trainer = new USTrainer("Texttttt", "m", $"{i}",$"{i}");
-                flpnlTrainer.Controls.Add(trainer);
-                trainer.TrainerClicked += Trainer_TrainerClicked;
-
-            }
 
         }
 
         private void Branch_BranchClicked(object? sender, EventArgs e)
         {
             USBranch clickedUSBranch = (USBranch)sender;
-            branchId = clickedUSBranch.UsCBranch.ID;
+            branch = clickedUSBranch.UsCBranch;
             foreach (var ctr in flpnlBranch.Controls)
             {
-                if (((USBranch)ctr).UsCBranch.ID != branchId)
+                if (((USBranch)ctr).UsCBranch.ID != branch.ID)
                 {
                     ((USBranch)ctr).changeColor(0);
+
                 }    
                 else
                 {
                     ((USBranch)ctr).changeColor(1);
                 }    
-            }    
+            }
+            flpnlTrainer.Controls.Clear();
+            List<Trainer> trainers = FindTrainerByBranchAndContent(txtTrainer.Text,branch.ID);
+            foreach (var trainer in trainers)
+            {
+                USTrainer tmp = new USTrainer(trainer);
+                tmp.TrainerClicked += Trainer_TrainerClicked;
+                flpnlTrainer.Controls.Add(tmp);
+            }
+            
         }
 
         private void Trainer_TrainerClicked(object? sender, EventArgs e)
         {
             USTrainer clickedUSTrainer = (USTrainer)sender;
-            trainerId = clickedUSTrainer.TrainerID;
+            trainer = clickedUSTrainer.UsCTrainer;
 
             foreach (var ctr in flpnlTrainer.Controls)
             {
-                if (((USTrainer)ctr).TrainerID != trainerId)
+                if (((USTrainer)ctr).UsCTrainer.ID != trainer.ID)
                 {
                     ((USTrainer)ctr).changeColor(0);
                 }
@@ -80,7 +83,7 @@ namespace GymManagementSystem
         private void btnNoTrainer_Click(object sender, EventArgs e)
         {
             
-            trainerId = null;
+            trainer = null;
             btnNoTrainer.BackColor = Color.Red;
             btnNoTrainer.ForeColor = Color.White;
             foreach (var ctr in flpnlTrainer.Controls)
@@ -181,7 +184,20 @@ namespace GymManagementSystem
 
             return branchList;
         }
-        
+
+        private List<Trainer> ConvertDataTableToTrainerList(DataTable dataTable)
+        {
+            List<Trainer> trainerList = new List<Trainer>();
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                Trainer trainer = new Trainer((row["ID"]).ToString(), (row["Name"]).ToString(), (row["Address"]).ToString(), (row["PhoneNumber"]).ToString(), (row["Gender"]).ToString(), (row["BranchID"]).ToString());
+                trainerList.Add(trainer);
+            }
+
+            return trainerList;
+        }
+
         private void btnFindBranch_Click(object sender, EventArgs e)
         {
             flpnlBranch.Controls.Clear();
@@ -194,5 +210,46 @@ namespace GymManagementSystem
 
             }
         }
+
+        private List<Trainer> FindTrainerByBranchAndContent(string content, string branch)
+        {
+            DBConnection connection = new DBConnection();
+            connection.openConnection();
+
+            String query = "PROC_FindTrainerByBranchAndContent";
+            SqlCommand command = new SqlCommand(query, connection.GetConnection());
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@Content", content);
+            command.Parameters.AddWithValue("@Branch", branch);
+
+
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            connection.closeConnection();
+            return ConvertDataTableToTrainerList(dataTable);
+        }
+
+        private void btnTrainer_Click(object sender, EventArgs e)
+        {
+            if (branch != null)
+            {
+                flpnlTrainer.Controls.Clear();
+                List<Trainer> trainers = FindTrainerByBranchAndContent(txtTrainer.Text, branch.ID);
+                foreach (var trainer in trainers)
+                {
+                    USTrainer tmp = new USTrainer(trainer);
+                    tmp.TrainerClicked += Trainer_TrainerClicked;
+                    flpnlTrainer.Controls.Add(tmp);
+                }
+            }    
+            else
+            {
+                MessageBox.Show("Vui lòng chọn Branch");
+            }    
+        }
+
+
     }
 }

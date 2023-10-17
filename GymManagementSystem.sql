@@ -186,11 +186,10 @@ GO
 
 --Xem danh sách pt
 CREATE VIEW V_TrainerList AS
-SELECT t.ID, t.Name AS Name, t.Address AS Address, t.PhoneNumber, t.Gender, b.Name AS Branch
+SELECT t.ID, t.Name, t.Address, t.PhoneNumber, t.Gender, b.Name AS Branch, t.BranchID
 FROM dbo.Trainer t
 	JOIN dbo.Branch b ON t.BranchID = b.ID
 GO
-
 --Xem danh sách hội viên
 CREATE VIEW V_MemberList AS
 SELECT m.[ID], m.[Name], m.[Gender], m.[PhoneNumber], m.[Address], m.[Balance], mt.[rank] AS MemberRank, p.[Name] AS MemberPackage
@@ -688,5 +687,15 @@ BEGIN
 	FROM V_BranchList
 	WHERE Name LIKE '%' + @Content + '%' OR ID = @Content OR Address LIKE '%' + @Content + '%'
 END
-
+GO
+---Tìm trainer
+CREATE PROCEDURE dbo.PROC_FindTrainerByBranchAndContent
+	@Content NVARCHAR(50),
+	@Branch NVARCHAR(50)
+AS
+BEGIN
+	SELECT * 
+	FROM V_TrainerList
+	WHERE (Name LIKE '%' + @Content + '%' OR ID = @Content OR Address LIKE '%' + @Content + '%' OR PhoneNumber LIKE '%' + @Content + '%') AND (BranchID = @Branch)
+END
 
