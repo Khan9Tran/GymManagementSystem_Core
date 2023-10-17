@@ -23,7 +23,7 @@ namespace GymManagementSystem
             Upcoming
         }
         Filter select = Filter.All;
-        private void LoadWorkOutPlan()
+        private void LoadWorkOutPlan(Filter type, string search)
         {   
             //Dựa vào select thực thi sql
         }
@@ -34,6 +34,36 @@ namespace GymManagementSystem
         private void RemoveWorkOutPlan() 
         {
             //Thực thi câu lệnh sql
+        }
+
+        private void btnAll_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCurrent_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUpcoming_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

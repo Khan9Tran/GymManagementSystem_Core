@@ -34,7 +34,7 @@ namespace GymManagementSystem
             this.rjFlowLayoutPanel1 = new GymManagementSystem.RJFlowLayoutPanel();
             this.btnAll = new GymManagementSystem.RJButton();
             this.btnCurrent = new GymManagementSystem.RJButton();
-            this.btnUpcoming = new GymManagementSystem.RJButton();
+            this.btnInDay = new GymManagementSystem.RJButton();
             this.rjFlowLayoutPanel2 = new GymManagementSystem.RJFlowLayoutPanel();
             this.btnAdd = new GymManagementSystem.RJButton();
             this.btnEdit = new GymManagementSystem.RJButton();
@@ -68,7 +68,7 @@ namespace GymManagementSystem
             this.rjFlowLayoutPanel1.BorderSize = 0;
             this.rjFlowLayoutPanel1.Controls.Add(this.btnAll);
             this.rjFlowLayoutPanel1.Controls.Add(this.btnCurrent);
-            this.rjFlowLayoutPanel1.Controls.Add(this.btnUpcoming);
+            this.rjFlowLayoutPanel1.Controls.Add(this.btnInDay);
             this.rjFlowLayoutPanel1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.rjFlowLayoutPanel1.Location = new System.Drawing.Point(94, 104);
             this.rjFlowLayoutPanel1.Name = "rjFlowLayoutPanel1";
@@ -91,6 +91,7 @@ namespace GymManagementSystem
             this.btnAll.TabIndex = 3;
             this.btnAll.Text = "All";
             this.btnAll.UseVisualStyleBackColor = false;
+            this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
             // 
             // btnCurrent
             // 
@@ -108,23 +109,25 @@ namespace GymManagementSystem
             this.btnCurrent.TabIndex = 4;
             this.btnCurrent.Text = "Current";
             this.btnCurrent.UseVisualStyleBackColor = false;
+            this.btnCurrent.Click += new System.EventHandler(this.btnCurrent_Click);
             // 
-            // btnUpcoming
+            // btnInDay
             // 
-            this.btnUpcoming.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
-            this.btnUpcoming.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnUpcoming.BorderRadius = 40;
-            this.btnUpcoming.BorderSize = 0;
-            this.btnUpcoming.FlatAppearance.BorderSize = 0;
-            this.btnUpcoming.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpcoming.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnUpcoming.ForeColor = System.Drawing.Color.White;
-            this.btnUpcoming.Location = new System.Drawing.Point(349, 3);
-            this.btnUpcoming.Name = "btnUpcoming";
-            this.btnUpcoming.Size = new System.Drawing.Size(167, 65);
-            this.btnUpcoming.TabIndex = 5;
-            this.btnUpcoming.Text = "Upcoming";
-            this.btnUpcoming.UseVisualStyleBackColor = false;
+            this.btnInDay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
+            this.btnInDay.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnInDay.BorderRadius = 40;
+            this.btnInDay.BorderSize = 0;
+            this.btnInDay.FlatAppearance.BorderSize = 0;
+            this.btnInDay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInDay.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnInDay.ForeColor = System.Drawing.Color.White;
+            this.btnInDay.Location = new System.Drawing.Point(349, 3);
+            this.btnInDay.Name = "btnInDay";
+            this.btnInDay.Size = new System.Drawing.Size(167, 65);
+            this.btnInDay.TabIndex = 5;
+            this.btnInDay.Text = "In Day";
+            this.btnInDay.UseVisualStyleBackColor = false;
+            this.btnInDay.Click += new System.EventHandler(this.btnUpcoming_Click);
             // 
             // rjFlowLayoutPanel2
             // 
@@ -157,6 +160,7 @@ namespace GymManagementSystem
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnEdit
             // 
@@ -174,6 +178,7 @@ namespace GymManagementSystem
             this.btnEdit.TabIndex = 1;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
@@ -191,6 +196,7 @@ namespace GymManagementSystem
             this.btnDelete.Size = new System.Drawing.Size(83, 65);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // txtSearch
             // 
@@ -266,7 +272,7 @@ namespace GymManagementSystem
         private RJButton btnDelete;
         private RJButton btnAll;
         private RJButton btnCurrent;
-        private RJButton btnUpcoming;
+        private RJButton btnInDay;
         private TextBox txtSearch;
         private RJPanel rjPanel1;
         private RJButton rjButton7;
