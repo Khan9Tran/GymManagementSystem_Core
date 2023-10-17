@@ -8,5 +8,6 @@ namespace GymManagementSystem.Models
 {
     internal class Member
     {
+
     }
 }

@@ -57,13 +57,14 @@
             // ptcWorkOut
             // 
             this.ptcWorkOut.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ptcWorkOut.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.ptcWorkOut.BorderColor = System.Drawing.Color.White;
             this.ptcWorkOut.BorderRadius = 40;
-            this.ptcWorkOut.BorderSize = 1;
+            this.ptcWorkOut.BorderSize = 2;
             this.ptcWorkOut.ForeColor = System.Drawing.Color.White;
             this.ptcWorkOut.Location = new System.Drawing.Point(23, 22);
             this.ptcWorkOut.Name = "ptcWorkOut";
             this.ptcWorkOut.Size = new System.Drawing.Size(138, 162);
+            this.ptcWorkOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptcWorkOut.TabIndex = 4;
             this.ptcWorkOut.TabStop = false;
             this.ptcWorkOut.Click += new System.EventHandler(this.ptcWorkOut_Click);
@@ -71,9 +72,9 @@
             // pnlLoad
             // 
             this.pnlLoad.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pnlLoad.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnlLoad.BorderColor = System.Drawing.Color.White;
             this.pnlLoad.BorderRadius = 40;
-            this.pnlLoad.BorderSize = 1;
+            this.pnlLoad.BorderSize = 2;
             this.pnlLoad.Controls.Add(this.lblDuration);
             this.pnlLoad.Controls.Add(this.lblType);
             this.pnlLoad.Controls.Add(this.lblName);

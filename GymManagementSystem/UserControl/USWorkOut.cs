@@ -15,6 +15,7 @@ namespace GymManagementSystem
     {
         private WorkOut workOut;
         public event EventHandler WorkOutClicked;
+        private ToolForPicture toolForPicture;
         public USWorkOut(WorkOut workOut)
         {
             InitializeComponent();
@@ -22,6 +23,8 @@ namespace GymManagementSystem
             lblDuration.Text = "Duration: " + (workOut.Duration).ToString()+ " minute";
             lblName.Text = workOut.Name;   
             lblType.Text = "Type: "+ workOut.Type;
+            toolForPicture = new ToolForPicture(ToolForPicture.Type.workOut);
+            toolForPicture.GetPicture(workOut.ID,ptcWorkOut);
         }
 
         internal WorkOut USCWorkOut { get => workOut; set => workOut = value; }
@@ -37,8 +40,8 @@ namespace GymManagementSystem
             else
             {
                 pnlWorkout.BorderColor = Color.White;
-                pnlLoad.BorderColor = Color.PaleVioletRed;
-                ptcWorkOut.BorderColor = Color.PaleGoldenrod;
+                pnlLoad.BorderColor = Color.White;
+                ptcWorkOut.BorderColor = Color.White;
             }
         }
 
