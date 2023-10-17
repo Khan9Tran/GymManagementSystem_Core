@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GymManagementSystem;
+using GymManagementSystem.Models;
 
 namespace GymManagementSystem
 {
@@ -21,7 +23,7 @@ namespace GymManagementSystem
 
         private void TestConnect_Load(object sender, EventArgs e)
         {
-            Account.Role = 1;
+            Employee.Role = 1;
             DBConnection connection = new DBConnection();
             connection.openConnection();
 

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GymManagementSystem
+namespace GymManagementSystem.Models
 {
-    internal static class Account
+    internal static class Employee
     {
         static string userName = "";
         static string password = "";

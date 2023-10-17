@@ -26,7 +26,7 @@ namespace GymManagementSystem
             if (totalRecord <= 0)
                 return ds;
             if (totalRecord % recordNum != 0)
-                nudPage.Maximum = (totalRecord / recordNum) + 1;
+                nudPage.Maximum = totalRecord / recordNum + 1;
             else
                 nudPage.Maximum = totalRecord / recordNum;
             int page = int.Parse(nudPage.Value.ToString());

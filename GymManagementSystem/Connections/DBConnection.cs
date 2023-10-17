@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using GymManagementSystem.Models;
 
 namespace GymManagementSystem
 {
@@ -14,13 +15,13 @@ namespace GymManagementSystem
         private SqlConnection conn;
         public DBConnection()
         {
-            if (Account.Role == 1)
+            if (Employee.Role == 1)
             {
                 conn = new SqlConnection(@"Data Source=.;Initial Catalog=GymManagerDB;Integrated Security=True");
             }
             else
             {
-                conn = new SqlConnection(@"Data Source=LAPTOP-TSVFN4HJ;Initial Catalog=GymManagementDB;User Id=" + Account.UserName + ";Password=" + Account.Password + ";");
+                conn = new SqlConnection(@"Data Source=LAPTOP-TSVFN4HJ;Initial Catalog=GymManagementDB;User Id=" + Employee.UserName + ";Password=" + Employee.Password + ";");
             }
         }
 

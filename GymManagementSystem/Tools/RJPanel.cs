@@ -53,9 +53,9 @@ namespace GymManagementSystem
         }
         public RJPanel()
         {
-            this.Size = new Size(600, 300);
-            this.BackColor = Color.MediumSlateBlue;
-            this.ForeColor = Color.White;
+            Size = new Size(600, 300);
+            BackColor = Color.MediumSlateBlue;
+            ForeColor = Color.White;
         }
         private GraphicsPath GetFigurePath(RectangleF rect, float radius)
         {
@@ -74,18 +74,18 @@ namespace GymManagementSystem
         {
             base.OnPaint(pevent);
             pevent.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            RectangleF rectSurface = new RectangleF(0, 0, this.Width, this.Height);
-            RectangleF rectBorder = new RectangleF(1, 1, this.Width - 0.8F, this.Height - 1);
+            RectangleF rectSurface = new RectangleF(0, 0, Width, Height);
+            RectangleF rectBorder = new RectangleF(1, 1, Width - 0.8F, Height - 1);
 
             if (borderRadius > 2)
             {
                 using (GraphicsPath pathSurface = GetFigurePath(rectSurface, borderRadius))
                 using (GraphicsPath pathBorder = GetFigurePath(rectBorder, borderRadius - 1F))
-                using (Pen penSurface = new Pen(this.Parent.BackColor, 2))
+                using (Pen penSurface = new Pen(Parent.BackColor, 2))
                 using (Pen penBorder = new Pen(borderColor, borderSize))
                 {
                     penBorder.Alignment = PenAlignment.Inset;
-                    this.Region = new Region(pathSurface);
+                    Region = new Region(pathSurface);
                     pevent.Graphics.DrawPath(penSurface, pathSurface);
 
                     if (borderSize >= 1)
@@ -96,13 +96,13 @@ namespace GymManagementSystem
             }
             else
             {
-                this.Region = new Region(rectSurface);
+                Region = new Region(rectSurface);
                 if (borderSize >= 1)
                 {
                     using (Pen penBorder = new Pen(borderColor, borderSize))
                     {
                         penBorder.Alignment = PenAlignment.Inset;
-                        pevent.Graphics.DrawRectangle(penBorder, 0, 0, this.Width - 1, this.Height - 1);
+                        pevent.Graphics.DrawRectangle(penBorder, 0, 0, Width - 1, Height - 1);
                     }
                 }
             }
@@ -110,7 +110,7 @@ namespace GymManagementSystem
         protected override void OnHandleCreated(EventArgs e)
         {
             base.OnHandleCreated(e);
-            this.Parent.BackColorChanged += new EventHandler(Container_BackColorChanged);
+            Parent.BackColorChanged += new EventHandler(Container_BackColorChanged);
         }
 
         private void Container_BackColorChanged(object sender, EventArgs e)

@@ -9,7 +9,7 @@ namespace GymManagementSystem
 {
     internal class ToolForPicture
     {
-       
+
 
         //String lưu địa chỉ folder chứa hình ảnh
         private static string pathWorkOut = @"..\..\..\..\WorkOut";
@@ -23,7 +23,7 @@ namespace GymManagementSystem
                 path = pathWorkOut;
             else if (type == Type.trainer)
                 path = pathTrainer;
-            else 
+            else
                 path = pathAvatar;
         }
         public enum Type
@@ -35,7 +35,7 @@ namespace GymManagementSystem
         public string GetFolderPath()
         {
             string sCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string folderPath = string.Format(System.IO.Path.Combine(sCurrentDirectory, path));
+            string folderPath = string.Format(Path.Combine(sCurrentDirectory, path));
             return folderPath;
         }
 
@@ -129,7 +129,7 @@ namespace GymManagementSystem
                 Assigned(jpg, ptcHinhDaiDien);
             }
         }
-      
-  
-}
+
+
+    }
 }

@@ -1,4 +1,6 @@
-﻿namespace GymManagementSystem
+﻿using GymManagementSystem;
+
+namespace GymManagementSystem
 {
     partial class FViewWorkOutPlan
     {
