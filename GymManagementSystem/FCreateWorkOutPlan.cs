@@ -21,9 +21,10 @@ namespace GymManagementSystem
         public FCreateWorkOutPlan()
         {
             InitializeComponent();
-            for (int i = 0; i < 10; i++)
+            List<Branch> branches = LoadBranch();
+            for (int i = 0; i < branches.Count; i++)
             {
-                USBranch branch = new USBranch("Texttttt", $"{i}");
+                USBranch branch = new USBranch(branches[i]);
                 flpnlBranch.Controls.Add(branch);
                 branch.BranchClicked += Branch_BranchClicked;
 
@@ -41,10 +42,10 @@ namespace GymManagementSystem
         private void Branch_BranchClicked(object? sender, EventArgs e)
         {
             USBranch clickedUSBranch = (USBranch)sender;
-            branchId = clickedUSBranch.ID;
+            branchId = clickedUSBranch.UsCBranch.ID;
             foreach (var ctr in flpnlBranch.Controls)
             {
-                if (((USBranch)ctr).ID != branchId)
+                if (((USBranch)ctr).UsCBranch.ID != branchId)
                 {
                     ((USBranch)ctr).changeColor(0);
                 }    
@@ -104,7 +105,7 @@ namespace GymManagementSystem
             DBConnection connection = new DBConnection();
             connection.openConnection();
 
-            String query = "FindMemberByPhoneNumber";
+            String query = "PROC_FindMemberByPhoneNumber";
             SqlCommand command = new SqlCommand(query, connection.GetConnection());
             command.CommandType = CommandType.StoredProcedure;
 
@@ -129,6 +130,69 @@ namespace GymManagementSystem
             connection.closeConnection();
 
             return name;
+
+        }
+
+        private List<Branch> LoadBranch()
+        {
+            Employee.Role = 1;
+            DBConnection connection = new DBConnection();
+            connection.openConnection();
+     
+            String query = "SELECT * FROM V_BranchList";
+            SqlCommand command = new SqlCommand(query, connection.GetConnection());
+            command.CommandType = CommandType.Text;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            connection.closeConnection();
+            return ConvertDataTableToBranchList(dataTable);
+        }
+        private List<Branch> FindBranch(string content)
+        {
+            Employee.Role = 1;
+            DBConnection connection = new DBConnection();
+            connection.openConnection();
+
+            String query = "PROC_FindBranchByContent";
+            SqlCommand command = new SqlCommand(query, connection.GetConnection());
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@Content", content);
+
+
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            connection.closeConnection();
+            return ConvertDataTableToBranchList(dataTable);
+        }
+
+        private List<Branch> ConvertDataTableToBranchList(DataTable dataTable)
+        {
+            List<Branch> branchList = new List<Branch>();
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                Branch branch = new Branch((row["ID"]).ToString(), (row["Name"]).ToString(),(row["Address"]).ToString());
+                branchList.Add(branch);
+            }
+
+            return branchList;
+        }
+        
+        private void btnFindBranch_Click(object sender, EventArgs e)
+        {
+            flpnlBranch.Controls.Clear();
+            List<Branch> branches = FindBranch(txtBranch.Text);
+            for (int i = 0; i < branches.Count; i++)
+            {
+                USBranch branch = new USBranch(branches[i]);
+                flpnlBranch.Controls.Add(branch);
+                branch.BranchClicked += Branch_BranchClicked;
+
+            }
         }
     }
 }

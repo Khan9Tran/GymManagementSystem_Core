@@ -50,7 +50,7 @@ namespace GymManagementSystem
             this.rjPanel7 = new GymManagementSystem.RJPanel();
             this.flpnlBranch = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlBranch = new GymManagementSystem.RJPanel();
-            this.rjButton7 = new GymManagementSystem.RJButton();
+            this.btnFindBranch = new GymManagementSystem.RJButton();
             this.txtBranch = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.rjPanel6 = new GymManagementSystem.RJPanel();
@@ -314,7 +314,7 @@ namespace GymManagementSystem
             this.pnlBranch.BorderColor = System.Drawing.Color.Black;
             this.pnlBranch.BorderRadius = 40;
             this.pnlBranch.BorderSize = 1;
-            this.pnlBranch.Controls.Add(this.rjButton7);
+            this.pnlBranch.Controls.Add(this.btnFindBranch);
             this.pnlBranch.Controls.Add(this.txtBranch);
             this.pnlBranch.ForeColor = System.Drawing.Color.White;
             this.pnlBranch.Location = new System.Drawing.Point(167, 14);
@@ -322,22 +322,23 @@ namespace GymManagementSystem
             this.pnlBranch.Size = new System.Drawing.Size(341, 51);
             this.pnlBranch.TabIndex = 1;
             // 
-            // rjButton7
+            // btnFindBranch
             // 
-            this.rjButton7.BackColor = System.Drawing.Color.White;
-            this.rjButton7.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton7.BorderRadius = 40;
-            this.rjButton7.BorderSize = 0;
-            this.rjButton7.FlatAppearance.BorderSize = 0;
-            this.rjButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton7.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.rjButton7.ForeColor = System.Drawing.Color.White;
-            this.rjButton7.Image = global::GymManagementSystem.Properties.Resources.magnifying_glass;
-            this.rjButton7.Location = new System.Drawing.Point(283, 3);
-            this.rjButton7.Name = "rjButton7";
-            this.rjButton7.Size = new System.Drawing.Size(53, 45);
-            this.rjButton7.TabIndex = 6;
-            this.rjButton7.UseVisualStyleBackColor = false;
+            this.btnFindBranch.BackColor = System.Drawing.Color.White;
+            this.btnFindBranch.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnFindBranch.BorderRadius = 40;
+            this.btnFindBranch.BorderSize = 0;
+            this.btnFindBranch.FlatAppearance.BorderSize = 0;
+            this.btnFindBranch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFindBranch.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnFindBranch.ForeColor = System.Drawing.Color.White;
+            this.btnFindBranch.Image = global::GymManagementSystem.Properties.Resources.magnifying_glass;
+            this.btnFindBranch.Location = new System.Drawing.Point(285, 3);
+            this.btnFindBranch.Name = "btnFindBranch";
+            this.btnFindBranch.Size = new System.Drawing.Size(53, 45);
+            this.btnFindBranch.TabIndex = 6;
+            this.btnFindBranch.UseVisualStyleBackColor = false;
+            this.btnFindBranch.Click += new System.EventHandler(this.btnFindBranch_Click);
             // 
             // txtBranch
             // 
@@ -602,7 +603,7 @@ namespace GymManagementSystem
         private TextBox txtBranch;
         private TextBox txtTrainer;
         private RJButton btnConfirm;
-        private RJButton rjButton7;
+        private RJButton btnFindBranch;
         private RJButton rjButton1;
         private RJButton btnSearchMember;
         private TextBox txtNumberOfWorkouts;

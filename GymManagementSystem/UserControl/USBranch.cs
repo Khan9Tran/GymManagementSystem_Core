@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GymManagementSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,23 +8,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace GymManagementSystem
 {
     public partial class USBranch : UserControl
     {
-        private string iD;
+        private Branch branch;
+        internal Branch UsCBranch { get => branch; set => branch = value; }
+
         public event EventHandler BranchClicked;
         
-        public USBranch(String BranchName, String ID)
+        public USBranch() { }
+
+        public USBranch(Branch branch)
         {
             InitializeComponent();
-            btnBranch.Text = BranchName;
-            iD = ID;
+            btnBranch.Text = branch.Name;
+            this.branch = branch;
         }
 
 
-        public string ID { get => iD; set => iD = value; }
+        
 
         private void btnBranch_Click(object sender, EventArgs e)
         {

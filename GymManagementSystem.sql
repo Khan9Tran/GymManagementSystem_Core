@@ -668,13 +668,25 @@ VALUES
 
 
 
----PROCDURE
+---PROCDURE Tìm Member theo phone
 GO
-CREATE PROCEDURE dbo.FindMemberByPhoneNumber
+CREATE PROCEDURE dbo.PROC_FindMemberByPhoneNumber
     @PhoneNumber CHAR(10)
 AS
 BEGIN
     SELECT *
-    FROM Member
+    FROM V_MemberList
     WHERE PhoneNumber = @PhoneNumber
 END
+GO
+---Tìm chi nhánh
+CREATE PROCEDURE dbo.PROC_FindBranchByContent
+	@Content NVARCHAR(50)
+AS
+BEGIN
+	SELECT * 
+	FROM V_BranchList
+	WHERE Name LIKE '%' + @Content + '%' OR ID = @Content OR Address LIKE '%' + @Content + '%'
+END
+
+
