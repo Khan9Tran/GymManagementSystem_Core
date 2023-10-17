@@ -44,7 +44,7 @@ namespace GymManagementSystem
             this.btnSearchMember = new GymManagementSystem.RJButton();
             this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.rjPanel4 = new GymManagementSystem.RJPanel();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpnlWorkout = new System.Windows.Forms.FlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.txtNumberOfWorkouts = new System.Windows.Forms.TextBox();
             this.rjPanel7 = new GymManagementSystem.RJPanel();
@@ -61,7 +61,7 @@ namespace GymManagementSystem
             this.txtTrainer = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.rjPanel10 = new GymManagementSystem.RJPanel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpCompletionTime = new System.Windows.Forms.DateTimePicker();
             this.txtSum = new GymManagementSystem.RJPanel();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -180,13 +180,14 @@ namespace GymManagementSystem
             this.dtpTime.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtpTime.CustomFormat = "HH:mm";
             this.dtpTime.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dtpTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtpTime.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.dtpTime.Location = new System.Drawing.Point(162, 533);
             this.dtpTime.Name = "dtpTime";
             this.dtpTime.Size = new System.Drawing.Size(156, 36);
             this.dtpTime.TabIndex = 4;
             this.dtpTime.Value = new System.DateTime(2023, 10, 16, 0, 35, 0, 0);
+            this.dtpTime.ValueChanged += new System.EventHandler(this.dtpTime_ValueChanged);
             // 
             // dtpDate
             // 
@@ -246,7 +247,7 @@ namespace GymManagementSystem
             this.rjPanel4.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.rjPanel4.BorderRadius = 40;
             this.rjPanel4.BorderSize = 0;
-            this.rjPanel4.Controls.Add(this.flowLayoutPanel2);
+            this.rjPanel4.Controls.Add(this.flpnlWorkout);
             this.rjPanel4.Controls.Add(this.label6);
             this.rjPanel4.ForeColor = System.Drawing.Color.White;
             this.rjPanel4.Location = new System.Drawing.Point(595, 62);
@@ -254,13 +255,13 @@ namespace GymManagementSystem
             this.rjPanel4.Size = new System.Drawing.Size(624, 742);
             this.rjPanel4.TabIndex = 8;
             // 
-            // flowLayoutPanel2
+            // flpnlWorkout
             // 
-            this.flowLayoutPanel2.AutoScroll = true;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(11, 94);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(610, 628);
-            this.flowLayoutPanel2.TabIndex = 7;
+            this.flpnlWorkout.AutoScroll = true;
+            this.flpnlWorkout.Location = new System.Drawing.Point(11, 94);
+            this.flpnlWorkout.Name = "flpnlWorkout";
+            this.flpnlWorkout.Size = new System.Drawing.Size(610, 628);
+            this.flpnlWorkout.TabIndex = 7;
             // 
             // label6
             // 
@@ -279,11 +280,12 @@ namespace GymManagementSystem
             this.txtNumberOfWorkouts.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNumberOfWorkouts.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtNumberOfWorkouts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(87)))), ((int)(((byte)(95)))));
-            this.txtNumberOfWorkouts.Location = new System.Drawing.Point(26, 8);
+            this.txtNumberOfWorkouts.Location = new System.Drawing.Point(25, 11);
             this.txtNumberOfWorkouts.Name = "txtNumberOfWorkouts";
             this.txtNumberOfWorkouts.ReadOnly = true;
             this.txtNumberOfWorkouts.Size = new System.Drawing.Size(115, 29);
             this.txtNumberOfWorkouts.TabIndex = 7;
+            this.txtNumberOfWorkouts.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // rjPanel7
             // 
@@ -462,7 +464,7 @@ namespace GymManagementSystem
             this.rjPanel10.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.rjPanel10.BorderRadius = 40;
             this.rjPanel10.BorderSize = 0;
-            this.rjPanel10.Controls.Add(this.dateTimePicker1);
+            this.rjPanel10.Controls.Add(this.dtpCompletionTime);
             this.rjPanel10.Controls.Add(this.txtSum);
             this.rjPanel10.Controls.Add(this.label7);
             this.rjPanel10.Controls.Add(this.label5);
@@ -472,19 +474,19 @@ namespace GymManagementSystem
             this.rjPanel10.Size = new System.Drawing.Size(624, 184);
             this.rjPanel10.TabIndex = 10;
             // 
-            // dateTimePicker1
+            // dtpCompletionTime
             // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker1.CustomFormat = "HH:mm";
-            this.dateTimePicker1.Enabled = false;
-            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dateTimePicker1.Location = new System.Drawing.Point(365, 118);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(177, 36);
-            this.dateTimePicker1.TabIndex = 10;
-            this.dateTimePicker1.Value = new System.DateTime(2023, 10, 16, 0, 35, 0, 0);
+            this.dtpCompletionTime.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtpCompletionTime.CustomFormat = "HH:mm";
+            this.dtpCompletionTime.Enabled = false;
+            this.dtpCompletionTime.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtpCompletionTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpCompletionTime.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.dtpCompletionTime.Location = new System.Drawing.Point(365, 117);
+            this.dtpCompletionTime.Name = "dtpCompletionTime";
+            this.dtpCompletionTime.Size = new System.Drawing.Size(177, 36);
+            this.dtpCompletionTime.TabIndex = 10;
+            this.dtpCompletionTime.Value = new System.DateTime(2023, 10, 17, 12, 35, 0, 0);
             // 
             // txtSum
             // 
@@ -493,7 +495,8 @@ namespace GymManagementSystem
             this.txtSum.BorderRadius = 40;
             this.txtSum.BorderSize = 2;
             this.txtSum.Controls.Add(this.txtNumberOfWorkouts);
-            this.txtSum.ForeColor = System.Drawing.Color.White;
+            this.txtSum.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtSum.ForeColor = System.Drawing.Color.Black;
             this.txtSum.Location = new System.Drawing.Point(365, 32);
             this.txtSum.Name = "txtSum";
             this.txtSum.Size = new System.Drawing.Size(177, 51);
@@ -611,9 +614,9 @@ namespace GymManagementSystem
         private Label lblBranch;
         private Label lblTrainer;
         private FlowLayoutPanel flpnlBranch;
-        private FlowLayoutPanel flowLayoutPanel2;
+        private FlowLayoutPanel flpnlWorkout;
         private FlowLayoutPanel flpnlTrainer;
         private RJButton btnNoTrainer;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dtpCompletionTime;
     }
 }

@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.IO.Packaging;
 using System.Linq;
 using System.Reflection.Metadata;
@@ -18,6 +19,7 @@ namespace GymManagementSystem
     {
         private Branch branch;
         private Trainer trainer;
+        private List<WorkOut> workOuts = new List<WorkOut>();
         public FCreateWorkOutPlan()
         {
             InitializeComponent();
@@ -29,7 +31,15 @@ namespace GymManagementSystem
                 branch.BranchClicked += Branch_BranchClicked;
 
             }
-
+            List<WorkOut> workOuts = LoadWorkOut();
+            foreach (var workOut in workOuts) 
+            {
+                USWorkOut wk = new USWorkOut(workOut);
+                flpnlWorkout.Controls.Add(wk);
+                wk.WorkOutClicked += Workout_WorkoutClicked;
+            };
+            countWO = 0;
+            totalTime = 0;
         }
 
         private void Branch_BranchClicked(object? sender, EventArgs e)
@@ -79,7 +89,33 @@ namespace GymManagementSystem
             btnNoTrainer.BackColor = Color.White;
             btnNoTrainer.ForeColor = Color.FromArgb(67, 52, 67);
         }
+        private int countWO;
+        private int totalTime;
+        
 
+        private void Workout_WorkoutClicked(object? sender, EventArgs e)
+        {
+            USWorkOut clickedUSWorkOut = (USWorkOut)sender;
+            foreach (var wk in workOuts)
+            {
+                if (wk.ID == clickedUSWorkOut.USCWorkOut.ID)
+                {
+                    countWO--;
+                    workOuts.Remove(wk);
+                    txtNumberOfWorkouts.Text = countWO.ToString();
+                    totalTime -= clickedUSWorkOut.USCWorkOut.Duration;
+                    dtpCompletionTime.Value = (dtpTime.Value).AddMinutes(totalTime);
+                    return;
+                    
+                }
+            }
+            countWO++;
+            txtNumberOfWorkouts.Text = countWO.ToString();
+            workOuts.Add(clickedUSWorkOut.USCWorkOut);
+            totalTime += clickedUSWorkOut.USCWorkOut.Duration;
+            dtpCompletionTime.Value = (dtpTime.Value).AddMinutes(totalTime);
+
+        }
         private void btnNoTrainer_Click(object sender, EventArgs e)
         {
             
@@ -200,6 +236,9 @@ namespace GymManagementSystem
 
         private void btnFindBranch_Click(object sender, EventArgs e)
         {
+            branch = null;
+            trainer = null;
+            flpnlTrainer.Controls.Clear();
             flpnlBranch.Controls.Clear();
             List<Branch> branches = FindBranch(txtBranch.Text);
             for (int i = 0; i < branches.Count; i++)
@@ -250,6 +289,38 @@ namespace GymManagementSystem
             }    
         }
 
+        private List<WorkOut> ConvertDataTableToWorkoutList(DataTable dataTable)
+        {
+            List<WorkOut> workoutList = new List<WorkOut>();
 
+            foreach (DataRow row in dataTable.Rows)
+            {
+                WorkOut workOut = new WorkOut((row["ID"]).ToString(), (row["Name"]).ToString(), (row["Description"]).ToString(), (row["Type"]).ToString(), int.Parse((row["Duration"]).ToString()));
+                workoutList.Add(workOut);
+            }
+
+            return workoutList;
+        }
+        private List<WorkOut> LoadWorkOut()
+        {
+            Employee.Role = 1;
+            DBConnection connection = new DBConnection();
+            connection.openConnection();
+
+            String query = "SELECT * FROM V_WorkOutList";
+            SqlCommand command = new SqlCommand(query, connection.GetConnection());
+            command.CommandType = CommandType.Text;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            connection.closeConnection();
+            return ConvertDataTableToWorkoutList(dataTable);
+        }
+
+        private void dtpTime_ValueChanged(object sender, EventArgs e)
+        {
+            dtpCompletionTime.Value = (dtpTime.Value).AddMinutes(totalTime);
+        }
     }
 }
