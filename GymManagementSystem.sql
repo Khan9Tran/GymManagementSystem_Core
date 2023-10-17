@@ -664,8 +664,7 @@ VALUES
 VALUES
 	('WOP010', 'WO0003');
 
-
-
+GO
 ---PROCDURE Tìm Member theo phone
 GO
 CREATE PROCEDURE dbo.PROC_FindMemberByPhoneNumber
@@ -699,6 +698,8 @@ BEGIN
 END
 
 GO
+
+--Thêm WorkOutPlan
 CREATE PROCEDURE PROC_AddWorkOutPlan
     @ID CHAR(6),
     @MemberID CHAR(6),
@@ -708,11 +709,29 @@ CREATE PROCEDURE PROC_AddWorkOutPlan
     @Date DATE
 AS
 BEGIN
-    INSERT INTO WorkOutPlan (ID, MemberID, TrainerID, BranchID, Time, Date)
-    VALUES (@ID, @MemberID, @TrainerID, @BranchID, @Time, @Date)
+	  IF NOT EXISTS
+    (
+        SELECT *
+        FROM WorkOutPlan
+        WHERE MemberID = @MemberID
+        AND [Date] = @Date
+        AND (
+            (DATEADD(HOUR, -2, Time) <= @Time AND @Time <= Time)
+            OR (Time <= @Time AND @Time <= DATEADD(HOUR, 2, Time))
+        )
+    )
+	BEGIN
+		INSERT INTO WorkOutPlan (ID, MemberID, TrainerID, BranchID, Time, Date)
+		VALUES (@ID, @MemberID, @TrainerID, @BranchID, @Time, @Date)
+	END
+	ELSE 
+	BEGIN
+		RAISERROR ('Hai buổi tập quá gần nhau',16,1);
+	END
 END
 
 GO
+--Thêm Plandetails
 CREATE PROCEDURE PROC_AddPlanDetails
     @WorkOutPlanID CHAR(6),
     @WorkOutID CHAR(6)
@@ -739,3 +758,4 @@ BEGIN
         RAISERROR ( 'Buổi tập có thời lượng quá 2 tiếng',16,1);
     END CATCH;
 END
+
