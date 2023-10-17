@@ -665,3 +665,16 @@ VALUES
 	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP010', 'WO0003');
+
+
+
+---PROCDURE
+GO
+CREATE PROCEDURE dbo.FindMemberByPhoneNumber
+    @PhoneNumber CHAR(10)
+AS
+BEGIN
+    SELECT *
+    FROM Member
+    WHERE PhoneNumber = @PhoneNumber
+END
