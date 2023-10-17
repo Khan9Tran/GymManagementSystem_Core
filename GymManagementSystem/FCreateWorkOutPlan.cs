@@ -1,8 +1,11 @@
-﻿using System;
+﻿using GymManagementSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.IO.Packaging;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
@@ -87,6 +90,45 @@ namespace GymManagementSystem
             }
 
 
+        }
+
+        private void btnSearchMember_Click(object sender, EventArgs e)
+        {
+            txtName.Text = FindMember(txtPhoneNumber.Text);
+        }
+
+        private string FindMember(string phoneNumber)
+        {
+            string name = "";
+            Employee.Role = 1;
+            DBConnection connection = new DBConnection();
+            connection.openConnection();
+
+            String query = "FindMemberByPhoneNumber";
+            SqlCommand command = new SqlCommand(query, connection.GetConnection());
+            command.CommandType = CommandType.StoredProcedure;
+
+            //khai báo các thuộc tính của tham số
+            command.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
+
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                       name = reader["Name"].ToString();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy");
+                }
+            }
+
+            connection.closeConnection();
+
+            return name;
         }
     }
 }

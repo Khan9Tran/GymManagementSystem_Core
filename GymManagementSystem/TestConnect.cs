@@ -35,6 +35,7 @@ namespace GymManagementSystem
             adapter.Fill(dataTable);
 
             dgPackage.DataSource = dataTable;
+            connection.closeConnection();
         }
     }
 }

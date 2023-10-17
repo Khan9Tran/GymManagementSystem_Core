@@ -15,13 +15,14 @@ namespace GymManagementSystem
         private SqlConnection conn;
         public DBConnection()
         {
-            if (Employee.Role == 1)
+            if (Employee.Role == 0)
             {
-                conn = new SqlConnection(@"Data Source=.;Initial Catalog=GymManagerDB;Integrated Security=True");
+                conn = new SqlConnection(@"Data Source=LAPTOP-TSVFN4HJ;Initial Catalog=GymManagementDB;User Id=" + Employee.UserName + ";Password=" + Employee.Password + ";");
+
             }
             else
             {
-                conn = new SqlConnection(@"Data Source=LAPTOP-TSVFN4HJ;Initial Catalog=GymManagementDB;User Id=" + Employee.UserName + ";Password=" + Employee.Password + ";");
+                conn = new SqlConnection(@"Data Source=.;Initial Catalog=GymManagerDB;Integrated Security=True");
             }
         }
 
@@ -42,6 +43,11 @@ namespace GymManagementSystem
             {
                 conn.Open();
             }
+        }
+
+        public void closeConnection()
+        {
+            conn.Close();
         }
     }
 }
