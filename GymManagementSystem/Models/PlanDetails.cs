@@ -8,5 +8,12 @@ namespace GymManagementSystem.Models
 {
     internal class PlanDetails
     {
+        private string workOutPlanID;
+        private string workOutID;
+
+        public PlanDetails() { }
+
+        public string WorkOutPlanID { get => workOutPlanID; set => workOutPlanID = value; }
+        public string WorkOutID { get => workOutID; set => workOutID = value; }
     }
 }

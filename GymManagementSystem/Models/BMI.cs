@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 
 namespace GymManagementSystem.Models
 {
-    internal class WorkOutPlan
+    internal class BMI
     {
         private string iD;
         private string memberID;
-        private string trainerID;
-        private string branchID;
-        private TimeSpan time;
+        private int height;
+        private decimal weight;
         private DateTime date;
+        private string status;
 
-        public WorkOutPlan() { }
+        public BMI() { }
 
         public string ID { get => iD; set => iD = value; }
         public string MemberID { get => memberID; set => memberID = value; }
-        public string TrainerID { get => trainerID; set => trainerID = value; }
-        public string BranchID { get => branchID; set => branchID = value; }
-        public TimeSpan Time { get => time; set => time = value; }
+        public int Height { get => height; set => height = value; }
+        public decimal Weight { get => weight; set => weight = value; }
         public DateTime Date { get => date; set => date = value; }
+        public string Status { get => status; set => status = value; }
     }
 }
