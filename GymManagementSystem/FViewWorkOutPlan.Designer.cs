@@ -55,11 +55,11 @@ namespace GymManagementSystem
             this.gvWorkOutPlan.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.gvWorkOutPlan.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gvWorkOutPlan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvWorkOutPlan.Location = new System.Drawing.Point(94, 162);
+            this.gvWorkOutPlan.Location = new System.Drawing.Point(100, 334);
             this.gvWorkOutPlan.Name = "gvWorkOutPlan";
             this.gvWorkOutPlan.RowHeadersWidth = 51;
             this.gvWorkOutPlan.RowTemplate.Height = 29;
-            this.gvWorkOutPlan.Size = new System.Drawing.Size(1631, 541);
+            this.gvWorkOutPlan.Size = new System.Drawing.Size(1625, 648);
             this.gvWorkOutPlan.TabIndex = 0;
             // 
             // rjFlowLayoutPanel1
@@ -269,9 +269,9 @@ namespace GymManagementSystem
             this.rjPanel2.BorderRadius = 40;
             this.rjPanel2.BorderSize = 0;
             this.rjPanel2.ForeColor = System.Drawing.Color.White;
-            this.rjPanel2.Location = new System.Drawing.Point(94, 726);
+            this.rjPanel2.Location = new System.Drawing.Point(696, 160);
             this.rjPanel2.Name = "rjPanel2";
-            this.rjPanel2.Size = new System.Drawing.Size(1631, 268);
+            this.rjPanel2.Size = new System.Drawing.Size(1023, 121);
             this.rjPanel2.TabIndex = 4;
             // 
             // FViewWorkOutPlan
@@ -311,7 +311,7 @@ namespace GymManagementSystem
         private RJPanel rjPanel1;
         private RJButton btnSearch;
         private RJButton rjButton1;
-        private RJPanel rjPanel2;
         private RJButton btnUpComing;
+        private RJPanel rjPanel2;
     }
 }
