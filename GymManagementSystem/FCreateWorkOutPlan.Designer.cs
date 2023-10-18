@@ -69,6 +69,8 @@ namespace GymManagementSystem
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnConfirm = new GymManagementSystem.RJButton();
+            this.rjFlowLayoutPanel2 = new GymManagementSystem.RJFlowLayoutPanel();
+            this.btnManage = new GymManagementSystem.RJButton();
             this.rjPanel1.SuspendLayout();
             this.rjPanel5.SuspendLayout();
             this.rjPanel3.SuspendLayout();
@@ -80,6 +82,7 @@ namespace GymManagementSystem
             this.rjPanel9.SuspendLayout();
             this.rjPanel10.SuspendLayout();
             this.txtSum.SuspendLayout();
+            this.rjFlowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // rjPanel1
@@ -339,7 +342,7 @@ namespace GymManagementSystem
             this.rjPanel7.Controls.Add(this.pnlBranch);
             this.rjPanel7.Controls.Add(this.label9);
             this.rjPanel7.ForeColor = System.Drawing.Color.White;
-            this.rjPanel7.Location = new System.Drawing.Point(1245, 62);
+            this.rjPanel7.Location = new System.Drawing.Point(1245, 154);
             this.rjPanel7.Name = "rjPanel7";
             this.rjPanel7.Size = new System.Drawing.Size(529, 293);
             this.rjPanel7.TabIndex = 8;
@@ -416,7 +419,7 @@ namespace GymManagementSystem
             this.rjPanel6.Controls.Add(this.rjPanel9);
             this.rjPanel6.Controls.Add(this.label4);
             this.rjPanel6.ForeColor = System.Drawing.Color.White;
-            this.rjPanel6.Location = new System.Drawing.Point(1245, 382);
+            this.rjPanel6.Location = new System.Drawing.Point(1245, 474);
             this.rjPanel6.Name = "rjPanel6";
             this.rjPanel6.Size = new System.Drawing.Size(529, 534);
             this.rjPanel6.TabIndex = 9;
@@ -576,13 +579,44 @@ namespace GymManagementSystem
             this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirm.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnConfirm.ForeColor = System.Drawing.Color.White;
-            this.btnConfirm.Location = new System.Drawing.Point(1245, 942);
+            this.btnConfirm.Location = new System.Drawing.Point(203, 3);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(529, 67);
+            this.btnConfirm.Size = new System.Drawing.Size(323, 67);
             this.btnConfirm.TabIndex = 11;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = false;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            // 
+            // rjFlowLayoutPanel2
+            // 
+            this.rjFlowLayoutPanel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.rjFlowLayoutPanel2.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjFlowLayoutPanel2.BorderRadius = 40;
+            this.rjFlowLayoutPanel2.BorderSize = 0;
+            this.rjFlowLayoutPanel2.Controls.Add(this.btnManage);
+            this.rjFlowLayoutPanel2.Controls.Add(this.btnConfirm);
+            this.rjFlowLayoutPanel2.ForeColor = System.Drawing.Color.White;
+            this.rjFlowLayoutPanel2.Location = new System.Drawing.Point(1245, 62);
+            this.rjFlowLayoutPanel2.Name = "rjFlowLayoutPanel2";
+            this.rjFlowLayoutPanel2.Size = new System.Drawing.Size(529, 73);
+            this.rjFlowLayoutPanel2.TabIndex = 12;
+            // 
+            // btnManage
+            // 
+            this.btnManage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(179)))), ((int)(((byte)(241)))));
+            this.btnManage.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnManage.BorderRadius = 40;
+            this.btnManage.BorderSize = 0;
+            this.btnManage.FlatAppearance.BorderSize = 0;
+            this.btnManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManage.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnManage.ForeColor = System.Drawing.Color.White;
+            this.btnManage.Location = new System.Drawing.Point(3, 3);
+            this.btnManage.Name = "btnManage";
+            this.btnManage.Size = new System.Drawing.Size(194, 67);
+            this.btnManage.TabIndex = 12;
+            this.btnManage.Text = "Manage";
+            this.btnManage.UseVisualStyleBackColor = false;
             // 
             // FCreateWorkOutPlan
             // 
@@ -590,7 +624,7 @@ namespace GymManagementSystem
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1820, 1080);
-            this.Controls.Add(this.btnConfirm);
+            this.Controls.Add(this.rjFlowLayoutPanel2);
             this.Controls.Add(this.rjPanel10);
             this.Controls.Add(this.rjPanel6);
             this.Controls.Add(this.rjPanel7);
@@ -621,6 +655,7 @@ namespace GymManagementSystem
             this.rjPanel10.PerformLayout();
             this.txtSum.ResumeLayout(false);
             this.txtSum.PerformLayout();
+            this.rjFlowLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -666,5 +701,7 @@ namespace GymManagementSystem
         private Label label8;
         private RJPanel rjPanel5;
         private TextBox txtID;
+        private RJFlowLayoutPanel rjFlowLayoutPanel2;
+        private RJButton btnManage;
     }
 }

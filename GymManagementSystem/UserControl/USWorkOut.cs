@@ -34,14 +34,10 @@ namespace GymManagementSystem
             if (pnlWorkout.BorderColor == Color.White)
             {
                 pnlWorkout.BorderColor = Color.FromArgb(40, 181, 244);
-                pnlLoad.BorderColor = Color.FromArgb(40, 181, 244);
-                ptcWorkOut.BorderColor = Color.FromArgb(40, 181, 244);
             }
             else
             {
                 pnlWorkout.BorderColor = Color.White;
-                pnlLoad.BorderColor = Color.White;
-                ptcWorkOut.BorderColor = Color.White;
             }
         }
 

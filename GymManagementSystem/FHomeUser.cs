@@ -14,12 +14,14 @@ namespace GymManagementSystem
     public partial class FHomeUser : Form
     {
 
-        OpenChildForm openChildForm;
+        private OpenChildForm openChildForm;
         public FHomeUser()
         {
             InitializeComponent();
-            openChildForm = new OpenChildForm(pnlLoad);
+            OpenChildForm openChildForm = new OpenChildForm(pnlLoad);
         }
+
+        internal OpenChildForm OCF { get => openChildForm; set => openChildForm = value; }
 
         private void FHome_Load(object sender, EventArgs e)
         {

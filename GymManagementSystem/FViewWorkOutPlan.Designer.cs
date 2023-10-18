@@ -35,13 +35,15 @@ namespace GymManagementSystem
             this.btnAll = new GymManagementSystem.RJButton();
             this.btnCurrent = new GymManagementSystem.RJButton();
             this.btnInDay = new GymManagementSystem.RJButton();
+            this.btnUpComing = new GymManagementSystem.RJButton();
             this.rjFlowLayoutPanel2 = new GymManagementSystem.RJFlowLayoutPanel();
             this.btnAdd = new GymManagementSystem.RJButton();
             this.btnEdit = new GymManagementSystem.RJButton();
-            this.btnDelete = new GymManagementSystem.RJButton();
+            this.rjButton1 = new GymManagementSystem.RJButton();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.rjPanel1 = new GymManagementSystem.RJPanel();
-            this.rjButton7 = new GymManagementSystem.RJButton();
+            this.btnSearch = new GymManagementSystem.RJButton();
+            this.rjPanel2 = new GymManagementSystem.RJPanel();
             ((System.ComponentModel.ISupportInitialize)(this.gvWorkOutPlan)).BeginInit();
             this.rjFlowLayoutPanel1.SuspendLayout();
             this.rjFlowLayoutPanel2.SuspendLayout();
@@ -53,11 +55,11 @@ namespace GymManagementSystem
             this.gvWorkOutPlan.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.gvWorkOutPlan.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gvWorkOutPlan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvWorkOutPlan.Location = new System.Drawing.Point(77, 212);
+            this.gvWorkOutPlan.Location = new System.Drawing.Point(94, 162);
             this.gvWorkOutPlan.Name = "gvWorkOutPlan";
             this.gvWorkOutPlan.RowHeadersWidth = 51;
             this.gvWorkOutPlan.RowTemplate.Height = 29;
-            this.gvWorkOutPlan.Size = new System.Drawing.Size(1648, 762);
+            this.gvWorkOutPlan.Size = new System.Drawing.Size(1631, 541);
             this.gvWorkOutPlan.TabIndex = 0;
             // 
             // rjFlowLayoutPanel1
@@ -69,10 +71,11 @@ namespace GymManagementSystem
             this.rjFlowLayoutPanel1.Controls.Add(this.btnAll);
             this.rjFlowLayoutPanel1.Controls.Add(this.btnCurrent);
             this.rjFlowLayoutPanel1.Controls.Add(this.btnInDay);
+            this.rjFlowLayoutPanel1.Controls.Add(this.btnUpComing);
             this.rjFlowLayoutPanel1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.rjFlowLayoutPanel1.Location = new System.Drawing.Point(94, 104);
+            this.rjFlowLayoutPanel1.Location = new System.Drawing.Point(94, 74);
             this.rjFlowLayoutPanel1.Name = "rjFlowLayoutPanel1";
-            this.rjFlowLayoutPanel1.Size = new System.Drawing.Size(532, 68);
+            this.rjFlowLayoutPanel1.Size = new System.Drawing.Size(596, 54);
             this.rjFlowLayoutPanel1.TabIndex = 1;
             // 
             // btnAll
@@ -87,7 +90,7 @@ namespace GymManagementSystem
             this.btnAll.ForeColor = System.Drawing.Color.White;
             this.btnAll.Location = new System.Drawing.Point(3, 3);
             this.btnAll.Name = "btnAll";
-            this.btnAll.Size = new System.Drawing.Size(167, 65);
+            this.btnAll.Size = new System.Drawing.Size(140, 50);
             this.btnAll.TabIndex = 3;
             this.btnAll.Text = "All";
             this.btnAll.UseVisualStyleBackColor = false;
@@ -103,9 +106,9 @@ namespace GymManagementSystem
             this.btnCurrent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCurrent.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCurrent.ForeColor = System.Drawing.Color.White;
-            this.btnCurrent.Location = new System.Drawing.Point(176, 3);
+            this.btnCurrent.Location = new System.Drawing.Point(149, 3);
             this.btnCurrent.Name = "btnCurrent";
-            this.btnCurrent.Size = new System.Drawing.Size(167, 65);
+            this.btnCurrent.Size = new System.Drawing.Size(140, 50);
             this.btnCurrent.TabIndex = 4;
             this.btnCurrent.Text = "Current";
             this.btnCurrent.UseVisualStyleBackColor = false;
@@ -121,13 +124,31 @@ namespace GymManagementSystem
             this.btnInDay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInDay.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnInDay.ForeColor = System.Drawing.Color.White;
-            this.btnInDay.Location = new System.Drawing.Point(349, 3);
+            this.btnInDay.Location = new System.Drawing.Point(295, 3);
             this.btnInDay.Name = "btnInDay";
-            this.btnInDay.Size = new System.Drawing.Size(167, 65);
+            this.btnInDay.Size = new System.Drawing.Size(140, 50);
             this.btnInDay.TabIndex = 5;
             this.btnInDay.Text = "In Day";
             this.btnInDay.UseVisualStyleBackColor = false;
-            this.btnInDay.Click += new System.EventHandler(this.btnUpcoming_Click);
+            this.btnInDay.Click += new System.EventHandler(this.btnInDay_Click);
+            // 
+            // btnUpComing
+            // 
+            this.btnUpComing.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
+            this.btnUpComing.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnUpComing.BorderRadius = 40;
+            this.btnUpComing.BorderSize = 0;
+            this.btnUpComing.FlatAppearance.BorderSize = 0;
+            this.btnUpComing.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpComing.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnUpComing.ForeColor = System.Drawing.Color.White;
+            this.btnUpComing.Location = new System.Drawing.Point(441, 3);
+            this.btnUpComing.Name = "btnUpComing";
+            this.btnUpComing.Size = new System.Drawing.Size(140, 50);
+            this.btnUpComing.TabIndex = 6;
+            this.btnUpComing.Text = "UpComing";
+            this.btnUpComing.UseVisualStyleBackColor = false;
+            this.btnUpComing.Click += new System.EventHandler(this.btnUpcoming_Click);
             // 
             // rjFlowLayoutPanel2
             // 
@@ -137,11 +158,11 @@ namespace GymManagementSystem
             this.rjFlowLayoutPanel2.BorderSize = 0;
             this.rjFlowLayoutPanel2.Controls.Add(this.btnAdd);
             this.rjFlowLayoutPanel2.Controls.Add(this.btnEdit);
-            this.rjFlowLayoutPanel2.Controls.Add(this.btnDelete);
+            this.rjFlowLayoutPanel2.Controls.Add(this.rjButton1);
             this.rjFlowLayoutPanel2.ForeColor = System.Drawing.Color.White;
-            this.rjFlowLayoutPanel2.Location = new System.Drawing.Point(1252, 104);
+            this.rjFlowLayoutPanel2.Location = new System.Drawing.Point(1279, 74);
             this.rjFlowLayoutPanel2.Name = "rjFlowLayoutPanel2";
-            this.rjFlowLayoutPanel2.Size = new System.Drawing.Size(473, 68);
+            this.rjFlowLayoutPanel2.Size = new System.Drawing.Size(446, 54);
             this.rjFlowLayoutPanel2.TabIndex = 2;
             // 
             // btnAdd
@@ -156,7 +177,7 @@ namespace GymManagementSystem
             this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.Location = new System.Drawing.Point(3, 3);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(167, 65);
+            this.btnAdd.Size = new System.Drawing.Size(145, 50);
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -172,31 +193,30 @@ namespace GymManagementSystem
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(176, 3);
+            this.btnEdit.Location = new System.Drawing.Point(154, 3);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(199, 65);
+            this.btnEdit.Size = new System.Drawing.Size(140, 50);
             this.btnEdit.TabIndex = 1;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
-            // btnDelete
+            // rjButton1
             // 
-            this.btnDelete.BackColor = System.Drawing.Color.Transparent;
-            this.btnDelete.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnDelete.BorderRadius = 40;
-            this.btnDelete.BorderSize = 0;
-            this.btnDelete.FlatAppearance.BorderSize = 0;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Image = global::GymManagementSystem.Properties.Resources.delete;
-            this.btnDelete.Location = new System.Drawing.Point(381, 3);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(83, 65);
-            this.btnDelete.TabIndex = 2;
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.rjButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
+            this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton1.BorderRadius = 40;
+            this.rjButton1.BorderSize = 0;
+            this.rjButton1.FlatAppearance.BorderSize = 0;
+            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.rjButton1.ForeColor = System.Drawing.Color.White;
+            this.rjButton1.Location = new System.Drawing.Point(300, 3);
+            this.rjButton1.Name = "rjButton1";
+            this.rjButton1.Size = new System.Drawing.Size(140, 50);
+            this.rjButton1.TabIndex = 2;
+            this.rjButton1.Text = "Delete";
+            this.rjButton1.UseVisualStyleBackColor = false;
             // 
             // txtSearch
             // 
@@ -204,10 +224,11 @@ namespace GymManagementSystem
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(91)))), ((int)(((byte)(92)))));
-            this.txtSearch.Location = new System.Drawing.Point(20, 19);
+            this.txtSearch.Location = new System.Drawing.Point(15, 11);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(493, 31);
             this.txtSearch.TabIndex = 0;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // rjPanel1
             // 
@@ -216,29 +237,42 @@ namespace GymManagementSystem
             this.rjPanel1.BorderRadius = 40;
             this.rjPanel1.BorderSize = 1;
             this.rjPanel1.Controls.Add(this.txtSearch);
-            this.rjPanel1.Controls.Add(this.rjButton7);
+            this.rjPanel1.Controls.Add(this.btnSearch);
             this.rjPanel1.ForeColor = System.Drawing.Color.White;
-            this.rjPanel1.Location = new System.Drawing.Point(644, 104);
+            this.rjPanel1.Location = new System.Drawing.Point(696, 78);
             this.rjPanel1.Name = "rjPanel1";
-            this.rjPanel1.Size = new System.Drawing.Size(588, 68);
+            this.rjPanel1.Size = new System.Drawing.Size(573, 52);
             this.rjPanel1.TabIndex = 3;
             // 
-            // rjButton7
+            // btnSearch
             // 
-            this.rjButton7.BackColor = System.Drawing.Color.Transparent;
-            this.rjButton7.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton7.BorderRadius = 40;
-            this.rjButton7.BorderSize = 0;
-            this.rjButton7.FlatAppearance.BorderSize = 0;
-            this.rjButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton7.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.rjButton7.ForeColor = System.Drawing.Color.White;
-            this.rjButton7.Image = global::GymManagementSystem.Properties.Resources.magnifying_glass;
-            this.rjButton7.Location = new System.Drawing.Point(519, 3);
-            this.rjButton7.Name = "rjButton7";
-            this.rjButton7.Size = new System.Drawing.Size(58, 62);
-            this.rjButton7.TabIndex = 3;
-            this.rjButton7.UseVisualStyleBackColor = false;
+            this.btnSearch.BackColor = System.Drawing.Color.Transparent;
+            this.btnSearch.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnSearch.BorderRadius = 40;
+            this.btnSearch.BorderSize = 0;
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.Image = global::GymManagementSystem.Properties.Resources.search;
+            this.btnSearch.Location = new System.Drawing.Point(526, 6);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(36, 36);
+            this.btnSearch.TabIndex = 3;
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // rjPanel2
+            // 
+            this.rjPanel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.rjPanel2.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjPanel2.BorderRadius = 40;
+            this.rjPanel2.BorderSize = 0;
+            this.rjPanel2.ForeColor = System.Drawing.Color.White;
+            this.rjPanel2.Location = new System.Drawing.Point(94, 726);
+            this.rjPanel2.Name = "rjPanel2";
+            this.rjPanel2.Size = new System.Drawing.Size(1631, 268);
+            this.rjPanel2.TabIndex = 4;
             // 
             // FViewWorkOutPlan
             // 
@@ -246,6 +280,7 @@ namespace GymManagementSystem
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1820, 1080);
+            this.Controls.Add(this.rjPanel2);
             this.Controls.Add(this.rjPanel1);
             this.Controls.Add(this.rjFlowLayoutPanel2);
             this.Controls.Add(this.rjFlowLayoutPanel1);
@@ -269,12 +304,14 @@ namespace GymManagementSystem
         private RJFlowLayoutPanel rjFlowLayoutPanel2;
         private RJButton btnAdd;
         private RJButton btnEdit;
-        private RJButton btnDelete;
         private RJButton btnAll;
         private RJButton btnCurrent;
         private RJButton btnInDay;
         private TextBox txtSearch;
         private RJPanel rjPanel1;
-        private RJButton rjButton7;
+        private RJButton btnSearch;
+        private RJButton rjButton1;
+        private RJPanel rjPanel2;
+        private RJButton btnUpComing;
     }
 }
