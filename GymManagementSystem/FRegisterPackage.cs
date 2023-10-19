@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace GymManagementSystem
 {
-    public partial class FHomeUserMenu : Form
+    public partial class FRegisterPackage : Form
     {
-        public FHomeUserMenu()
+        public FRegisterPackage()
         {
             InitializeComponent();
-        }
-
-        private void FHomeUserMenu_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
