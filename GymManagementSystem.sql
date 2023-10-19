@@ -471,54 +471,44 @@ BEGIN
 	END
 END;
 
+GO
 
-CREATE TRIGGER TR_AddWorkoutScheduleWithTrainer ON dbo.WorkOutPlan
-INSTEAD OF INSERT, UPDATE
+-- Kiểm tra liệu member còn số buổi tập với trainer hay không 
+CREATE TRIGGER TR_WorkOutPlanHaveTrainer ON dbo.WorkOutPlan
+FOR INSERT, UPDATE
 AS 
 BEGIN
-	-- Nếu buổi tập không có trainer, tiến hành thêm buổi tập vào 
-	IF EXISTS (SELECT * FROM inserted WHERE inserted.TrainerID IS NULL)
-	BEGIN
-		INSERT INTO dbo.WorkOutPlan
-					SELECT *
-					FROM inserted;
-		RETURN;
-	END
 
-	-- Kiểm tra liệu member còn số buổi tập với trainer hay không 
 	IF EXISTS (SELECT * FROM inserted, dbo.Member WHERE inserted.TrainerID IS NOT NULL 
 						        AND inserted.MemberID=dbo.Member.ID
 							AND (Member.RemainingTS IS NULL
 						        OR   Member.RemainingTS=0))
 	BEGIN
-		RAISERROR ('Member đã hết buổi tập với trainer!!!',16,1)
-		RETURN;
+		RAISERROR ('Số buổi tập với Trainer đã hết',16,1)
+		ROLLBACK
 	END
+END
+GO
 
-	-- Kiểm tra việc đăng ký mới lịch tập với huấn luyện viên có bị trùng lịch không  
-	IF EXISTS (SELECT * FROM inserted, dbo.WorkOutPlan 
-			            WHERE inserted.TrainerID=dbo.WorkOutPlan.TrainerID)
-	BEGIN
+-- Kiểm tra việc đăng ký mới lịch tập với huấn luyện viên có bị trùng lịch không 
+CREATE TRIGGER TR_WorkOutPlaConflictChecking ON WorkOutPlan
+FOR INSERT, UPDATE 
+AS
+BEGIN
 		IF EXISTS (SELECT * FROM inserted, dbo.WorkOutPlan 
-							WHERE (inserted.TrainerID=dbo.WorkOutPlan.TrainerID) 
-							  AND (inserted.[Date]=dbo.WorkOutPlan.[Date]))
+							WHERE (inserted.TrainerID = dbo.WorkOutPlan.TrainerID) 
+							AND (inserted.ID != WorkOutPlan.ID)
+							AND (inserted.[Date] = dbo.WorkOutPlan.[Date])
+							AND ABS(CAST(DATEDIFF(MINUTE, inserted.[Time], WorkOutPlan.[Time]) AS INT)) <= 120)
 		BEGIN
-			IF (NOT EXISTS(SELECT * FROM inserted, dbo.WorkOutPlan, dbo.PlanDetails, dbo.WorkOut
-					   WHERE (inserted.TrainerID=dbo.WorkOutPlan.TrainerID) 
-					     AND (inserted.[Date]=dbo.WorkOutPlan.[Date])
-						 AND (DATEDIFF(MINUTE, DATEADD(MINUTE, 120, CAST(inserted.[Time] AS TIME)), WorkOutPlan.[Time]) >= 0 
-						 OR   DATEDIFF(MINUTE, DATEADD(MINUTE, 120, CAST(dbo.WorkOutPlan.[Time] AS TIME)), inserted.[Time]) >= 0)))
-			BEGIN
-				RAISERROR ('Lịch tập bị trùng',16,1)
-				RETURN;
-			END
+				RAISERROR ('Trainer đã có lịch trong khung giờ này',16,1)
+				ROLLBACK
 		END
-	END
-	INSERT INTO dbo.WorkOutPlan
-					SELECT *
-					FROM inserted;
-END;
+		
+END
 
+
+GO
 
 INSERT INTO MembershipType (ID, [Rank], Rate)
 VALUES ('000001', N'Hội viên', 0),
@@ -599,25 +589,25 @@ VALUES
 	('PK0010', 'Package 10', 3, 120.00, 'Description 10', 6);
 
 GO 
-INSERT INTO Member ([ID], [MembershipTypeID], [Name], [Gender], [PhoneNumber], [Address], [Balance], [PackageID], [EndOfPackageDate])
+INSERT INTO Member ([ID], [MembershipTypeID], [Name], [Gender], [PhoneNumber], [Address], [Balance], [PackageID], [EndOfPackageDate],RemainingTS)
 VALUES
-	('MEM011', '000001', 'Member 1', 'm', '1234567890', 'Address 1', 100.00, 'PK0001', '2023-12-01'),
-	('MEM002', '000002', 'Member 2', 'f', '2345678901', 'Address 2', 200.00, 'PK0002', '2023-12-01'),
-	('MEM003', '000003', 'Member 3', 'm', '3456789012', 'Address 3', 300.00, 'PK0003', '2023-12-01'),
-	('MEM004', '000001', 'Member 4', 'f', '4567890123', 'Address 4', 400.00, 'PK0004', '2023-12-01'),
-	('MEM005', '000002', 'Member 5', 'm', '5678901234', 'Address 5', 500.00, 'PK0005', '2023-12-01'),
-	('MEM006', '000003', 'Member 6', 'f', '6789012345', 'Address 6', 600.00, 'PK0006', '2023-12-01'),
-	('MEM007', '000001', 'Member 7', 'm', '7890123456', 'Address 7', 700.00, 'PK0007', '2023-12-01'),
-	('MEM008', '000002', 'Member 8', 'f', '8901234567', 'Address 8', 800.00, 'PK0008', '2023-12-01'),
-	('MEM009', '000003', 'Member 9', 'm', '9012345678', 'Address 9', 900.00, 'PK0009', '2023-12-01'),
-	('MEM010', '000001', 'Member 10', 'f', '0123456789', 'Address 10', 1000.00, 'PK0010', '2023-12-01');
+	('MEM011', '000001', 'Member 1', 'm', '1234567890', 'Address 1', 100.00, 'PK0001', '2023-12-01',11),
+	('MEM002', '000002', 'Member 2', 'f', '2345678901', 'Address 2', 200.00, 'PK0002', '2023-12-01',0),
+	('MEM003', '000003', 'Member 3', 'm', '3456789012', 'Address 3', 300.00, 'PK0003', '2023-12-01',NULL),
+	('MEM004', '000001', 'Member 4', 'f', '4567890123', 'Address 4', 400.00, 'PK0004', '2023-12-01',23),
+	('MEM005', '000002', 'Member 5', 'm', '5678901234', 'Address 5', 500.00, 'PK0005', '2023-12-01',44),
+	('MEM006', '000003', 'Member 6', 'f', '6789012345', 'Address 6', 600.00, 'PK0006', '2023-12-01',0),
+	('MEM007', '000001', 'Member 7', 'm', '7890123456', 'Address 7', 700.00, 'PK0007', '2023-12-01',NULL),
+	('MEM008', '000002', 'Member 8', 'f', '8901234567', 'Address 8', 800.00, 'PK0008', '2023-12-01',1),
+	('MEM009', '000003', 'Member 9', 'm', '9012345678', 'Address 9', 900.00, 'PK0009', '2023-12-01',3),
+	('MEM010', '000001', 'Member 10', 'f', '0123456789', 'Address 10', 1000.00, 'PK0010', '2023-12-01',2);
 
 GO 
 INSERT INTO WorkOutPlan ([ID], [MemberID], [TrainerID], [BranchID], [Time], [Date])
 VALUES
-	('WOP001', 'MEM001', 'TR0001', 'BR0001', '08:00:00', '2023-11-01'),
-	('WOP002', 'MEM002', 'TR0002', 'BR0002', '09:00:00', '2023-11-02'),
-	('WOP003', 'MEM003', 'TR0003', 'BR0003', '10:00:00', '2023-11-03'),
+	('WOP001', 'MEM001', 'TR0001', 'BR0001', '08:00:00', '2023-12-01'),
+	('WOP002', 'MEM002', 'TR0002', 'BR0002', '09:00:00', '2023-12-02'),
+	('WOP003', 'MEM003', 'TR0003', 'BR0003', '10:00:00', '2023-12-03'),
 	('WOP004', 'MEM004', 'TR0004', 'BR0004', '11:00:00', '2023-11-04'),
 	('WOP005', 'MEM005', 'TR0005', 'BR0005', '12:00:00', '2023-11-05'),
 	('WOP006', 'MEM006', 'TR0006', 'BR0001', '13:00:00', '2023-11-06'),
@@ -632,8 +622,6 @@ INSERT INTO WorkOutPlan ([ID], [MemberID], [TrainerID], [BranchID], [Time], [Dat
 VALUES
 	('WOP014', 'MEM012', 'TR0001', 'BR0001', '10:00:00', '2023-11-01')
 
-SELECT * FROM dbo.WorkOutPlan;
-GO
 INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP001', 'WO0001')
@@ -777,7 +765,7 @@ BEGIN
         RAISERROR ( 'Buổi tập có thời lượng quá 2 tiếng',16,1);
     END CATCH;
 END
-
+GO
 
 --Proc tìm kiếm trogn lịch tập
 CREATE PROCEDURE PROC_FindWorkOutPlan
@@ -793,4 +781,47 @@ BEGIN
 		SELECT * FROM V_MemberWorkOutScheduleCurrent WHERE  (ID = @Content OR MemberName LIKE N'%' + @Content + '%' OR TrainerName  LIKE N'%' + @Content + '%' OR BranchName  LIKE N'%' + @Content + '%' OR MemberID = @Content OR TrainerID = @Content OR BranchID = @Content)
 	ELSE IF (@FilterType = 3)
 		SELECT * FROM V_MemberWorkOutScheduleUpcoming WHERE  (ID = @Content OR MemberName LIKE N'%' + @Content + '%' OR TrainerName  LIKE N'%' + @Content + '%' OR BranchName  LIKE N'%' + @Content + '%' OR MemberID = @Content OR TrainerID = @Content OR BranchID = @Content)
+END
+GO
+-- PROC Cập nhật remaingTS
+CREATE PROCEDURE PROC_UpdateRemainingTS
+@WorkOutPlanID char(6)
+AS
+BEGIN
+	UPDATE Member SET RemainingTS = RemainingTS - 1
+	FROM Member JOIN WorkOutPlan ON Member.ID = WorkOutPlan.MemberID 
+	WHERE WorkOutPlan.ID = @WorkOutPlanID AND WorkOutPlan.TrainerID IS NOT NULL
+END
+
+GO
+CREATE PROCEDURE PROC_UpdateWorkOutPlan
+	@Date Date,
+	@Time Time,
+	@ID CHAR(6),
+	@MemberID CHAR(6)
+AS 
+BEGIN
+	IF NOT EXISTS
+    (
+        SELECT *
+        FROM WorkOutPlan
+        WHERE MemberID = @MemberID
+        AND [Date] = @Date
+        AND (
+            (DATEADD(HOUR, -2, Time) <= @Time AND @Time <= Time)
+            OR (Time <= @Time AND @Time <= DATEADD(HOUR, 2, Time))
+        )
+		AND WorkOutPlan.ID != @ID
+    )
+	BEGIN
+		IF  (SELECT TrainerID FROM WorkOutPlan WHERE ID = @ID) IS NOT NULL 
+		BEGIN
+			UPDATE Member SET RemainingTS = RemainingTS + 1 WHERE Member.ID = @MemberID
+		END
+		UPDATE WorkOutPlan SET Time = @Time, Date = @Date WHERE WorkOutPlan.ID = @ID
+	END
+	ELSE
+	BEGIN
+		RAISERROR ( 'Buổi tập có thời gian quá gần với một lịch khác mà Member đăng ký',16,1);
+	END
 END

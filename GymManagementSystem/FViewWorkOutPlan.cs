@@ -20,6 +20,7 @@ namespace GymManagementSystem
             InitializeComponent();
             filter = Filter.All;
             gvWorkOutPlan.DataSource = LoadWorkOutPlan(filter,"");
+            HeaderText();
         }
         enum Filter
         {
@@ -87,12 +88,19 @@ namespace GymManagementSystem
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
+            StackForm.HomeUser.ChildForm.Open(new FCreateWorkOutPlan());
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-
+            WorkOutPlan wop = new WorkOutPlan()
+            {
+                ID = (lblID.Text).Replace("ID: ", ""),
+                Time = dtpTime.Value.TimeOfDay,
+                Date = dtpDate.Value.Date,
+                MemberID = gvWorkOutPlan.CurrentRow.Cells["MemberId"].Value.ToString()
+            };
+            UpdateWorkOutPlan(wop);
         }
 
 
@@ -124,6 +132,66 @@ namespace GymManagementSystem
                 dtpDate.Value = (DateTime)gvWorkOutPlan.CurrentRow.Cells["Date"].Value;
                 dtpTime.Value = (DateTime)gvWorkOutPlan.CurrentRow.Cells["Date"].Value + (TimeSpan)gvWorkOutPlan.CurrentRow.Cells["Time"].Value;
             }    
+        }
+
+        private void UpdateWorkOutPlan(WorkOutPlan wop)
+        {
+            DBConnection connection = new DBConnection();
+            connection.openConnection();
+            try
+            {
+
+                String query = "PROC_UpdateWorkOutPlan";
+                SqlCommand command = new SqlCommand(query, connection.GetConnection());
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@Date", wop.Date);
+                command.Parameters.AddWithValue("@Time", wop.Time);
+                command.Parameters.AddWithValue("@ID", wop.ID);
+                command.Parameters.AddWithValue("@MemberID", wop.MemberID);
+
+                command.ExecuteNonQuery();
+            }
+            catch
+            (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                connection.closeConnection();
+                return;
+            }
+            connection.closeConnection();
+            connection.openConnection();
+
+            String query2 = "PROC_UpdateRemainingTS";
+            SqlCommand command2 = new SqlCommand(query2, connection.GetConnection());
+            command2.CommandType = CommandType.StoredProcedure;
+            command2.Parameters.AddWithValue("@WorkOutPlanID", wop.ID);
+            command2.ExecuteNonQuery();
+            connection.closeConnection();
+            MessageBox.Show("Cập nhật thành công");
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DBConnection connection = new DBConnection();
+            connection.openConnection();
+            try
+            {
+
+                String query = $"DELETE FROM WorkOutPlan WHERE ID = @ID";
+                SqlCommand command = new SqlCommand(query, connection.GetConnection());
+                command.CommandType = CommandType.Text;
+                command.Parameters.AddWithValue("@ID", lblID.Text.Replace("ID: ", ""));
+                command.ExecuteNonQuery();
+            }
+            catch
+            (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                connection.closeConnection();
+                return;
+            }
+            connection.closeConnection();
+            MessageBox.Show("Xóa thành công");
         }
     }
 }

@@ -389,7 +389,20 @@ namespace GymManagementSystem
                 
             }
             connection.closeConnection();
+            connection.openConnection();
+
+            String query2 = "PROC_UpdateRemainingTS";
+            SqlCommand command2 = new SqlCommand(query2, connection.GetConnection());
+            command2.CommandType = CommandType.StoredProcedure;
+            command2.Parameters.AddWithValue("@WorkOutPlanID", txtID.Text);
+            command2.ExecuteNonQuery();
+            connection.closeConnection();
             MessageBox.Show("Thêm thành công");
+        }
+
+        private void btnManage_Click(object sender, EventArgs e)
+        {
+            StackForm.HomeUser.ChildForm.Open(new FViewWorkOutPlan());
         }
     }
 }
