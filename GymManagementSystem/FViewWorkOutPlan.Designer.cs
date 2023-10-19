@@ -30,6 +30,9 @@ namespace GymManagementSystem
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gvWorkOutPlan = new System.Windows.Forms.DataGridView();
             this.rjFlowLayoutPanel1 = new GymManagementSystem.RJFlowLayoutPanel();
             this.btnAll = new GymManagementSystem.RJButton();
@@ -44,24 +47,64 @@ namespace GymManagementSystem
             this.rjPanel1 = new GymManagementSystem.RJPanel();
             this.btnSearch = new GymManagementSystem.RJButton();
             this.rjPanel2 = new GymManagementSystem.RJPanel();
+            this.dtpTime = new System.Windows.Forms.DateTimePicker();
+            this.dtpDate = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblTime = new System.Windows.Forms.Label();
             this.rjPanel3 = new GymManagementSystem.RJPanel();
+            this.lblMember = new System.Windows.Forms.Label();
+            this.lblTrainer = new System.Windows.Forms.Label();
+            this.lblBranch = new System.Windows.Forms.Label();
+            this.lblID = new System.Windows.Forms.Label();
+            this.rjPanel4 = new GymManagementSystem.RJPanel();
             ((System.ComponentModel.ISupportInitialize)(this.gvWorkOutPlan)).BeginInit();
             this.rjFlowLayoutPanel1.SuspendLayout();
             this.rjFlowLayoutPanel2.SuspendLayout();
             this.rjPanel1.SuspendLayout();
+            this.rjPanel2.SuspendLayout();
+            this.rjPanel3.SuspendLayout();
+            this.rjPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // gvWorkOutPlan
             // 
+            this.gvWorkOutPlan.AllowUserToAddRows = false;
+            this.gvWorkOutPlan.AllowUserToDeleteRows = false;
+            this.gvWorkOutPlan.AllowUserToResizeColumns = false;
+            this.gvWorkOutPlan.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.gvWorkOutPlan.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.gvWorkOutPlan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gvWorkOutPlan.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.gvWorkOutPlan.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gvWorkOutPlan.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.gvWorkOutPlan.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.gvWorkOutPlan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gvWorkOutPlan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvWorkOutPlan.Location = new System.Drawing.Point(100, 317);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gvWorkOutPlan.DefaultCellStyle = dataGridViewCellStyle3;
+            this.gvWorkOutPlan.Location = new System.Drawing.Point(3, 0);
             this.gvWorkOutPlan.Name = "gvWorkOutPlan";
+            this.gvWorkOutPlan.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.gvWorkOutPlan.RowHeadersVisible = false;
             this.gvWorkOutPlan.RowHeadersWidth = 51;
             this.gvWorkOutPlan.RowTemplate.Height = 29;
-            this.gvWorkOutPlan.Size = new System.Drawing.Size(1625, 665);
+            this.gvWorkOutPlan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gvWorkOutPlan.Size = new System.Drawing.Size(1631, 605);
             this.gvWorkOutPlan.TabIndex = 0;
+            this.gvWorkOutPlan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvWorkOutPlan_CellClick);
             // 
             // rjFlowLayoutPanel1
             // 
@@ -269,11 +312,52 @@ namespace GymManagementSystem
             this.rjPanel2.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.rjPanel2.BorderRadius = 40;
             this.rjPanel2.BorderSize = 0;
+            this.rjPanel2.Controls.Add(this.dtpTime);
+            this.rjPanel2.Controls.Add(this.dtpDate);
+            this.rjPanel2.Controls.Add(this.label2);
+            this.rjPanel2.Controls.Add(this.lblTime);
             this.rjPanel2.ForeColor = System.Drawing.Color.White;
             this.rjPanel2.Location = new System.Drawing.Point(1279, 162);
             this.rjPanel2.Name = "rjPanel2";
             this.rjPanel2.Size = new System.Drawing.Size(440, 121);
             this.rjPanel2.TabIndex = 4;
+            // 
+            // dtpTime
+            // 
+            this.dtpTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpTime.Location = new System.Drawing.Point(121, 20);
+            this.dtpTime.Name = "dtpTime";
+            this.dtpTime.Size = new System.Drawing.Size(250, 27);
+            this.dtpTime.TabIndex = 3;
+            // 
+            // dtpDate
+            // 
+            this.dtpDate.Location = new System.Drawing.Point(121, 70);
+            this.dtpDate.Name = "dtpDate";
+            this.dtpDate.Size = new System.Drawing.Size(250, 27);
+            this.dtpDate.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
+            this.label2.Location = new System.Drawing.Point(25, 70);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(57, 28);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Date:";
+            // 
+            // lblTime
+            // 
+            this.lblTime.AutoSize = true;
+            this.lblTime.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
+            this.lblTime.Location = new System.Drawing.Point(25, 20);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(58, 28);
+            this.lblTime.TabIndex = 0;
+            this.lblTime.Text = "Time:";
             // 
             // rjPanel3
             // 
@@ -281,11 +365,72 @@ namespace GymManagementSystem
             this.rjPanel3.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.rjPanel3.BorderRadius = 40;
             this.rjPanel3.BorderSize = 0;
+            this.rjPanel3.Controls.Add(this.lblMember);
+            this.rjPanel3.Controls.Add(this.lblTrainer);
+            this.rjPanel3.Controls.Add(this.lblBranch);
+            this.rjPanel3.Controls.Add(this.lblID);
             this.rjPanel3.ForeColor = System.Drawing.Color.White;
             this.rjPanel3.Location = new System.Drawing.Point(94, 162);
             this.rjPanel3.Name = "rjPanel3";
             this.rjPanel3.Size = new System.Drawing.Size(1110, 121);
             this.rjPanel3.TabIndex = 5;
+            // 
+            // lblMember
+            // 
+            this.lblMember.AutoSize = true;
+            this.lblMember.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMember.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
+            this.lblMember.Location = new System.Drawing.Point(469, 22);
+            this.lblMember.Name = "lblMember";
+            this.lblMember.Size = new System.Drawing.Size(95, 28);
+            this.lblMember.TabIndex = 3;
+            this.lblMember.Text = "Member:";
+            // 
+            // lblTrainer
+            // 
+            this.lblTrainer.AutoSize = true;
+            this.lblTrainer.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTrainer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
+            this.lblTrainer.Location = new System.Drawing.Point(469, 72);
+            this.lblTrainer.Name = "lblTrainer";
+            this.lblTrainer.Size = new System.Drawing.Size(79, 28);
+            this.lblTrainer.TabIndex = 2;
+            this.lblTrainer.Text = "Trainer:";
+            // 
+            // lblBranch
+            // 
+            this.lblBranch.AutoSize = true;
+            this.lblBranch.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBranch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
+            this.lblBranch.Location = new System.Drawing.Point(42, 72);
+            this.lblBranch.Name = "lblBranch";
+            this.lblBranch.Size = new System.Drawing.Size(79, 28);
+            this.lblBranch.TabIndex = 1;
+            this.lblBranch.Text = "Branch:";
+            // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
+            this.lblID.Location = new System.Drawing.Point(42, 19);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(42, 30);
+            this.lblID.TabIndex = 0;
+            this.lblID.Text = "ID:";
+            // 
+            // rjPanel4
+            // 
+            this.rjPanel4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.rjPanel4.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjPanel4.BorderRadius = 40;
+            this.rjPanel4.BorderSize = 0;
+            this.rjPanel4.Controls.Add(this.gvWorkOutPlan);
+            this.rjPanel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
+            this.rjPanel4.Location = new System.Drawing.Point(94, 319);
+            this.rjPanel4.Name = "rjPanel4";
+            this.rjPanel4.Size = new System.Drawing.Size(1625, 625);
+            this.rjPanel4.TabIndex = 6;
             // 
             // FViewWorkOutPlan
             // 
@@ -293,12 +438,12 @@ namespace GymManagementSystem
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1820, 1080);
+            this.Controls.Add(this.rjPanel4);
             this.Controls.Add(this.rjPanel3);
             this.Controls.Add(this.rjPanel2);
             this.Controls.Add(this.rjPanel1);
             this.Controls.Add(this.rjFlowLayoutPanel2);
             this.Controls.Add(this.rjFlowLayoutPanel1);
-            this.Controls.Add(this.gvWorkOutPlan);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FViewWorkOutPlan";
             this.Text = "FViewWorkOutPlan";
@@ -307,6 +452,11 @@ namespace GymManagementSystem
             this.rjFlowLayoutPanel2.ResumeLayout(false);
             this.rjPanel1.ResumeLayout(false);
             this.rjPanel1.PerformLayout();
+            this.rjPanel2.ResumeLayout(false);
+            this.rjPanel2.PerformLayout();
+            this.rjPanel3.ResumeLayout(false);
+            this.rjPanel3.PerformLayout();
+            this.rjPanel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -328,5 +478,14 @@ namespace GymManagementSystem
         private RJButton btnUpComing;
         private RJPanel rjPanel2;
         private RJPanel rjPanel3;
+        private Label label2;
+        private Label lblTime;
+        private DateTimePicker dtpTime;
+        private DateTimePicker dtpDate;
+        private Label lblMember;
+        private Label lblTrainer;
+        private Label lblBranch;
+        private Label lblID;
+        private RJPanel rjPanel4;
     }
 }
