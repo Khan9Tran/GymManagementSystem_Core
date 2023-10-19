@@ -140,17 +140,49 @@ CREATE TABLE PlanDetails(
 	);
 
 GO
+--Xem lịch tập các hội viên 
+CREATE VIEW V_MemberWorkOutSchedule AS
+SELECT WOP.ID, WOP.MemberID, Member.Name AS MemberName, WOP.TrainerID, Trainer.Name AS TrainerName, WOP.BranchID, Branch.Name AS BranchName, WOP.[Time], WOP.[Date]
+FROM dbo.WorkOutPlan WOP
+	JOIN dbo.Member ON WOP.MemberID = Member.ID
+	JOIN dbo.Branch ON WOP.BranchID = Branch.ID
+	JOIN dbo.Trainer ON WOP.TrainerID = Trainer.ID
+GO
 
 --Xem lịch tập các hội viên trong ngày
-CREATE VIEW V_MemberWorkOutSchedule AS
-SELECT mb.[Name] as MemberName, mb.[PhoneNumber] as MemberPhoneNumber, wop.[Time],
-bn.[Name] as BranchName, tn.[Name] as TrainerName, tn.PhoneNumber as TrainerPhoneNumber
-FROM dbo.WorkOutPlan wop 
-	JOIN dbo.Member mb ON wop.MemberID = mb.ID
-	JOIN dbo.Branch bn ON wop.BranchID = bn.ID
-	JOIN dbo.Trainer tn ON wop.TrainerID = tn.ID
+CREATE VIEW V_MemberWorkOutScheduleInDay AS
+SELECT WOP.ID, WOP.MemberID, Member.Name AS MemberName, WOP.TrainerID, Trainer.Name AS TrainerName, WOP.BranchID, Branch.Name AS BranchName, WOP.[Time], WOP.[Date]
+FROM dbo.WorkOutPlan WOP
+	JOIN dbo.Member ON WOP.MemberID = Member.ID
+	JOIN dbo.Branch ON WOP.BranchID = Branch.ID
+	JOIN dbo.Trainer ON WOP.TrainerID = Trainer.ID
 WHERE CONVERT(DATE, wop.Date) = CONVERT(DATE, GETDATE());
-
+GO
+--Xem buổi tập sắp tới
+CREATE VIEW V_MemberWorkOutScheduleUpcoming AS
+SELECT WOP.ID, WOP.MemberID, Member.Name AS MemberName, WOP.TrainerID, Trainer.Name AS TrainerName, WOP.BranchID, Branch.Name AS BranchName, WOP.[Time], WOP.[Date]
+FROM dbo.WorkOutPlan WOP
+	JOIN dbo.Member ON WOP.MemberID = Member.ID
+	JOIN dbo.Branch ON WOP.BranchID = Branch.ID
+	JOIN dbo.Trainer ON WOP.TrainerID = Trainer.ID
+WHERE CONVERT(DATE, wop.Date) >= CONVERT(DATE, GETDATE());
+GO
+--View xem các buổi tập đang diễn ra
+CREATE VIEW  V_MemberWorkOutScheduleCurrent AS
+SELECT WOP.ID, WOP.MemberID, Member.Name AS MemberName, WOP.TrainerID, Trainer.Name AS TrainerName, WOP.BranchID, Branch.Name AS BranchName, WOP.[Time], WOP.[Date]
+FROM WorkOutPlan WOP
+JOIN (
+    SELECT PD.WorkOutPlanID, SUM([Duration]) AS TotalDuration
+    FROM WorkOut WO
+	JOIN PlanDetails PD ON WO.ID = PD.WorkOutID 
+    GROUP BY PD.WorkOutPlanID
+)	
+	AS WD ON WOP.ID = WD.WorkOutPlanID
+	JOIN Member ON WOP.MemberID = Member.ID 
+	JOIN Trainer ON WOP.TrainerID = Trainer.ID
+	JOIN Branch ON WOP.BranchID = Branch.ID
+	WHERE WOP.[Time] <= CONVERT(TIME, GETDATE())
+	AND DATEADD(MINUTE, WD.TotalDuration,[Time]) >= CONVERT(TIME, GETDATE()) AND  [Date] = CONVERT(DATE, GETDATE())
 GO
 
 --Danh sách thành viên hết hạn gói tập
@@ -238,20 +270,7 @@ FROM dbo.Equipment e
 	JOIN dbo.Branch b ON e.BranchID = b.ID
 	JOIN dbo.EquipmentCategory ec ON e.CategoryID = ec.ID
 GO
---View xem các buổi tập đang diễn ra
-CREATE VIEW V_CurrentWorkOuts AS
-SELECT WOP.ID, WOP.MemberID, WOP.TrainerID, WOP.BranchID, WOP.[Time], WOP.[Date]
-FROM WorkOutPlan WOP
-JOIN (
-    SELECT PD.WorkOutPlanID, SUM([Duration]) AS TotalDuration
-    FROM WorkOut WO
-	JOIN PlanDetails PD ON WO.ID = PD.WorkOutID 
-    GROUP BY PD.WorkOutPlanID
-)	
-	AS WD ON WOP.ID = WD.WorkOutPlanID
-	WHERE WOP.[Time] <= CONVERT(TIME, GETDATE())
-	AND DATEADD(MINUTE, WD.TotalDuration,[Time]) >= CONVERT(TIME, GETDATE()) AND  [Date] = CONVERT(DATE, GETDATE())
-GO
+
 
 -- Trigger cập nhật số dư khi hội viên thực hiện thanh toán và tính số tiền khách cần phải trả cập nhật về Payment
 CREATE TRIGGER TR_UpdateMemberBalance
@@ -759,3 +778,19 @@ BEGIN
     END CATCH;
 END
 
+
+--Proc tìm kiếm trogn lịch tập
+CREATE PROCEDURE PROC_FindWorkOutPlan
+	@FilterType INT,
+	@Content NVARCHAR(50)
+AS
+BEGIN
+	IF (@FilterType = 0)
+			SELECT * FROM V_MemberWorkOutSchedule WHERE (ID = @Content OR MemberName LIKE N'%' + @Content + '%' OR TrainerName  LIKE N'%' + @Content + '%' OR BranchName  LIKE N'%' + @Content + '%' OR MemberID = @Content OR TrainerID = @Content OR BranchID = @Content)
+	ELSE IF (@FilterType = 1)
+		SELECT * FROM V_MemberWorkOutScheduleInDay WHERE  (ID = @Content OR MemberName LIKE N'%' + @Content + '%' OR TrainerName  LIKE N'%' + @Content + '%' OR BranchName  LIKE N'%' + @Content + '%' OR MemberID = @Content OR TrainerID = @Content OR BranchID = @Content)
+	ELSE IF (@FilterType = 2)
+		SELECT * FROM V_MemberWorkOutScheduleCurrent WHERE  (ID = @Content OR MemberName LIKE N'%' + @Content + '%' OR TrainerName  LIKE N'%' + @Content + '%' OR BranchName  LIKE N'%' + @Content + '%' OR MemberID = @Content OR TrainerID = @Content OR BranchID = @Content)
+	ELSE IF (@FilterType = 3)
+		SELECT * FROM V_MemberWorkOutScheduleUpcoming WHERE  (ID = @Content OR MemberName LIKE N'%' + @Content + '%' OR TrainerName  LIKE N'%' + @Content + '%' OR BranchName  LIKE N'%' + @Content + '%' OR MemberID = @Content OR TrainerID = @Content OR BranchID = @Content)
+END
