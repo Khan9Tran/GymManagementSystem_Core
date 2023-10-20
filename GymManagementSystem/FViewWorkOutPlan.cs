@@ -31,6 +31,7 @@ namespace GymManagementSystem
         }
         private DataTable LoadWorkOutPlan(Filter type, string search)
         {
+            fpnlWorkOut.Controls.Clear();
             String query = "PROC_FindWorkOutPlan";
             Employee.Role = 1;
             DBConnection connection = new DBConnection();
@@ -60,8 +61,9 @@ namespace GymManagementSystem
         }
         private void AddWorkOutPlan() 
         {
-            
+
             //Chuyển Form AddWorkOutPlan
+            StackForm.HomeUser.ChildForm.Open(new FCreateWorkOutPlan());
         }
         private void RemoveWorkOutPlan() 
         {
@@ -88,7 +90,7 @@ namespace GymManagementSystem
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            StackForm.HomeUser.ChildForm.Open(new FCreateWorkOutPlan());
+            AddWorkOutPlan();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -131,6 +133,14 @@ namespace GymManagementSystem
                 lblTrainer.Text = "Trainer: " + gvWorkOutPlan.CurrentRow.Cells["TrainerName"].Value.ToString();
                 dtpDate.Value = (DateTime)gvWorkOutPlan.CurrentRow.Cells["Date"].Value;
                 dtpTime.Value = (DateTime)gvWorkOutPlan.CurrentRow.Cells["Date"].Value + (TimeSpan)gvWorkOutPlan.CurrentRow.Cells["Time"].Value;
+
+                fpnlWorkOut.Controls.Clear();
+                List<WorkOut> workOuts = LoadWorkOut(gvWorkOutPlan.CurrentRow.Cells["ID"].Value.ToString());
+                foreach (var workOut in workOuts)
+                {
+                    USWorkOut wk = new USWorkOut(workOut);
+                    fpnlWorkOut.Controls.Add(wk);
+                };
             }    
         }
 
@@ -192,6 +202,37 @@ namespace GymManagementSystem
             }
             connection.closeConnection();
             MessageBox.Show("Xóa thành công");
+        }
+
+
+        private List<WorkOut> ConvertDataTableToWorkoutList(DataTable dataTable)
+        {
+            List<WorkOut> workoutList = new List<WorkOut>();
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                WorkOut workOut = new WorkOut((row["ID"]).ToString(), (row["Name"]).ToString(), (row["Description"]).ToString(), (row["Type"]).ToString(), int.Parse((row["Duration"]).ToString()));
+                workoutList.Add(workOut);
+            }
+
+            return workoutList;
+        }
+        private List<WorkOut> LoadWorkOut(string ID)
+        {
+            Employee.Role = 1;
+            DBConnection connection = new DBConnection();
+            connection.openConnection();
+
+            String query = "SELECT * FROM FUNC_FindWorkOutByWorkOutPlan(@ID)";
+            SqlCommand command = new SqlCommand(query, connection.GetConnection());
+            //command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@ID", ID);
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            connection.closeConnection();
+            return ConvertDataTableToWorkoutList((dataTable));
         }
     }
 }
