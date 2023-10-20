@@ -8,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace GymManagementSystem
 {
-    internal class RJPanel : Panel
+    internal class RJPanel:Panel
     {
-
         private int borderSize = 0;
         private int borderRadius = 40;
         private Color borderColor = Color.PaleVioletRed;

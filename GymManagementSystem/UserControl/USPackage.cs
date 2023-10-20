@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GymManagementSystem
 {
-    public partial class FRegisterPackage : Form
+    public partial class USPackage : UserControl
     {
-        public FRegisterPackage()
+        public USPackage()
         {
             InitializeComponent();
         }
