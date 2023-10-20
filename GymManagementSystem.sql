@@ -512,10 +512,11 @@ END
 GO
 
 INSERT INTO MembershipType (ID, [Rank], Rate)
-VALUES ('000001', N'Hội viên', 0),
+VALUES ('000001', N'Thành viên', 0),
        ('000002', N'Đồng', 0.04),
        ('000003', N'Bạc', 0.08),
-       ('000004', N'Vàng', 0.12);
+       ('000004', N'Vàng', 0.12),
+	   ('000005', N'Bạch kim', 0.16)
 
 INSERT INTO WorkOut (ID, Name, Type, Description, Duration)
 VALUES
@@ -826,6 +827,7 @@ BEGIN
 		RAISERROR ( 'Buổi tập có thời gian quá gần với một lịch khác mà Member đăng ký',16,1);
 	END
 END
+
 GO
 
 --Hàm tìm WorkOut theo WorkOutPlanID
@@ -833,6 +835,4 @@ CREATE FUNCTION FUNC_FindWorkOutByWorkOutPlan(@ID char(6))
 RETURNS TABLE
 AS
 	RETURN SELECT * FROM V_WorkOutList WHERE ID IN (SELECT WorkOutID FROM PlanDeTails WHERE WorkOutPlanID = @ID)
-
 GO
-Select *FRom MembershipType

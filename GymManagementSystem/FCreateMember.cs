@@ -19,6 +19,7 @@ namespace GymManagementSystem
         {
             InitializeComponent();
             pnlLoadMBS.Hide();
+            txtID.Text = RandomIDGenerator.GenerateRandomID("Member", "M");
         }
 
         private void Confirm()
