@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GymManagementSystem.Models
 {
-    internal class Member
+    public class Member
     {
         private string iD;
         private string name;
@@ -14,13 +14,13 @@ namespace GymManagementSystem.Models
         private string phoneNumber;
         private string packageID;
         private DateTime endOfPackageDate;
-        private string remainingTS;
+        private int remainingTS;
         private string membershipTypeID;
         private string address;
         private Decimal balance;
 
         public Member() { }
-        public Member(string iD, string name, string gender, string phoneNumber, string packageID, DateTime endOfPackageDate, string remainingTS, string membershipTypeID, string address, decimal balance)
+        public Member(string iD, string name, string gender, string phoneNumber, string packageID, DateTime endOfPackageDate, int remainingTS, string membershipTypeID, string address, decimal balance)
         {
             this.iD = iD;
             this.name = name;
@@ -40,7 +40,7 @@ namespace GymManagementSystem.Models
         public string PhoneNumber { get => phoneNumber; set => phoneNumber = value; }
         public string PackageID { get => packageID; set => packageID = value; }
         public DateTime EndOfPackageDate { get => endOfPackageDate; set => endOfPackageDate = value; }
-        public string RemainingTS { get => remainingTS; set => remainingTS = value; }
+        public int RemainingTS { get => remainingTS; set => remainingTS = value; }
         public string MembershipTypeID { get => membershipTypeID; set => membershipTypeID = value; }
         public string Address { get => address; set => address = value; }
         public decimal Balance { get => balance; set => balance = value; }

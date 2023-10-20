@@ -31,6 +31,10 @@ namespace GymManagementSystem
         private void InitializeComponent()
         {
             this.rjPanel1 = new GymManagementSystem.RJPanel();
+            this.lblRemaingTS = new System.Windows.Forms.Label();
+            this.lblPackageDate = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.rjPanel5 = new GymManagementSystem.RJPanel();
             this.txtID = new System.Windows.Forms.TextBox();
@@ -91,6 +95,10 @@ namespace GymManagementSystem
             this.rjPanel1.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.rjPanel1.BorderRadius = 40;
             this.rjPanel1.BorderSize = 0;
+            this.rjPanel1.Controls.Add(this.lblRemaingTS);
+            this.rjPanel1.Controls.Add(this.lblPackageDate);
+            this.rjPanel1.Controls.Add(this.label11);
+            this.rjPanel1.Controls.Add(this.label10);
             this.rjPanel1.Controls.Add(this.label8);
             this.rjPanel1.Controls.Add(this.rjPanel5);
             this.rjPanel1.Controls.Add(this.lblBranch);
@@ -107,6 +115,48 @@ namespace GymManagementSystem
             this.rjPanel1.Name = "rjPanel1";
             this.rjPanel1.Size = new System.Drawing.Size(529, 947);
             this.rjPanel1.TabIndex = 0;
+            // 
+            // lblRemaingTS
+            // 
+            this.lblRemaingTS.AutoSize = true;
+            this.lblRemaingTS.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblRemaingTS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
+            this.lblRemaingTS.Location = new System.Drawing.Point(297, 889);
+            this.lblRemaingTS.Name = "lblRemaingTS";
+            this.lblRemaingTS.Size = new System.Drawing.Size(59, 28);
+            this.lblRemaingTS.TabIndex = 15;
+            this.lblRemaingTS.Text = "NULL";
+            // 
+            // lblPackageDate
+            // 
+            this.lblPackageDate.AutoSize = true;
+            this.lblPackageDate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPackageDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
+            this.lblPackageDate.Location = new System.Drawing.Point(198, 848);
+            this.lblPackageDate.Name = "lblPackageDate";
+            this.lblPackageDate.Size = new System.Drawing.Size(59, 28);
+            this.lblPackageDate.TabIndex = 14;
+            this.lblPackageDate.Text = "NULL";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
+            this.label11.Location = new System.Drawing.Point(30, 855);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(149, 20);
+            this.label11.TabIndex = 13;
+            this.label11.Text = "End of package date:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
+            this.label10.Location = new System.Drawing.Point(30, 896);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(251, 20);
+            this.label10.TabIndex = 12;
+            this.label10.Text = "Remaing number of sesions with PT: ";
             // 
             // label8
             // 
@@ -704,5 +754,9 @@ namespace GymManagementSystem
         private TextBox txtID;
         private RJFlowLayoutPanel rjFlowLayoutPanel2;
         private RJButton btnManage;
+        private Label lblRemaingTS;
+        private Label lblPackageDate;
+        private Label label11;
+        private Label label10;
     }
 }

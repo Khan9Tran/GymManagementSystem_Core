@@ -30,9 +30,9 @@ namespace GymManagementSystem
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gvWorkOutPlan = new System.Windows.Forms.DataGridView();
             this.rjFlowLayoutPanel1 = new GymManagementSystem.RJFlowLayoutPanel();
             this.btnAll = new GymManagementSystem.RJButton();
@@ -57,6 +57,8 @@ namespace GymManagementSystem
             this.lblBranch = new System.Windows.Forms.Label();
             this.lblID = new System.Windows.Forms.Label();
             this.rjPanel4 = new GymManagementSystem.RJPanel();
+            this.rjPanel5 = new GymManagementSystem.RJPanel();
+            this.fpnlWorkOut = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.gvWorkOutPlan)).BeginInit();
             this.rjFlowLayoutPanel1.SuspendLayout();
             this.rjFlowLayoutPanel2.SuspendLayout();
@@ -64,6 +66,7 @@ namespace GymManagementSystem
             this.rjPanel2.SuspendLayout();
             this.rjPanel3.SuspendLayout();
             this.rjPanel4.SuspendLayout();
+            this.rjPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // gvWorkOutPlan
@@ -72,37 +75,37 @@ namespace GymManagementSystem
             this.gvWorkOutPlan.AllowUserToDeleteRows = false;
             this.gvWorkOutPlan.AllowUserToResizeColumns = false;
             this.gvWorkOutPlan.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.gvWorkOutPlan.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.gvWorkOutPlan.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.gvWorkOutPlan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gvWorkOutPlan.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.gvWorkOutPlan.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gvWorkOutPlan.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gvWorkOutPlan.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.gvWorkOutPlan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.gvWorkOutPlan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gvWorkOutPlan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gvWorkOutPlan.DefaultCellStyle = dataGridViewCellStyle6;
-            this.gvWorkOutPlan.Location = new System.Drawing.Point(3, 0);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gvWorkOutPlan.DefaultCellStyle = dataGridViewCellStyle3;
+            this.gvWorkOutPlan.Location = new System.Drawing.Point(0, 0);
             this.gvWorkOutPlan.Name = "gvWorkOutPlan";
             this.gvWorkOutPlan.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.gvWorkOutPlan.RowHeadersVisible = false;
             this.gvWorkOutPlan.RowHeadersWidth = 51;
             this.gvWorkOutPlan.RowTemplate.Height = 29;
             this.gvWorkOutPlan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gvWorkOutPlan.Size = new System.Drawing.Size(1631, 605);
+            this.gvWorkOutPlan.Size = new System.Drawing.Size(1042, 532);
             this.gvWorkOutPlan.TabIndex = 0;
             this.gvWorkOutPlan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvWorkOutPlan_CellClick);
             // 
@@ -318,9 +321,9 @@ namespace GymManagementSystem
             this.rjPanel2.Controls.Add(this.label2);
             this.rjPanel2.Controls.Add(this.lblTime);
             this.rjPanel2.ForeColor = System.Drawing.Color.White;
-            this.rjPanel2.Location = new System.Drawing.Point(1279, 162);
+            this.rjPanel2.Location = new System.Drawing.Point(1161, 149);
             this.rjPanel2.Name = "rjPanel2";
-            this.rjPanel2.Size = new System.Drawing.Size(440, 121);
+            this.rjPanel2.Size = new System.Drawing.Size(612, 121);
             this.rjPanel2.TabIndex = 4;
             // 
             // dtpTime
@@ -371,9 +374,9 @@ namespace GymManagementSystem
             this.rjPanel3.Controls.Add(this.lblBranch);
             this.rjPanel3.Controls.Add(this.lblID);
             this.rjPanel3.ForeColor = System.Drawing.Color.White;
-            this.rjPanel3.Location = new System.Drawing.Point(94, 162);
+            this.rjPanel3.Location = new System.Drawing.Point(94, 149);
             this.rjPanel3.Name = "rjPanel3";
-            this.rjPanel3.Size = new System.Drawing.Size(1110, 121);
+            this.rjPanel3.Size = new System.Drawing.Size(1042, 121);
             this.rjPanel3.TabIndex = 5;
             // 
             // lblMember
@@ -381,7 +384,7 @@ namespace GymManagementSystem
             this.lblMember.AutoSize = true;
             this.lblMember.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblMember.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
-            this.lblMember.Location = new System.Drawing.Point(469, 22);
+            this.lblMember.Location = new System.Drawing.Point(377, 18);
             this.lblMember.Name = "lblMember";
             this.lblMember.Size = new System.Drawing.Size(95, 28);
             this.lblMember.TabIndex = 3;
@@ -392,7 +395,7 @@ namespace GymManagementSystem
             this.lblTrainer.AutoSize = true;
             this.lblTrainer.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTrainer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
-            this.lblTrainer.Location = new System.Drawing.Point(469, 72);
+            this.lblTrainer.Location = new System.Drawing.Point(377, 72);
             this.lblTrainer.Name = "lblTrainer";
             this.lblTrainer.Size = new System.Drawing.Size(79, 28);
             this.lblTrainer.TabIndex = 2;
@@ -428,10 +431,31 @@ namespace GymManagementSystem
             this.rjPanel4.BorderSize = 0;
             this.rjPanel4.Controls.Add(this.gvWorkOutPlan);
             this.rjPanel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
-            this.rjPanel4.Location = new System.Drawing.Point(94, 319);
+            this.rjPanel4.Location = new System.Drawing.Point(94, 292);
             this.rjPanel4.Name = "rjPanel4";
-            this.rjPanel4.Size = new System.Drawing.Size(1625, 625);
+            this.rjPanel4.Size = new System.Drawing.Size(1042, 652);
             this.rjPanel4.TabIndex = 6;
+            // 
+            // rjPanel5
+            // 
+            this.rjPanel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.rjPanel5.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjPanel5.BorderRadius = 40;
+            this.rjPanel5.BorderSize = 0;
+            this.rjPanel5.Controls.Add(this.fpnlWorkOut);
+            this.rjPanel5.ForeColor = System.Drawing.Color.White;
+            this.rjPanel5.Location = new System.Drawing.Point(1161, 292);
+            this.rjPanel5.Name = "rjPanel5";
+            this.rjPanel5.Size = new System.Drawing.Size(612, 649);
+            this.rjPanel5.TabIndex = 7;
+            // 
+            // fpnlWorkOut
+            // 
+            this.fpnlWorkOut.AutoScroll = true;
+            this.fpnlWorkOut.Location = new System.Drawing.Point(15, 3);
+            this.fpnlWorkOut.Name = "fpnlWorkOut";
+            this.fpnlWorkOut.Size = new System.Drawing.Size(590, 646);
+            this.fpnlWorkOut.TabIndex = 0;
             // 
             // FViewWorkOutPlan
             // 
@@ -439,6 +463,7 @@ namespace GymManagementSystem
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1820, 1080);
+            this.Controls.Add(this.rjPanel5);
             this.Controls.Add(this.rjPanel4);
             this.Controls.Add(this.rjPanel3);
             this.Controls.Add(this.rjPanel2);
@@ -458,6 +483,7 @@ namespace GymManagementSystem
             this.rjPanel3.ResumeLayout(false);
             this.rjPanel3.PerformLayout();
             this.rjPanel4.ResumeLayout(false);
+            this.rjPanel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -488,5 +514,7 @@ namespace GymManagementSystem
         private Label lblBranch;
         private Label lblID;
         private RJPanel rjPanel4;
+        private RJPanel rjPanel5;
+        private FlowLayoutPanel fpnlWorkOut;
     }
 }

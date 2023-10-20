@@ -21,6 +21,7 @@ namespace GymManagementSystem
         private Trainer trainer;
         private List<WorkOut> workOuts = new List<WorkOut>();
         private Member member;
+
         public FCreateWorkOutPlan()
         {
             InitializeComponent();
@@ -33,7 +34,7 @@ namespace GymManagementSystem
 
             }
             List<WorkOut> workOuts = LoadWorkOut();
-            foreach (var workOut in workOuts) 
+            foreach (var workOut in workOuts)
             {
                 USWorkOut wk = new USWorkOut(workOut);
                 flpnlWorkout.Controls.Add(wk);
@@ -41,7 +42,8 @@ namespace GymManagementSystem
             };
             countWO = 0;
             totalTime = 0;
-        }
+        }    
+
 
         private void Branch_BranchClicked(object? sender, EventArgs e)
         {
@@ -133,12 +135,19 @@ namespace GymManagementSystem
 
         }
 
+        private void ShowInfo(Member member)
+        {
+            txtName.Text = member.Name;
+            lblPackageDate.Text = member.EndOfPackageDate.ToString("dd/MM/yyyy");
+            lblRemaingTS.Text = member.RemainingTS.ToString();
+        }    
+
         private void btnSearchMember_Click(object sender, EventArgs e)
         {
-            txtName.Text = FindMember(txtPhoneNumber.Text);
+            ShowInfo(FindMember(txtPhoneNumber.Text));
         }
 
-        private string FindMember(string phoneNumber)
+        private Member FindMember(string phoneNumber)
         {
             member = new Member();
             Employee.Role = 1;
@@ -158,8 +167,18 @@ namespace GymManagementSystem
                 {
                     while (reader.Read())
                     {
-                       member.Name = reader["Name"].ToString();
-                        member.ID = reader["ID"].ToString();
+                           member.Name = reader["Name"].ToString();
+                           member.ID = reader["ID"].ToString();
+                           try
+                           {
+                            member.RemainingTS = int.Parse(reader["RemainingTS"].ToString());
+                           }    
+                           catch
+                           {
+                            member.RemainingTS = 0;
+                           }   
+                           member.EndOfPackageDate = DateTime.Parse(reader["EndOfPackageDate"].ToString());
+
                     }
                 }
                 else
@@ -170,7 +189,7 @@ namespace GymManagementSystem
 
             connection.closeConnection();
 
-            return member.Name;
+            return member;
 
         }
 
@@ -404,5 +423,6 @@ namespace GymManagementSystem
         {
             StackForm.HomeUser.ChildForm.Open(new FViewWorkOutPlan());
         }
+
     }
 }
