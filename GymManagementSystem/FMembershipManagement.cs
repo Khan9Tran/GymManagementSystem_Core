@@ -127,7 +127,14 @@ namespace GymManagementSystem
                     return false;
                 }
                 connection.closeConnection();
-
+                flpnlLoadMembership.Controls.Clear();
+                List<MembershipType> membershipsL = LoadMembershipType();
+                foreach (MembershipType membership in membershipsL)
+                {
+                    USMembership uSMembership = new USMembership(membership);
+                    uSMembership.membershipClicked += MembershipType_MembershipType;
+                    flpnlLoadMembership.Controls.Add(uSMembership);
+                }
                 MessageBox.Show("Cập nhật thành công");
             }
             return true;
