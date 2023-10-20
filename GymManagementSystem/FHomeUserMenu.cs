@@ -58,9 +58,9 @@ namespace GymManagementSystem
             StackForm.HomeUser.ChildForm.Open(new FCreateWorkOutPlan());
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
-
+            StackForm.HomeUser.ChildForm.Open(new FPurchasePackage());
         }
     }
 }
