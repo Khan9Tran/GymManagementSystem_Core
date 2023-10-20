@@ -14,18 +14,25 @@ namespace GymManagementSystem
     public partial class FHomeUser : Form
     {
 
-        private OpenChildForm openChildForm;
+        private OpenChildForm childForm;
         public FHomeUser()
         {
             InitializeComponent();
-            OpenChildForm openChildForm = new OpenChildForm(pnlLoad);
+            childForm = new OpenChildForm(pnlLoad);
+            StackForm.HomeUser = this;
+            childForm.Open(new FHomeUserMenu());
         }
 
-        internal OpenChildForm OCF { get => openChildForm; set => openChildForm = value; }
+        internal OpenChildForm ChildForm { get => childForm; set => childForm = value; }
 
         private void FHome_Load(object sender, EventArgs e)
         {
-            openChildForm.Open(new FHomeUserMenu());
+            
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            childForm.Open(new FHomeUserMenu());
         }
     }
 }

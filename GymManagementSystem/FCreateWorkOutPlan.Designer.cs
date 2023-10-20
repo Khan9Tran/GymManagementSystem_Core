@@ -103,7 +103,7 @@ namespace GymManagementSystem
             this.rjPanel1.Controls.Add(this.dtpDate);
             this.rjPanel1.Controls.Add(this.rjPanel2);
             this.rjPanel1.ForeColor = System.Drawing.Color.White;
-            this.rjPanel1.Location = new System.Drawing.Point(45, 62);
+            this.rjPanel1.Location = new System.Drawing.Point(45, 18);
             this.rjPanel1.Name = "rjPanel1";
             this.rjPanel1.Size = new System.Drawing.Size(529, 947);
             this.rjPanel1.TabIndex = 0;
@@ -295,7 +295,7 @@ namespace GymManagementSystem
             this.rjPanel4.Controls.Add(this.flpnlWorkout);
             this.rjPanel4.Controls.Add(this.label6);
             this.rjPanel4.ForeColor = System.Drawing.Color.White;
-            this.rjPanel4.Location = new System.Drawing.Point(595, 62);
+            this.rjPanel4.Location = new System.Drawing.Point(595, 18);
             this.rjPanel4.Name = "rjPanel4";
             this.rjPanel4.Size = new System.Drawing.Size(624, 742);
             this.rjPanel4.TabIndex = 8;
@@ -342,7 +342,7 @@ namespace GymManagementSystem
             this.rjPanel7.Controls.Add(this.pnlBranch);
             this.rjPanel7.Controls.Add(this.label9);
             this.rjPanel7.ForeColor = System.Drawing.Color.White;
-            this.rjPanel7.Location = new System.Drawing.Point(1245, 154);
+            this.rjPanel7.Location = new System.Drawing.Point(1245, 110);
             this.rjPanel7.Name = "rjPanel7";
             this.rjPanel7.Size = new System.Drawing.Size(529, 293);
             this.rjPanel7.TabIndex = 8;
@@ -419,7 +419,7 @@ namespace GymManagementSystem
             this.rjPanel6.Controls.Add(this.rjPanel9);
             this.rjPanel6.Controls.Add(this.label4);
             this.rjPanel6.ForeColor = System.Drawing.Color.White;
-            this.rjPanel6.Location = new System.Drawing.Point(1245, 474);
+            this.rjPanel6.Location = new System.Drawing.Point(1245, 430);
             this.rjPanel6.Name = "rjPanel6";
             this.rjPanel6.Size = new System.Drawing.Size(529, 534);
             this.rjPanel6.TabIndex = 9;
@@ -514,7 +514,7 @@ namespace GymManagementSystem
             this.rjPanel10.Controls.Add(this.label7);
             this.rjPanel10.Controls.Add(this.label5);
             this.rjPanel10.ForeColor = System.Drawing.Color.White;
-            this.rjPanel10.Location = new System.Drawing.Point(595, 825);
+            this.rjPanel10.Location = new System.Drawing.Point(595, 781);
             this.rjPanel10.Name = "rjPanel10";
             this.rjPanel10.Size = new System.Drawing.Size(624, 184);
             this.rjPanel10.TabIndex = 10;
@@ -596,7 +596,7 @@ namespace GymManagementSystem
             this.rjFlowLayoutPanel2.Controls.Add(this.btnManage);
             this.rjFlowLayoutPanel2.Controls.Add(this.btnConfirm);
             this.rjFlowLayoutPanel2.ForeColor = System.Drawing.Color.White;
-            this.rjFlowLayoutPanel2.Location = new System.Drawing.Point(1245, 62);
+            this.rjFlowLayoutPanel2.Location = new System.Drawing.Point(1245, 18);
             this.rjFlowLayoutPanel2.Name = "rjFlowLayoutPanel2";
             this.rjFlowLayoutPanel2.Size = new System.Drawing.Size(529, 73);
             this.rjFlowLayoutPanel2.TabIndex = 12;
@@ -617,6 +617,7 @@ namespace GymManagementSystem
             this.btnManage.TabIndex = 12;
             this.btnManage.Text = "Manage";
             this.btnManage.UseVisualStyleBackColor = false;
+            this.btnManage.Click += new System.EventHandler(this.btnManage_Click);
             // 
             // FCreateWorkOutPlan
             // 
