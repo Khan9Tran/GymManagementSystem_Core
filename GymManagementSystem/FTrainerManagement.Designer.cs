@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             rjPanel4 = new RJPanel();
             gvTrainer = new DataGridView();
             lblName = new Label();
@@ -48,12 +48,11 @@
             txtSearch = new TextBox();
             btnAdd = new RJButton();
             btnEdit = new RJButton();
-            rjButton1 = new RJButton();
+            btnDelete = new RJButton();
             rjFlowLayoutPanel2 = new RJFlowLayoutPanel();
             btnAll = new RJButton();
             btnMale = new RJButton();
             btnFemale = new RJButton();
-            btnUpComing = new RJButton();
             rjFlowLayoutPanel1 = new RJFlowLayoutPanel();
             rjPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gvTrainer).BeginInit();
@@ -83,29 +82,29 @@
             gvTrainer.AllowUserToDeleteRows = false;
             gvTrainer.AllowUserToResizeColumns = false;
             gvTrainer.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = Color.WhiteSmoke;
-            gvTrainer.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = Color.WhiteSmoke;
+            gvTrainer.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             gvTrainer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             gvTrainer.BackgroundColor = Color.WhiteSmoke;
             gvTrainer.BorderStyle = BorderStyle.None;
             gvTrainer.CellBorderStyle = DataGridViewCellBorderStyle.None;
             gvTrainer.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.WhiteSmoke;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            gvTrainer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.WhiteSmoke;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            gvTrainer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             gvTrainer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.WhiteSmoke;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(67, 52, 67);
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            gvTrainer.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.WhiteSmoke;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = Color.FromArgb(67, 52, 67);
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            gvTrainer.DefaultCellStyle = dataGridViewCellStyle6;
             gvTrainer.Location = new Point(3, 0);
             gvTrainer.Name = "gvTrainer";
             gvTrainer.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
@@ -246,6 +245,7 @@
             btnSearch.Size = new Size(36, 36);
             btnSearch.TabIndex = 3;
             btnSearch.UseVisualStyleBackColor = false;
+            btnSearch.Click += btnSearch_Click;
             // 
             // rjPanel1
             // 
@@ -306,22 +306,23 @@
             btnEdit.Text = "Edit";
             btnEdit.UseVisualStyleBackColor = false;
             // 
-            // rjButton1
+            // btnDelete
             // 
-            rjButton1.BackColor = Color.FromArgb(44, 181, 245);
-            rjButton1.BorderColor = Color.PaleVioletRed;
-            rjButton1.BorderRadius = 40;
-            rjButton1.BorderSize = 0;
-            rjButton1.FlatAppearance.BorderSize = 0;
-            rjButton1.FlatStyle = FlatStyle.Flat;
-            rjButton1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            rjButton1.ForeColor = Color.White;
-            rjButton1.Location = new Point(300, 3);
-            rjButton1.Name = "rjButton1";
-            rjButton1.Size = new Size(140, 50);
-            rjButton1.TabIndex = 2;
-            rjButton1.Text = "Delete";
-            rjButton1.UseVisualStyleBackColor = false;
+            btnDelete.BackColor = Color.FromArgb(44, 181, 245);
+            btnDelete.BorderColor = Color.PaleVioletRed;
+            btnDelete.BorderRadius = 40;
+            btnDelete.BorderSize = 0;
+            btnDelete.FlatAppearance.BorderSize = 0;
+            btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnDelete.ForeColor = Color.White;
+            btnDelete.Location = new Point(300, 3);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(140, 50);
+            btnDelete.TabIndex = 2;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // rjFlowLayoutPanel2
             // 
@@ -331,7 +332,7 @@
             rjFlowLayoutPanel2.BorderSize = 0;
             rjFlowLayoutPanel2.Controls.Add(btnAdd);
             rjFlowLayoutPanel2.Controls.Add(btnEdit);
-            rjFlowLayoutPanel2.Controls.Add(rjButton1);
+            rjFlowLayoutPanel2.Controls.Add(btnDelete);
             rjFlowLayoutPanel2.ForeColor = Color.White;
             rjFlowLayoutPanel2.Location = new Point(1280, 105);
             rjFlowLayoutPanel2.Name = "rjFlowLayoutPanel2";
@@ -392,23 +393,6 @@
             btnFemale.UseVisualStyleBackColor = false;
             btnFemale.Click += btnFemale_Click;
             // 
-            // btnUpComing
-            // 
-            btnUpComing.BackColor = Color.FromArgb(44, 181, 245);
-            btnUpComing.BorderColor = Color.PaleVioletRed;
-            btnUpComing.BorderRadius = 40;
-            btnUpComing.BorderSize = 0;
-            btnUpComing.FlatAppearance.BorderSize = 0;
-            btnUpComing.FlatStyle = FlatStyle.Flat;
-            btnUpComing.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnUpComing.ForeColor = Color.White;
-            btnUpComing.Location = new Point(441, 3);
-            btnUpComing.Name = "btnUpComing";
-            btnUpComing.Size = new Size(140, 50);
-            btnUpComing.TabIndex = 6;
-            btnUpComing.Text = "UpComing";
-            btnUpComing.UseVisualStyleBackColor = false;
-            // 
             // rjFlowLayoutPanel1
             // 
             rjFlowLayoutPanel1.BackColor = Color.WhiteSmoke;
@@ -418,11 +402,10 @@
             rjFlowLayoutPanel1.Controls.Add(btnAll);
             rjFlowLayoutPanel1.Controls.Add(btnMale);
             rjFlowLayoutPanel1.Controls.Add(btnFemale);
-            rjFlowLayoutPanel1.Controls.Add(btnUpComing);
             rjFlowLayoutPanel1.ForeColor = Color.WhiteSmoke;
             rjFlowLayoutPanel1.Location = new Point(95, 105);
             rjFlowLayoutPanel1.Name = "rjFlowLayoutPanel1";
-            rjFlowLayoutPanel1.Size = new Size(596, 54);
+            rjFlowLayoutPanel1.Size = new Size(442, 54);
             rjFlowLayoutPanel1.TabIndex = 7;
             // 
             // FTrainerManagement
@@ -440,7 +423,6 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "FTrainerManagement";
             Text = "FTrainerManagement";
-            Load += gvTrainer_Load;
             rjPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)gvTrainer).EndInit();
             rjPanel3.ResumeLayout(false);
@@ -473,12 +455,11 @@
         private TextBox txtSearch;
         private RJButton btnAdd;
         private RJButton btnEdit;
-        private RJButton rjButton1;
+        private RJButton btnDelete;
         private RJFlowLayoutPanel rjFlowLayoutPanel2;
         private RJButton btnAll;
         private RJButton btnMale;
         private RJButton btnFemale;
-        private RJButton btnUpComing;
         private RJFlowLayoutPanel rjFlowLayoutPanel1;
     }
 }
