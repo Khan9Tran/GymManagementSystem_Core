@@ -30,10 +30,6 @@ namespace GymManagementSystem
         /// </summary>
         private void InitializeComponent()
         {
-            this.pnlLoad = new GymManagementSystem.RJPanel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.rjPanel1 = new GymManagementSystem.RJPanel();
-            this.txtID = new System.Windows.Forms.TextBox();
             this.rjPanel5 = new GymManagementSystem.RJPanel();
             this.rdbFemale = new System.Windows.Forms.RadioButton();
             this.rdbMale = new System.Windows.Forms.RadioButton();
@@ -63,8 +59,8 @@ namespace GymManagementSystem
             this.rjButton2 = new GymManagementSystem.RJButton();
             this.rjFlowLayoutPanel1 = new GymManagementSystem.RJFlowLayoutPanel();
             this.pnlLoadMBS = new System.Windows.Forms.Panel();
-            this.pnlLoad.SuspendLayout();
-            this.rjPanel1.SuspendLayout();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pnlLoad = new GymManagementSystem.RJPanel();
             this.rjPanel5.SuspendLayout();
             this.rjPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rjPictureBox1)).BeginInit();
@@ -78,56 +74,8 @@ namespace GymManagementSystem
             this.rjPanel7.SuspendLayout();
             this.rjFlowLayoutPanel1.SuspendLayout();
             this.pnlLoadMBS.SuspendLayout();
+            this.pnlLoad.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pnlLoad
-            // 
-            this.pnlLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.pnlLoad.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.pnlLoad.BorderRadius = 40;
-            this.pnlLoad.BorderSize = 0;
-            this.pnlLoad.Controls.Add(this.label3);
-            this.pnlLoad.Controls.Add(this.rjPanel1);
-            this.pnlLoad.ForeColor = System.Drawing.Color.White;
-            this.pnlLoad.Location = new System.Drawing.Point(29, 38);
-            this.pnlLoad.Name = "pnlLoad";
-            this.pnlLoad.Size = new System.Drawing.Size(749, 70);
-            this.pnlLoad.TabIndex = 0;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
-            this.label3.Location = new System.Drawing.Point(50, 20);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(118, 28);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Member ID";
-            // 
-            // rjPanel1
-            // 
-            this.rjPanel1.BackColor = System.Drawing.Color.White;
-            this.rjPanel1.BorderColor = System.Drawing.Color.White;
-            this.rjPanel1.BorderRadius = 40;
-            this.rjPanel1.BorderSize = 0;
-            this.rjPanel1.Controls.Add(this.txtID);
-            this.rjPanel1.ForeColor = System.Drawing.Color.White;
-            this.rjPanel1.Location = new System.Drawing.Point(208, 6);
-            this.rjPanel1.Name = "rjPanel1";
-            this.rjPanel1.Size = new System.Drawing.Size(335, 59);
-            this.rjPanel1.TabIndex = 0;
-            // 
-            // txtID
-            // 
-            this.txtID.BackColor = System.Drawing.Color.White;
-            this.txtID.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtID.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(66)))), ((int)(((byte)(67)))));
-            this.txtID.Location = new System.Drawing.Point(28, 13);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(284, 29);
-            this.txtID.TabIndex = 0;
             // 
             // rjPanel5
             // 
@@ -510,6 +458,31 @@ namespace GymManagementSystem
             this.pnlLoadMBS.Size = new System.Drawing.Size(791, 479);
             this.pnlLoadMBS.TabIndex = 14;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(179)))), ((int)(((byte)(241)))));
+            this.label3.Location = new System.Drawing.Point(281, 13);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(193, 37);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Monster GYM";
+            // 
+            // pnlLoad
+            // 
+            this.pnlLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.pnlLoad.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlLoad.BorderRadius = 40;
+            this.pnlLoad.BorderSize = 0;
+            this.pnlLoad.Controls.Add(this.label3);
+            this.pnlLoad.ForeColor = System.Drawing.Color.White;
+            this.pnlLoad.Location = new System.Drawing.Point(29, 38);
+            this.pnlLoad.Name = "pnlLoad";
+            this.pnlLoad.Size = new System.Drawing.Size(749, 70);
+            this.pnlLoad.TabIndex = 0;
+            // 
             // FCreateMember
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -522,10 +495,6 @@ namespace GymManagementSystem
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FCreateMember";
             this.Text = "FCreateMember";
-            this.pnlLoad.ResumeLayout(false);
-            this.pnlLoad.PerformLayout();
-            this.rjPanel1.ResumeLayout(false);
-            this.rjPanel1.PerformLayout();
             this.rjPanel5.ResumeLayout(false);
             this.rjPanel5.PerformLayout();
             this.rjPanel4.ResumeLayout(false);
@@ -548,17 +517,14 @@ namespace GymManagementSystem
             this.rjFlowLayoutPanel1.ResumeLayout(false);
             this.pnlLoadMBS.ResumeLayout(false);
             this.pnlLoadMBS.PerformLayout();
+            this.pnlLoad.ResumeLayout(false);
+            this.pnlLoad.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private RJPanel pnlLoad;
-        private RJPanel rjPanel1;
         private RJPanel rjPanel4;
-        private TextBox txtID;
-        private Label label3;
         private RJPanel rjPanel5;
         private Label label5;
         private RJButton btnConfirm;
@@ -587,5 +553,7 @@ namespace GymManagementSystem
         private RJFlowLayoutPanel rjFlowLayoutPanel1;
         private Panel panel1;
         private Panel pnlLoadMBS;
+        private RJPanel pnlLoad;
+        private Label label3;
     }
 }

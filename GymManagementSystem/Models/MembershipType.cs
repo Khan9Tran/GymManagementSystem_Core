@@ -6,16 +6,23 @@ using System.Threading.Tasks;
 
 namespace GymManagementSystem.Models
 {
-    internal class MembershipType
+    public class MembershipType
     {
         private string iD;
-        private double rate;
+        private float rate;
         private string rank;
 
         public MembershipType() { }
 
+        public MembershipType(string iD, float rate, string rank)
+        {
+            this.iD = iD;
+            this.rate = rate;
+            this.rank = rank;
+        }
+
         public string ID { get => iD; set => iD = value; }
-        public double Rate { get => rate; set => rate = value; }
+        public float Rate { get => rate; set => rate = value; }
         public string Rank { get => rank; set => rank = value; }
     }
 }

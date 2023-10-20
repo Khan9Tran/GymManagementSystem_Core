@@ -62,5 +62,25 @@ namespace GymManagementSystem
         {
             StackForm.HomeUser.ChildForm.Open(new FPurchasePackage());
         }
+
+        private void flpnlLoadMember_Click(object sender, EventArgs e)
+        {
+            StackForm.HomeUser.ChildForm.Open(new FCreateMember());
+        }
+
+        private void flpnlMember_Click(object sender, EventArgs e)
+        {
+            StackForm.HomeUser.ChildForm.Open(new FCreateMember());
+        }
+
+        private void ptcMember_Click(object sender, EventArgs e)
+        {
+            StackForm.HomeUser.ChildForm.Open(new FCreateMember());
+        }
+
+        private void lblMember_Click(object sender, EventArgs e)
+        {
+            StackForm.HomeUser.ChildForm.Open(new FCreateMember());
+        }
     }
 }

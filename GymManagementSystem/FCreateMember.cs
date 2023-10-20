@@ -19,7 +19,6 @@ namespace GymManagementSystem
         {
             InitializeComponent();
             pnlLoadMBS.Hide();
-            txtID.Text = RandomIDGenerator.GenerateRandomID("Member", "M");
         }
 
         private void Confirm()
@@ -32,7 +31,7 @@ namespace GymManagementSystem
                 String query = "INSERT INTO Member(ID, Name, PhoneNumber, Address, Balance, Gender) VALUES (@ID, @Name, @PhoneNumber, @Address, @Balance, @Gender)";
                 SqlCommand command = new SqlCommand(query, connection.GetConnection());
                 command.CommandType = CommandType.Text;
-                command.Parameters.AddWithValue("@ID", txtID.Text);
+                command.Parameters.AddWithValue("@ID", RandomIDGenerator.GenerateRandomID("Member", "M"));
                 command.Parameters.AddWithValue("@Name", txtFullName.Text);
                 command.Parameters.AddWithValue("@PhoneNumber", txtPhoneNumber.Text);
                 command.Parameters.AddWithValue("@Address", txtAddressInput.Text);
