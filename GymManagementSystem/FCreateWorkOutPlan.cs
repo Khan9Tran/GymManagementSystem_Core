@@ -352,7 +352,6 @@ namespace GymManagementSystem
 
         private bool ConfirmPlan()
         {
-            Employee.Role = 1;
             DBConnection connection = new DBConnection();
             connection.openConnection();
             try

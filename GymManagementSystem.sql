@@ -224,11 +224,12 @@ FROM dbo.Trainer t
 GO
 --Xem danh sách hội viên
 CREATE VIEW V_MemberList AS
-SELECT m.[ID], m.[Name], m.[Gender], m.[PhoneNumber], m.[Address], m.[Balance], mt.[rank] AS MemberRank, p.[Name] AS MemberPackage
+SELECT m.[ID], m.[Name], m.[Gender], m.[PhoneNumber], m.[Address], m.[Balance], mt.[rank] AS MemberRank, p.[Name] AS MemberPackage, m.RemainingTS, m.EndOfPackageDate
 FROM dbo.Member m
 	JOIN dbo.MembershipType mt ON m.MembershipTypeID = mt.ID
 	JOIN dbo.Package p ON m.PackageID = p.ID
 GO
+
 
 -- Xem danh sách thiết bị hư hỏng
 CREATE VIEW V_DamagedEqpList AS
@@ -825,3 +826,13 @@ BEGIN
 		RAISERROR ( 'Buổi tập có thời gian quá gần với một lịch khác mà Member đăng ký',16,1);
 	END
 END
+GO
+
+--Hàm tìm WorkOut theo WorkOutPlanID
+CREATE FUNCTION FUNC_FindWorkOutByWorkOutPlan(@ID char(6))
+RETURNS TABLE
+AS
+	RETURN SELECT * FROM V_WorkOutList WHERE ID IN (SELECT WorkOutID FROM PlanDeTails WHERE WorkOutPlanID = @ID)
+
+GO
+Select *FRom MembershipType
