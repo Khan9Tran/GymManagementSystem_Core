@@ -48,10 +48,8 @@
             this.ptcViewSchedule = new System.Windows.Forms.PictureBox();
             this.lblViewSchedule = new System.Windows.Forms.Label();
             this.rjFlowLayoutPanel8 = new GymManagementSystem.RJFlowLayoutPanel();
-            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.rjFlowLayoutPanel9 = new GymManagementSystem.RJFlowLayoutPanel();
+            this.lblBranch = new System.Windows.Forms.Label();
+            this.rjPanel1 = new GymManagementSystem.RJPanel();
             this.flpnlLoadMember.SuspendLayout();
             this.flpnlMember.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptcMember)).BeginInit();
@@ -64,8 +62,7 @@
             this.fpnlLoadViewShcedule.SuspendLayout();
             this.fpnlViewSchedule.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptcViewSchedule)).BeginInit();
-            this.flowLayoutPanel5.SuspendLayout();
-            this.rjFlowLayoutPanel9.SuspendLayout();
+            this.rjPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // rjFlowLayoutPanel1
@@ -321,52 +318,30 @@
             this.rjFlowLayoutPanel8.Size = new System.Drawing.Size(0, 0);
             this.rjFlowLayoutPanel8.TabIndex = 6;
             // 
-            // flowLayoutPanel5
+            // lblBranch
             // 
-            this.flowLayoutPanel5.Controls.Add(this.label5);
-            this.flowLayoutPanel5.Controls.Add(this.label6);
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(4, 4);
-            this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(4, 4, 0, 0);
-            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(461, 62);
-            this.flowLayoutPanel5.TabIndex = 8;
+            this.lblBranch.AutoSize = true;
+            this.lblBranch.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBranch.ForeColor = System.Drawing.Color.White;
+            this.lblBranch.Location = new System.Drawing.Point(15, 10);
+            this.lblBranch.Margin = new System.Windows.Forms.Padding(0, 6, 10, 0);
+            this.lblBranch.Name = "lblBranch";
+            this.lblBranch.Size = new System.Drawing.Size(245, 50);
+            this.lblBranch.TabIndex = 1;
+            this.lblBranch.Text = "branchName";
             // 
-            // label5
+            // rjPanel1
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(41)))), ((int)(((byte)(55)))));
-            this.label5.Location = new System.Drawing.Point(10, 6);
-            this.label5.Margin = new System.Windows.Forms.Padding(10, 6, 0, 6);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(163, 50);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Branch: ";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(41)))), ((int)(((byte)(55)))));
-            this.label6.Location = new System.Drawing.Point(173, 6);
-            this.label6.Margin = new System.Windows.Forms.Padding(0, 6, 10, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(245, 50);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "branchName";
-            // 
-            // rjFlowLayoutPanel9
-            // 
-            this.rjFlowLayoutPanel9.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.rjFlowLayoutPanel9.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjFlowLayoutPanel9.BorderRadius = 30;
-            this.rjFlowLayoutPanel9.BorderSize = 0;
-            this.rjFlowLayoutPanel9.Controls.Add(this.flowLayoutPanel5);
-            this.rjFlowLayoutPanel9.ForeColor = System.Drawing.Color.White;
-            this.rjFlowLayoutPanel9.Location = new System.Drawing.Point(280, 34);
-            this.rjFlowLayoutPanel9.Name = "rjFlowLayoutPanel9";
-            this.rjFlowLayoutPanel9.Size = new System.Drawing.Size(475, 70);
-            this.rjFlowLayoutPanel9.TabIndex = 9;
+            this.rjPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(181)))), ((int)(((byte)(244)))));
+            this.rjPanel1.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjPanel1.BorderRadius = 40;
+            this.rjPanel1.BorderSize = 0;
+            this.rjPanel1.Controls.Add(this.lblBranch);
+            this.rjPanel1.ForeColor = System.Drawing.Color.White;
+            this.rjPanel1.Location = new System.Drawing.Point(12, 12);
+            this.rjPanel1.Name = "rjPanel1";
+            this.rjPanel1.Size = new System.Drawing.Size(312, 69);
+            this.rjPanel1.TabIndex = 9;
             // 
             // FHomeUserMenu
             // 
@@ -374,7 +349,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1820, 1080);
-            this.Controls.Add(this.rjFlowLayoutPanel9);
+            this.Controls.Add(this.rjPanel1);
             this.Controls.Add(this.fpnlLoadViewShcedule);
             this.Controls.Add(this.rjFlowLayoutPanel8);
             this.Controls.Add(this.fpnlLoadNewChedule);
@@ -404,9 +379,8 @@
             this.fpnlViewSchedule.ResumeLayout(false);
             this.fpnlViewSchedule.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptcViewSchedule)).EndInit();
-            this.flowLayoutPanel5.ResumeLayout(false);
-            this.flowLayoutPanel5.PerformLayout();
-            this.rjFlowLayoutPanel9.ResumeLayout(false);
+            this.rjPanel1.ResumeLayout(false);
+            this.rjPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -433,9 +407,7 @@
         private PictureBox ptcViewSchedule;
         private Label lblViewSchedule;
         private RJFlowLayoutPanel rjFlowLayoutPanel8;
-        private FlowLayoutPanel flowLayoutPanel5;
-        private Label label5;
-        private Label label6;
-        private RJFlowLayoutPanel rjFlowLayoutPanel9;
+        private Label lblBranch;
+        private RJPanel rjPanel1;
     }
 }

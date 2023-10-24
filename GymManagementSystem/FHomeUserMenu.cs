@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GymManagementSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,10 @@ namespace GymManagementSystem
         public FHomeUserMenu()
         {
             InitializeComponent();
+            if (Employee.BranchID != null)
+                lblBranch.Text = Employee.BranchName;
+            else
+                lblBranch.Text = "All Branch";
         }
 
         private void ptcViewSchedule_Click(object sender, EventArgs e)

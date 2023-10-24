@@ -53,11 +53,11 @@
             this.btnSelect = new GymManagementSystem.RJButton();
             this.btnReset = new GymManagementSystem.RJButton();
             this.rjPanel7 = new GymManagementSystem.RJPanel();
-            this.lblend = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.rjPanel8 = new GymManagementSystem.RJPanel();
+            this.lblend = new System.Windows.Forms.Label();
             this.dtpEnd = new System.Windows.Forms.DateTimePicker();
             this.rjPanel9 = new GymManagementSystem.RJPanel();
+            this.label1 = new System.Windows.Forms.Label();
             this.dtpStart = new System.Windows.Forms.DateTimePicker();
             this.rjPanel1.SuspendLayout();
             this.rjPanel2.SuspendLayout();
@@ -96,7 +96,7 @@
             this.rjPanel2.BorderSize = 0;
             this.rjPanel2.Controls.Add(this.flpnlLoadMembership);
             this.rjPanel2.ForeColor = System.Drawing.Color.White;
-            this.rjPanel2.Location = new System.Drawing.Point(32, 57);
+            this.rjPanel2.Location = new System.Drawing.Point(32, 41);
             this.rjPanel2.Name = "rjPanel2";
             this.rjPanel2.Size = new System.Drawing.Size(656, 626);
             this.rjPanel2.TabIndex = 0;
@@ -161,7 +161,7 @@
             this.rjPanel5.Controls.Add(this.txtRate);
             this.rjPanel5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rjPanel5.ForeColor = System.Drawing.Color.White;
-            this.rjPanel5.Location = new System.Drawing.Point(278, 9);
+            this.rjPanel5.Location = new System.Drawing.Point(276, 9);
             this.rjPanel5.Name = "rjPanel5";
             this.rjPanel5.Size = new System.Drawing.Size(102, 66);
             this.rjPanel5.TabIndex = 1;
@@ -270,7 +270,7 @@
             this.rjPanel10.BorderSize = 0;
             this.rjPanel10.Controls.Add(this.gvMbs);
             this.rjPanel10.ForeColor = System.Drawing.Color.White;
-            this.rjPanel10.Location = new System.Drawing.Point(21, 56);
+            this.rjPanel10.Location = new System.Drawing.Point(21, 34);
             this.rjPanel10.Name = "rjPanel10";
             this.rjPanel10.Size = new System.Drawing.Size(929, 693);
             this.rjPanel10.TabIndex = 0;
@@ -327,9 +327,9 @@
             this.rjFlowLayoutPanel2.Controls.Add(this.btnReset);
             this.rjFlowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.rjFlowLayoutPanel2.ForeColor = System.Drawing.Color.White;
-            this.rjFlowLayoutPanel2.Location = new System.Drawing.Point(1355, 52);
+            this.rjFlowLayoutPanel2.Location = new System.Drawing.Point(1355, 49);
             this.rjFlowLayoutPanel2.Name = "rjFlowLayoutPanel2";
-            this.rjFlowLayoutPanel2.Size = new System.Drawing.Size(392, 118);
+            this.rjFlowLayoutPanel2.Size = new System.Drawing.Size(392, 114);
             this.rjFlowLayoutPanel2.TabIndex = 3;
             // 
             // btnNewSeason
@@ -381,6 +381,7 @@
             this.btnReset.TabIndex = 3;
             this.btnReset.Text = "Reset Rank";
             this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // rjPanel7
             // 
@@ -388,57 +389,45 @@
             this.rjPanel7.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.rjPanel7.BorderRadius = 40;
             this.rjPanel7.BorderSize = 0;
-            this.rjPanel7.Controls.Add(this.lblend);
-            this.rjPanel7.Controls.Add(this.label1);
             this.rjPanel7.Controls.Add(this.rjPanel8);
             this.rjPanel7.Controls.Add(this.rjPanel9);
             this.rjPanel7.ForeColor = System.Drawing.Color.White;
             this.rjPanel7.Location = new System.Drawing.Point(779, 49);
             this.rjPanel7.Name = "rjPanel7";
-            this.rjPanel7.Size = new System.Drawing.Size(570, 121);
+            this.rjPanel7.Size = new System.Drawing.Size(570, 114);
             this.rjPanel7.TabIndex = 2;
+            // 
+            // rjPanel8
+            // 
+            this.rjPanel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.rjPanel8.BorderColor = System.Drawing.Color.White;
+            this.rjPanel8.BorderRadius = 40;
+            this.rjPanel8.BorderSize = 2;
+            this.rjPanel8.Controls.Add(this.lblend);
+            this.rjPanel8.Controls.Add(this.dtpEnd);
+            this.rjPanel8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rjPanel8.ForeColor = System.Drawing.Color.White;
+            this.rjPanel8.Location = new System.Drawing.Point(289, 14);
+            this.rjPanel8.Name = "rjPanel8";
+            this.rjPanel8.Size = new System.Drawing.Size(270, 87);
+            this.rjPanel8.TabIndex = 1;
             // 
             // lblend
             // 
             this.lblend.AutoSize = true;
             this.lblend.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblend.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
-            this.lblend.Location = new System.Drawing.Point(298, 11);
+            this.lblend.Location = new System.Drawing.Point(9, 9);
             this.lblend.Name = "lblend";
             this.lblend.Size = new System.Drawing.Size(89, 28);
             this.lblend.TabIndex = 3;
             this.lblend.Text = "End date";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
-            this.label1.Location = new System.Drawing.Point(21, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 28);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Start day";
-            // 
-            // rjPanel8
-            // 
-            this.rjPanel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.rjPanel8.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjPanel8.BorderRadius = 40;
-            this.rjPanel8.BorderSize = 0;
-            this.rjPanel8.Controls.Add(this.dtpEnd);
-            this.rjPanel8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rjPanel8.ForeColor = System.Drawing.Color.White;
-            this.rjPanel8.Location = new System.Drawing.Point(289, 54);
-            this.rjPanel8.Name = "rjPanel8";
-            this.rjPanel8.Size = new System.Drawing.Size(270, 44);
-            this.rjPanel8.TabIndex = 1;
-            // 
             // dtpEnd
             // 
             this.dtpEnd.CustomFormat = "dd/MM/yyyy";
             this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpEnd.Location = new System.Drawing.Point(9, 5);
+            this.dtpEnd.Location = new System.Drawing.Point(9, 43);
             this.dtpEnd.Name = "dtpEnd";
             this.dtpEnd.Size = new System.Drawing.Size(250, 34);
             this.dtpEnd.TabIndex = 0;
@@ -446,22 +435,34 @@
             // rjPanel9
             // 
             this.rjPanel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.rjPanel9.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjPanel9.BorderColor = System.Drawing.Color.White;
             this.rjPanel9.BorderRadius = 40;
-            this.rjPanel9.BorderSize = 0;
+            this.rjPanel9.BorderSize = 2;
+            this.rjPanel9.Controls.Add(this.label1);
             this.rjPanel9.Controls.Add(this.dtpStart);
             this.rjPanel9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rjPanel9.ForeColor = System.Drawing.Color.White;
-            this.rjPanel9.Location = new System.Drawing.Point(13, 54);
+            this.rjPanel9.Location = new System.Drawing.Point(13, 14);
             this.rjPanel9.Name = "rjPanel9";
-            this.rjPanel9.Size = new System.Drawing.Size(270, 44);
+            this.rjPanel9.Size = new System.Drawing.Size(270, 87);
             this.rjPanel9.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
+            this.label1.Location = new System.Drawing.Point(8, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(97, 28);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Start date";
             // 
             // dtpStart
             // 
             this.dtpStart.CustomFormat = "dd/MM/yyyy";
             this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpStart.Location = new System.Drawing.Point(8, 5);
+            this.dtpStart.Location = new System.Drawing.Point(10, 43);
             this.dtpStart.Name = "dtpStart";
             this.dtpStart.Size = new System.Drawing.Size(250, 34);
             this.dtpStart.TabIndex = 0;
@@ -496,9 +497,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvMbs)).EndInit();
             this.rjFlowLayoutPanel2.ResumeLayout(false);
             this.rjPanel7.ResumeLayout(false);
-            this.rjPanel7.PerformLayout();
             this.rjPanel8.ResumeLayout(false);
+            this.rjPanel8.PerformLayout();
             this.rjPanel9.ResumeLayout(false);
+            this.rjPanel9.PerformLayout();
             this.ResumeLayout(false);
 
         }

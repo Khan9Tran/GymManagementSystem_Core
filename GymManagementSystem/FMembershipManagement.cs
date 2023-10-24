@@ -152,6 +152,8 @@ namespace GymManagementSystem
         private void btnSelect_Click(object sender, EventArgs e)
         {
             gvMbs.DataSource = ListMemberWithTotalPaymentAmount();
+            gvMbs.Columns[2].HeaderText = "Phone number";
+            gvMbs.Columns[3].HeaderText = "Total paid amount";
         }
 
         private DataTable ListMemberWithTotalPaymentAmount()
@@ -197,6 +199,33 @@ namespace GymManagementSystem
                 uSMembership.membershipClicked += MembershipType_MembershipType;
                 flpnlLoadMembership.Controls.Add(uSMembership);
             }
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            Reset();
+            flpnlLoadMembership.Controls.Clear();
+            List<MembershipType> memberships = LoadMembershipType();
+            foreach (MembershipType membership in memberships)
+            {
+                USMembership uSMembership = new USMembership(membership);
+                uSMembership.membershipClicked += MembershipType_MembershipType;
+                flpnlLoadMembership.Controls.Add(uSMembership);
+            }
+        }
+
+        private void Reset()
+        {
+            DBConnection connection = new DBConnection();
+            connection.openConnection();
+            String query = "PROC_NewSeason";
+            SqlCommand command = new SqlCommand(query, connection.GetConnection());
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@StartDate", DateTime.Now.AddDays(1).Date);
+            command.Parameters.AddWithValue("@EndDate", DateTime.Now.AddDays(1).Date);
+            command.ExecuteNonQuery();
+            connection.closeConnection();
+            MessageBox.Show("Reset hạng thành công, tất cả về hạng ban đầu");
         }
     }
 }
