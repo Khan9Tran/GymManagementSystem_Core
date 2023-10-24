@@ -76,6 +76,15 @@ namespace GymManagementSystem
                     ((USMembership)ctr).changeColor(1);
                 }
             }
+            DBConnection connection = new DBConnection();
+            connection.openConnection();
+
+            string query = "SELECT dbo.FUNC_FindNumberOfMemberByMemberShip(@MembershipID)";
+            SqlCommand command = new SqlCommand(query, connection.GetConnection());
+            command.Parameters.AddWithValue("@MembershipID", clicked.Membership.ID);
+            txtNumberOfMember.Text = "Number of members: " + (int)command.ExecuteScalar();
+            connection.closeConnection();
+
 
         }
 
@@ -138,6 +147,56 @@ namespace GymManagementSystem
                 MessageBox.Show("Cập nhật thành công");
             }
             return true;
+        }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            gvMbs.DataSource = ListMemberWithTotalPaymentAmount();
+        }
+
+        private DataTable ListMemberWithTotalPaymentAmount()
+        {
+
+            DBConnection connection = new DBConnection();
+            connection.openConnection();
+
+            String query = "SELECT * FROM FUNC_ListMemberWithTotalPaymentAmount(@StartDate, @EndDate)";
+            SqlCommand command = new SqlCommand(query, connection.GetConnection());
+            command.Parameters.AddWithValue("@StartDate", dtpStart.Value.Date);
+            command.Parameters.AddWithValue("@EndDate", dtpEnd.Value.Date);
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            connection.closeConnection();
+            return dataTable;
+        }
+
+
+        private void NewSeason()
+        {
+            DBConnection connection = new DBConnection();
+            connection.openConnection();
+            String query = "PROC_NewSeason";
+            SqlCommand command = new SqlCommand(query, connection.GetConnection());
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@StartDate", dtpStart.Value.Date);
+            command.Parameters.AddWithValue("@EndDate", dtpEnd.Value.Date);
+            command.ExecuteNonQuery();
+            connection.closeConnection();
+            MessageBox.Show("Cập nhật hạng thành công");
+        }
+
+        private void btnNewSeason_Click(object sender, EventArgs e)
+        {
+            NewSeason();
+            flpnlLoadMembership.Controls.Clear();
+            List<MembershipType> memberships = LoadMembershipType();
+            foreach (MembershipType membership in memberships)
+            {
+                USMembership uSMembership = new USMembership(membership);
+                uSMembership.membershipClicked += MembershipType_MembershipType;
+                flpnlLoadMembership.Controls.Add(uSMembership);
+            }
         }
     }
 }

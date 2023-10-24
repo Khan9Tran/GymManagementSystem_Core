@@ -229,7 +229,12 @@ FROM dbo.Member m
 	JOIN dbo.MembershipType mt ON m.MembershipTypeID = mt.ID
 	JOIN dbo.Package p ON m.PackageID = p.ID
 GO
+CREATE VIEW V_MembershipType AS
+SELECT *
+FROM dbo.MembershipType
 
+
+GO
 
 -- Xem danh sách thiết bị hư hỏng
 CREATE VIEW V_DamagedEqpList AS
@@ -836,3 +841,58 @@ RETURNS TABLE
 AS
 	RETURN SELECT * FROM V_WorkOutList WHERE ID IN (SELECT WorkOutID FROM PlanDeTails WHERE WorkOutPlanID = @ID)
 GO
+
+--Hàm lấy Member dựa theo ngày cùng với tổng số tiền chi tiêu
+CREATE FUNCTION FUNC_ListMemberWithTotalPaymentAmount(@StartDate Date,@EndDate Date)
+RETURNS TABLE
+AS
+	RETURN SELECT  Member.ID, Member.Name, Member.PhoneNumber, ISNULL(SUM(PayByDate.PaymentAmount), 0) as TotalPaymentAmount 
+	FROM Member LEFT JOIN (SELECT * FROM Payment WHERE Payment.Date >= @StartDate AND Payment.Date <= @EndDate ) As PayByDate ON Member.ID = PayByDate.MemberID
+	GROUP BY Member.ID, Member.Name, Member.PhoneNumber 
+GO
+--Hàm tìm số ngươi theo hạng membership 
+CREATE FUNCTION FUNC_FindNumberOfMemberByMemberShip(@MembershipID char(6))
+RETURNS INT
+AS
+BEGIN
+	DECLARE @tmp INT
+	SELECT @tmp = COUNT(*) 
+	FROM Member JOIN MembershipType ON Member.MembershipTypeID = MembershipType.ID 
+	WHERE @MembershipID = MembershipType.ID
+	RETURN @tmp
+END
+
+
+GO
+
+--PROC tạo mùa membership mới theo công thức
+CREATE PROCEDURE PROC_NewSeason
+@StartDate Date,
+@EndDate Date
+AS
+BEGIN
+	UPDATE Member 
+	SET  MembershipTypeID = '000001'
+	FROM FUNC_ListMemberWithTotalPaymentAmount(@StartDate,@EndDate) as List
+	WHERE Member.ID = List.ID AND TotalPaymentAmount < 4000000
+
+	UPDATE Member 
+	SET  MembershipTypeID = '000002'
+	FROM FUNC_ListMemberWithTotalPaymentAmount(@StartDate,@EndDate) as List
+	WHERE Member.ID = List.ID AND TotalPaymentAmount >= 4000000 AND TotalPaymentAmount < 8000000
+
+	UPDATE Member 
+	SET  MembershipTypeID = '000003'
+	FROM FUNC_ListMemberWithTotalPaymentAmount(@StartDate,@EndDate) as List
+	WHERE Member.ID = List.ID AND TotalPaymentAmount >= 8000000 AND TotalPaymentAmount < 12000000
+
+	UPDATE Member 
+	SET  MembershipTypeID = '000004'
+	FROM FUNC_ListMemberWithTotalPaymentAmount(@StartDate,@EndDate) as List
+	WHERE Member.ID = List.ID AND TotalPaymentAmount >= 12000000 AND TotalPaymentAmount < 16000000
+
+	UPDATE Member 
+	SET  MembershipTypeID = '000005'
+	FROM FUNC_ListMemberWithTotalPaymentAmount(@StartDate,@EndDate) as List
+	WHERE Member.ID = List.ID AND TotalPaymentAmount >= 16000000
+END
