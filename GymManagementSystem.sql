@@ -227,7 +227,8 @@ CREATE VIEW V_MemberList AS
 SELECT m.[ID], m.[Name], m.[Gender], m.[PhoneNumber], m.[Address], m.[Balance], mt.[rank] AS MemberRank, p.[Name] AS MemberPackage, m.RemainingTS, m.EndOfPackageDate
 FROM dbo.Member m
 	JOIN dbo.MembershipType mt ON m.MembershipTypeID = mt.ID
-	JOIN dbo.Package p ON m.PackageID = p.ID
+	LEFT JOIN dbo.Package p ON m.PackageID = p.ID
+
 GO
 CREATE VIEW V_MembershipType AS
 SELECT *
@@ -895,4 +896,19 @@ BEGIN
 	SET  MembershipTypeID = '000005'
 	FROM FUNC_ListMemberWithTotalPaymentAmount(@StartDate,@EndDate) as List
 	WHERE Member.ID = List.ID AND TotalPaymentAmount >= 16000000
+END
+
+GO
+--Proc tìm alll member
+CREATE PROCEDURE PROC_FindAllMember
+	@FilterType INT,
+	@Content NVARCHAR(50)
+AS
+BEGIN
+	IF (@FilterType = 0)
+		SELECT * FROM V_MemberList WHERE (ID = @Content OR [Name] LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE '%' + @Content + '%' OR [Address]  LIKE N'%' + @Content + '%')
+	ELSE IF (@FilterType = 1)
+		SELECT * FROM V_MemberList WHERE (ID = @Content OR [Name] LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE '%' + @Content + '%' OR [Address]  LIKE N'%' + @Content + '%') AND EndOfPackageDate >= CAST(GETDATE() AS DATE)
+	ELSE IF (@FilterType = 1)
+		SELECT * FROM V_MemberList WHERE (ID = @Content OR [Name] LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE '%' + @Content + '%' OR [Address]  LIKE N'%' + @Content + '%') AND EndOfPackageDate < CAST(GETDATE() AS DATE)
 END
