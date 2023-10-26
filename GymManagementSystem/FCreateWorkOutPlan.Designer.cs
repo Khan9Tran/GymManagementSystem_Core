@@ -31,13 +31,19 @@ namespace GymManagementSystem
         private void InitializeComponent()
         {
             this.rjPanel1 = new GymManagementSystem.RJPanel();
+            this.rjPanel11 = new GymManagementSystem.RJPanel();
+            this.txtTrainerResult = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.rjPanel8 = new GymManagementSystem.RJPanel();
+            this.txtBranchResult = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.lblRemaingTS = new System.Windows.Forms.Label();
             this.lblPackageDate = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.rjPanel5 = new GymManagementSystem.RJPanel();
             this.txtID = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.lblBranch = new System.Windows.Forms.Label();
             this.lblTrainer = new System.Windows.Forms.Label();
             this.rjPanel3 = new GymManagementSystem.RJPanel();
@@ -76,6 +82,8 @@ namespace GymManagementSystem
             this.rjFlowLayoutPanel2 = new GymManagementSystem.RJFlowLayoutPanel();
             this.btnManage = new GymManagementSystem.RJButton();
             this.rjPanel1.SuspendLayout();
+            this.rjPanel11.SuspendLayout();
+            this.rjPanel8.SuspendLayout();
             this.rjPanel5.SuspendLayout();
             this.rjPanel3.SuspendLayout();
             this.rjPanel2.SuspendLayout();
@@ -95,11 +103,12 @@ namespace GymManagementSystem
             this.rjPanel1.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.rjPanel1.BorderRadius = 40;
             this.rjPanel1.BorderSize = 0;
+            this.rjPanel1.Controls.Add(this.rjPanel11);
+            this.rjPanel1.Controls.Add(this.rjPanel8);
             this.rjPanel1.Controls.Add(this.lblRemaingTS);
             this.rjPanel1.Controls.Add(this.lblPackageDate);
             this.rjPanel1.Controls.Add(this.label11);
             this.rjPanel1.Controls.Add(this.label10);
-            this.rjPanel1.Controls.Add(this.label8);
             this.rjPanel1.Controls.Add(this.rjPanel5);
             this.rjPanel1.Controls.Add(this.lblBranch);
             this.rjPanel1.Controls.Add(this.lblTrainer);
@@ -115,6 +124,80 @@ namespace GymManagementSystem
             this.rjPanel1.Name = "rjPanel1";
             this.rjPanel1.Size = new System.Drawing.Size(529, 947);
             this.rjPanel1.TabIndex = 0;
+            // 
+            // rjPanel11
+            // 
+            this.rjPanel11.BackColor = System.Drawing.Color.White;
+            this.rjPanel11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(181)))), ((int)(((byte)(244)))));
+            this.rjPanel11.BorderRadius = 40;
+            this.rjPanel11.BorderSize = 0;
+            this.rjPanel11.Controls.Add(this.txtTrainerResult);
+            this.rjPanel11.Controls.Add(this.label13);
+            this.rjPanel11.ForeColor = System.Drawing.Color.White;
+            this.rjPanel11.Location = new System.Drawing.Point(30, 781);
+            this.rjPanel11.Name = "rjPanel11";
+            this.rjPanel11.Size = new System.Drawing.Size(470, 51);
+            this.rjPanel11.TabIndex = 12;
+            // 
+            // txtTrainerResult
+            // 
+            this.txtTrainerResult.BackColor = System.Drawing.Color.White;
+            this.txtTrainerResult.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTrainerResult.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtTrainerResult.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(87)))), ((int)(((byte)(95)))));
+            this.txtTrainerResult.Location = new System.Drawing.Point(125, 12);
+            this.txtTrainerResult.Name = "txtTrainerResult";
+            this.txtTrainerResult.ReadOnly = true;
+            this.txtTrainerResult.Size = new System.Drawing.Size(328, 29);
+            this.txtTrainerResult.TabIndex = 1;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
+            this.label13.Location = new System.Drawing.Point(13, 7);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(104, 37);
+            this.label13.TabIndex = 11;
+            this.label13.Text = "Trainer";
+            // 
+            // rjPanel8
+            // 
+            this.rjPanel8.BackColor = System.Drawing.Color.White;
+            this.rjPanel8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(181)))), ((int)(((byte)(244)))));
+            this.rjPanel8.BorderRadius = 40;
+            this.rjPanel8.BorderSize = 0;
+            this.rjPanel8.Controls.Add(this.txtBranchResult);
+            this.rjPanel8.Controls.Add(this.label12);
+            this.rjPanel8.ForeColor = System.Drawing.Color.White;
+            this.rjPanel8.Location = new System.Drawing.Point(30, 684);
+            this.rjPanel8.Name = "rjPanel8";
+            this.rjPanel8.Size = new System.Drawing.Size(470, 51);
+            this.rjPanel8.TabIndex = 12;
+            // 
+            // txtBranchResult
+            // 
+            this.txtBranchResult.BackColor = System.Drawing.Color.White;
+            this.txtBranchResult.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBranchResult.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtBranchResult.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(87)))), ((int)(((byte)(95)))));
+            this.txtBranchResult.Location = new System.Drawing.Point(125, 12);
+            this.txtBranchResult.Name = "txtBranchResult";
+            this.txtBranchResult.ReadOnly = true;
+            this.txtBranchResult.Size = new System.Drawing.Size(328, 29);
+            this.txtBranchResult.TabIndex = 1;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
+            this.label12.Location = new System.Drawing.Point(13, 7);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(106, 37);
+            this.label12.TabIndex = 11;
+            this.label12.Text = "Branch";
             // 
             // lblRemaingTS
             // 
@@ -158,17 +241,6 @@ namespace GymManagementSystem
             this.label10.TabIndex = 12;
             this.label10.Text = "Remaing number of sesions with PT: ";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
-            this.label8.Location = new System.Drawing.Point(30, 397);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(45, 37);
-            this.label8.TabIndex = 11;
-            this.label8.Text = "ID";
-            // 
             // rjPanel5
             // 
             this.rjPanel5.BackColor = System.Drawing.Color.White;
@@ -176,21 +248,35 @@ namespace GymManagementSystem
             this.rjPanel5.BorderRadius = 40;
             this.rjPanel5.BorderSize = 0;
             this.rjPanel5.Controls.Add(this.txtID);
+            this.rjPanel5.Controls.Add(this.label8);
             this.rjPanel5.ForeColor = System.Drawing.Color.White;
-            this.rjPanel5.Location = new System.Drawing.Point(27, 448);
+            this.rjPanel5.Location = new System.Drawing.Point(30, 474);
             this.rjPanel5.Name = "rjPanel5";
             this.rjPanel5.Size = new System.Drawing.Size(470, 51);
             this.rjPanel5.TabIndex = 10;
             // 
             // txtID
             // 
+            this.txtID.BackColor = System.Drawing.Color.White;
             this.txtID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtID.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(87)))), ((int)(((byte)(95)))));
-            this.txtID.Location = new System.Drawing.Point(25, 12);
+            this.txtID.Location = new System.Drawing.Point(64, 12);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(428, 29);
+            this.txtID.ReadOnly = true;
+            this.txtID.Size = new System.Drawing.Size(389, 29);
             this.txtID.TabIndex = 1;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
+            this.label8.Location = new System.Drawing.Point(13, 7);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(45, 37);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "ID";
             // 
             // lblBranch
             // 
@@ -242,7 +328,7 @@ namespace GymManagementSystem
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(181)))), ((int)(((byte)(244)))));
-            this.label2.Location = new System.Drawing.Point(173, 348);
+            this.label2.Location = new System.Drawing.Point(177, 356);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(162, 46);
             this.label2.TabIndex = 7;
@@ -277,7 +363,7 @@ namespace GymManagementSystem
             this.dtpTime.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtpTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtpTime.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dtpTime.Location = new System.Drawing.Point(179, 564);
+            this.dtpTime.Location = new System.Drawing.Point(344, 588);
             this.dtpTime.Name = "dtpTime";
             this.dtpTime.Size = new System.Drawing.Size(156, 36);
             this.dtpTime.TabIndex = 4;
@@ -289,9 +375,9 @@ namespace GymManagementSystem
             this.dtpDate.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtpDate.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDate.Location = new System.Drawing.Point(81, 686);
+            this.dtpDate.Location = new System.Drawing.Point(30, 588);
             this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(342, 36);
+            this.dtpDate.Size = new System.Drawing.Size(272, 36);
             this.dtpDate.TabIndex = 3;
             // 
             // rjPanel2
@@ -686,6 +772,10 @@ namespace GymManagementSystem
             this.Text = "CreateWorkOutPlan";
             this.rjPanel1.ResumeLayout(false);
             this.rjPanel1.PerformLayout();
+            this.rjPanel11.ResumeLayout(false);
+            this.rjPanel11.PerformLayout();
+            this.rjPanel8.ResumeLayout(false);
+            this.rjPanel8.PerformLayout();
             this.rjPanel5.ResumeLayout(false);
             this.rjPanel5.PerformLayout();
             this.rjPanel3.ResumeLayout(false);
@@ -758,5 +848,11 @@ namespace GymManagementSystem
         private Label lblPackageDate;
         private Label label11;
         private Label label10;
+        private RJPanel rjPanel11;
+        private TextBox txtTrainerResult;
+        private Label label13;
+        private RJPanel rjPanel8;
+        private TextBox txtBranchResult;
+        private Label label12;
     }
 }

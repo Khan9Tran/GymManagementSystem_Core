@@ -33,7 +33,6 @@ namespace GymManagementSystem
         {
             fpnlWorkOut.Controls.Clear();
             String query = "PROC_FindWorkOutPlan";
-            Employee.Role = 1;
             DBConnection connection = new DBConnection();
             connection.openConnection();
 

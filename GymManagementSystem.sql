@@ -144,27 +144,27 @@ GO
 CREATE VIEW V_MemberWorkOutSchedule AS
 SELECT WOP.ID, WOP.MemberID, Member.Name AS MemberName, WOP.TrainerID, Trainer.Name AS TrainerName, WOP.BranchID, Branch.Name AS BranchName, WOP.[Time], WOP.[Date]
 FROM dbo.WorkOutPlan WOP
-	JOIN dbo.Member ON WOP.MemberID = Member.ID
-	JOIN dbo.Branch ON WOP.BranchID = Branch.ID
-	JOIN dbo.Trainer ON WOP.TrainerID = Trainer.ID
+	LEFT JOIN dbo.Member ON WOP.MemberID = Member.ID
+	LEFT JOIN dbo.Branch ON WOP.BranchID = Branch.ID
+	LEFT JOIN dbo.Trainer ON WOP.TrainerID = Trainer.ID
 GO
 
 --Xem lịch tập các hội viên trong ngày
 CREATE VIEW V_MemberWorkOutScheduleInDay AS
 SELECT WOP.ID, WOP.MemberID, Member.Name AS MemberName, WOP.TrainerID, Trainer.Name AS TrainerName, WOP.BranchID, Branch.Name AS BranchName, WOP.[Time], WOP.[Date]
 FROM dbo.WorkOutPlan WOP
-	JOIN dbo.Member ON WOP.MemberID = Member.ID
-	JOIN dbo.Branch ON WOP.BranchID = Branch.ID
-	JOIN dbo.Trainer ON WOP.TrainerID = Trainer.ID
+	LEFT JOIN dbo.Member ON WOP.MemberID = Member.ID
+	LEFT JOIN dbo.Branch ON WOP.BranchID = Branch.ID
+	LEFT JOIN dbo.Trainer ON WOP.TrainerID = Trainer.ID
 WHERE CONVERT(DATE, wop.Date) = CONVERT(DATE, GETDATE());
 GO
 --Xem buổi tập sắp tới
 CREATE VIEW V_MemberWorkOutScheduleUpcoming AS
 SELECT WOP.ID, WOP.MemberID, Member.Name AS MemberName, WOP.TrainerID, Trainer.Name AS TrainerName, WOP.BranchID, Branch.Name AS BranchName, WOP.[Time], WOP.[Date]
 FROM dbo.WorkOutPlan WOP
-	JOIN dbo.Member ON WOP.MemberID = Member.ID
-	JOIN dbo.Branch ON WOP.BranchID = Branch.ID
-	JOIN dbo.Trainer ON WOP.TrainerID = Trainer.ID
+	LEFT JOIN dbo.Member ON WOP.MemberID = Member.ID
+	LEFT JOIN dbo.Branch ON WOP.BranchID = Branch.ID
+	LEFT JOIN dbo.Trainer ON WOP.TrainerID = Trainer.ID
 WHERE CONVERT(DATE, wop.Date) >= CONVERT(DATE, GETDATE());
 GO
 --View xem các buổi tập đang diễn ra
@@ -178,9 +178,9 @@ JOIN (
     GROUP BY PD.WorkOutPlanID
 )	
 	AS WD ON WOP.ID = WD.WorkOutPlanID
-	JOIN Member ON WOP.MemberID = Member.ID 
-	JOIN Trainer ON WOP.TrainerID = Trainer.ID
-	JOIN Branch ON WOP.BranchID = Branch.ID
+	LEFT JOIN Member ON WOP.MemberID = Member.ID 
+	LEFT JOIN Trainer ON WOP.TrainerID = Trainer.ID
+	LEFT JOIN Branch ON WOP.BranchID = Branch.ID
 	WHERE WOP.[Time] <= CONVERT(TIME, GETDATE())
 	AND DATEADD(MINUTE, WD.TotalDuration,[Time]) >= CONVERT(TIME, GETDATE()) AND  [Date] = CONVERT(DATE, GETDATE())
 GO
@@ -984,3 +984,4 @@ BEGIN
 	ELSE IF (@FilterType = 2)
 		SELECT * FROM V_TrainerList WHERE ((Gender = 'f') AND ID = @Content OR Address LIKE N'%' + @Content + '%' OR Name  LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE N'%' + @Content + '%' OR Branch  LIKE N'%' + @Content + '%' OR BranchID = @Content)
 END
+
