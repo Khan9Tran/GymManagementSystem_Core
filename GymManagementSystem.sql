@@ -613,12 +613,12 @@ VALUES
 GO 
 INSERT INTO WorkOutPlan ([ID], [MemberID], [TrainerID], [BranchID], [Time], [Date])
 VALUES
-	('WOP001', 'MEM011', 'TR0001', 'BR0001', '08:00:00', '2023-12-01'),
-	('WOP002', 'MEM002', 'TR0002', 'BR0002', '09:00:00', '2023-11-02'),
+
+	('WOP002', 'MEM002', 'TR0002', 'BR0002', '09:00:00', '2023-12-01'),
 	('WOP003', 'MEM003', 'TR0003', 'BR0003', '10:00:00', '2023-12-01'),
-	('WOP004', 'MEM004', 'TR0004', 'BR0004', '11:00:00', '2023-11-04'),
-	('WOP005', 'MEM005', 'TR0005', 'BR0005', '12:00:00', '2023-11-05'),
-	('WOP006', 'MEM006', 'TR0006', 'BR0001', '13:00:00', '2023-11-06'),
+	('WOP004', 'MEM004', 'TR0004', 'BR0004', '11:00:00', '2023-11-01'),
+	('WOP005', 'MEM005', 'TR0005', 'BR0005', '12:00:00', '2023-11-01'),
+	('WOP006', 'MEM006', 'TR0006', 'BR0001', '13:00:00', '2023-11-01'),
 	('WOP007', 'MEM007', 'TR0007', 'BR0002', '14:00:00', '2023-11-07'),
 	('WOP008', 'MEM008', 'TR0008', 'BR0003', '15:00:00', '2023-11-08'),
 	('WOP009', 'MEM009', 'TR0009', 'BR0004', '16:00:00', '2023-11-09'),
@@ -913,8 +913,64 @@ BEGIN
 		SELECT * FROM V_MemberList WHERE (ID = @Content OR [Name] LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE '%' + @Content + '%' OR [Address]  LIKE N'%' + @Content + '%') AND (EndOfPackageDate < CAST(GETDATE() AS DATE) OR EndOfPackageDate is NULL)
 END
 
-GO
+GO 
+--Proc Update member
+CREATE PROCEDURE PROC_UpdateMember
+@Name NVARCHAR(100),
+@PhoneNumber CHAR(10),
+@Address NVARCHAR(50),
+@Gender NVARCHAR(30),
+@ID CHAR(6)
+AS
+BEGIN
+	IF @Gender = 'Nam' OR @Gender = 'Male' OR @Gender = 'M' OR @Gender = 'm' OR @Gender = 'male' OR @Gender = 'nam'
+	BEGIN
+		SET @Gender = 'm'
+	END
+	ELSE IF @Gender = 'Nu' OR @Gender = 'Female' OR @Gender = 'F' OR @Gender = 'f' OR @Gender = 'female' OR @Gender = 'nu' OR @Gender = N'nữ' OR @Gender = 'Nữ'
+	BEGIN
+		SET @Gender = 'f'
+	END
+	ELSE IF @Gender = 'U' OR @Gender = 'u' OR @Gender = 'Unknown' OR @Gender = 'unknown'
+	BEGIN
+		SET @Gender = 'u'
+	END
+	ELSE 
+	BEGIN
+		RAISERROR ( N'Giới tính không hợp lệ',16,1);
+		RETURN
+	END
+	UPDATE Member 
+	SET Name = @Name, PhoneNumber = @PhoneNumber, [Address] = @Address, Gender = @Gender 
+	WHERE ID = @ID
+END
 
+GO
+--FUNCTION Tìm ID của Membership theo rank
+CREATE FUNCTION FUNC_FindMembershipByRank(@Rank NVARCHAR(50))
+RETURNS CHAR(6)
+AS
+BEGIN
+	DECLARE @tmp CHAR(6) 
+	SET @tmp = 'None'
+	SELECT @tmp = MembershipType.ID FROM MembershipType WHERE MembershipType.Rank = @Rank
+	RETURN @tmp
+END
+
+GO
+--PROC Load BMI mới nhất của thành viên
+CREATE PROCEDURE PROC_LatestBMI @MemberID char(6)
+AS
+BEGIN
+	SELECT TOP 1 *
+    FROM BMI
+    WHERE MemberID = @MemberID
+    ORDER BY Date DESC;
+END
+
+INSERT INTO BMI(ID,MemberID,Weight,Height,Date) VALUES('000001','MEM011',60,175,'2023/10/25');
+
+GO
 --Proc tìm trainerlist
 CREATE PROCEDURE PROC_FindTrainerList
 	@FilterType INT,
