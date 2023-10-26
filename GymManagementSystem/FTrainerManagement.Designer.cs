@@ -210,7 +210,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(67, 52, 67);
-            label2.Location = new Point(25, 70);
+            label2.Location = new Point(3, 56);
             label2.Name = "label2";
             label2.Size = new Size(57, 28);
             label2.TabIndex = 1;
@@ -302,6 +302,7 @@
             btnAdd.TabIndex = 0;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnEdit
             // 
@@ -319,6 +320,7 @@
             btnEdit.TabIndex = 1;
             btnEdit.Text = "Edit";
             btnEdit.UseVisualStyleBackColor = false;
+            btnEdit.Click += btnEdit_Click;
             // 
             // btnDelete
             // 

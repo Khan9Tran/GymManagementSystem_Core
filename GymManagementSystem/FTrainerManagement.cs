@@ -15,6 +15,7 @@ namespace GymManagementSystem
     public partial class FTrainerManagement : Form
     {
         Filter filter;
+        private Trainer trainer;
         public FTrainerManagement()
         {
             InitializeComponent();
@@ -141,5 +142,74 @@ namespace GymManagementSystem
                 btnFemale.BackColor = Color.DarkBlue;
             }
         }
+
+        private bool Update()
+        {
+            if (trainer != null)
+            {
+                DBConnection connection = new DBConnection();
+                connection.openConnection();
+                try
+                {
+                    String query = "UPDATE Trainer WHERE ID = @ID ";
+                    SqlCommand command = new SqlCommand(query, connection.GetConnection());
+                    command.CommandType = CommandType.Text;
+                    command.Parameters.AddWithValue("@Name", txtName.Text);
+                    command.Parameters.AddWithValue("@Address", txtAddress.Text);
+                    command.Parameters.AddWithValue("PhoneNumber", txtPhoneNumber);
+                    command.Parameters.AddWithValue("@Gender", txtGender.Text);
+                    command.Parameters.AddWithValue("@BranchID", txtBranchID.Text);
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    connection.closeConnection();
+                    return false;
+                }
+                connection.closeConnection();
+                gvTrainer.Controls.Clear();
+            }
+            return true;
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            Update();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            Insert();
+        }
+
+        private bool Insert()
+        {
+            DBConnection connection = new DBConnection();
+            connection.openConnection();
+            try
+            {
+                String query = "INSERT INTO Trainer (ID, Name, Address, PhoneNumber, Gender, BranchID) VALUES (@ID, @Name, @Address, @PhoneNumber, @Gender, @BranchID)";
+                SqlCommand command = new SqlCommand(query, connection.GetConnection());
+                command.CommandType = CommandType.Text;
+                command.Parameters.AddWithValue("@ID", RandomIDGenerator.GenerateRandomID("Trainer", "TR"));
+                command.Parameters.AddWithValue("@Name", txtName.Text);
+                command.Parameters.AddWithValue("@Address", txtAddress.Text);
+                command.Parameters.AddWithValue("@PhoneNumber", txtPhoneNumber.Text);
+                command.Parameters.AddWithValue("@Gender", txtGender.Text);
+                command.Parameters.AddWithValue("@BranchID", txtBranchID.Text);
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                connection.closeConnection();
+                return false;
+            }
+            connection.closeConnection();
+            gvTrainer.Controls.Clear();
+            return true;
+        }
+
     }
 }
