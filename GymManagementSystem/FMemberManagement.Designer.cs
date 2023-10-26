@@ -50,15 +50,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.rjPanel8 = new GymManagementSystem.RJPanel();
             this.txtFullName = new System.Windows.Forms.TextBox();
-            this.rjPictureBox1 = new GymManagementSystem.RJPictureBox();
+            this.ptcRank = new GymManagementSystem.RJPictureBox();
             this.rjPanel5 = new GymManagementSystem.RJPanel();
             this.rjPanel19 = new GymManagementSystem.RJPanel();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblHeight = new System.Windows.Forms.Label();
             this.rjPanel18 = new GymManagementSystem.RJPanel();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblWeight = new System.Windows.Forms.Label();
             this.rjPanel17 = new GymManagementSystem.RJPanel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.rjButton9 = new GymManagementSystem.RJButton();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.btnBMI = new GymManagementSystem.RJButton();
             this.rjFlowLayoutPanel1 = new GymManagementSystem.RJFlowLayoutPanel();
             this.btnMembership = new GymManagementSystem.RJButton();
             this.rjFlowLayoutPanel2 = new GymManagementSystem.RJFlowLayoutPanel();
@@ -78,13 +78,13 @@
             this.lblDate = new System.Windows.Forms.Label();
             this.rjPanel20 = new GymManagementSystem.RJPanel();
             this.lblBalance = new System.Windows.Forms.Label();
-            this.rjButton8 = new GymManagementSystem.RJButton();
+            this.btnPackage = new GymManagementSystem.RJButton();
             this.rjPanel16 = new GymManagementSystem.RJPanel();
             this.lblRemainingTS = new System.Windows.Forms.Label();
             this.rjPanel15 = new GymManagementSystem.RJPanel();
             this.ID = new System.Windows.Forms.Label();
             this.lblPackage = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lblCard = new System.Windows.Forms.Label();
             this.rjPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvMember)).BeginInit();
             this.rjPanel4.SuspendLayout();
@@ -96,7 +96,7 @@
             this.rjPanel10.SuspendLayout();
             this.rjPanel7.SuspendLayout();
             this.rjPanel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rjPictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptcRank)).BeginInit();
             this.rjPanel5.SuspendLayout();
             this.rjPanel19.SuspendLayout();
             this.rjPanel18.SuspendLayout();
@@ -378,20 +378,19 @@
             this.txtFullName.Size = new System.Drawing.Size(453, 29);
             this.txtFullName.TabIndex = 0;
             // 
-            // rjPictureBox1
+            // ptcRank
             // 
-            this.rjPictureBox1.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjPictureBox1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjPictureBox1.BorderRadius = 40;
-            this.rjPictureBox1.BorderSize = 0;
-            this.rjPictureBox1.ForeColor = System.Drawing.Color.White;
-            this.rjPictureBox1.Image = global::GymManagementSystem.Properties.Resources._5;
-            this.rjPictureBox1.Location = new System.Drawing.Point(1304, 669);
-            this.rjPictureBox1.Name = "rjPictureBox1";
-            this.rjPictureBox1.Size = new System.Drawing.Size(465, 293);
-            this.rjPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.rjPictureBox1.TabIndex = 0;
-            this.rjPictureBox1.TabStop = false;
+            this.ptcRank.BackColor = System.Drawing.Color.Transparent;
+            this.ptcRank.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.ptcRank.BorderRadius = 40;
+            this.ptcRank.BorderSize = 0;
+            this.ptcRank.ForeColor = System.Drawing.Color.White;
+            this.ptcRank.Location = new System.Drawing.Point(1304, 669);
+            this.ptcRank.Name = "ptcRank";
+            this.ptcRank.Size = new System.Drawing.Size(465, 293);
+            this.ptcRank.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptcRank.TabIndex = 0;
+            this.ptcRank.TabStop = false;
             // 
             // rjPanel5
             // 
@@ -402,7 +401,7 @@
             this.rjPanel5.Controls.Add(this.rjPanel19);
             this.rjPanel5.Controls.Add(this.rjPanel18);
             this.rjPanel5.Controls.Add(this.rjPanel17);
-            this.rjPanel5.Controls.Add(this.rjButton9);
+            this.rjPanel5.Controls.Add(this.btnBMI);
             this.rjPanel5.ForeColor = System.Drawing.Color.White;
             this.rjPanel5.Location = new System.Drawing.Point(1311, 435);
             this.rjPanel5.Name = "rjPanel5";
@@ -415,23 +414,23 @@
             this.rjPanel19.BorderColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.rjPanel19.BorderRadius = 40;
             this.rjPanel19.BorderSize = 0;
-            this.rjPanel19.Controls.Add(this.label9);
+            this.rjPanel19.Controls.Add(this.lblHeight);
             this.rjPanel19.ForeColor = System.Drawing.Color.White;
             this.rjPanel19.Location = new System.Drawing.Point(201, 110);
             this.rjPanel19.Name = "rjPanel19";
             this.rjPanel19.Size = new System.Drawing.Size(182, 63);
             this.rjPanel19.TabIndex = 14;
             // 
-            // label9
+            // lblHeight
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
-            this.label9.Location = new System.Drawing.Point(13, 16);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(74, 28);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "Height";
+            this.lblHeight.AutoSize = true;
+            this.lblHeight.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblHeight.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
+            this.lblHeight.Location = new System.Drawing.Point(13, 16);
+            this.lblHeight.Name = "lblHeight";
+            this.lblHeight.Size = new System.Drawing.Size(74, 28);
+            this.lblHeight.TabIndex = 4;
+            this.lblHeight.Text = "Height";
             // 
             // rjPanel18
             // 
@@ -439,23 +438,23 @@
             this.rjPanel18.BorderColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.rjPanel18.BorderRadius = 40;
             this.rjPanel18.BorderSize = 0;
-            this.rjPanel18.Controls.Add(this.label8);
+            this.rjPanel18.Controls.Add(this.lblWeight);
             this.rjPanel18.ForeColor = System.Drawing.Color.White;
             this.rjPanel18.Location = new System.Drawing.Point(18, 110);
             this.rjPanel18.Name = "rjPanel18";
             this.rjPanel18.Size = new System.Drawing.Size(177, 63);
             this.rjPanel18.TabIndex = 13;
             // 
-            // label8
+            // lblWeight
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
-            this.label8.Location = new System.Drawing.Point(23, 16);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 28);
-            this.label8.TabIndex = 3;
-            this.label8.Text = "Weight";
+            this.lblWeight.AutoSize = true;
+            this.lblWeight.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblWeight.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
+            this.lblWeight.Location = new System.Drawing.Point(23, 16);
+            this.lblWeight.Name = "lblWeight";
+            this.lblWeight.Size = new System.Drawing.Size(77, 28);
+            this.lblWeight.TabIndex = 3;
+            this.lblWeight.Text = "Weight";
             // 
             // rjPanel17
             // 
@@ -463,40 +462,41 @@
             this.rjPanel17.BorderColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.rjPanel17.BorderRadius = 40;
             this.rjPanel17.BorderSize = 0;
-            this.rjPanel17.Controls.Add(this.label7);
+            this.rjPanel17.Controls.Add(this.lblStatus);
             this.rjPanel17.ForeColor = System.Drawing.Color.White;
             this.rjPanel17.Location = new System.Drawing.Point(18, 20);
             this.rjPanel17.Name = "rjPanel17";
             this.rjPanel17.Size = new System.Drawing.Size(365, 63);
             this.rjPanel17.TabIndex = 13;
             // 
-            // label7
+            // lblStatus
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
-            this.label7.Location = new System.Drawing.Point(23, 17);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(67, 28);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Status";
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
+            this.lblStatus.Location = new System.Drawing.Point(23, 17);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(67, 28);
+            this.lblStatus.TabIndex = 2;
+            this.lblStatus.Text = "Status";
             // 
-            // rjButton9
+            // btnBMI
             // 
-            this.rjButton9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
-            this.rjButton9.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton9.BorderRadius = 40;
-            this.rjButton9.BorderSize = 0;
-            this.rjButton9.FlatAppearance.BorderSize = 0;
-            this.rjButton9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rjButton9.ForeColor = System.Drawing.Color.White;
-            this.rjButton9.Location = new System.Drawing.Point(393, 20);
-            this.rjButton9.Name = "rjButton9";
-            this.rjButton9.Size = new System.Drawing.Size(60, 157);
-            this.rjButton9.TabIndex = 13;
-            this.rjButton9.Text = ">";
-            this.rjButton9.UseVisualStyleBackColor = false;
+            this.btnBMI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
+            this.btnBMI.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnBMI.BorderRadius = 40;
+            this.btnBMI.BorderSize = 0;
+            this.btnBMI.FlatAppearance.BorderSize = 0;
+            this.btnBMI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBMI.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnBMI.ForeColor = System.Drawing.Color.White;
+            this.btnBMI.Location = new System.Drawing.Point(393, 20);
+            this.btnBMI.Name = "btnBMI";
+            this.btnBMI.Size = new System.Drawing.Size(60, 157);
+            this.btnBMI.TabIndex = 13;
+            this.btnBMI.Text = ">";
+            this.btnBMI.UseVisualStyleBackColor = false;
+            this.btnBMI.Click += new System.EventHandler(this.btnBMI_Click);
             // 
             // rjFlowLayoutPanel1
             // 
@@ -558,6 +558,7 @@
             this.btnInsert.TabIndex = 0;
             this.btnInsert.Text = "Add";
             this.btnInsert.UseVisualStyleBackColor = false;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
             // btnEdit
             // 
@@ -574,6 +575,7 @@
             this.btnEdit.TabIndex = 1;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
@@ -590,6 +592,7 @@
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // rjFlowLayoutPanel3
             // 
@@ -702,13 +705,13 @@
             // 
             // rjPanel3
             // 
-            this.rjPanel3.BackColor = System.Drawing.Color.Lavender;
-            this.rjPanel3.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjPanel3.BackColor = System.Drawing.Color.AliceBlue;
+            this.rjPanel3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
             this.rjPanel3.BorderRadius = 40;
             this.rjPanel3.BorderSize = 0;
             this.rjPanel3.Controls.Add(this.rjPanel21);
             this.rjPanel3.Controls.Add(this.rjPanel20);
-            this.rjPanel3.Controls.Add(this.rjButton8);
+            this.rjPanel3.Controls.Add(this.btnPackage);
             this.rjPanel3.Controls.Add(this.rjPanel16);
             this.rjPanel3.Controls.Add(this.rjPanel15);
             this.rjPanel3.ForeColor = System.Drawing.Color.White;
@@ -761,7 +764,7 @@
             this.rjPanel20.BorderSize = 0;
             this.rjPanel20.Controls.Add(this.lblBalance);
             this.rjPanel20.ForeColor = System.Drawing.Color.White;
-            this.rjPanel20.Location = new System.Drawing.Point(368, 134);
+            this.rjPanel20.Location = new System.Drawing.Point(368, 141);
             this.rjPanel20.Name = "rjPanel20";
             this.rjPanel20.Size = new System.Drawing.Size(301, 63);
             this.rjPanel20.TabIndex = 13;
@@ -777,22 +780,23 @@
             this.lblBalance.TabIndex = 1;
             this.lblBalance.Text = "Balance";
             // 
-            // rjButton8
+            // btnPackage
             // 
-            this.rjButton8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
-            this.rjButton8.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton8.BorderRadius = 40;
-            this.rjButton8.BorderSize = 0;
-            this.rjButton8.FlatAppearance.BorderSize = 0;
-            this.rjButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.rjButton8.ForeColor = System.Drawing.Color.White;
-            this.rjButton8.Location = new System.Drawing.Point(678, 15);
-            this.rjButton8.Name = "rjButton8";
-            this.rjButton8.Size = new System.Drawing.Size(57, 182);
-            this.rjButton8.TabIndex = 4;
-            this.rjButton8.Text = ">";
-            this.rjButton8.UseVisualStyleBackColor = false;
+            this.btnPackage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
+            this.btnPackage.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnPackage.BorderRadius = 40;
+            this.btnPackage.BorderSize = 0;
+            this.btnPackage.FlatAppearance.BorderSize = 0;
+            this.btnPackage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPackage.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnPackage.ForeColor = System.Drawing.Color.White;
+            this.btnPackage.Location = new System.Drawing.Point(678, 15);
+            this.btnPackage.Name = "btnPackage";
+            this.btnPackage.Size = new System.Drawing.Size(57, 189);
+            this.btnPackage.TabIndex = 4;
+            this.btnPackage.Text = ">";
+            this.btnPackage.UseVisualStyleBackColor = false;
+            this.btnPackage.Click += new System.EventHandler(this.btnPackage_Click);
             // 
             // rjPanel16
             // 
@@ -802,7 +806,7 @@
             this.rjPanel16.BorderSize = 0;
             this.rjPanel16.Controls.Add(this.lblRemainingTS);
             this.rjPanel16.ForeColor = System.Drawing.Color.White;
-            this.rjPanel16.Location = new System.Drawing.Point(24, 134);
+            this.rjPanel16.Location = new System.Drawing.Point(24, 141);
             this.rjPanel16.Name = "rjPanel16";
             this.rjPanel16.Size = new System.Drawing.Size(338, 63);
             this.rjPanel16.TabIndex = 12;
@@ -854,16 +858,16 @@
             this.lblPackage.TabIndex = 0;
             this.lblPackage.Text = "Package";
             // 
-            // label10
+            // lblCard
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
-            this.label10.Location = new System.Drawing.Point(1311, 638);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(53, 28);
-            this.label10.TabIndex = 4;
-            this.label10.Text = "Card";
+            this.lblCard.AutoSize = true;
+            this.lblCard.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
+            this.lblCard.Location = new System.Drawing.Point(1311, 637);
+            this.lblCard.Name = "lblCard";
+            this.lblCard.Size = new System.Drawing.Size(53, 28);
+            this.lblCard.TabIndex = 4;
+            this.lblCard.Text = "Card";
             // 
             // FMemberManagement
             // 
@@ -871,12 +875,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1820, 1080);
-            this.Controls.Add(this.label10);
+            this.Controls.Add(this.lblCard);
             this.Controls.Add(this.rjPanel3);
             this.Controls.Add(this.rjPanel2);
             this.Controls.Add(this.rjFlowLayoutPanel3);
             this.Controls.Add(this.rjFlowLayoutPanel2);
-            this.Controls.Add(this.rjPictureBox1);
+            this.Controls.Add(this.ptcRank);
             this.Controls.Add(this.rjFlowLayoutPanel1);
             this.Controls.Add(this.rjPanel5);
             this.Controls.Add(this.rjPanel4);
@@ -903,7 +907,7 @@
             this.rjPanel7.PerformLayout();
             this.rjPanel8.ResumeLayout(false);
             this.rjPanel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rjPictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptcRank)).EndInit();
             this.rjPanel5.ResumeLayout(false);
             this.rjPanel19.ResumeLayout(false);
             this.rjPanel19.PerformLayout();
@@ -946,7 +950,7 @@
         private RJButton btnEdit;
         private RJButton btnDelete;
         private RJPanel rjPanel3;
-        private RJPictureBox rjPictureBox1;
+        private RJPictureBox ptcRank;
         private RJPanel rjPanel7;
         private Label label1;
         private RJPanel rjPanel8;
@@ -961,10 +965,10 @@
         private TextBox txtGender;
         private RJPanel rjPanel15;
         private RJPanel rjPanel16;
-        private RJButton rjButton8;
+        private RJButton btnPackage;
         private RJPanel rjPanel18;
         private RJPanel rjPanel17;
-        private RJButton rjButton9;
+        private RJButton btnBMI;
         private RJPanel rjPanel19;
         private RJPanel rjPanel20;
         private RJPanel rjPanel21;
@@ -981,10 +985,10 @@
         private Label lblBalance;
         private Label lblRemainingTS;
         private Label lblPackage;
-        private Label label9;
-        private Label label8;
-        private Label label7;
-        private Label label10;
+        private Label lblHeight;
+        private Label lblWeight;
+        private Label lblStatus;
+        private Label lblCard;
         private Label ID;
     }
 }

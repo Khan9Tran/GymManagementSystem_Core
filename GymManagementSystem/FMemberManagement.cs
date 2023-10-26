@@ -151,7 +151,7 @@ namespace GymManagementSystem
             else
                 txtGender.Text = "Unknown";
             txtAddress.Text = gvMember.CurrentRow.Cells["Address"].Value.ToString();
-            lblBalance.Text = "Balance " + gvMember.CurrentRow.Cells["Balance"].Value.ToString() +"đ";
+            lblBalance.Text = "Balance " + gvMember.CurrentRow.Cells["Balance"].Value.ToString() + "đ";
             lblPackage.Text = gvMember.CurrentRow.Cells["MemberPackage"].Value.ToString();
             lblRemainingTS.Text = "Session with PT " + gvMember.CurrentRow.Cells["RemainingTS"].Value.ToString();
             try
@@ -162,6 +162,129 @@ namespace GymManagementSystem
             {
                 lblDate.Text = "Unknown";
             }
+            LoadMembership();
+            LoadBMI();
+        }
+
+        private void btnPackage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBMI_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            StackForm.HomeUser.ChildForm.Open(new FCreateMember());
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (Update())
+            {
+                MessageBox.Show("Cập nhật thành công");
+            }    
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private bool Update()
+    {
+            DBConnection connection = new DBConnection();
+            connection.openConnection();
+            try
+            {
+
+                String query = "PROC_UpdateMember";
+                SqlCommand command = new SqlCommand(query, connection.GetConnection());
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@Name", txtFullName.Text);
+                command.Parameters.AddWithValue("@PhoneNumber", txtPhone.Text);
+                command.Parameters.AddWithValue("@Address", txtAddress.Text);
+                command.Parameters.AddWithValue("@Gender", txtGender.Text);
+                command.Parameters.AddWithValue("@ID", gvMember.CurrentRow.Cells["ID"].Value.ToString());
+                command.ExecuteNonQuery();
+            }
+            catch
+            (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            finally
+            {
+                connection.closeConnection();
+            }
+            return true;
+        }
+
+
+        ToolForPicture tfPicture = new ToolForPicture(ToolForPicture.Type.membership);
+        private void LoadMembership()
+        {
+            DBConnection connection = new DBConnection();
+            string cardName = null;
+            connection.openConnection();
+            try
+            {
+                String query = "SELECT dbo.FUNC_FindMembershipByRank(@Rank)";
+                SqlCommand command = new SqlCommand(query, connection.GetConnection());
+                command.Parameters.AddWithValue("@Rank", gvMember.CurrentRow.Cells["MemberRank"].Value.ToString());
+                cardName = (string)command.ExecuteScalar();
+                
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                connection.closeConnection();
+            }
+            if (cardName != null && cardName != "None")
+                tfPicture.GetPicture(cardName, ptcRank);
+        }
+
+        private void LoadBMI()
+        {
+            DBConnection connection = new DBConnection();
+            connection.openConnection();
+
+            String query = "PROC_LatestBMI";
+            SqlCommand command = new SqlCommand(query, connection.GetConnection());
+            command.CommandType = CommandType.StoredProcedure;
+
+            //khai báo các thuộc tính của tham số
+            command.Parameters.AddWithValue("@MemberID", gvMember.CurrentRow.Cells["ID"].Value.ToString());
+
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        lblStatus.Text = "Status: " +reader["Status"].ToString();
+                        lblWeight.Text = reader["Weight"].ToString() + " kg";
+                        lblHeight.Text = reader["Height"].ToString() + " cm";
+                    }
+                }
+                else
+                {
+                    lblStatus.Text = "Status: No Record";
+                    lblWeight.Text = "";
+                    lblHeight.Text = "";
+                }
+            }
+
+            connection.closeConnection();
+
         }
     }
 }
