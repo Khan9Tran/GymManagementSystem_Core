@@ -613,9 +613,9 @@ VALUES
 GO 
 INSERT INTO WorkOutPlan ([ID], [MemberID], [TrainerID], [BranchID], [Time], [Date])
 VALUES
-	('WOP001', 'MEM001', 'TR0001', 'BR0001', '08:00:00', '2023-12-01'),
-	('WOP002', 'MEM002', 'TR0002', 'BR0002', '09:00:00', '2023-12-02'),
-	('WOP003', 'MEM003', 'TR0003', 'BR0003', '10:00:00', '2023-12-03'),
+	('WOP001', 'MEM011', 'TR0001', 'BR0001', '08:00:00', '2023-12-01'),
+	('WOP002', 'MEM002', 'TR0002', 'BR0002', '09:00:00', '2023-11-02'),
+	('WOP003', 'MEM003', 'TR0003', 'BR0003', '10:00:00', '2023-12-01'),
 	('WOP004', 'MEM004', 'TR0004', 'BR0004', '11:00:00', '2023-11-04'),
 	('WOP005', 'MEM005', 'TR0005', 'BR0005', '12:00:00', '2023-11-05'),
 	('WOP006', 'MEM006', 'TR0006', 'BR0001', '13:00:00', '2023-11-06'),
@@ -911,4 +911,20 @@ BEGIN
 		SELECT * FROM V_MemberList WHERE (ID = @Content OR [Name] LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE '%' + @Content + '%' OR [Address]  LIKE N'%' + @Content + '%') AND EndOfPackageDate >= CAST(GETDATE() AS DATE)
 	ELSE IF (@FilterType = 2)
 		SELECT * FROM V_MemberList WHERE (ID = @Content OR [Name] LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE '%' + @Content + '%' OR [Address]  LIKE N'%' + @Content + '%') AND (EndOfPackageDate < CAST(GETDATE() AS DATE) OR EndOfPackageDate is NULL)
+END
+
+GO
+
+--Proc tìm trainerlist
+CREATE PROCEDURE PROC_FindTrainerList
+	@FilterType INT,
+	@Content NVARCHAR(50)
+AS
+BEGIN
+	IF (@FilterType = 0)
+		SELECT * FROM V_TrainerList WHERE (ID = @Content OR Address LIKE N'%' + @Content + '%' OR Name  LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE N'%' + @Content + '%' OR Branch  LIKE N'%' + @Content + '%' OR BranchID = @Content)
+	ELSE IF (@FilterType = 1)
+		SELECT * FROM V_TrainerList WHERE ((Gender = 'm') AND ID = @Content OR Address LIKE N'%' + @Content + '%' OR Name  LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE N'%' + @Content + '%' OR Branch  LIKE N'%' + @Content + '%' OR BranchID = @Content)
+	ELSE IF (@FilterType = 2)
+		SELECT * FROM V_TrainerList WHERE ((Gender = 'f') AND ID = @Content OR Address LIKE N'%' + @Content + '%' OR Name  LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE N'%' + @Content + '%' OR Branch  LIKE N'%' + @Content + '%' OR BranchID = @Content)
 END

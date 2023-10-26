@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             rjPanel4 = new RJPanel();
             gvTrainer = new DataGridView();
             lblName = new Label();
@@ -54,6 +54,19 @@
             btnMale = new RJButton();
             btnFemale = new RJButton();
             rjFlowLayoutPanel1 = new RJFlowLayoutPanel();
+            rjPanel5 = new RJPanel();
+            txtGender = new TextBox();
+            lblGender = new Label();
+            lbl = new Label();
+            txtBranchID = new TextBox();
+            txtPhoneNumber = new TextBox();
+            txtAddress = new TextBox();
+            txtName = new TextBox();
+            txtID = new TextBox();
+            label1 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
             rjPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gvTrainer).BeginInit();
             rjPanel3.SuspendLayout();
@@ -61,6 +74,7 @@
             rjPanel1.SuspendLayout();
             rjFlowLayoutPanel2.SuspendLayout();
             rjFlowLayoutPanel1.SuspendLayout();
+            rjPanel5.SuspendLayout();
             SuspendLayout();
             // 
             // rjPanel4
@@ -73,7 +87,7 @@
             rjPanel4.ForeColor = Color.FromArgb(67, 52, 67);
             rjPanel4.Location = new Point(95, 350);
             rjPanel4.Name = "rjPanel4";
-            rjPanel4.Size = new Size(1625, 625);
+            rjPanel4.Size = new Size(631, 625);
             rjPanel4.TabIndex = 12;
             // 
             // gvTrainer
@@ -82,29 +96,29 @@
             gvTrainer.AllowUserToDeleteRows = false;
             gvTrainer.AllowUserToResizeColumns = false;
             gvTrainer.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = Color.WhiteSmoke;
-            gvTrainer.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = Color.WhiteSmoke;
+            gvTrainer.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             gvTrainer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             gvTrainer.BackgroundColor = Color.WhiteSmoke;
             gvTrainer.BorderStyle = BorderStyle.None;
             gvTrainer.CellBorderStyle = DataGridViewCellBorderStyle.None;
             gvTrainer.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.WhiteSmoke;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            gvTrainer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.WhiteSmoke;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            gvTrainer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             gvTrainer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.WhiteSmoke;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = Color.FromArgb(67, 52, 67);
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            gvTrainer.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.WhiteSmoke;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(67, 52, 67);
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            gvTrainer.DefaultCellStyle = dataGridViewCellStyle3;
             gvTrainer.Location = new Point(3, 0);
             gvTrainer.Name = "gvTrainer";
             gvTrainer.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
@@ -112,7 +126,7 @@
             gvTrainer.RowHeadersWidth = 51;
             gvTrainer.RowTemplate.Height = 29;
             gvTrainer.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            gvTrainer.Size = new Size(1631, 605);
+            gvTrainer.Size = new Size(619, 605);
             gvTrainer.TabIndex = 0;
             gvTrainer.CellClick += gvTrainer_CellClick;
             // 
@@ -408,12 +422,151 @@
             rjFlowLayoutPanel1.Size = new Size(442, 54);
             rjFlowLayoutPanel1.TabIndex = 7;
             // 
+            // rjPanel5
+            // 
+            rjPanel5.BackColor = Color.WhiteSmoke;
+            rjPanel5.BorderColor = Color.PaleVioletRed;
+            rjPanel5.BorderRadius = 40;
+            rjPanel5.BorderSize = 0;
+            rjPanel5.Controls.Add(txtGender);
+            rjPanel5.Controls.Add(lblGender);
+            rjPanel5.Controls.Add(lbl);
+            rjPanel5.Controls.Add(txtBranchID);
+            rjPanel5.Controls.Add(txtPhoneNumber);
+            rjPanel5.Controls.Add(txtAddress);
+            rjPanel5.Controls.Add(txtName);
+            rjPanel5.Controls.Add(txtID);
+            rjPanel5.Controls.Add(label1);
+            rjPanel5.Controls.Add(label3);
+            rjPanel5.Controls.Add(label4);
+            rjPanel5.Controls.Add(label5);
+            rjPanel5.ForeColor = Color.White;
+            rjPanel5.Location = new Point(1119, 350);
+            rjPanel5.Name = "rjPanel5";
+            rjPanel5.Size = new Size(607, 612);
+            rjPanel5.TabIndex = 14;
+            // 
+            // txtGender
+            // 
+            txtGender.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtGender.Location = new Point(349, 330);
+            txtGender.Name = "txtGender";
+            txtGender.Size = new Size(227, 34);
+            txtGender.TabIndex = 11;
+            // 
+            // lblGender
+            // 
+            lblGender.AutoSize = true;
+            lblGender.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lblGender.ForeColor = Color.FromArgb(67, 52, 67);
+            lblGender.Location = new Point(40, 330);
+            lblGender.Name = "lblGender";
+            lblGender.Size = new Size(85, 28);
+            lblGender.TabIndex = 10;
+            lblGender.Text = "Gender:";
+            // 
+            // lbl
+            // 
+            lbl.AutoSize = true;
+            lbl.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl.ForeColor = Color.FromArgb(67, 52, 67);
+            lbl.Location = new Point(40, 260);
+            lbl.Name = "lbl";
+            lbl.Size = new Size(105, 28);
+            lbl.TabIndex = 9;
+            lbl.Text = "Branch ID:";
+            // 
+            // txtBranchID
+            // 
+            txtBranchID.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtBranchID.Location = new Point(349, 260);
+            txtBranchID.Name = "txtBranchID";
+            txtBranchID.Size = new Size(227, 34);
+            txtBranchID.TabIndex = 8;
+            // 
+            // txtPhoneNumber
+            // 
+            txtPhoneNumber.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtPhoneNumber.Location = new Point(349, 200);
+            txtPhoneNumber.Name = "txtPhoneNumber";
+            txtPhoneNumber.Size = new Size(227, 34);
+            txtPhoneNumber.TabIndex = 7;
+            // 
+            // txtAddress
+            // 
+            txtAddress.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtAddress.Location = new Point(349, 140);
+            txtAddress.Name = "txtAddress";
+            txtAddress.Size = new Size(227, 34);
+            txtAddress.TabIndex = 6;
+            // 
+            // txtName
+            // 
+            txtName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtName.Location = new Point(349, 80);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(227, 34);
+            txtName.TabIndex = 5;
+            // 
+            // txtID
+            // 
+            txtID.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtID.Location = new Point(349, 17);
+            txtID.Name = "txtID";
+            txtID.Size = new Size(227, 34);
+            txtID.TabIndex = 4;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.FromArgb(67, 52, 67);
+            label1.Location = new Point(40, 80);
+            label1.Name = "label1";
+            label1.Size = new Size(71, 28);
+            label1.TabIndex = 3;
+            label1.Text = "Name:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.ForeColor = Color.FromArgb(67, 52, 67);
+            label3.Location = new Point(40, 140);
+            label3.Name = "label3";
+            label3.Size = new Size(90, 28);
+            label3.TabIndex = 2;
+            label3.Text = "Address:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.ForeColor = Color.FromArgb(67, 52, 67);
+            label4.Location = new Point(40, 200);
+            label4.Name = "label4";
+            label4.Size = new Size(152, 28);
+            label4.TabIndex = 1;
+            label4.Text = "PhoneNumber:";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 13.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.ForeColor = Color.FromArgb(67, 52, 67);
+            label5.Location = new Point(40, 20);
+            label5.Name = "label5";
+            label5.Size = new Size(42, 30);
+            label5.TabIndex = 0;
+            label5.Text = "ID:";
+            // 
             // FTrainerManagement
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1820, 1080);
+            Controls.Add(rjPanel5);
             Controls.Add(rjPanel4);
             Controls.Add(rjPanel3);
             Controls.Add(rjPanel2);
@@ -433,6 +586,8 @@
             rjPanel1.PerformLayout();
             rjFlowLayoutPanel2.ResumeLayout(false);
             rjFlowLayoutPanel1.ResumeLayout(false);
+            rjPanel5.ResumeLayout(false);
+            rjPanel5.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -461,5 +616,18 @@
         private RJButton btnMale;
         private RJButton btnFemale;
         private RJFlowLayoutPanel rjFlowLayoutPanel1;
+        private RJPanel rjPanel5;
+        private TextBox txtGender;
+        private Label lblGender;
+        private Label lbl;
+        private TextBox txtBranchID;
+        private TextBox txtPhoneNumber;
+        private TextBox txtAddress;
+        private TextBox txtName;
+        private TextBox txtID;
+        private Label label1;
+        private Label label3;
+        private Label label4;
+        private Label label5;
     }
 }
