@@ -14,9 +14,13 @@ namespace GymManagementSystem
     {
         private Panel pnlFull;
         OpenChildForm openChildForm;
+        FHomeUser home;
         public FLogin()
         {
             InitializeComponent();
+            home = new FHomeUser();
+            pnlFull = new Panel();
+            pnlFull.Dock = DockStyle.Fill;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -24,13 +28,10 @@ namespace GymManagementSystem
             if (Login())
             {
                 this.Controls.Clear();
-                this.WindowState = FormWindowState.Maximized;
-                this.FormBorderStyle = FormBorderStyle.None;
-                Form home = new FHomeUser();
-                pnlFull = new Panel();
-                pnlFull.Dock = DockStyle.Fill;
                 this.Controls.Add(pnlFull);
                 openChildForm = new OpenChildForm(pnlFull);
+                this.WindowState = FormWindowState.Maximized;
+                this.FormBorderStyle = FormBorderStyle.None;
                 openChildForm.Open(home);
             }
         }

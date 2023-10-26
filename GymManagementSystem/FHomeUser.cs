@@ -39,5 +39,20 @@ namespace GymManagementSystem
         {
             childForm.Open(new FMembershipManagement());
         }
+
+        private void btnManagement_Click(object sender, EventArgs e)
+        {
+            cmnusManagement.Show(this, this.PointToClient(MousePosition));
+        }
+
+        private void itemMember_Click(object sender, EventArgs e)
+        {
+            StackForm.HomeUser.ChildForm.Open(new FMemberManagement());
+        }
+
+        private void itemMembership_Click(object sender, EventArgs e)
+        {
+            StackForm.HomeUser.ChildForm.Open(new FMembershipManagement());
+        }
     }
 }

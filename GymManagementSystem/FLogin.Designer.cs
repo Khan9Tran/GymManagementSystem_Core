@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FLogin));
             this.rjPanel7 = new GymManagementSystem.RJPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.rjPanel8 = new GymManagementSystem.RJPanel();
@@ -151,7 +152,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
             this.label2.Location = new System.Drawing.Point(260, 21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(281, 46);
+            this.label2.Size = new System.Drawing.Size(273, 45);
             this.label2.TabIndex = 8;
             this.label2.Text = "MONSTER GYM";
             // 
@@ -194,6 +195,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.rjPanel1);
             this.Controls.Add(this.rjPanel7);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Monster gym";
