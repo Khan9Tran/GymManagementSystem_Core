@@ -15,6 +15,7 @@ namespace GymManagementSystem
         private static string pathWorkOut = @"..\..\..\..\WorkOut";
         private static string pathTrainer = @"..\..\..\..\Trainer";
         private static string pathAvatar = @"..\..\..\..\Avatar";
+        private static string pathMembership = @"..\..\..\..\Membership";
         private string path;
 
         public ToolForPicture(Type type)
@@ -23,14 +24,17 @@ namespace GymManagementSystem
                 path = pathWorkOut;
             else if (type == Type.trainer)
                 path = pathTrainer;
-            else
+            else if (type == Type.avatar)
                 path = pathAvatar;
+            else 
+                path = pathMembership;
         }
         public enum Type
         {
             workOut,
             trainer,
-            avatar
+            avatar,
+            membership
         }
         public string GetFolderPath()
         {

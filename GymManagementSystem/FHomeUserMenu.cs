@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GymManagementSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,10 @@ namespace GymManagementSystem
         public FHomeUserMenu()
         {
             InitializeComponent();
+            if (Employee.BranchID != null)
+                lblBranch.Text = Employee.BranchName;
+            else
+                lblBranch.Text = "All Branch";
         }
 
         private void ptcViewSchedule_Click(object sender, EventArgs e)
@@ -61,6 +66,26 @@ namespace GymManagementSystem
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             StackForm.HomeUser.ChildForm.Open(new FPurchasePackage());
+        }
+
+        private void flpnlLoadMember_Click(object sender, EventArgs e)
+        {
+            StackForm.HomeUser.ChildForm.Open(new FCreateMember());
+        }
+
+        private void flpnlMember_Click(object sender, EventArgs e)
+        {
+            StackForm.HomeUser.ChildForm.Open(new FCreateMember());
+        }
+
+        private void ptcMember_Click(object sender, EventArgs e)
+        {
+            StackForm.HomeUser.ChildForm.Open(new FCreateMember());
+        }
+
+        private void lblMember_Click(object sender, EventArgs e)
+        {
+            StackForm.HomeUser.ChildForm.Open(new FCreateMember());
         }
     }
 }

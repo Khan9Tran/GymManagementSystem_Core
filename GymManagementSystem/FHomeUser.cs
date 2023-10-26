@@ -34,5 +34,10 @@ namespace GymManagementSystem
         {
             childForm.Open(new FHomeUserMenu());
         }
+
+        private void btnMembership_Click(object sender, EventArgs e)
+        {
+            childForm.Open(new FMembershipManagement());
+        }
     }
 }

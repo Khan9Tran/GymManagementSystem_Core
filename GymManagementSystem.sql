@@ -224,10 +224,17 @@ FROM dbo.Trainer t
 GO
 --Xem danh sách hội viên
 CREATE VIEW V_MemberList AS
-SELECT m.[ID], m.[Name], m.[Gender], m.[PhoneNumber], m.[Address], m.[Balance], mt.[rank] AS MemberRank, p.[Name] AS MemberPackage
+SELECT m.[ID], m.[Name], m.[Gender], m.[PhoneNumber], m.[Address], m.[Balance], mt.[rank] AS MemberRank, p.[Name] AS MemberPackage, m.RemainingTS, m.EndOfPackageDate
 FROM dbo.Member m
 	JOIN dbo.MembershipType mt ON m.MembershipTypeID = mt.ID
-	JOIN dbo.Package p ON m.PackageID = p.ID
+	LEFT JOIN dbo.Package p ON m.PackageID = p.ID
+
+GO
+CREATE VIEW V_MembershipType AS
+SELECT *
+FROM dbo.MembershipType
+
+
 GO
 
 -- Xem danh sách thiết bị hư hỏng
@@ -511,10 +518,11 @@ END
 GO
 
 INSERT INTO MembershipType (ID, [Rank], Rate)
-VALUES ('000001', N'Hội viên', 0),
+VALUES ('000001', N'Thành viên', 0),
        ('000002', N'Đồng', 0.04),
        ('000003', N'Bạc', 0.08),
-       ('000004', N'Vàng', 0.12);
+       ('000004', N'Vàng', 0.12),
+	   ('000005', N'Bạch kim', 0.16)
 
 INSERT INTO WorkOut (ID, Name, Type, Description, Duration)
 VALUES
@@ -824,4 +832,83 @@ BEGIN
 	BEGIN
 		RAISERROR ( 'Buổi tập có thời gian quá gần với một lịch khác mà Member đăng ký',16,1);
 	END
+END
+
+GO
+
+--Hàm tìm WorkOut theo WorkOutPlanID
+CREATE FUNCTION FUNC_FindWorkOutByWorkOutPlan(@ID char(6))
+RETURNS TABLE
+AS
+	RETURN SELECT * FROM V_WorkOutList WHERE ID IN (SELECT WorkOutID FROM PlanDeTails WHERE WorkOutPlanID = @ID)
+GO
+
+--Hàm lấy Member dựa theo ngày cùng với tổng số tiền chi tiêu
+CREATE FUNCTION FUNC_ListMemberWithTotalPaymentAmount(@StartDate Date,@EndDate Date)
+RETURNS TABLE
+AS
+	RETURN SELECT  Member.ID, Member.Name, Member.PhoneNumber, ISNULL(SUM(PayByDate.PaymentAmount), 0) as TotalPaymentAmount 
+	FROM Member LEFT JOIN (SELECT * FROM Payment WHERE Payment.Date >= @StartDate AND Payment.Date <= @EndDate ) As PayByDate ON Member.ID = PayByDate.MemberID
+	GROUP BY Member.ID, Member.Name, Member.PhoneNumber 
+GO
+--Hàm tìm số ngươi theo hạng membership 
+CREATE FUNCTION FUNC_FindNumberOfMemberByMemberShip(@MembershipID char(6))
+RETURNS INT
+AS
+BEGIN
+	DECLARE @tmp INT
+	SELECT @tmp = COUNT(*) 
+	FROM Member JOIN MembershipType ON Member.MembershipTypeID = MembershipType.ID 
+	WHERE @MembershipID = MembershipType.ID
+	RETURN @tmp
+END
+
+
+GO
+
+--PROC tạo mùa membership mới theo công thức
+CREATE PROCEDURE PROC_NewSeason
+@StartDate Date,
+@EndDate Date
+AS
+BEGIN
+	UPDATE Member 
+	SET  MembershipTypeID = '000001'
+	FROM FUNC_ListMemberWithTotalPaymentAmount(@StartDate,@EndDate) as List
+	WHERE Member.ID = List.ID AND TotalPaymentAmount < 4000000
+
+	UPDATE Member 
+	SET  MembershipTypeID = '000002'
+	FROM FUNC_ListMemberWithTotalPaymentAmount(@StartDate,@EndDate) as List
+	WHERE Member.ID = List.ID AND TotalPaymentAmount >= 4000000 AND TotalPaymentAmount < 8000000
+
+	UPDATE Member 
+	SET  MembershipTypeID = '000003'
+	FROM FUNC_ListMemberWithTotalPaymentAmount(@StartDate,@EndDate) as List
+	WHERE Member.ID = List.ID AND TotalPaymentAmount >= 8000000 AND TotalPaymentAmount < 12000000
+
+	UPDATE Member 
+	SET  MembershipTypeID = '000004'
+	FROM FUNC_ListMemberWithTotalPaymentAmount(@StartDate,@EndDate) as List
+	WHERE Member.ID = List.ID AND TotalPaymentAmount >= 12000000 AND TotalPaymentAmount < 16000000
+
+	UPDATE Member 
+	SET  MembershipTypeID = '000005'
+	FROM FUNC_ListMemberWithTotalPaymentAmount(@StartDate,@EndDate) as List
+	WHERE Member.ID = List.ID AND TotalPaymentAmount >= 16000000
+END
+
+GO
+--Proc tìm alll member
+CREATE PROCEDURE PROC_FindAllMember
+	@FilterType INT,
+	@Content NVARCHAR(50)
+AS
+BEGIN
+	IF (@FilterType = 0)
+		SELECT * FROM V_MemberList WHERE (ID = @Content OR [Name] LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE '%' + @Content + '%' OR [Address]  LIKE N'%' + @Content + '%')
+	ELSE IF (@FilterType = 1)
+		SELECT * FROM V_MemberList WHERE (ID = @Content OR [Name] LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE '%' + @Content + '%' OR [Address]  LIKE N'%' + @Content + '%') AND EndOfPackageDate >= CAST(GETDATE() AS DATE)
+	ELSE IF (@FilterType = 2)
+		SELECT * FROM V_MemberList WHERE (ID = @Content OR [Name] LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE '%' + @Content + '%' OR [Address]  LIKE N'%' + @Content + '%') AND (EndOfPackageDate < CAST(GETDATE() AS DATE) OR EndOfPackageDate is NULL)
 END
