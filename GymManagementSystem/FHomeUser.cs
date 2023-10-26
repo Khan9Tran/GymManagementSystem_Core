@@ -54,5 +54,25 @@ namespace GymManagementSystem
         {
             StackForm.HomeUser.ChildForm.Open(new FMembershipManagement());
         }
+
+        private void btnBMI_Click(object sender, EventArgs e)
+        {
+            StackForm.HomeUser.ChildForm.Open(new FBMIMnagement());
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            cmnusLogOut.Show(this, this.PointToClient(MousePosition));
+        }
+
+        private void itemQuit_Click(object sender, EventArgs e)
+        {
+            DialogResult exit = MessageBox.Show("Bạn có thật sự muốn thoát", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (exit == DialogResult.Yes)
+            {
+                StackForm.ClearAll();
+                Application.Exit();
+            }
+        }
     }
 }

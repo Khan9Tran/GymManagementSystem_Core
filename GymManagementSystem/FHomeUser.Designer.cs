@@ -39,8 +39,14 @@
             this.btnBMI = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.pnlLoad = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.cmnusLogOut = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.itemLogOut = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemQuit = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel1.SuspendLayout();
             this.cmnusManagement.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.cmnusLogOut.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -50,11 +56,10 @@
             this.flowLayoutPanel1.Controls.Add(this.btnMembership);
             this.flowLayoutPanel1.Controls.Add(this.btnManagement);
             this.flowLayoutPanel1.Controls.Add(this.btnBMI);
-            this.flowLayoutPanel1.Controls.Add(this.btnLogOut);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(100, 1080);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(100, 750);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // btnHome
@@ -163,23 +168,26 @@
             this.btnBMI.Size = new System.Drawing.Size(60, 60);
             this.btnBMI.TabIndex = 4;
             this.btnBMI.UseVisualStyleBackColor = false;
+            this.btnBMI.Click += new System.EventHandler(this.btnBMI_Click);
             // 
             // btnLogOut
             // 
             this.btnLogOut.BackColor = System.Drawing.Color.Transparent;
             this.btnLogOut.BackgroundImage = global::GymManagementSystem.Properties.Resources.logout;
             this.btnLogOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnLogOut.ContextMenuStrip = this.cmnusLogOut;
             this.btnLogOut.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogOut.FlatAppearance.BorderSize = 0;
             this.btnLogOut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(63)))), ((int)(((byte)(91)))));
             this.btnLogOut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(63)))), ((int)(((byte)(91)))));
             this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogOut.Location = new System.Drawing.Point(23, 375);
+            this.btnLogOut.Location = new System.Drawing.Point(17, 216);
             this.btnLogOut.Margin = new System.Windows.Forms.Padding(23, 27, 23, 0);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(60, 60);
             this.btnLogOut.TabIndex = 3;
             this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // pnlLoad
             // 
@@ -189,11 +197,53 @@
             this.pnlLoad.Size = new System.Drawing.Size(1820, 1080);
             this.pnlLoad.TabIndex = 1;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(41)))), ((int)(((byte)(55)))));
+            this.panel1.Controls.Add(this.btnLogOut);
+            this.panel1.Location = new System.Drawing.Point(0, 748);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(100, 300);
+            this.panel1.TabIndex = 2;
+            // 
+            // cmnusLogOut
+            // 
+            this.cmnusLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
+            this.cmnusLogOut.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cmnusLogOut.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cmnusLogOut.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.itemLogOut,
+            this.itemQuit});
+            this.cmnusLogOut.Name = "cmnusLogOut";
+            this.cmnusLogOut.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.cmnusLogOut.ShowImageMargin = false;
+            this.cmnusLogOut.Size = new System.Drawing.Size(186, 96);
+            this.cmnusLogOut.TabStop = true;
+            // 
+            // itemLogOut
+            // 
+            this.itemLogOut.ForeColor = System.Drawing.Color.White;
+            this.itemLogOut.Name = "itemLogOut";
+            this.itemLogOut.Size = new System.Drawing.Size(185, 32);
+            this.itemLogOut.Text = "Log out";
+            // 
+            // itemQuit
+            // 
+            this.itemQuit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.itemQuit.ForeColor = System.Drawing.Color.White;
+            this.itemQuit.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.itemQuit.Name = "itemQuit";
+            this.itemQuit.Size = new System.Drawing.Size(185, 32);
+            this.itemQuit.Text = "Quit";
+            this.itemQuit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.itemQuit.Click += new System.EventHandler(this.itemQuit_Click);
+            // 
             // FHomeUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1902, 1033);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlLoad);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -202,6 +252,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.flowLayoutPanel1.ResumeLayout(false);
             this.cmnusManagement.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.cmnusLogOut.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -218,5 +270,9 @@
         private ContextMenuStrip cmnusManagement;
         private ToolStripMenuItem itemMember;
         private ToolStripMenuItem itemMembership;
+        private Panel panel1;
+        private ContextMenuStrip cmnusLogOut;
+        private ToolStripMenuItem itemLogOut;
+        private ToolStripMenuItem itemQuit;
     }
 }
