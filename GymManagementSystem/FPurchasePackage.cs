@@ -36,5 +36,46 @@ namespace GymManagementSystem
             USPackage package9 = new USPackage();
             flpContainerPackage.Controls.Add(package9);
         }
+
+        private void rjPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnHaveTrainer_MouseHover(object sender, EventArgs e)
+        {
+            btnHaveTrainer.BackColor = Color.FromArgb(40, 181, 244);
+        }
+
+        private void btnHaveTrainer_MouseLeave(object sender, EventArgs e)
+        {
+            btnHaveTrainer.BackColor = Color.FromArgb(255, 255, 255);
+        }
+
+        private void btnNoTrainer_MouseHover(object sender, EventArgs e)
+        {
+            btnNoTrainer.BackColor = Color.FromArgb(40, 181, 244);
+        }
+
+        private void btnNoTrainer_MouseLeave(object sender, EventArgs e)
+        {
+            btnNoTrainer.BackColor = Color.FromArgb(255, 255, 255);
+        }
+
+        private void btnHaveTrainer_Click(object sender, EventArgs e)
+        {
+            btnHaveTrainer.BackColor = Color.FromArgb(40, 181, 244);
+            btnNoTrainer.BackColor = Color.FromArgb(255, 255, 255);
+            btnHaveTrainer.ForeColor = Color.White;
+            btnNoTrainer.ForeColor = Color.FromArgb(59, 41, 55);
+        }
+
+        private void btnNoTrainer_Click(object sender, EventArgs e)
+        {
+            btnNoTrainer.BackColor = Color.FromArgb(40, 181, 244);
+            btnHaveTrainer.BackColor = Color.FromArgb(255, 255, 255);
+            btnHaveTrainer.ForeColor = Color.FromArgb(59, 41, 55);
+            btnNoTrainer.ForeColor = Color.White;
+        }
     }
 }
