@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.chartBMI = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.rjFlowLayoutPanel3 = new GymManagementSystem.RJFlowLayoutPanel();
             this.btnAll = new GymManagementSystem.RJButton();
@@ -42,12 +42,10 @@
             this.btnMembership = new GymManagementSystem.RJButton();
             this.rjPanel4 = new GymManagementSystem.RJPanel();
             this.rjPanel9 = new GymManagementSystem.RJPanel();
-            this.btnSearch = new GymManagementSystem.RJButton();
             this.label2 = new System.Windows.Forms.Label();
             this.rjPanel10 = new GymManagementSystem.RJPanel();
+            this.btnSearch = new GymManagementSystem.RJButton();
             this.txtPhone = new System.Windows.Forms.TextBox();
-            this.rjPanel8 = new GymManagementSystem.RJPanel();
-            this.txtFullName = new System.Windows.Forms.TextBox();
             this.rjPanel7 = new GymManagementSystem.RJPanel();
             this.rjPanel5 = new GymManagementSystem.RJPanel();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -94,7 +92,6 @@
             this.rjPanel4.SuspendLayout();
             this.rjPanel9.SuspendLayout();
             this.rjPanel10.SuspendLayout();
-            this.rjPanel8.SuspendLayout();
             this.rjPanel7.SuspendLayout();
             this.rjPanel5.SuspendLayout();
             this.rjPanel6.SuspendLayout();
@@ -119,10 +116,10 @@
             // 
             this.chartBMI.BackColor = System.Drawing.Color.Transparent;
             this.chartBMI.BorderlineWidth = 0;
-            chartArea2.Name = "ChartArea1";
-            this.chartBMI.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chartBMI.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chartBMI.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartBMI.Legends.Add(legend1);
             this.chartBMI.Location = new System.Drawing.Point(0, 0);
             this.chartBMI.Name = "chartBMI";
             this.chartBMI.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
@@ -157,6 +154,7 @@
             this.btnAll.TabIndex = 1;
             this.btnAll.Text = "All";
             this.btnAll.UseVisualStyleBackColor = false;
+            this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
             // 
             // btnPackage
             // 
@@ -250,23 +248,6 @@
             this.rjPanel9.Size = new System.Drawing.Size(484, 82);
             this.rjPanel9.TabIndex = 7;
             // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.Transparent;
-            this.btnSearch.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnSearch.BorderRadius = 40;
-            this.btnSearch.BorderSize = 0;
-            this.btnSearch.FlatAppearance.BorderSize = 0;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Image = global::GymManagementSystem.Properties.Resources.search;
-            this.btnSearch.Location = new System.Drawing.Point(305, 13);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(36, 36);
-            this.btnSearch.TabIndex = 5;
-            this.btnSearch.UseVisualStyleBackColor = false;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -286,12 +267,29 @@
             this.rjPanel10.BorderSize = 0;
             this.rjPanel10.Controls.Add(this.btnSearch);
             this.rjPanel10.Controls.Add(this.txtPhone);
-            this.rjPanel10.Controls.Add(this.rjPanel8);
             this.rjPanel10.ForeColor = System.Drawing.Color.White;
             this.rjPanel10.Location = new System.Drawing.Point(105, 12);
             this.rjPanel10.Name = "rjPanel10";
             this.rjPanel10.Size = new System.Drawing.Size(357, 59);
             this.rjPanel10.TabIndex = 0;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.Transparent;
+            this.btnSearch.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnSearch.BorderRadius = 40;
+            this.btnSearch.BorderSize = 0;
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.Image = global::GymManagementSystem.Properties.Resources.search;
+            this.btnSearch.Location = new System.Drawing.Point(305, 13);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(36, 36);
+            this.btnSearch.TabIndex = 5;
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtPhone
             // 
@@ -299,34 +297,10 @@
             this.txtPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPhone.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(66)))), ((int)(((byte)(67)))));
-            this.txtPhone.Location = new System.Drawing.Point(21, 14);
+            this.txtPhone.Location = new System.Drawing.Point(21, 16);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(261, 29);
             this.txtPhone.TabIndex = 0;
-            // 
-            // rjPanel8
-            // 
-            this.rjPanel8.BackColor = System.Drawing.Color.White;
-            this.rjPanel8.BorderColor = System.Drawing.Color.White;
-            this.rjPanel8.BorderRadius = 40;
-            this.rjPanel8.BorderSize = 0;
-            this.rjPanel8.Controls.Add(this.txtFullName);
-            this.rjPanel8.ForeColor = System.Drawing.Color.White;
-            this.rjPanel8.Location = new System.Drawing.Point(-57, -97);
-            this.rjPanel8.Name = "rjPanel8";
-            this.rjPanel8.Size = new System.Drawing.Size(508, 59);
-            this.rjPanel8.TabIndex = 0;
-            // 
-            // txtFullName
-            // 
-            this.txtFullName.BackColor = System.Drawing.Color.White;
-            this.txtFullName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtFullName.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtFullName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(66)))), ((int)(((byte)(67)))));
-            this.txtFullName.Location = new System.Drawing.Point(21, 11);
-            this.txtFullName.Name = "txtFullName";
-            this.txtFullName.Size = new System.Drawing.Size(453, 29);
-            this.txtFullName.TabIndex = 0;
             // 
             // rjPanel7
             // 
@@ -421,29 +395,29 @@
             this.gvBMI.AllowUserToDeleteRows = false;
             this.gvBMI.AllowUserToResizeColumns = false;
             this.gvBMI.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.gvBMI.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.gvBMI.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.gvBMI.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gvBMI.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.gvBMI.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gvBMI.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gvBMI.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.gvBMI.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.gvBMI.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gvBMI.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gvBMI.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gvBMI.DefaultCellStyle = dataGridViewCellStyle3;
             this.gvBMI.Location = new System.Drawing.Point(0, 0);
             this.gvBMI.Name = "gvBMI";
             this.gvBMI.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -453,6 +427,7 @@
             this.gvBMI.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gvBMI.Size = new System.Drawing.Size(942, 506);
             this.gvBMI.TabIndex = 1;
+            this.gvBMI.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvBMI_CellClick);
             // 
             // rjPanel2
             // 
@@ -523,7 +498,7 @@
             this.lblWeight.AutoSize = true;
             this.lblWeight.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblWeight.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
-            this.lblWeight.Location = new System.Drawing.Point(23, 16);
+            this.lblWeight.Location = new System.Drawing.Point(19, 16);
             this.lblWeight.Name = "lblWeight";
             this.lblWeight.Size = new System.Drawing.Size(77, 28);
             this.lblWeight.TabIndex = 3;
@@ -547,7 +522,7 @@
             this.lblStatus.AutoSize = true;
             this.lblStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
-            this.lblStatus.Location = new System.Drawing.Point(23, 17);
+            this.lblStatus.Location = new System.Drawing.Point(19, 15);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(67, 28);
             this.lblStatus.TabIndex = 2;
@@ -585,6 +560,7 @@
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnDelete
             // 
@@ -601,6 +577,7 @@
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
             // 
@@ -617,6 +594,7 @@
             this.btnEdit.TabIndex = 3;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnChart
             // 
@@ -633,9 +611,11 @@
             this.btnChart.TabIndex = 4;
             this.btnChart.Text = "Chart";
             this.btnChart.UseVisualStyleBackColor = false;
+            this.btnChart.Click += new System.EventHandler(this.btnChart_Click);
             // 
             // pnlChart
             // 
+            this.pnlChart.AutoScroll = true;
             this.pnlChart.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pnlChart.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.pnlChart.BorderRadius = 40;
@@ -895,8 +875,6 @@
             this.rjPanel9.PerformLayout();
             this.rjPanel10.ResumeLayout(false);
             this.rjPanel10.PerformLayout();
-            this.rjPanel8.ResumeLayout(false);
-            this.rjPanel8.PerformLayout();
             this.rjPanel7.ResumeLayout(false);
             this.rjPanel7.PerformLayout();
             this.rjPanel5.ResumeLayout(false);
@@ -948,8 +926,6 @@
         private TextBox txtPhone;
         private RJPanel rjPanel7;
         private Label label1;
-        private RJPanel rjPanel8;
-        private TextBox txtFullName;
         private RJPanel rjPanel1;
         private DataGridView gvBMI;
         private RJButton btnSearch;

@@ -150,7 +150,6 @@ namespace GymManagementSystem
         private Member FindMember(string phoneNumber)
         {
             member = new Member();
-            Employee.Role = 1;
             DBConnection connection = new DBConnection();
             connection.openConnection();
 

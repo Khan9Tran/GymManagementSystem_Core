@@ -278,6 +278,11 @@ FROM dbo.Equipment e
 	JOIN dbo.EquipmentCategory ec ON e.CategoryID = ec.ID
 GO
 
+--Xem danh sách BMI
+CREATE VIEW V_BMIList AS
+SELECT BMI.ID, BMI.Status, BMI.Weight, BMI.Height, BMI.Date, MemberID,Member.Name, Member.PhoneNumber
+FROM BMI JOIN Member ON BMI.MemberID = Member.ID
+GO
 
 -- Trigger cập nhật số dư khi hội viên thực hiện thanh toán và tính số tiền khách cần phải trả cập nhật về Payment
 CREATE TRIGGER TR_UpdateMemberBalance
@@ -368,7 +373,7 @@ GO
 --Trigger đặt tình trạng BMI dựa theo công thức
 CREATE TRIGGER TR_BMIStatus
 ON dbo.BMI
-AFTER INSERT
+AFTER INSERT, UPDATE
 AS
 BEGIN
 UPDATE BMI
@@ -984,4 +989,61 @@ BEGIN
 	ELSE IF (@FilterType = 2)
 		SELECT * FROM V_TrainerList WHERE ((Gender = 'f') AND ID = @Content OR Address LIKE N'%' + @Content + '%' OR Name  LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE N'%' + @Content + '%' OR Branch  LIKE N'%' + @Content + '%' OR BranchID = @Content)
 END
+GO
+--PROC Insert BMI
+CREATE PROCEDURE PROC_AddBMI
+    @ID CHAR(6),
+    @Date DATETIME,
+    @Weight DECIMAL(4,1),
+    @Height INT,
+    @MemberPhone CHAR(10)
+AS
+BEGIN
+	BEGIN TRY
 
+		DECLARE @MemberID CHAR(6)
+		SELECT @MemberID = ID FROM Member WHERE PhoneNumber = @MemberPhone 
+		IF @MemberID IS NULL 
+		BEGIN
+			RAISERROR ('Thêm thất bại, không tìm thấy Member',16,1)
+			RETURN
+		END
+		ELSE
+		INSERT INTO BMI(ID, Date, Weight, Height, MemberID)
+			VALUES (@ID, @Date, @Weight, @Height, @MemberID)
+	END TRY
+	BEGIN CATCH
+		RAISERROR ('Thêm thất bại',16,1)
+		RETURN 0
+	END CATCH
+	SELECT * FROM V_BMIList
+END
+
+--Cập nhật BMI và trả về trạng thái
+GO
+CREATE PROCEDURE PROC_UpdateBMI @ID CHAR(6), @Weight DECIMAL(4,1), @Height INT
+AS
+BEGIN
+	BEGIN TRY
+		UPDATE BMI
+		SET Weight = @Weight, Height = @Height
+		WHERE ID = @ID
+	END TRY
+	BEGIN CATCH
+		RAISERROR ('Thông tin không đúng',16,1)
+		RETURN
+	END CATCH
+	SELECT [Status] FROM BMI WHERE ID = @ID
+END
+GO
+
+--Func lấy ngày và thể trạng 
+CREATE FUNCTION FUNC_DataForChartBMI(@PhoneNumber CHAR(10))
+RETURNS TABLE
+AS
+RETURN
+    SELECT [Date], 
+           CAST(([Weight] / POWER(([Height] / 100), 2)) AS DECIMAL(5, 2)) AS Rate
+    FROM V_BMIList
+    WHERE PhoneNumber = @PhoneNumber
+GO
