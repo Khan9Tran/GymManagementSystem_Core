@@ -1070,3 +1070,46 @@ BEGIN
 		RAISERROR ('Thêm thất bại',16,1)
 	END CATCH
 END
+GO
+--Proc update branch
+CREATE PROCEDURE PROC_UpdateBranch
+    @ID CHAR(6),
+    @Name NVARCHAR(50),
+    @Address NVARCHAR(50)
+AS
+BEGIN
+	BEGIN TRY
+		UPDATE Branch
+		SET Name = @Name,
+			Address = @Address
+		WHERE 
+			ID = @ID
+	END TRY
+	BEGIN CATCH
+		RAISERROR ('Cập nhật thất bại',16,1)
+	END CATCH
+END
+
+GO
+--Proc update branch
+CREATE PROCEDURE PROC_DeleteBranch
+    @ID CHAR(6)
+AS
+BEGIN
+	BEGIN TRY
+	IF (@ID = 'BRRoot')
+	BEGIN
+		RAISERROR ('Không thể xóa chi nhánh gốc',16,1)
+		RETURN
+	END
+	ELSE
+	BEGIN
+		DELETE Branch
+		WHERE 
+			ID = @ID
+	END
+	END TRY
+	BEGIN CATCH
+		RAISERROR ('Xóa thất bại, cần phải đảm bảo chi nhánh trống',16,1)
+	END CATCH
+END
