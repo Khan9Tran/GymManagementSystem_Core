@@ -1047,3 +1047,26 @@ RETURN
     FROM V_BMIList
     WHERE PhoneNumber = @PhoneNumber
 GO
+--Hàm tìm kiếm Branch
+CREATE FUNCTION FUNC_FindBranch(@Content NVARCHAR(100))
+RETURNS TABLE
+AS
+	RETURN SELECT * FROM V_BranchList WHERE ID = @Content OR [Name] LIKE  N'%' + @Content + '%' OR [Address] LIKE  N'%' + @Content + '%'
+
+GO
+
+--Proc insert Branch
+CREATE PROCEDURE PROC_AddBranch
+    @ID CHAR(6),
+    @Name NVARCHAR(50),
+    @Address NVARCHAR(50)
+AS
+BEGIN
+	BEGIN TRY
+		INSERT INTO Branch (ID, Name, Address)
+			VALUES (@ID, @Name, @Address);
+	END TRY
+	BEGIN CATCH
+		RAISERROR ('Thêm thất bại',16,1)
+	END CATCH
+END

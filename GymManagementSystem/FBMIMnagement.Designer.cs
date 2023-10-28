@@ -115,6 +115,7 @@
             // chartBMI
             // 
             this.chartBMI.BackColor = System.Drawing.Color.Transparent;
+            this.chartBMI.BorderlineColor = System.Drawing.Color.WhiteSmoke;
             this.chartBMI.BorderlineWidth = 0;
             chartArea1.Name = "ChartArea1";
             this.chartBMI.ChartAreas.Add(chartArea1);
