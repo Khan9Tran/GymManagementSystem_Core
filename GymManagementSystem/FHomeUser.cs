@@ -25,10 +25,6 @@ namespace GymManagementSystem
 
         internal OpenChildForm ChildForm { get => childForm; set => childForm = value; }
 
-        private void FHome_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnHome_Click(object sender, EventArgs e)
         {
@@ -45,15 +41,6 @@ namespace GymManagementSystem
             cmnusManagement.Show(this, this.PointToClient(MousePosition));
         }
 
-        private void itemMember_Click(object sender, EventArgs e)
-        {
-            StackForm.HomeUser.ChildForm.Open(new FMemberManagement());
-        }
-
-        private void itemMembership_Click(object sender, EventArgs e)
-        {
-            StackForm.HomeUser.ChildForm.Open(new FMembershipManagement());
-        }
 
         private void btnBMI_Click(object sender, EventArgs e)
         {
@@ -75,9 +62,50 @@ namespace GymManagementSystem
             }
         }
 
-        private void itemTrainer_Click(object sender, EventArgs e)
+
+        private void cmnusManagement_Opening(object sender, CancelEventArgs e)
         {
-            StackForm.HomeUser.ChildForm.Open(new FTrainerManagement());
+
+        }
+
+        private void itemBMI_Click(object sender, EventArgs e)
+        {
+            StackForm.HomeUser.ChildForm.Open(new FBMIMnagement());
+        }
+
+        private void itemMemebrship_Click(object sender, EventArgs e)
+        {
+            StackForm.HomeUser.ChildForm.Open(new FMembershipManagement());
+        }
+
+        private void itemBranch_Click(object sender, EventArgs e)
+        {
+            StackForm.HomeUser.ChildForm.Open(new FBranchManagement());
+        }
+
+        private void itemMember_Click(object sender, EventArgs e)
+        {
+            StackForm.HomeUser.ChildForm.Open(new FMemberManagement());
+        }
+
+        private void itemCategory_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void itemEquipment_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void itemMaintenance_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAccount_Click(object sender, EventArgs e)
+        {
+            StackForm.HomeUser.ChildForm.Open(new FEmployee());
         }
     }
 }

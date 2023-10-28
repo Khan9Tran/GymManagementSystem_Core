@@ -152,7 +152,7 @@
             this.rjFlowLayoutPanel1.Controls.Add(this.btnMember);
             this.rjFlowLayoutPanel1.Controls.Add(this.btnPackage);
             this.rjFlowLayoutPanel1.ForeColor = System.Drawing.Color.White;
-            this.rjFlowLayoutPanel1.Location = new System.Drawing.Point(346, 89);
+            this.rjFlowLayoutPanel1.Location = new System.Drawing.Point(415, 49);
             this.rjFlowLayoutPanel1.Name = "rjFlowLayoutPanel1";
             this.rjFlowLayoutPanel1.Size = new System.Drawing.Size(942, 56);
             this.rjFlowLayoutPanel1.TabIndex = 15;
@@ -217,7 +217,7 @@
             this.rjPanel4.Controls.Add(this.rjPanel9);
             this.rjPanel4.Controls.Add(this.rjPanel7);
             this.rjPanel4.ForeColor = System.Drawing.Color.White;
-            this.rjPanel4.Location = new System.Drawing.Point(349, 238);
+            this.rjPanel4.Location = new System.Drawing.Point(418, 198);
             this.rjPanel4.Name = "rjPanel4";
             this.rjPanel4.Size = new System.Drawing.Size(939, 208);
             this.rjPanel4.TabIndex = 14;
@@ -403,7 +403,7 @@
             this.rjPanel1.BorderSize = 0;
             this.rjPanel1.Controls.Add(this.gvBranch);
             this.rjPanel1.ForeColor = System.Drawing.Color.DimGray;
-            this.rjPanel1.Location = new System.Drawing.Point(346, 464);
+            this.rjPanel1.Location = new System.Drawing.Point(415, 424);
             this.rjPanel1.Name = "rjPanel1";
             this.rjPanel1.Size = new System.Drawing.Size(942, 527);
             this.rjPanel1.TabIndex = 13;
@@ -458,7 +458,7 @@
             this.rjPanel8.Controls.Add(this.txtSearch);
             this.rjPanel8.Controls.Add(this.textBox3);
             this.rjPanel8.ForeColor = System.Drawing.Color.White;
-            this.rjPanel8.Location = new System.Drawing.Point(424, 162);
+            this.rjPanel8.Location = new System.Drawing.Point(493, 122);
             this.rjPanel8.Name = "rjPanel8";
             this.rjPanel8.Size = new System.Drawing.Size(864, 59);
             this.rjPanel8.TabIndex = 1;
@@ -512,7 +512,7 @@
             this.btnAll.FlatAppearance.BorderSize = 0;
             this.btnAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAll.ForeColor = System.Drawing.Color.White;
-            this.btnAll.Location = new System.Drawing.Point(349, 162);
+            this.btnAll.Location = new System.Drawing.Point(418, 122);
             this.btnAll.Name = "btnAll";
             this.btnAll.Size = new System.Drawing.Size(58, 59);
             this.btnAll.TabIndex = 16;
