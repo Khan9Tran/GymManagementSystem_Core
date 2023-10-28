@@ -127,6 +127,7 @@ namespace GymManagementSystem
             }
             connection.closeConnection();
             MessageBox.Show("Thêm thành công");
+            gvBranch.DataSource = LoadBranch();
 
         }
 
