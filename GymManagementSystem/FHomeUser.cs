@@ -27,7 +27,7 @@ namespace GymManagementSystem
 
         private void FHome_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnHome_Click(object sender, EventArgs e)
@@ -73,6 +73,11 @@ namespace GymManagementSystem
                 StackForm.ClearAll();
                 Application.Exit();
             }
+        }
+
+        private void itemTrainer_Click(object sender, EventArgs e)
+        {
+            StackForm.HomeUser.ChildForm.Open(new FTrainerManagement());
         }
     }
 }

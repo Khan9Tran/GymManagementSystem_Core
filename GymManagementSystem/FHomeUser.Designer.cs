@@ -28,274 +28,279 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnHome = new System.Windows.Forms.Button();
-            this.btnMembership = new System.Windows.Forms.Button();
-            this.btnManagement = new System.Windows.Forms.Button();
-            this.cmnusManagement = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.itemMember = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemMembership = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnBMI = new System.Windows.Forms.Button();
-            this.btnLogOut = new System.Windows.Forms.Button();
-            this.cmnusLogOut = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.itemLogOut = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemQuit = new System.Windows.Forms.ToolStripMenuItem();
-            this.pnlLoad = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnAccount = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1.SuspendLayout();
-            this.cmnusManagement.SuspendLayout();
-            this.cmnusLogOut.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.SuspendLayout();
+            components = new System.ComponentModel.Container();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            btnHome = new Button();
+            btnMembership = new Button();
+            btnManagement = new Button();
+            cmnusManagement = new ContextMenuStrip(components);
+            itemMember = new ToolStripMenuItem();
+            itemMembership = new ToolStripMenuItem();
+            btnBMI = new Button();
+            btnLogOut = new Button();
+            cmnusLogOut = new ContextMenuStrip(components);
+            itemLogOut = new ToolStripMenuItem();
+            itemQuit = new ToolStripMenuItem();
+            pnlLoad = new Panel();
+            panel1 = new Panel();
+            button1 = new Button();
+            btnAccount = new Button();
+            trainerToolStripMenuItem = new ToolStripMenuItem();
+            flowLayoutPanel1.SuspendLayout();
+            cmnusManagement.SuspendLayout();
+            cmnusLogOut.SuspendLayout();
+            panel1.SuspendLayout();
+            SuspendLayout();
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(41)))), ((int)(((byte)(55)))));
-            this.flowLayoutPanel1.Controls.Add(this.btnHome);
-            this.flowLayoutPanel1.Controls.Add(this.btnMembership);
-            this.flowLayoutPanel1.Controls.Add(this.btnManagement);
-            this.flowLayoutPanel1.Controls.Add(this.btnBMI);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(100, 750);
-            this.flowLayoutPanel1.TabIndex = 0;
+            flowLayoutPanel1.BackColor = Color.FromArgb(59, 41, 55);
+            flowLayoutPanel1.Controls.Add(btnHome);
+            flowLayoutPanel1.Controls.Add(btnMembership);
+            flowLayoutPanel1.Controls.Add(btnManagement);
+            flowLayoutPanel1.Controls.Add(btnBMI);
+            flowLayoutPanel1.Location = new Point(0, 0);
+            flowLayoutPanel1.Margin = new Padding(0);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(100, 750);
+            flowLayoutPanel1.TabIndex = 0;
             // 
             // btnHome
             // 
-            this.btnHome.BackColor = System.Drawing.Color.Transparent;
-            this.btnHome.BackgroundImage = global::GymManagementSystem.Properties.Resources.home;
-            this.btnHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHome.FlatAppearance.BorderSize = 0;
-            this.btnHome.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(63)))), ((int)(((byte)(91)))));
-            this.btnHome.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(63)))), ((int)(((byte)(91)))));
-            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHome.Location = new System.Drawing.Point(23, 27);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(23, 27, 23, 0);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(60, 60);
-            this.btnHome.TabIndex = 0;
-            this.btnHome.UseVisualStyleBackColor = false;
-            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            btnHome.BackColor = Color.Transparent;
+            btnHome.BackgroundImage = Properties.Resources.home;
+            btnHome.BackgroundImageLayout = ImageLayout.Center;
+            btnHome.Cursor = Cursors.Hand;
+            btnHome.FlatAppearance.BorderSize = 0;
+            btnHome.FlatAppearance.MouseDownBackColor = Color.FromArgb(99, 63, 91);
+            btnHome.FlatAppearance.MouseOverBackColor = Color.FromArgb(99, 63, 91);
+            btnHome.FlatStyle = FlatStyle.Flat;
+            btnHome.Location = new Point(23, 27);
+            btnHome.Margin = new Padding(23, 27, 23, 0);
+            btnHome.Name = "btnHome";
+            btnHome.Size = new Size(60, 60);
+            btnHome.TabIndex = 0;
+            btnHome.UseVisualStyleBackColor = false;
+            btnHome.Click += btnHome_Click;
             // 
             // btnMembership
             // 
-            this.btnMembership.BackColor = System.Drawing.Color.Transparent;
-            this.btnMembership.BackgroundImage = global::GymManagementSystem.Properties.Resources.vip__1_;
-            this.btnMembership.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnMembership.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMembership.FlatAppearance.BorderSize = 0;
-            this.btnMembership.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(63)))), ((int)(((byte)(91)))));
-            this.btnMembership.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(63)))), ((int)(((byte)(91)))));
-            this.btnMembership.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMembership.Location = new System.Drawing.Point(23, 114);
-            this.btnMembership.Margin = new System.Windows.Forms.Padding(23, 27, 23, 0);
-            this.btnMembership.Name = "btnMembership";
-            this.btnMembership.Size = new System.Drawing.Size(60, 60);
-            this.btnMembership.TabIndex = 1;
-            this.btnMembership.UseVisualStyleBackColor = false;
-            this.btnMembership.Click += new System.EventHandler(this.btnMembership_Click);
+            btnMembership.BackColor = Color.Transparent;
+            btnMembership.BackgroundImage = Properties.Resources.vip__1_;
+            btnMembership.BackgroundImageLayout = ImageLayout.Center;
+            btnMembership.Cursor = Cursors.Hand;
+            btnMembership.FlatAppearance.BorderSize = 0;
+            btnMembership.FlatAppearance.MouseDownBackColor = Color.FromArgb(99, 63, 91);
+            btnMembership.FlatAppearance.MouseOverBackColor = Color.FromArgb(99, 63, 91);
+            btnMembership.FlatStyle = FlatStyle.Flat;
+            btnMembership.Location = new Point(23, 114);
+            btnMembership.Margin = new Padding(23, 27, 23, 0);
+            btnMembership.Name = "btnMembership";
+            btnMembership.Size = new Size(60, 60);
+            btnMembership.TabIndex = 1;
+            btnMembership.UseVisualStyleBackColor = false;
+            btnMembership.Click += btnMembership_Click;
             // 
             // btnManagement
             // 
-            this.btnManagement.BackColor = System.Drawing.Color.Transparent;
-            this.btnManagement.BackgroundImage = global::GymManagementSystem.Properties.Resources.folder;
-            this.btnManagement.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnManagement.ContextMenuStrip = this.cmnusManagement;
-            this.btnManagement.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnManagement.FlatAppearance.BorderSize = 0;
-            this.btnManagement.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(63)))), ((int)(((byte)(91)))));
-            this.btnManagement.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(63)))), ((int)(((byte)(91)))));
-            this.btnManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnManagement.Location = new System.Drawing.Point(23, 201);
-            this.btnManagement.Margin = new System.Windows.Forms.Padding(23, 27, 23, 0);
-            this.btnManagement.Name = "btnManagement";
-            this.btnManagement.Size = new System.Drawing.Size(60, 60);
-            this.btnManagement.TabIndex = 5;
-            this.btnManagement.UseVisualStyleBackColor = false;
-            this.btnManagement.Click += new System.EventHandler(this.btnManagement_Click);
+            btnManagement.BackColor = Color.Transparent;
+            btnManagement.BackgroundImage = Properties.Resources.folder;
+            btnManagement.BackgroundImageLayout = ImageLayout.Center;
+            btnManagement.ContextMenuStrip = cmnusManagement;
+            btnManagement.Cursor = Cursors.Hand;
+            btnManagement.FlatAppearance.BorderSize = 0;
+            btnManagement.FlatAppearance.MouseDownBackColor = Color.FromArgb(99, 63, 91);
+            btnManagement.FlatAppearance.MouseOverBackColor = Color.FromArgb(99, 63, 91);
+            btnManagement.FlatStyle = FlatStyle.Flat;
+            btnManagement.Location = new Point(23, 201);
+            btnManagement.Margin = new Padding(23, 27, 23, 0);
+            btnManagement.Name = "btnManagement";
+            btnManagement.Size = new Size(60, 60);
+            btnManagement.TabIndex = 5;
+            btnManagement.UseVisualStyleBackColor = false;
+            btnManagement.Click += btnManagement_Click;
             // 
             // cmnusManagement
             // 
-            this.cmnusManagement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
-            this.cmnusManagement.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cmnusManagement.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.cmnusManagement.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.itemMember,
-            this.itemMembership});
-            this.cmnusManagement.Name = "cmnusManagement";
-            this.cmnusManagement.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.cmnusManagement.ShowImageMargin = false;
-            this.cmnusManagement.Size = new System.Drawing.Size(175, 68);
-            this.cmnusManagement.Text = "Management";
+            cmnusManagement.BackColor = Color.FromArgb(44, 181, 245);
+            cmnusManagement.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            cmnusManagement.ImageScalingSize = new Size(20, 20);
+            cmnusManagement.Items.AddRange(new ToolStripItem[] { itemMember, itemMembership, trainerToolStripMenuItem });
+            cmnusManagement.Name = "cmnusManagement";
+            cmnusManagement.RenderMode = ToolStripRenderMode.Professional;
+            cmnusManagement.ShowImageMargin = false;
+            cmnusManagement.Size = new Size(186, 128);
+            cmnusManagement.Text = "Management";
             // 
             // itemMember
             // 
-            this.itemMember.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
-            this.itemMember.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.itemMember.ForeColor = System.Drawing.Color.White;
-            this.itemMember.Name = "itemMember";
-            this.itemMember.Size = new System.Drawing.Size(174, 32);
-            this.itemMember.Text = "Member";
-            this.itemMember.Click += new System.EventHandler(this.itemMember_Click);
+            itemMember.BackColor = Color.FromArgb(44, 181, 245);
+            itemMember.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            itemMember.ForeColor = Color.White;
+            itemMember.Name = "itemMember";
+            itemMember.Size = new Size(185, 32);
+            itemMember.Text = "Member";
+            itemMember.Click += itemMember_Click;
             // 
             // itemMembership
             // 
-            this.itemMembership.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
-            this.itemMembership.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.itemMembership.ForeColor = System.Drawing.Color.White;
-            this.itemMembership.Name = "itemMembership";
-            this.itemMembership.Size = new System.Drawing.Size(174, 32);
-            this.itemMembership.Text = "Membership";
-            this.itemMembership.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.itemMembership.Click += new System.EventHandler(this.itemMembership_Click);
+            itemMembership.BackColor = Color.FromArgb(44, 181, 245);
+            itemMembership.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            itemMembership.ForeColor = Color.White;
+            itemMembership.Name = "itemMembership";
+            itemMembership.Size = new Size(185, 32);
+            itemMembership.Text = "Membership";
+            itemMembership.TextImageRelation = TextImageRelation.ImageAboveText;
+            itemMembership.Click += itemMembership_Click;
             // 
             // btnBMI
             // 
-            this.btnBMI.BackColor = System.Drawing.Color.Transparent;
-            this.btnBMI.BackgroundImage = global::GymManagementSystem.Properties.Resources.bmi;
-            this.btnBMI.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnBMI.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBMI.FlatAppearance.BorderSize = 0;
-            this.btnBMI.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(63)))), ((int)(((byte)(91)))));
-            this.btnBMI.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(63)))), ((int)(((byte)(91)))));
-            this.btnBMI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBMI.Location = new System.Drawing.Point(23, 288);
-            this.btnBMI.Margin = new System.Windows.Forms.Padding(23, 27, 23, 0);
-            this.btnBMI.Name = "btnBMI";
-            this.btnBMI.Size = new System.Drawing.Size(60, 60);
-            this.btnBMI.TabIndex = 4;
-            this.btnBMI.UseVisualStyleBackColor = false;
-            this.btnBMI.Click += new System.EventHandler(this.btnBMI_Click);
+            btnBMI.BackColor = Color.Transparent;
+            btnBMI.BackgroundImage = Properties.Resources.bmi;
+            btnBMI.BackgroundImageLayout = ImageLayout.Center;
+            btnBMI.Cursor = Cursors.Hand;
+            btnBMI.FlatAppearance.BorderSize = 0;
+            btnBMI.FlatAppearance.MouseDownBackColor = Color.FromArgb(99, 63, 91);
+            btnBMI.FlatAppearance.MouseOverBackColor = Color.FromArgb(99, 63, 91);
+            btnBMI.FlatStyle = FlatStyle.Flat;
+            btnBMI.Location = new Point(23, 288);
+            btnBMI.Margin = new Padding(23, 27, 23, 0);
+            btnBMI.Name = "btnBMI";
+            btnBMI.Size = new Size(60, 60);
+            btnBMI.TabIndex = 4;
+            btnBMI.UseVisualStyleBackColor = false;
+            btnBMI.Click += btnBMI_Click;
             // 
             // btnLogOut
             // 
-            this.btnLogOut.BackColor = System.Drawing.Color.Transparent;
-            this.btnLogOut.BackgroundImage = global::GymManagementSystem.Properties.Resources.logout;
-            this.btnLogOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnLogOut.ContextMenuStrip = this.cmnusLogOut;
-            this.btnLogOut.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogOut.FlatAppearance.BorderSize = 0;
-            this.btnLogOut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(63)))), ((int)(((byte)(91)))));
-            this.btnLogOut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(63)))), ((int)(((byte)(91)))));
-            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogOut.Location = new System.Drawing.Point(23, 216);
-            this.btnLogOut.Margin = new System.Windows.Forms.Padding(23, 27, 23, 0);
-            this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(60, 60);
-            this.btnLogOut.TabIndex = 3;
-            this.btnLogOut.UseVisualStyleBackColor = false;
-            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            btnLogOut.BackColor = Color.Transparent;
+            btnLogOut.BackgroundImage = Properties.Resources.logout;
+            btnLogOut.BackgroundImageLayout = ImageLayout.Center;
+            btnLogOut.ContextMenuStrip = cmnusLogOut;
+            btnLogOut.Cursor = Cursors.Hand;
+            btnLogOut.FlatAppearance.BorderSize = 0;
+            btnLogOut.FlatAppearance.MouseDownBackColor = Color.FromArgb(99, 63, 91);
+            btnLogOut.FlatAppearance.MouseOverBackColor = Color.FromArgb(99, 63, 91);
+            btnLogOut.FlatStyle = FlatStyle.Flat;
+            btnLogOut.Location = new Point(23, 216);
+            btnLogOut.Margin = new Padding(23, 27, 23, 0);
+            btnLogOut.Name = "btnLogOut";
+            btnLogOut.Size = new Size(60, 60);
+            btnLogOut.TabIndex = 3;
+            btnLogOut.UseVisualStyleBackColor = false;
+            btnLogOut.Click += btnLogOut_Click;
             // 
             // cmnusLogOut
             // 
-            this.cmnusLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
-            this.cmnusLogOut.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cmnusLogOut.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.cmnusLogOut.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.itemLogOut,
-            this.itemQuit});
-            this.cmnusLogOut.Name = "cmnusLogOut";
-            this.cmnusLogOut.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.cmnusLogOut.ShowImageMargin = false;
-            this.cmnusLogOut.Size = new System.Drawing.Size(128, 68);
-            this.cmnusLogOut.TabStop = true;
+            cmnusLogOut.BackColor = Color.FromArgb(44, 181, 245);
+            cmnusLogOut.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            cmnusLogOut.ImageScalingSize = new Size(20, 20);
+            cmnusLogOut.Items.AddRange(new ToolStripItem[] { itemLogOut, itemQuit });
+            cmnusLogOut.Name = "cmnusLogOut";
+            cmnusLogOut.RenderMode = ToolStripRenderMode.Professional;
+            cmnusLogOut.ShowImageMargin = false;
+            cmnusLogOut.Size = new Size(128, 68);
+            cmnusLogOut.TabStop = true;
             // 
             // itemLogOut
             // 
-            this.itemLogOut.ForeColor = System.Drawing.Color.White;
-            this.itemLogOut.Name = "itemLogOut";
-            this.itemLogOut.Size = new System.Drawing.Size(127, 32);
-            this.itemLogOut.Text = "Log out";
+            itemLogOut.ForeColor = Color.White;
+            itemLogOut.Name = "itemLogOut";
+            itemLogOut.Size = new Size(127, 32);
+            itemLogOut.Text = "Log out";
             // 
             // itemQuit
             // 
-            this.itemQuit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.itemQuit.ForeColor = System.Drawing.Color.White;
-            this.itemQuit.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.itemQuit.Name = "itemQuit";
-            this.itemQuit.Size = new System.Drawing.Size(127, 32);
-            this.itemQuit.Text = "Quit";
-            this.itemQuit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.itemQuit.Click += new System.EventHandler(this.itemQuit_Click);
+            itemQuit.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            itemQuit.ForeColor = Color.White;
+            itemQuit.ImageScaling = ToolStripItemImageScaling.None;
+            itemQuit.Name = "itemQuit";
+            itemQuit.Size = new Size(127, 32);
+            itemQuit.Text = "Quit";
+            itemQuit.TextAlign = ContentAlignment.BottomCenter;
+            itemQuit.Click += itemQuit_Click;
             // 
             // pnlLoad
             // 
-            this.pnlLoad.Location = new System.Drawing.Point(100, 0);
-            this.pnlLoad.Margin = new System.Windows.Forms.Padding(0);
-            this.pnlLoad.Name = "pnlLoad";
-            this.pnlLoad.Size = new System.Drawing.Size(1820, 1080);
-            this.pnlLoad.TabIndex = 1;
+            pnlLoad.Location = new Point(100, 0);
+            pnlLoad.Margin = new Padding(0);
+            pnlLoad.Name = "pnlLoad";
+            pnlLoad.Size = new Size(1820, 1080);
+            pnlLoad.TabIndex = 1;
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(41)))), ((int)(((byte)(55)))));
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.btnAccount);
-            this.panel1.Controls.Add(this.btnLogOut);
-            this.panel1.Location = new System.Drawing.Point(0, 748);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(100, 300);
-            this.panel1.TabIndex = 2;
+            panel1.BackColor = Color.FromArgb(59, 41, 55);
+            panel1.Controls.Add(button1);
+            panel1.Controls.Add(btnAccount);
+            panel1.Controls.Add(btnLogOut);
+            panel1.Location = new Point(0, 748);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(100, 300);
+            panel1.TabIndex = 2;
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImage = global::GymManagementSystem.Properties.Resources.undo;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.ContextMenuStrip = this.cmnusLogOut;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(63)))), ((int)(((byte)(91)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(63)))), ((int)(((byte)(91)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(23, 33);
-            this.button1.Margin = new System.Windows.Forms.Padding(23, 27, 23, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(60, 60);
-            this.button1.TabIndex = 5;
-            this.button1.UseVisualStyleBackColor = false;
+            button1.BackColor = Color.Transparent;
+            button1.BackgroundImage = Properties.Resources.undo;
+            button1.BackgroundImageLayout = ImageLayout.Center;
+            button1.ContextMenuStrip = cmnusLogOut;
+            button1.Cursor = Cursors.Hand;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseDownBackColor = Color.FromArgb(99, 63, 91);
+            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(99, 63, 91);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Location = new Point(23, 33);
+            button1.Margin = new Padding(23, 27, 23, 0);
+            button1.Name = "button1";
+            button1.Size = new Size(60, 60);
+            button1.TabIndex = 5;
+            button1.UseVisualStyleBackColor = false;
             // 
             // btnAccount
             // 
-            this.btnAccount.BackColor = System.Drawing.Color.Transparent;
-            this.btnAccount.BackgroundImage = global::GymManagementSystem.Properties.Resources.user;
-            this.btnAccount.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnAccount.ContextMenuStrip = this.cmnusLogOut;
-            this.btnAccount.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAccount.FlatAppearance.BorderSize = 0;
-            this.btnAccount.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(63)))), ((int)(((byte)(91)))));
-            this.btnAccount.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(63)))), ((int)(((byte)(91)))));
-            this.btnAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAccount.Location = new System.Drawing.Point(23, 120);
-            this.btnAccount.Margin = new System.Windows.Forms.Padding(23, 27, 23, 0);
-            this.btnAccount.Name = "btnAccount";
-            this.btnAccount.Size = new System.Drawing.Size(60, 60);
-            this.btnAccount.TabIndex = 4;
-            this.btnAccount.UseVisualStyleBackColor = false;
+            btnAccount.BackColor = Color.Transparent;
+            btnAccount.BackgroundImage = Properties.Resources.user;
+            btnAccount.BackgroundImageLayout = ImageLayout.Center;
+            btnAccount.ContextMenuStrip = cmnusLogOut;
+            btnAccount.Cursor = Cursors.Hand;
+            btnAccount.FlatAppearance.BorderSize = 0;
+            btnAccount.FlatAppearance.MouseDownBackColor = Color.FromArgb(99, 63, 91);
+            btnAccount.FlatAppearance.MouseOverBackColor = Color.FromArgb(99, 63, 91);
+            btnAccount.FlatStyle = FlatStyle.Flat;
+            btnAccount.Location = new Point(23, 120);
+            btnAccount.Margin = new Padding(23, 27, 23, 0);
+            btnAccount.Name = "btnAccount";
+            btnAccount.Size = new Size(60, 60);
+            btnAccount.TabIndex = 4;
+            btnAccount.UseVisualStyleBackColor = false;
+            // 
+            // trainerToolStripMenuItem
+            // 
+            trainerToolStripMenuItem.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            trainerToolStripMenuItem.ForeColor = Color.White;
+            trainerToolStripMenuItem.Name = "trainerToolStripMenuItem";
+            trainerToolStripMenuItem.Size = new Size(185, 32);
+            trainerToolStripMenuItem.Text = "Trainer";
+            trainerToolStripMenuItem.Click += itemTrainer_Click;
             // 
             // FHomeUser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1902, 1033);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pnlLoad);
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "FHomeUser";
-            this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.cmnusManagement.ResumeLayout(false);
-            this.cmnusLogOut.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1902, 1033);
+            Controls.Add(panel1);
+            Controls.Add(pnlLoad);
+            Controls.Add(flowLayoutPanel1);
+            Margin = new Padding(3, 4, 3, 4);
+            Name = "FHomeUser";
+            ShowIcon = false;
+            StartPosition = FormStartPosition.CenterScreen;
+            flowLayoutPanel1.ResumeLayout(false);
+            cmnusManagement.ResumeLayout(false);
+            cmnusLogOut.ResumeLayout(false);
+            panel1.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion
@@ -316,5 +321,6 @@
         private ToolStripMenuItem itemQuit;
         private Button button1;
         private Button btnAccount;
+        private ToolStripMenuItem trainerToolStripMenuItem;
     }
 }
