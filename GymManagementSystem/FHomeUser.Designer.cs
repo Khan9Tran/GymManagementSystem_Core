@@ -146,7 +146,7 @@
             this.cmnusManagement.Name = "cmnusManagement";
             this.cmnusManagement.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.cmnusManagement.ShowImageMargin = false;
-            this.cmnusManagement.Size = new System.Drawing.Size(159, 228);
+            this.cmnusManagement.Size = new System.Drawing.Size(186, 256);
             this.cmnusManagement.Text = "Management";
             this.cmnusManagement.Opening += new System.ComponentModel.CancelEventHandler(this.cmnusManagement_Opening);
             // 
@@ -160,27 +160,27 @@
             this.itemMemberSelect.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.itemMemberSelect.ForeColor = System.Drawing.Color.White;
             this.itemMemberSelect.Name = "itemMemberSelect";
-            this.itemMemberSelect.Size = new System.Drawing.Size(158, 32);
+            this.itemMemberSelect.Size = new System.Drawing.Size(185, 32);
             this.itemMemberSelect.Text = "Member";
             // 
             // itemBMI
             // 
             this.itemBMI.Name = "itemBMI";
-            this.itemBMI.Size = new System.Drawing.Size(224, 32);
+            this.itemBMI.Size = new System.Drawing.Size(213, 32);
             this.itemBMI.Text = "BMI";
             this.itemBMI.Click += new System.EventHandler(this.itemBMI_Click);
             // 
             // itemMember
             // 
             this.itemMember.Name = "itemMember";
-            this.itemMember.Size = new System.Drawing.Size(224, 32);
+            this.itemMember.Size = new System.Drawing.Size(213, 32);
             this.itemMember.Text = "All Members";
             this.itemMember.Click += new System.EventHandler(this.itemMember_Click);
             // 
             // itemMemebrship
             // 
             this.itemMemebrship.Name = "itemMemebrship";
-            this.itemMemebrship.Size = new System.Drawing.Size(224, 32);
+            this.itemMemebrship.Size = new System.Drawing.Size(213, 32);
             this.itemMemebrship.Text = "Membership";
             this.itemMemebrship.Click += new System.EventHandler(this.itemMemebrship_Click);
             // 
@@ -189,7 +189,7 @@
             this.trainerToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.trainerToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.trainerToolStripMenuItem.Name = "trainerToolStripMenuItem";
-            this.trainerToolStripMenuItem.Size = new System.Drawing.Size(158, 32);
+            this.trainerToolStripMenuItem.Size = new System.Drawing.Size(185, 32);
             this.trainerToolStripMenuItem.Text = "Trainer";
             // 
             // itemBranch
@@ -197,7 +197,7 @@
             this.itemBranch.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.itemBranch.ForeColor = System.Drawing.Color.White;
             this.itemBranch.Name = "itemBranch";
-            this.itemBranch.Size = new System.Drawing.Size(158, 32);
+            this.itemBranch.Size = new System.Drawing.Size(185, 32);
             this.itemBranch.Text = "Branch";
             this.itemBranch.Click += new System.EventHandler(this.itemBranch_Click);
             // 
@@ -210,7 +210,7 @@
             this.equipmentToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.equipmentToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.equipmentToolStripMenuItem.Name = "equipmentToolStripMenuItem";
-            this.equipmentToolStripMenuItem.Size = new System.Drawing.Size(158, 32);
+            this.equipmentToolStripMenuItem.Size = new System.Drawing.Size(185, 32);
             this.equipmentToolStripMenuItem.Text = "Equipment";
             // 
             // itemCategory
@@ -239,15 +239,16 @@
             this.itemWorkout.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.itemWorkout.ForeColor = System.Drawing.Color.White;
             this.itemWorkout.Name = "itemWorkout";
-            this.itemWorkout.Size = new System.Drawing.Size(158, 32);
+            this.itemWorkout.Size = new System.Drawing.Size(185, 32);
             this.itemWorkout.Text = "Workout";
+            this.itemWorkout.Click += new System.EventHandler(this.itemWorkout_Click);
             // 
             // itemPackage
             // 
             this.itemPackage.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.itemPackage.ForeColor = System.Drawing.Color.White;
             this.itemPackage.Name = "itemPackage";
-            this.itemPackage.Size = new System.Drawing.Size(158, 32);
+            this.itemPackage.Size = new System.Drawing.Size(185, 32);
             this.itemPackage.Text = "Package";
             // 
             // itemPayment
@@ -255,7 +256,7 @@
             this.itemPayment.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.itemPayment.ForeColor = System.Drawing.Color.White;
             this.itemPayment.Name = "itemPayment";
-            this.itemPayment.Size = new System.Drawing.Size(158, 32);
+            this.itemPayment.Size = new System.Drawing.Size(185, 32);
             this.itemPayment.Text = "Payment";
             // 
             // btnBMI

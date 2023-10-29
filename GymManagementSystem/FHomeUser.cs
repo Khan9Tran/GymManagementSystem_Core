@@ -107,5 +107,10 @@ namespace GymManagementSystem
         {
             StackForm.HomeUser.ChildForm.Open(new FEmployee());
         }
+
+        private void itemWorkout_Click(object sender, EventArgs e)
+        {
+            StackForm.HomeUser.ChildForm.Open(new FWorkOutManagement());
+        }
     }
 }
