@@ -237,20 +237,6 @@ FROM dbo.MembershipType
 
 GO
 
--- Xem danh sách thiết bị hư hỏng
-CREATE VIEW V_DamagedEqpList AS
-SELECT dbo.Equipment.[ID], dbo.Equipment.[Name], dbo.Equipment.[Status], dbo.Branch.[Name] AS BranchName, dbo.EquipmentCategory.[Name] AS Category
-FROM dbo.Equipment JOIN dbo.Branch ON Branch.ID = Equipment.BranchID
-				   JOIN dbo.EquipmentCategory ON EquipmentCategory.ID = Equipment.CategoryID
-WHERE dbo.Equipment.[Status] = 'unavailable'
-Go
-	-- Xem danh sách thiết bị còn hoạt động
-CREATE VIEW V_AvailableEqpList AS
-SELECT dbo.Equipment.[ID], dbo.Equipment.[Name], dbo.Equipment.[Status], dbo.Branch.[Name] AS BranchName, dbo.EquipmentCategory.[Name] AS Category
-FROM dbo.Equipment JOIN dbo.Branch ON Branch.ID = Equipment.BranchID
-				   JOIN dbo.EquipmentCategory ON EquipmentCategory.ID = Equipment.CategoryID
-WHERE dbo.Equipment.[Status] = 'available'
-GO
 --Xem danh sách thiết bị sửa chữa trong ngày
 CREATE VIEW V_MaintDataListInDay AS
 SELECT eq.EquipmentID , eq.Description, eq.Cost
@@ -272,12 +258,25 @@ GO
 
 --Xem danh sách các thiết bị
 CREATE VIEW V_EquipmentList AS
-SELECT e.[ID], e.[Name], e.[Status], e.[Price], ec.[Name] AS Category, b.[Name] AS Branch
-FROM dbo.Equipment e
-	JOIN dbo.Branch b ON e.BranchID = b.ID
-	JOIN dbo.EquipmentCategory ec ON e.CategoryID = ec.ID
+SELECT dbo.Equipment.[ID], dbo.Equipment.[Name], dbo.Equipment.[Status], dbo.Branch.[Name] AS BranchName, dbo.EquipmentCategory.[Name] AS Category, BranchID
+FROM dbo.Equipment JOIN dbo.Branch ON Branch.ID = Equipment.BranchID
+				   JOIN dbo.EquipmentCategory ON EquipmentCategory.ID = Equipment.CategoryID
 GO
 
+-- Xem danh sách thiết bị hư hỏng
+CREATE VIEW V_DamagedEqpList AS
+SELECT dbo.Equipment.[ID], dbo.Equipment.[Name], dbo.Equipment.[Status], dbo.Branch.[Name] AS BranchName, dbo.EquipmentCategory.[Name] AS Category, BranchID
+FROM dbo.Equipment JOIN dbo.Branch ON Branch.ID = Equipment.BranchID
+				   JOIN dbo.EquipmentCategory ON EquipmentCategory.ID = Equipment.CategoryID
+WHERE dbo.Equipment.[Status] = 'unavailable'
+Go
+	-- Xem danh sách thiết bị còn hoạt động
+CREATE VIEW V_AvailableEqpList AS
+SELECT dbo.Equipment.[ID], dbo.Equipment.[Name], dbo.Equipment.[Status], dbo.Branch.[Name] AS BranchName, dbo.EquipmentCategory.[Name] AS Category, BranchID
+FROM dbo.Equipment JOIN dbo.Branch ON Branch.ID = Equipment.BranchID
+				   JOIN dbo.EquipmentCategory ON EquipmentCategory.ID = Equipment.CategoryID
+WHERE dbo.Equipment.[Status] = 'available'
+GO
 --Xem danh sách BMI
 CREATE VIEW V_BMIList AS
 SELECT BMI.ID, BMI.Status, BMI.Weight, BMI.Height, BMI.Date, MemberID,Member.Name, Member.PhoneNumber
@@ -422,8 +421,9 @@ BEGIN
 	UPDATE dbo.Equipment
 	SET [Status] = 'available'
 	FROM dbo.Equipment eqp
-	INNER JOIN inserted i ON eqp.ID = i.ID
+	INNER JOIN inserted i ON eqp.ID = i.EquipmentID
 END;
+
 GO
 --Trigger báo quá số lượng đăng ký cho giờ tập trong khoản trước sau 45 phút (Dung tích chứa 50 member) 
 CREATE TRIGGER TR_OverCapacity ON WorkOutPlan
@@ -1261,4 +1261,210 @@ BEGIN
     BEGIN
         SELECT N'Mật khẩu hiện tại không chính xác.' AS Result
     END
+END
+GO
+
+--PROC TÌm ds equipment
+CREATE PROCEDURE PROC_FindEquipment
+    @FilterType INT,
+    @Content NVARCHAR(50),
+    @BranchID CHAR(6)
+AS
+BEGIN
+    IF @BranchID = 'BRRoot' -- Tìm trên tất cả các chi nhánh
+    BEGIN
+        IF @FilterType = 0 -- All
+        BEGIN
+            SELECT *
+            FROM V_EquipmentList eq
+            WHERE eq.[Name] LIKE N'%' + @Content + '%'
+        END
+        ELSE IF @FilterType = 1 -- Avai
+        BEGIN
+            SELECT *
+            FROM V_AvailableEqpList eq
+            WHERE eq.[Name] LIKE N'%' + @Content + '%'
+        END
+        ELSE IF @FilterType = 2 -- Unvai
+        BEGIN
+            SELECT *
+            FROM V_DamagedEqpList eq
+            WHERE eq.[Name] LIKE N'%' + @Content + '%'
+        END
+    END
+    ELSE -- Tìm trên một chi nhánh cụ thể
+    BEGIN
+        IF @FilterType = 0 -- All
+        BEGIN
+            SELECT *
+            FROM V_EquipmentList eq
+            WHERE eq.[Name] LIKE N'%' + @Content + '%'
+                AND eq.[BranchID] = @BranchID
+        END
+        ELSE IF @FilterType = 1 -- Avai
+        BEGIN
+            SELECT *
+            FROM V_AvailableEqpList eq
+            WHERE eq.[Name] LIKE N'%' + @Content + '%'
+                AND eq.[BranchID] = @BranchID
+        END
+        ELSE IF @FilterType = 2 -- Unvai
+        BEGIN
+            SELECT *
+            FROM V_DamagedEqpList eq
+            WHERE eq.[Name] LIKE N'%' + @Content + '%'
+                AND eq.[BranchID] = @BranchID
+        END
+    END
+END
+
+INSERT INTO Equipment (ID, CategoryID, BranchID, Name, Status, Price)
+VALUES
+    ('EQ001', 'EQC001', 'BR0001', N'Tên thiết bị 1', 'Available', 100.00),
+    ('EQ002', 'EQC002', 'BR0002', N'Tên thiết bị 2', 'Unavailable', 150.00),
+    ('EQ003', 'EQC003', 'BR0003', N'Tên thiết bị 3', 'Available', 200.00),
+    ('EQ004', 'EQC004', 'BR0004', N'Tên thiết bị 4', 'Available', 120.00),
+    ('EQ005', 'EQC005', 'BR0005', N'Tên thiết bị 5', 'Unavailable', 180.00),
+    ('EQ006', 'EQC006', 'BRRoot', N'Tên thiết bị 6', 'Available', 250.00);
+
+GO
+--PROC Đổi trạng thái
+CREATE PROCEDURE PROC_SetUnavailable
+    @ID CHAR(6)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        -- Thực hiện các thay đổi cần thiết trên dữ liệu
+        UPDATE Equipment
+        SET Status = N'unavailable'
+        WHERE ID = @ID;
+        
+        -- Commit transaction nếu không có lỗi xảy ra
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        -- Rollback transaction nếu có lỗi xảy ra
+        ROLLBACK TRANSACTION;
+        THROW;
+    END CATCH;
+END
+GO
+--PROC Tìm lịch sử sửa chửa
+CREATE PROCEDURE PROC_FindMaintenanceData
+@ID CHAR(6)
+AS
+BEGIN
+	SELECT * FROM MaintenanceData
+	WHERE MaintenanceData.EquipmentID = @ID
+END
+
+GO 
+--PROC thêm lịch sử sửa chửa
+CREATE PROCEDURE PROC_AddMaintenanceData
+    @ID CHAR(6),
+    @EquipmentID CHAR(6),
+    @Date DATE,
+    @Cost MONEY,
+    @Description NTEXT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Kiểm tra xem thiết bị có trạng thái "Unavailable" không
+    DECLARE @Status NVARCHAR(20);
+    SELECT @Status = Status
+    FROM Equipment
+    WHERE ID = @EquipmentID;
+
+    IF @Status <> 'Unavailable' AND  @Status <> 'unavailable'
+    BEGIN
+       RAISERROR ('Thiết bị không có trạng thái "Unavailable".',16,1);
+        RETURN;
+    END;
+
+    -- Kiểm tra xem giá sửa chữa có cao hơn giá Price gốc của thiết bị không
+    DECLARE @Price MONEY;
+    SELECT @Price = Price
+    FROM Equipment
+    WHERE ID = @EquipmentID;
+
+    IF @Cost > @Price
+    BEGIN
+        RAISERROR ('Giá sửa chữa cao hơn giá Price gốc của thiết bị.',16,1)
+        RETURN;
+    END;
+
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        -- Thêm dữ liệu lịch sử sửa chữa vào bảng MaintenanceData
+        INSERT INTO MaintenanceData(ID, EquipmentID, [Date], Cost, [Description])
+        VALUES (@ID, @EquipmentID, @Date, @Cost, @Description);
+
+        -- Commit transaction nếu không có lỗi xảy ra
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        -- Rollback transaction nếu có lỗi xảy ra
+        ROLLBACK TRANSACTION;
+
+        RAISERROR('Thêm lịch sử sửa chửa thất bại',16,1);
+    END CATCH;
+END
+
+GO
+--FUNC Tìm Gia thiet bị 
+CREATE FUNCTION FUNC_FindPrice(@ID CHAR(6))
+RETURNS MONEY
+AS
+BEGIN
+	DECLARE @tmp MONEY
+	SELECT @tmp = Price FROM Equipment WHERE (ID = @ID)
+	RETURN @tmp
+END
+
+
+GO
+--PROC Thay mới thiết bị
+CREATE PROCEDURE PROC_ReplaceEquipment
+    @ID CHAR(6),
+    @EquipmentID CHAR(6),
+    @Date DATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Kiểm tra xem thiết bị có trạng thái "Unavailable" không
+    DECLARE @Status NVARCHAR(20);
+    SELECT @Status = Status
+    FROM Equipment
+    WHERE ID = @EquipmentID;
+
+    IF @Status <> 'Unavailable' AND  @Status <> 'unavailable'
+    BEGIN
+       RAISERROR ('Thiết bị không có trạng thái "Unavailable".',16,1);
+        RETURN;
+    END;
+
+
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        -- Thêm dữ liệu lịch sử sửa chữa vào bảng MaintenanceData
+        INSERT INTO MaintenanceData(ID, EquipmentID, [Date], Cost, [Description])
+        VALUES (@ID, @EquipmentID, @Date, dbo.FUNC_FindPrice(@EquipmentID), N'Thay thế thiết bị mới tương tự');
+
+        -- Commit transaction nếu không có lỗi xảy ra
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        -- Rollback transaction nếu có lỗi xảy ra
+        ROLLBACK TRANSACTION;
+
+        RAISERROR('Thay đổi thiết bị thất bại',16,1);
+    END CATCH;
 END

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GymManagementSystem;
+using GymManagementSystem.Models;
 
 namespace GymManagementSystem
 {
@@ -33,7 +34,14 @@ namespace GymManagementSystem
 
         private void btnMembership_Click(object sender, EventArgs e)
         {
-            childForm.Open(new FMembershipManagement());
+            if (Employee.Role != 1)
+            {
+                MessageBox.Show("Không có quyền truy cập");
+            }
+            else
+            {
+                childForm.Open(new FMembershipManagement());
+            }
         }
 
         private void btnManagement_Click(object sender, EventArgs e)
@@ -75,12 +83,26 @@ namespace GymManagementSystem
 
         private void itemMemebrship_Click(object sender, EventArgs e)
         {
-            StackForm.HomeUser.ChildForm.Open(new FMembershipManagement());
+            if (Employee.Role != 1)
+            {
+                MessageBox.Show("Không có quyền truy cập");
+            }
+            else
+            {
+                StackForm.HomeUser.ChildForm.Open(new FMembershipManagement());
+            }
         }
 
         private void itemBranch_Click(object sender, EventArgs e)
         {
-            StackForm.HomeUser.ChildForm.Open(new FBranchManagement());
+            if (Employee.Role != 1)
+            {
+                MessageBox.Show("Không có quyền truy cập");
+            }
+            else
+            {
+                StackForm.HomeUser.ChildForm.Open(new FBranchManagement());
+            }
         }
 
         private void itemMember_Click(object sender, EventArgs e)
@@ -110,7 +132,14 @@ namespace GymManagementSystem
 
         private void itemWorkout_Click(object sender, EventArgs e)
         {
-            StackForm.HomeUser.ChildForm.Open(new FWorkOutManagement());
+            if (Employee.Role != 1)
+            {
+                MessageBox.Show("Không có quyền truy cập");
+            }
+            else
+            {
+                StackForm.HomeUser.ChildForm.Open(new FWorkOutManagement());
+            }
         }
 
         private void btnEquipmentData_Click(object sender, EventArgs e)

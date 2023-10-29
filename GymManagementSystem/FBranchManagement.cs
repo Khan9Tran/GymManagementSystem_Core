@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GymManagementSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,7 +17,7 @@ namespace GymManagementSystem
     {
         public FBranchManagement()
         {
-            InitializeComponent();
+            InitializeComponent();    
             gvBranch.DataSource = LoadBranch();
         }
 
@@ -191,5 +192,7 @@ namespace GymManagementSystem
             MessageBox.Show("Xóa thành công");
             gvBranch.DataSource = LoadBranch();
         }
+
+
     }
 }

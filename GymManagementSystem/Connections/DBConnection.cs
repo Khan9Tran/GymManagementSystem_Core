@@ -15,7 +15,7 @@ namespace GymManagementSystem
         private SqlConnection conn;
         public DBConnection()
         {
-            if (Employee.Role == 0)
+            if (Employee.Role == 3)
             {
                 conn = new SqlConnection(@"Data Source=LAPTOP-TSVFN4HJ;Initial Catalog=GymManagementDB;User Id=" + Employee.UserName + ";Password=" + Employee.Password + ";");
 
