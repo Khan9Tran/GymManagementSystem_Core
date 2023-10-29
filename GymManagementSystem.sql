@@ -1113,3 +1113,152 @@ BEGIN
 		RAISERROR ('Xóa thất bại, cần phải đảm bảo chi nhánh trống',16,1)
 	END CATCH
 END
+
+USE GymManagerDB
+
+GO
+--Func check đăng nhập hợp lệ không
+CREATE FUNCTION FUNC_LoginAuthentication(@UserName varchar(20), @Password nvarchar(20))
+RETURNS INT
+AS
+BEGIN
+	IF EXISTS (SELECT * FROM Employee WHERE UserName = @UserName AND [Password] = @Password)
+		RETURN 1
+	RETURN 0
+END
+SELECT *FROM Employee
+INSERT INTO Branch(ID, Name, Address) VALUES('BRRoot',N'Monster GYM', N'Số 1, Võ Văn Ngân, Thủ Đức')
+INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('Admin0','admin','admin', 'admin', 'BRRoot', '1')
+
+GO
+--Proc Lấy thông tin nhân viên 
+CREATE PROCEDURE PROC_UserInfo
+@UserName VARCHAR(20)
+AS 
+	SELECT Employee.Name, Password, UserName, Branch.ID, Branch.Name AS  BranchName, Role FROM Employee JOIN Branch ON Employee.BranchID = Branch.ID 
+	WHERE UserName = @UserName
+
+GO
+--View Xem nhân viên
+CREATE VIEW V_EmployeeList
+AS
+SELECT * FROM Employee
+
+GO
+--Tìm nhân viên 
+CREATE FUNCTION dbo.FUNC_FindEmployee
+(
+    @Content NVARCHAR(100)
+)
+RETURNS TABLE
+AS
+RETURN
+(
+    SELECT *
+    FROM Employee
+    WHERE [Name] LIKE N'%' + @Content + '%'
+       OR [UserName] LIKE '%' + @Content + '%'
+);
+
+GO
+--PROC thêm nhân viên
+CREATE PROCEDURE PROC_AddEmployee
+    @ID CHAR(6),
+    @Name NVARCHAR(50),
+    @UserName VARCHAR(20),
+    @Password VARCHAR(20),
+    @Role CHAR(1),
+    @BranchID CHAR(6),
+	@YourRole CHAR(1)
+AS
+BEGIN
+	IF (@YourRole = 2 AND (@Role = 1 OR (SELECT TOP 1 Role FROM Employee WHERE UserName = @UserName) = 1 ))
+		RAISERROR ('Bạn không đủ quyền',16,1)
+	ELSE
+	IF EXISTS (SELECT * FROM Employee WHERE UserName = @UserName)
+		RAISERROR('User name đã tồn tại',16 ,1)
+	ELSE
+    INSERT INTO Employee ([ID], [Name], [UserName], [Password], [Role], [BranchID])
+    VALUES (@ID, @Name, @UserName, @Password, @Role, @BranchID)
+END
+
+GO
+--PROC Reser pass
+CREATE PROCEDURE PROC_ResetPasswordToDefault
+    @EmployeeID CHAR(6),
+	@YourRole CHAR(1)
+AS
+BEGIN
+    UPDATE Employee
+    SET [Password] = '123456'
+    WHERE [ID] = @EmployeeID
+END
+
+GO
+
+--PROC update thông tin employee
+CREATE PROCEDURE PROC_UpdateEmployeeInfo
+    @UserName VARCHAR(20),
+    @Name NVARCHAR(50),
+    @Role CHAR(1),
+    @BranchID CHAR(6),
+	@YourRole CHAR(1)
+AS
+BEGIN
+	IF (@YourRole = 2 AND (@Role = 1 OR (SELECT TOP 1 Role FROM Employee WHERE UserName = @UserName) = 1 ))
+		RAISERROR ('Bạn không đủ quyền',16,1)
+	ELSE
+	BEGIN
+		UPDATE Employee
+		SET
+			[Name] = @Name,
+			[Role] = @Role,
+			[BranchID] = @BranchID
+		WHERE [UserName] = @UserName
+	END
+END
+GO
+--DROC DELETE employee
+CREATE PROCEDURE PROC_DeleteEmployee
+@UserName VARCHAR(20),
+@YourRole CHAR(1)
+AS 
+BEGIN
+	IF (@YourRole = 2 AND (SELECT TOP 1 Role FROM Employee WHERE UserName = @UserName) = 1)
+		RAISERROR ('Bạn không đủ quyền',16,1)
+	ELSE
+	DELETE Employee WHERE UserName = @UserName
+END
+
+Go
+--Đổi pass
+CREATE PROCEDURE PROC_ChangePassword
+    @Password VARCHAR(20),
+    @UserName VARCHAR(20),
+    @NewPassword VARCHAR(20),
+    @ReEnterPassword VARCHAR(20)
+AS
+BEGIN
+    -- Kiểm tra mật khẩu hiện tại có đúng không
+    IF EXISTS (SELECT 1 FROM Employee WHERE [UserName] = @UserName AND [Password] = @Password)
+    BEGIN
+        -- Kiểm tra mật khẩu mới và mật khẩu nhập lại có khớp nhau không
+        IF @NewPassword = @ReEnterPassword
+        BEGIN
+            -- Cập nhật mật khẩu mới
+            UPDATE Employee
+            SET [Password] = @NewPassword
+            WHERE [UserName] = @UserName
+
+            SELECT N'Mật khẩu đã được thay đổi thành công.' AS Result
+        END
+        ELSE
+        BEGIN
+            SELECT N'Mật khẩu mới và mật khẩu nhập lại không khớp.' AS Result
+        END
+    END
+    ELSE
+    BEGIN
+        SELECT N'Mật khẩu hiện tại không chính xác.' AS Result
+    END
+END
