@@ -208,6 +208,19 @@ SELECT *
 FROM dbo.Package
 
 GO
+-- Xem danh sách các gói tập có trainer 
+CREATE VIEW V_PackageListHasTrainer AS
+SELECT *
+FROM dbo.Package
+WHERE (NumberOfPTSessions IS NULL) OR (NumberOfPTSessions = 0) 
+
+GO
+-- Xem danh sách các gói tập không có trainer 
+CREATE VIEW V_PackageListNoTrainer AS
+SELECT *
+FROM dbo.Package
+WHERE (NumberOfPTSessions IS NOT NULL) AND (NumberOfPTSessions != 0) 
+GO
 
 -- Xem danh sách các bài tập
 CREATE VIEW V_WorkOutList AS
@@ -597,20 +610,22 @@ VALUES
 	('PK0010', 'Package 10', 3, 120.00, 'Description 10', 6);
 
 GO 
-INSERT INTO Member ([ID], [MembershipTypeID], [Name], [Gender], [PhoneNumber], [Address], [Balance], [PackageID], [EndOfPackageDate],RemainingTS)
+INSERT INTO Member ([ID], [MembershipTypeID], [Name], [Gender], [PhoneNumber], [Address], [Balance], [PackageID], [EndOfPackageDate], [RemainingTS])
 VALUES
-	('MEM011', '000001', 'Member 1', 'm', '1234567890', 'Address 1', 100.00, 'PK0001', '2023-12-01',11),
-	('MEM002', '000002', 'Member 2', 'f', '2345678901', 'Address 2', 200.00, 'PK0002', '2023-12-01',0),
-	('MEM003', '000003', 'Member 3', 'm', '3456789012', 'Address 3', 300.00, 'PK0003', '2023-12-01',NULL),
-	('MEM004', '000001', 'Member 4', 'f', '4567890123', 'Address 4', 400.00, 'PK0004', '2023-12-01',23),
-	('MEM005', '000002', 'Member 5', 'm', '5678901234', 'Address 5', 500.00, 'PK0005', '2023-12-01',44),
-	('MEM006', '000003', 'Member 6', 'f', '6789012345', 'Address 6', 600.00, 'PK0006', '2023-12-01',0),
-	('MEM007', '000001', 'Member 7', 'm', '7890123456', 'Address 7', 700.00, 'PK0007', '2023-12-01',NULL),
-	('MEM008', '000002', 'Member 8', 'f', '8901234567', 'Address 8', 800.00, 'PK0008', '2023-12-01',1),
-	('MEM009', '000003', 'Member 9', 'm', '9012345678', 'Address 9', 900.00, 'PK0009', '2023-12-01',3),
-	('MEM010', '000001', 'Member 10', 'f', '0123456789', 'Address 10', 1000.00, 'PK0010', '2023-12-01',2);
+	('MEM001', '000001', 'Member 1', 'm', '1234567890', 'Address 1', 100.00, 'PK0001', '2023-12-30',11),
+	('MEM002', '000002', 'Member 2', 'f', '2345678901', 'Address 2', 200.00, 'PK0002', '2023-12-30',6),
+	('MEM003', '000003', 'Member 3', 'm', '3456789012', 'Address 3', 300.00, 'PK0003', '2023-12-30',10),
+	('MEM004', '000001', 'Member 4', 'f', '4567890123', 'Address 4', 400.00, 'PK0004', '2023-12-30',23),
+	('MEM005', '000002', 'Member 5', 'm', '5678901234', 'Address 5', 500.00, 'PK0005', '2023-12-30',44),
+	('MEM006', '000003', 'Member 6', 'f', '6789012345', 'Address 6', 600.00, 'PK0006', '2023-12-30',1),
+	('MEM007', '000001', 'Member 7', 'm', '7890123456', 'Address 7', 700.00, 'PK0007', '2023-12-30',10),
+	('MEM008', '000002', 'Member 8', 'f', '8901234567', 'Address 8', 800.00, 'PK0008', '2023-12-30',11),
+	('MEM009', '000003', 'Member 9', 'm', '9012345678', 'Address 9', 900.00, 'PK0009', '2023-12-30',3),
+	('MEM010', '000001', 'Member 10', 'f', '0123456789', 'Address 10', 1000.00, 'PK0010', '2023-12-30',2);
 
 GO 
+
+
 INSERT INTO WorkOutPlan ([ID], [MemberID], [TrainerID], [BranchID], [Time], [Date])
 VALUES
 	('WOP001', 'MEM001', 'TR0001', 'BR0001', '08:00:00', '2023-12-01'),
@@ -625,57 +640,53 @@ VALUES
 	('WOP010', 'MEM010', 'TR0010', 'BR0005', '17:00:00', '2023-11-10');
 
 GO
--- Testing
-INSERT INTO WorkOutPlan ([ID], [MemberID], [TrainerID], [BranchID], [Time], [Date])
-VALUES
-	('WOP014', 'MEM012', 'TR0001', 'BR0001', '10:00:00', '2023-11-01')
 
 INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP001', 'WO0001')
-	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP001', 'WO0003')
-	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP002', 'WO0005')
-	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP002', 'WO0001')
-	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP003', 'WO0007')
-	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP003', 'WO0009')
-	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP004', 'WO0004')
-	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
    	('WOP005', 'WO0010')
-	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP006', 'WO0006')
-	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP007', 'WO0002')
-	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP007', 'WO0003')
-	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP008', 'WO0005')
-	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP009', 'WO0008')
-	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP010', 'WO0007')
-	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP010', 'WO0006');
-	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP010', 'WO0003');
 
@@ -690,6 +701,7 @@ BEGIN
     FROM V_MemberList
     WHERE PhoneNumber = @PhoneNumber
 END
+
 GO
 ---Tìm chi nhánh
 CREATE PROCEDURE dbo.PROC_FindBranchByContent
@@ -912,3 +924,4 @@ BEGIN
 	ELSE IF (@FilterType = 2)
 		SELECT * FROM V_MemberList WHERE (ID = @Content OR [Name] LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE '%' + @Content + '%' OR [Address]  LIKE N'%' + @Content + '%') AND (EndOfPackageDate < CAST(GETDATE() AS DATE) OR EndOfPackageDate is NULL)
 END
+
