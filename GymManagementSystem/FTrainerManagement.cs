@@ -73,6 +73,7 @@ namespace GymManagementSystem
                 else if (gvTrainer.CurrentRow.Cells["Gender"].Value.ToString() == "f")
                     cbxGender.SelectedIndex = 1;
                 else cbxGender.SelectedIndex = 2;
+                LoadSchedule(gvTrainer.CurrentRow.Cells["ID"].Value.ToString(), dtpDate.Value.Date);
 
 
             }

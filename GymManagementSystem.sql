@@ -1653,5 +1653,14 @@ GO
 CREATE FUNCTION FUNC_TrainerSchedule(@TrainerID CHAR(6), @Date Date)
 RETURNS TABLE
 AS
-	RETURN SELECT * FROM Trainer JOIN  WorkOutPlan ON Trainer.ID = WorkOutPlan.TrainerID , TimeSlot
-	WHERE WorkOutPlan.Date = Date AND TimeSlot.StartTime <= WorkOutPlan.Time AND TimeSlot.EndTime > WorkOutPlan.Time AND Trainer.ID = @TrainerID
+
+	RETURN
+	SELECT CAST(StartTime AS CHAR(9)) + ' - ' + CAST(EndTime AS CHAR(9)) AS TimeFrame, ID, Time FROM
+	(SELECT WorkOutPlan.ID, WorkOutPlan.Time
+	FROM Trainer 
+		LEFT JOIN   
+		WorkOutPlan ON Trainer.ID = WorkOutPlan.TrainerID WHERE Trainer.ID = @TrainerID AND WorkOutPlan.Date = @Date) AS TnPlan
+	RIGHT JOIN TimeSlot 
+	ON (TimeSlot.StartTime <= TnPlan.Time AND TimeSlot.EndTime > TnPlan.Time) OR TnPlan.Time IS NULL 
+		
+
