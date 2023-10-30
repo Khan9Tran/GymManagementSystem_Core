@@ -73,6 +73,16 @@ namespace GymManagementSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap barbell {
+            get {
+                object obj = ResourceManager.GetObject("barbell", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bmi {
             get {
                 object obj = ResourceManager.GetObject("bmi", resourceCulture);
@@ -216,6 +226,16 @@ namespace GymManagementSystem.Properties {
         internal static System.Drawing.Bitmap member_card {
             get {
                 object obj = ResourceManager.GetObject("member-card", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap muscle {
+            get {
+                object obj = ResourceManager.GetObject("muscle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

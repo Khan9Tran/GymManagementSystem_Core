@@ -43,11 +43,11 @@ namespace GymManagementSystem
             else
             {
                 MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác");
-            }    
+            }
         }
         private int Login()
         {
-            int tmp = 0;   
+            int tmp = 0;
             DBConnection connection = new DBConnection();
             string query = "SELECT dbo.FUNC_LoginAuthentication(@UserName, @Password)";
             connection.openConnection();
@@ -87,6 +87,7 @@ namespace GymManagementSystem
                 {
                     while (reader.Read())
                     {
+                        Employee.UserID = reader["EmployeeID"].ToString();
                         Employee.Name = reader["Name"].ToString();
                         Employee.BranchID = reader["ID"].ToString();
                         Employee.Password = reader["Password"].ToString();

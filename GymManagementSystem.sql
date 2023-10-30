@@ -207,19 +207,20 @@ CREATE VIEW V_PackageList AS
 SELECT *
 FROM dbo.Package
 
+
 GO
--- Xem danh sách các gói tập có trainer 
 CREATE VIEW V_PackageListHasTrainer AS
 SELECT *
 FROM dbo.Package
-WHERE (NumberOfPTSessions IS NULL) OR (NumberOfPTSessions = 0) 
+WHERE (NumberOfPTSessions IS NOT NULL) AND (NumberOfPTSessions != 0);
 
 GO
--- Xem danh sách các gói tập không có trainer 
 CREATE VIEW V_PackageListNoTrainer AS
 SELECT *
 FROM dbo.Package
-WHERE (NumberOfPTSessions IS NOT NULL) AND (NumberOfPTSessions != 0) 
+WHERE (NumberOfPTSessions IS NULL) OR (NumberOfPTSessions = 0);
+
+
 GO
 
 -- Xem danh sách các bài tập
@@ -618,22 +619,20 @@ GO
 INSERT INTO Member ([ID], [MembershipTypeID], [Name], [Gender], [PhoneNumber], [Address], [Balance], [PackageID], [EndOfPackageDate], [RemainingTS])
 VALUES
 	('MEM001', '000001', 'Member 1', 'm', '1234567890', 'Address 1', 100.00, 'PK0001', '2023-12-30',11),
-	('MEM002', '000002', 'Member 2', 'f', '2345678901', 'Address 2', 200.00, 'PK0002', '2023-12-30',6),
-	('MEM003', '000003', 'Member 3', 'm', '3456789012', 'Address 3', 300.00, 'PK0003', '2023-12-30',10),
+	('MEM002', '000002', 'Member 2', 'f', '2345678901', 'Address 2', 200.00, 'PK0002', '2023-12-30',5),
+	('MEM003', '000003', 'Member 3', 'm', '3456789012', 'Address 3', 300.00, 'PK0003', '2023-12-30',5),
 	('MEM004', '000001', 'Member 4', 'f', '4567890123', 'Address 4', 400.00, 'PK0004', '2023-12-30',23),
 	('MEM005', '000002', 'Member 5', 'm', '5678901234', 'Address 5', 500.00, 'PK0005', '2023-12-30',44),
-	('MEM006', '000003', 'Member 6', 'f', '6789012345', 'Address 6', 600.00, 'PK0006', '2023-12-30',1),
+	('MEM006', '000003', 'Member 6', 'f', '6789012345', 'Address 6', 600.00, 'PK0006', '2023-12-30',10),
 	('MEM007', '000001', 'Member 7', 'm', '7890123456', 'Address 7', 700.00, 'PK0007', '2023-12-30',10),
-	('MEM008', '000002', 'Member 8', 'f', '8901234567', 'Address 8', 800.00, 'PK0008', '2023-12-30',11),
+	('MEM008', '000002', 'Member 8', 'f', '8901234567', 'Address 8', 800.00, 'PK0008', '2023-12-30',1),
 	('MEM009', '000003', 'Member 9', 'm', '9012345678', 'Address 9', 900.00, 'PK0009', '2023-12-30',3),
 	('MEM010', '000001', 'Member 10', 'f', '0123456789', 'Address 10', 1000.00, 'PK0010', '2023-12-30',2);
 
 GO 
-
-
 INSERT INTO WorkOutPlan ([ID], [MemberID], [TrainerID], [BranchID], [Time], [Date])
 VALUES
-
+	('WOP001', 'MEM001', 'TR0002', 'BR0002', '20:00:00', '2023-12-01'),
 	('WOP002', 'MEM002', 'TR0002', 'BR0002', '09:00:00', '2023-12-01'),
 	('WOP003', 'MEM003', 'TR0003', 'BR0003', '10:00:00', '2023-12-01'),
 	('WOP004', 'MEM004', 'TR0004', 'BR0004', '11:00:00', '2023-11-01'),
@@ -649,49 +648,49 @@ GO
 INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP001', 'WO0001')
-INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP001', 'WO0003')
-INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP002', 'WO0005')
-INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP002', 'WO0001')
-INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP003', 'WO0007')
-INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP003', 'WO0009')
-INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP004', 'WO0004')
-INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
    	('WOP005', 'WO0010')
-INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP006', 'WO0006')
-INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP007', 'WO0002')
-INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP007', 'WO0003')
-INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP008', 'WO0005')
-INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP009', 'WO0008')
-INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP010', 'WO0007')
-INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP010', 'WO0006');
-INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP010', 'WO0003');
 
@@ -705,6 +704,17 @@ BEGIN
     SELECT *
     FROM V_MemberList
     WHERE PhoneNumber = @PhoneNumber
+END
+
+GO
+CREATE PROCEDURE dbo.PROC_PaymentByPhoneNumber
+    @PhoneNumber CHAR(10)
+AS
+BEGIN
+    SELECT memberInfor.[ID], memberInfor.[Name], memberInfor.[Balance], memberInfor.[MembershipTypeID], dbo.MembershipType.[Rate] FROM
+	(SELECT [ID], [Name], [Balance], [MembershipTypeID] FROM [dbo].[Member] WHERE PhoneNumber = @PhoneNumber) 
+	AS memberInfor, dbo.MembershipType
+    WHERE memberInfor.MembershipTypeID = dbo.MembershipType.ID;
 END
 
 GO
@@ -988,19 +998,34 @@ END
 INSERT INTO BMI(ID,MemberID,Weight,Height,Date) VALUES('000001','MEM011',60,175,'2023/10/25');
 
 GO
+
 --Proc tìm trainerlist
 CREATE PROCEDURE PROC_FindTrainerList
 	@FilterType INT,
-	@Content NVARCHAR(50)
+	@Content NVARCHAR(50),
+	@BranchID CHAR(6)
 AS
 BEGIN
-	IF (@FilterType = 0)
-		SELECT * FROM V_TrainerList WHERE (ID = @Content OR Address LIKE N'%' + @Content + '%' OR Name  LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE N'%' + @Content + '%' OR Branch  LIKE N'%' + @Content + '%' OR BranchID = @Content)
-	ELSE IF (@FilterType = 1)
-		SELECT * FROM V_TrainerList WHERE ((Gender = 'm') AND ID = @Content OR Address LIKE N'%' + @Content + '%' OR Name  LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE N'%' + @Content + '%' OR Branch  LIKE N'%' + @Content + '%' OR BranchID = @Content)
-	ELSE IF (@FilterType = 2)
-		SELECT * FROM V_TrainerList WHERE ((Gender = 'f') AND ID = @Content OR Address LIKE N'%' + @Content + '%' OR Name  LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE N'%' + @Content + '%' OR Branch  LIKE N'%' + @Content + '%' OR BranchID = @Content)
+	IF (@BranchID = 'BRRoot') --Neu chi nhanh goc duoc quyen search tren tat ca chi nhanh
+	BEGIN
+		IF (@FilterType = 0)
+			SELECT * FROM V_TrainerList WHERE (ID = @Content OR Address LIKE N'%' + @Content + '%' OR Name  LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE N'%' + @Content + '%' OR Branch  LIKE N'%' + @Content + '%' OR BranchID = @Content)
+		ELSE IF (@FilterType = 1)
+			SELECT * FROM V_TrainerList WHERE ((Gender = 'm') AND (ID = @Content OR Address LIKE N'%' + @Content + '%' OR Name  LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE N'%' + @Content + '%' OR Branch  LIKE N'%' + @Content + '%' OR BranchID = @Content))
+		ELSE IF (@FilterType = 2)
+			SELECT * FROM V_TrainerList WHERE ((Gender = 'f') AND (ID = @Content OR Address LIKE N'%' + @Content + '%' OR Name  LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE N'%' + @Content + '%' OR Branch  LIKE N'%' + @Content + '%' OR BranchID = @Content))
+	END
+	ELSE
+	BEGIN
+		IF (@FilterType = 0)
+			SELECT * FROM V_TrainerList WHERE (ID = @Content OR Address LIKE N'%' + @Content + '%' OR Name  LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE N'%' + @Content + '%' OR Branch  LIKE N'%' + @Content + '%' OR BranchID = @Content) AND (V_TrainerList.BranchID = @BranchID)
+		ELSE IF (@FilterType = 1)
+			SELECT * FROM V_TrainerList WHERE ((Gender = 'm') AND (ID = @Content OR Address LIKE N'%' + @Content + '%' OR Name  LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE N'%' + @Content + '%' OR Branch  LIKE N'%' + @Content + '%' OR BranchID = @Content) AND (V_TrainerList.BranchID = @BranchID))
+		ELSE IF (@FilterType = 2)
+			SELECT * FROM V_TrainerList WHERE ((Gender = 'f') AND (ID = @Content OR Address LIKE N'%' + @Content + '%' OR Name  LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE N'%' + @Content + '%' OR Branch  LIKE N'%' + @Content + '%' OR BranchID = @Content) AND (V_TrainerList.BranchID = @BranchID))
+	END
 END
+
 GO
 --PROC Insert BMI
 CREATE PROCEDURE PROC_AddBMI
@@ -1126,7 +1151,6 @@ BEGIN
 	END CATCH
 END
 
-USE GymManagerDB
 
 GO
 --Func check đăng nhập hợp lệ không
@@ -1138,7 +1162,8 @@ BEGIN
 		RETURN 1
 	RETURN 0
 END
-SELECT *FROM Employee
+
+GO
 INSERT INTO Branch(ID, Name, Address) VALUES('BRRoot',N'Monster GYM', N'Số 1, Võ Văn Ngân, Thủ Đức')
 INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('Admin0','admin','admin', 'admin', 'BRRoot', '1')
 
@@ -1147,8 +1172,9 @@ GO
 CREATE PROCEDURE PROC_UserInfo
 @UserName VARCHAR(20)
 AS 
-	SELECT Employee.Name, Password, UserName, Branch.ID, Branch.Name AS  BranchName, Role FROM Employee JOIN Branch ON Employee.BranchID = Branch.ID 
+	SELECT Employee.[Name], dbo.Employee.[ID] AS EmployeeID, [Password], [UserName], Branch.[ID], Branch.[Name] AS  BranchName, [Role] FROM Employee JOIN Branch ON Employee.BranchID = Branch.ID 
 	WHERE UserName = @UserName
+
 
 GO
 --View Xem nhân viên
@@ -1480,3 +1506,184 @@ BEGIN
         RAISERROR('Thay đổi thiết bị thất bại',16,1);
     END CATCH;
 END
+GO
+--Insert Trainer
+CREATE PROCEDURE PROC_InsertTrainer
+    @ID CHAR(6),
+    @Name NVARCHAR(50),
+    @Address NVARCHAR(50),
+    @PhoneNumber CHAR(10),
+    @Gender NVARCHAR(10),
+    @BranchID CHAR(6)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Chuyển đổi giá trị giới tính
+    SET @Gender = CASE 
+                    WHEN @Gender = 'Male' THEN 'm'
+                    WHEN @Gender = 'Female' THEN 'f'
+                    WHEN @Gender = 'Unknown' THEN 'u'
+                    ELSE @Gender
+                 END;
+
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        -- Thêm dữ liệu trainer vào bảng Trainer
+        INSERT INTO Trainer (ID, Name, Address, PhoneNumber, Gender, BranchID)
+        VALUES (@ID, @Name, @Address, @PhoneNumber, @Gender, @BranchID);
+
+        -- Commit transaction nếu không có lỗi xảy ra
+        COMMIT TRANSACTION;
+
+        SELECT 'Thêm trainer thành công.' AS Result;
+    END TRY
+    BEGIN CATCH
+        -- Rollback transaction nếu có lỗi xảy ra
+        ROLLBACK TRANSACTION;
+
+        -- Lấy thông báo lỗi để trả về
+        SELECT ERROR_MESSAGE() AS Result;
+    END CATCH;
+END
+
+
+
+--Update Trainer
+GO
+CREATE PROCEDURE PROC_UpdateTrainer
+    @ID CHAR(6),
+    @Name NVARCHAR(50),
+    @Address NVARCHAR(50),
+    @PhoneNumber CHAR(10),
+    @Gender NVARCHAR(10),
+    @BranchID CHAR(6)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Chuyển đổi giá trị giới tính
+    SET @Gender = CASE 
+                    WHEN @Gender = 'Male' THEN 'm'
+                    WHEN @Gender = 'Female' THEN 'f'
+                    WHEN @Gender = 'Unknown' THEN 'u'
+                    ELSE @Gender
+                 END;
+
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        -- Thêm dữ liệu trainer vào bảng Trainer
+          UPDATE Trainer
+			SET Name = @Name,
+				Address = @Address,
+				PhoneNumber = @PhoneNumber,
+				Gender = @Gender,
+				BranchID = @BranchID
+			WHERE ID = @ID;
+
+        -- Commit transaction nếu không có lỗi xảy ra
+        COMMIT TRANSACTION;
+
+        SELECT N'Cập nhật Trainer thành công.' AS Result;
+    END TRY
+    BEGIN CATCH
+        -- Rollback transaction nếu có lỗi xảy ra
+        ROLLBACK TRANSACTION;
+
+        -- Lấy thông báo lỗi để trả về
+        SELECT ERROR_MESSAGE() AS Result;
+    END CATCH;
+END
+
+GO
+
+--PROC thêm workout
+CREATE PROCEDURE PROC_AddWorkout
+    @ID CHAR(6),
+    @Name NVARCHAR(50),
+    @Type VARCHAR(50),
+    @Description VARCHAR,
+    @Duration CHAR
+AS
+BEGIN
+	IF EXISTS (SELECT * FROM WorkOut WHERE [Name] = @Name)
+		RAISERROR('Bài tập đã tồn tại',16 ,1)
+	ELSE
+    INSERT INTO WorkOut([ID], [Name], [Type], [Description], [Duration])
+    VALUES (@ID, @Name, @Type, @Description, @Duration)
+END
+
+GO
+
+--PROC DELETE Workout
+CREATE PROCEDURE PROC_DeleteWorkout
+@ID CHAR(6)
+AS 
+BEGIN
+	DELETE WorkOut WHERE [ID] = @ID
+END
+
+GO
+
+--PROC update thông tin workout
+CREATE PROCEDURE PROC_UpdateWorkout
+	@ID char(6),
+    @Name NVARCHAR(50),
+    @Type VARCHAR(50),
+    @Description VARCHAR,
+    @Duration CHAR
+AS
+BEGIN
+		UPDATE WorkOut
+		SET
+			[Name] = @Name,
+			[Type] = @Type,
+			[Description] = @Description,
+			[Duration] = @Duration
+		WHERE [ID] = @ID
+
+END
+
+GO
+
+-- Tạo bảng Ảo lưu khoản thời gian
+CREATE TABLE TimeSlot (
+    SlotID INT PRIMARY KEY IDENTITY(1, 1),
+    StartTime TIME,
+    EndTime TIME
+);
+
+-- Điền dữ liệu vào bảng từ 6h đến 11h tối, cách nhau 2 tiếng
+DECLARE @StartTime TIME = '06:00:00'; -- 6h tối
+DECLARE @EndTime TIME = '20:00:00'; -- 11h tối
+
+WHILE @StartTime <= @EndTime
+BEGIN
+    INSERT INTO TimeSlot (StartTime, EndTime)
+    VALUES (@StartTime, DATEADD(HOUR, 2, @StartTime));
+
+    SET @StartTime = DATEADD(HOUR, 2, @StartTime);
+END
+	INSERT INTO TimeSlot (StartTime, EndTime)
+    VALUES ('22:00:00', '23:00:00');
+SELECT *FROM TimeSlot
+GO
+
+--FUNC Lấy lịch làm việc theo ngày của trainer
+
+CREATE FUNCTION FUNC_TrainerSchedule(@TrainerID CHAR(6), @Date Date)
+RETURNS TABLE
+AS
+
+	RETURN
+	SELECT CAST(StartTime AS CHAR(9)) + ' - ' + CAST(EndTime AS CHAR(9)) AS TimeFrame, ID, Time FROM
+	(SELECT WorkOutPlan.ID, WorkOutPlan.Time
+	FROM Trainer 
+		LEFT JOIN   
+		WorkOutPlan ON Trainer.ID = WorkOutPlan.TrainerID WHERE Trainer.ID = @TrainerID AND WorkOutPlan.Date = @Date) AS TnPlan
+	RIGHT JOIN TimeSlot 
+	ON (TimeSlot.StartTime <= TnPlan.Time AND TimeSlot.EndTime > TnPlan.Time) OR TnPlan.Time IS NULL 
+		
+

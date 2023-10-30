@@ -31,7 +31,31 @@
             rjFlowLayoutPanel1 = new RJFlowLayoutPanel();
             flpContainerPackage = new FlowLayoutPanel();
             rjPanel1 = new RJPanel();
+            flowLayoutPanel5 = new FlowLayoutPanel();
+            label26 = new Label();
+            lblTotalPayment = new Label();
+            label29 = new Label();
+            rjPanel9 = new RJPanel();
+            flowLayoutPanel3 = new FlowLayoutPanel();
+            label19 = new Label();
+            lblBalance = new Label();
+            label23 = new Label();
+            rjButton10 = new RJButton();
             rjButton8 = new RJButton();
+            label35 = new Label();
+            rjButton12 = new RJButton();
+            label36 = new Label();
+            rjPanel11 = new RJPanel();
+            label37 = new Label();
+            label38 = new Label();
+            rjPanel12 = new RJPanel();
+            rjButton14 = new RJButton();
+            textBox1 = new TextBox();
+            rjButton15 = new RJButton();
+            flowLayoutPanel4 = new FlowLayoutPanel();
+            label22 = new Label();
+            lblDiscount = new Label();
+            lblDiscountUnit = new Label();
             label10 = new Label();
             rjPanel7 = new RJPanel();
             flowLayoutPanel2 = new FlowLayoutPanel();
@@ -86,6 +110,12 @@
             rjButton1 = new RJButton();
             rjFlowLayoutPanel1.SuspendLayout();
             rjPanel1.SuspendLayout();
+            flowLayoutPanel5.SuspendLayout();
+            rjPanel9.SuspendLayout();
+            flowLayoutPanel3.SuspendLayout();
+            rjPanel11.SuspendLayout();
+            rjPanel12.SuspendLayout();
+            flowLayoutPanel4.SuspendLayout();
             rjPanel7.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
@@ -106,10 +136,10 @@
             rjFlowLayoutPanel1.BorderSize = 0;
             rjFlowLayoutPanel1.Controls.Add(flpContainerPackage);
             rjFlowLayoutPanel1.ForeColor = Color.White;
-            rjFlowLayoutPanel1.Location = new Point(862, 95);
+            rjFlowLayoutPanel1.Location = new Point(862, 69);
             rjFlowLayoutPanel1.Margin = new Padding(0);
             rjFlowLayoutPanel1.Name = "rjFlowLayoutPanel1";
-            rjFlowLayoutPanel1.Size = new Size(921, 889);
+            rjFlowLayoutPanel1.Size = new Size(921, 915);
             rjFlowLayoutPanel1.TabIndex = 0;
             // 
             // flpContainerPackage
@@ -119,7 +149,7 @@
             flpContainerPackage.Location = new Point(3, 30);
             flpContainerPackage.Margin = new Padding(3, 30, 0, 0);
             flpContainerPackage.Name = "flpContainerPackage";
-            flpContainerPackage.Size = new Size(918, 834);
+            flpContainerPackage.Size = new Size(918, 850);
             flpContainerPackage.TabIndex = 3;
             // 
             // rjPanel1
@@ -128,15 +158,144 @@
             rjPanel1.BorderColor = Color.White;
             rjPanel1.BorderRadius = 20;
             rjPanel1.BorderSize = 0;
-            rjPanel1.Controls.Add(rjButton8);
+            rjPanel1.Controls.Add(flowLayoutPanel5);
+            rjPanel1.Controls.Add(rjPanel9);
             rjPanel1.Controls.Add(label10);
             rjPanel1.Controls.Add(rjPanel7);
             rjPanel1.Controls.Add(rjPanel4);
             rjPanel1.ForeColor = Color.White;
-            rjPanel1.Location = new Point(68, 95);
+            rjPanel1.Location = new Point(68, 69);
             rjPanel1.Name = "rjPanel1";
-            rjPanel1.Size = new Size(747, 889);
+            rjPanel1.Size = new Size(747, 915);
             rjPanel1.TabIndex = 2;
+            // 
+            // flowLayoutPanel5
+            // 
+            flowLayoutPanel5.Controls.Add(label26);
+            flowLayoutPanel5.Controls.Add(lblTotalPayment);
+            flowLayoutPanel5.Controls.Add(label29);
+            flowLayoutPanel5.Location = new Point(34, 799);
+            flowLayoutPanel5.Name = "flowLayoutPanel5";
+            flowLayoutPanel5.Size = new Size(668, 44);
+            flowLayoutPanel5.TabIndex = 28;
+            // 
+            // label26
+            // 
+            label26.AutoSize = true;
+            label26.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label26.ForeColor = Color.FromArgb(59, 41, 55);
+            label26.Location = new Point(20, 0);
+            label26.Margin = new Padding(20, 0, 3, 0);
+            label26.Name = "label26";
+            label26.Size = new Size(180, 31);
+            label26.TabIndex = 31;
+            label26.Text = "Total payment : ";
+            // 
+            // lblTotalPayment
+            // 
+            lblTotalPayment.AutoSize = true;
+            lblTotalPayment.Font = new Font("Segoe UI", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTotalPayment.ForeColor = Color.FromArgb(59, 41, 55);
+            lblTotalPayment.Location = new Point(206, 0);
+            lblTotalPayment.Name = "lblTotalPayment";
+            lblTotalPayment.Size = new Size(84, 31);
+            lblTotalPayment.TabIndex = 30;
+            lblTotalPayment.Text = "_______";
+            // 
+            // label29
+            // 
+            label29.AutoSize = true;
+            label29.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label29.ForeColor = Color.FromArgb(59, 41, 55);
+            label29.Location = new Point(296, 0);
+            label29.Name = "label29";
+            label29.Size = new Size(64, 31);
+            label29.TabIndex = 32;
+            label29.Text = "VND";
+            // 
+            // rjPanel9
+            // 
+            rjPanel9.BackColor = Color.FromArgb(235, 235, 235);
+            rjPanel9.BorderColor = Color.White;
+            rjPanel9.BorderRadius = 20;
+            rjPanel9.BorderSize = 0;
+            rjPanel9.Controls.Add(flowLayoutPanel3);
+            rjPanel9.Controls.Add(rjButton10);
+            rjPanel9.Controls.Add(rjButton8);
+            rjPanel9.Controls.Add(label35);
+            rjPanel9.Controls.Add(rjButton12);
+            rjPanel9.Controls.Add(label36);
+            rjPanel9.Controls.Add(rjPanel11);
+            rjPanel9.Controls.Add(label38);
+            rjPanel9.Controls.Add(rjPanel12);
+            rjPanel9.Controls.Add(rjButton15);
+            rjPanel9.Controls.Add(flowLayoutPanel4);
+            rjPanel9.ForeColor = Color.White;
+            rjPanel9.Location = new Point(34, 741);
+            rjPanel9.Name = "rjPanel9";
+            rjPanel9.Size = new Size(671, 162);
+            rjPanel9.TabIndex = 5;
+            // 
+            // flowLayoutPanel3
+            // 
+            flowLayoutPanel3.Controls.Add(label19);
+            flowLayoutPanel3.Controls.Add(lblBalance);
+            flowLayoutPanel3.Controls.Add(label23);
+            flowLayoutPanel3.Location = new Point(0, 3);
+            flowLayoutPanel3.Name = "flowLayoutPanel3";
+            flowLayoutPanel3.Size = new Size(336, 44);
+            flowLayoutPanel3.TabIndex = 27;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label19.ForeColor = Color.FromArgb(59, 41, 55);
+            label19.Location = new Point(20, 0);
+            label19.Margin = new Padding(20, 0, 3, 0);
+            label19.Name = "label19";
+            label19.Size = new Size(112, 31);
+            label19.TabIndex = 29;
+            label19.Text = "Balance : ";
+            // 
+            // lblBalance
+            // 
+            lblBalance.AutoSize = true;
+            lblBalance.Font = new Font("Segoe UI", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point);
+            lblBalance.ForeColor = Color.FromArgb(59, 41, 55);
+            lblBalance.Location = new Point(138, 0);
+            lblBalance.Name = "lblBalance";
+            lblBalance.Size = new Size(84, 31);
+            lblBalance.TabIndex = 30;
+            lblBalance.Text = "_______";
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label23.ForeColor = Color.FromArgb(59, 41, 55);
+            label23.Location = new Point(228, 0);
+            label23.Name = "label23";
+            label23.Size = new Size(64, 31);
+            label23.TabIndex = 31;
+            label23.Text = "VND";
+            // 
+            // rjButton10
+            // 
+            rjButton10.BackColor = Color.White;
+            rjButton10.BorderColor = Color.PaleVioletRed;
+            rjButton10.BorderRadius = 50;
+            rjButton10.BorderSize = 0;
+            rjButton10.FlatAppearance.BorderSize = 0;
+            rjButton10.FlatStyle = FlatStyle.Flat;
+            rjButton10.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            rjButton10.ForeColor = Color.FromArgb(59, 41, 55);
+            rjButton10.Location = new Point(486, 877);
+            rjButton10.Name = "rjButton10";
+            rjButton10.Size = new Size(132, 50);
+            rjButton10.TabIndex = 10;
+            rjButton10.Text = "No trainer";
+            rjButton10.UseVisualStyleBackColor = false;
             // 
             // rjButton8
             // 
@@ -148,20 +307,200 @@
             rjButton8.FlatStyle = FlatStyle.Flat;
             rjButton8.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             rjButton8.ForeColor = Color.White;
-            rjButton8.Location = new Point(34, 819);
+            rjButton8.Location = new Point(0, 105);
             rjButton8.Margin = new Padding(0);
             rjButton8.Name = "rjButton8";
             rjButton8.Size = new Size(671, 56);
             rjButton8.TabIndex = 7;
             rjButton8.Text = "Buy";
             rjButton8.UseVisualStyleBackColor = false;
+            rjButton8.Click += rjButton8_Click;
+            // 
+            // label35
+            // 
+            label35.AutoSize = true;
+            label35.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label35.ForeColor = Color.FromArgb(59, 41, 55);
+            label35.Location = new Point(99, 883);
+            label35.Name = "label35";
+            label35.Size = new Size(221, 31);
+            label35.TabIndex = 9;
+            label35.Text = "Select package type";
+            // 
+            // rjButton12
+            // 
+            rjButton12.BackColor = Color.FromArgb(40, 181, 244);
+            rjButton12.BorderColor = Color.PaleVioletRed;
+            rjButton12.BorderRadius = 50;
+            rjButton12.BorderSize = 0;
+            rjButton12.FlatAppearance.BorderSize = 0;
+            rjButton12.FlatStyle = FlatStyle.Flat;
+            rjButton12.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            rjButton12.ForeColor = Color.White;
+            rjButton12.Location = new Point(338, 877);
+            rjButton12.Name = "rjButton12";
+            rjButton12.Size = new Size(132, 50);
+            rjButton12.TabIndex = 7;
+            rjButton12.Text = "Trainer";
+            rjButton12.UseVisualStyleBackColor = false;
+            // 
+            // label36
+            // 
+            label36.AutoSize = true;
+            label36.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label36.ForeColor = Color.FromArgb(59, 41, 55);
+            label36.Location = new Point(97, 807);
+            label36.Name = "label36";
+            label36.Size = new Size(165, 31);
+            label36.TabIndex = 6;
+            label36.Text = "Member name";
+            // 
+            // rjPanel11
+            // 
+            rjPanel11.BackColor = Color.White;
+            rjPanel11.BorderColor = Color.White;
+            rjPanel11.BorderRadius = 40;
+            rjPanel11.BorderSize = 0;
+            rjPanel11.Controls.Add(label37);
+            rjPanel11.ForeColor = Color.White;
+            rjPanel11.Location = new Point(276, 799);
+            rjPanel11.Name = "rjPanel11";
+            rjPanel11.Size = new Size(383, 50);
+            rjPanel11.TabIndex = 5;
+            // 
+            // label37
+            // 
+            label37.AutoSize = true;
+            label37.BackColor = Color.Transparent;
+            label37.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label37.ForeColor = Color.FromArgb(59, 41, 55);
+            label37.Location = new Point(10, 9);
+            label37.Name = "label37";
+            label37.Size = new Size(146, 28);
+            label37.TabIndex = 0;
+            label37.Text = "Member name";
+            // 
+            // label38
+            // 
+            label38.AutoSize = true;
+            label38.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label38.ForeColor = Color.FromArgb(59, 41, 55);
+            label38.Location = new Point(97, 731);
+            label38.Name = "label38";
+            label38.Size = new Size(166, 31);
+            label38.TabIndex = 4;
+            label38.Text = "Phone number";
+            // 
+            // rjPanel12
+            // 
+            rjPanel12.BackColor = Color.White;
+            rjPanel12.BorderColor = Color.White;
+            rjPanel12.BorderRadius = 40;
+            rjPanel12.BorderSize = 0;
+            rjPanel12.Controls.Add(rjButton14);
+            rjPanel12.Controls.Add(textBox1);
+            rjPanel12.ForeColor = Color.White;
+            rjPanel12.Location = new Point(276, 721);
+            rjPanel12.Name = "rjPanel12";
+            rjPanel12.Size = new Size(383, 50);
+            rjPanel12.TabIndex = 3;
+            // 
+            // rjButton14
+            // 
+            rjButton14.BackColor = Color.Transparent;
+            rjButton14.BackgroundImage = Properties.Resources.search;
+            rjButton14.BackgroundImageLayout = ImageLayout.Center;
+            rjButton14.BorderColor = Color.PaleVioletRed;
+            rjButton14.BorderRadius = 40;
+            rjButton14.BorderSize = 0;
+            rjButton14.FlatAppearance.BorderSize = 0;
+            rjButton14.FlatStyle = FlatStyle.Flat;
+            rjButton14.ForeColor = Color.White;
+            rjButton14.Location = new Point(329, 6);
+            rjButton14.Name = "rjButton14";
+            rjButton14.Size = new Size(44, 41);
+            rjButton14.TabIndex = 5;
+            rjButton14.UseVisualStyleBackColor = false;
+            // 
+            // textBox1
+            // 
+            textBox1.BackColor = Color.White;
+            textBox1.BorderStyle = BorderStyle.None;
+            textBox1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            textBox1.ForeColor = Color.FromArgb(59, 41, 55);
+            textBox1.Location = new Point(19, 10);
+            textBox1.Margin = new Padding(10, 10, 3, 10);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(234, 27);
+            textBox1.TabIndex = 0;
+            // 
+            // rjButton15
+            // 
+            rjButton15.BackColor = Color.FromArgb(59, 41, 55);
+            rjButton15.BorderColor = Color.PaleVioletRed;
+            rjButton15.BorderRadius = 25;
+            rjButton15.BorderSize = 0;
+            rjButton15.FlatAppearance.BorderSize = 0;
+            rjButton15.FlatStyle = FlatStyle.Flat;
+            rjButton15.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            rjButton15.ForeColor = Color.White;
+            rjButton15.Location = new Point(276, 637);
+            rjButton15.Name = "rjButton15";
+            rjButton15.Size = new Size(232, 49);
+            rjButton15.TabIndex = 0;
+            rjButton15.Text = "Purchase Package";
+            rjButton15.UseVisualStyleBackColor = false;
+            // 
+            // flowLayoutPanel4
+            // 
+            flowLayoutPanel4.Controls.Add(lblDiscountUnit);
+            flowLayoutPanel4.Controls.Add(lblDiscount);
+            flowLayoutPanel4.Controls.Add(label22);
+            flowLayoutPanel4.FlowDirection = FlowDirection.RightToLeft;
+            flowLayoutPanel4.Location = new Point(342, 3);
+            flowLayoutPanel4.Name = "flowLayoutPanel4";
+            flowLayoutPanel4.Size = new Size(329, 44);
+            flowLayoutPanel4.TabIndex = 28;
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label22.ForeColor = Color.FromArgb(59, 41, 55);
+            label22.Location = new Point(73, 0);
+            label22.Name = "label22";
+            label22.Size = new Size(124, 31);
+            label22.TabIndex = 31;
+            label22.Text = "Discount : ";
+            // 
+            // lblDiscount
+            // 
+            lblDiscount.AutoSize = true;
+            lblDiscount.Font = new Font("Segoe UI", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point);
+            lblDiscount.ForeColor = Color.FromArgb(59, 41, 55);
+            lblDiscount.Location = new Point(203, 0);
+            lblDiscount.Name = "lblDiscount";
+            lblDiscount.Size = new Size(84, 31);
+            lblDiscount.TabIndex = 32;
+            lblDiscount.Text = "_______";
+            // 
+            // lblDiscountUnit
+            // 
+            lblDiscountUnit.AutoSize = true;
+            lblDiscountUnit.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            lblDiscountUnit.ForeColor = Color.FromArgb(59, 41, 55);
+            lblDiscountUnit.Location = new Point(293, 0);
+            lblDiscountUnit.Name = "lblDiscountUnit";
+            lblDiscountUnit.Size = new Size(33, 31);
+            lblDiscountUnit.TabIndex = 33;
+            lblDiscountUnit.Text = "%";
             // 
             // label10
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             label10.ForeColor = Color.FromArgb(59, 41, 55);
-            label10.Location = new Point(265, 381);
+            label10.Location = new Point(265, 311);
             label10.Name = "label10";
             label10.Size = new Size(201, 31);
             label10.TabIndex = 5;
@@ -192,9 +531,9 @@
             rjPanel7.Controls.Add(rjPanel10);
             rjPanel7.Controls.Add(rjButton13);
             rjPanel7.ForeColor = Color.White;
-            rjPanel7.Location = new Point(34, 427);
+            rjPanel7.Location = new Point(34, 353);
             rjPanel7.Name = "rjPanel7";
-            rjPanel7.Size = new Size(671, 382);
+            rjPanel7.Size = new Size(671, 372);
             rjPanel7.TabIndex = 4;
             // 
             // flowLayoutPanel2
@@ -202,7 +541,7 @@
             flowLayoutPanel2.Controls.Add(label16);
             flowLayoutPanel2.Controls.Add(lblDetailPkPrice);
             flowLayoutPanel2.Controls.Add(label25);
-            flowLayoutPanel2.Location = new Point(33, 126);
+            flowLayoutPanel2.Location = new Point(33, 121);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Size = new Size(326, 41);
             flowLayoutPanel2.TabIndex = 26;
@@ -310,7 +649,7 @@
             lblDetailPkDescription.AutoSize = true;
             lblDetailPkDescription.Font = new Font("Segoe UI", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point);
             lblDetailPkDescription.ForeColor = Color.FromArgb(59, 41, 55);
-            lblDetailPkDescription.Location = new Point(178, 254);
+            lblDetailPkDescription.Location = new Point(178, 256);
             lblDetailPkDescription.Name = "lblDetailPkDescription";
             lblDetailPkDescription.Size = new Size(84, 31);
             lblDetailPkDescription.TabIndex = 20;
@@ -321,7 +660,7 @@
             lblDetailPkTrainer.AutoSize = true;
             lblDetailPkTrainer.Font = new Font("Segoe UI", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point);
             lblDetailPkTrainer.ForeColor = Color.FromArgb(59, 41, 55);
-            lblDetailPkTrainer.Location = new Point(181, 171);
+            lblDetailPkTrainer.Location = new Point(181, 173);
             lblDetailPkTrainer.Name = "lblDetailPkTrainer";
             lblDetailPkTrainer.Size = new Size(84, 31);
             lblDetailPkTrainer.TabIndex = 19;
@@ -343,7 +682,7 @@
             label18.AutoSize = true;
             label18.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             label18.ForeColor = Color.FromArgb(59, 41, 55);
-            label18.Location = new Point(35, 253);
+            label18.Location = new Point(35, 255);
             label18.Name = "label18";
             label18.Size = new Size(143, 31);
             label18.TabIndex = 15;
@@ -354,7 +693,7 @@
             label17.AutoSize = true;
             label17.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             label17.ForeColor = Color.FromArgb(59, 41, 55);
-            label17.Location = new Point(35, 170);
+            label17.Location = new Point(35, 172);
             label17.Name = "label17";
             label17.Size = new Size(146, 31);
             label17.TabIndex = 14;
@@ -546,9 +885,9 @@
             rjPanel4.Controls.Add(rjButton6);
             rjPanel4.Controls.Add(rjButton1);
             rjPanel4.ForeColor = Color.White;
-            rjPanel4.Location = new Point(34, 16);
+            rjPanel4.Location = new Point(34, 10);
             rjPanel4.Name = "rjPanel4";
-            rjPanel4.Size = new Size(671, 322);
+            rjPanel4.Size = new Size(671, 289);
             rjPanel4.TabIndex = 3;
             // 
             // rjButton3
@@ -578,7 +917,7 @@
             btnNoTrainer.FlatStyle = FlatStyle.Flat;
             btnNoTrainer.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             btnNoTrainer.ForeColor = Color.FromArgb(59, 41, 55);
-            btnNoTrainer.Location = new Point(422, 254);
+            btnNoTrainer.Location = new Point(422, 215);
             btnNoTrainer.Name = "btnNoTrainer";
             btnNoTrainer.Size = new Size(132, 50);
             btnNoTrainer.TabIndex = 10;
@@ -602,7 +941,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.FromArgb(59, 41, 55);
-            label4.Location = new Point(35, 260);
+            label4.Location = new Point(35, 221);
             label4.Name = "label4";
             label4.Size = new Size(221, 31);
             label4.TabIndex = 9;
@@ -635,7 +974,7 @@
             btnHaveTrainer.FlatStyle = FlatStyle.Flat;
             btnHaveTrainer.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             btnHaveTrainer.ForeColor = Color.FromArgb(59, 41, 55);
-            btnHaveTrainer.Location = new Point(274, 254);
+            btnHaveTrainer.Location = new Point(274, 215);
             btnHaveTrainer.Name = "btnHaveTrainer";
             btnHaveTrainer.Size = new Size(132, 50);
             btnHaveTrainer.TabIndex = 7;
@@ -659,7 +998,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(59, 41, 55);
-            label2.Location = new Point(33, 184);
+            label2.Location = new Point(33, 155);
             label2.Name = "label2";
             label2.Size = new Size(165, 31);
             label2.TabIndex = 6;
@@ -698,7 +1037,7 @@
             rjPanel3.BorderSize = 0;
             rjPanel3.Controls.Add(lblMemberName);
             rjPanel3.ForeColor = Color.White;
-            rjPanel3.Location = new Point(212, 176);
+            rjPanel3.Location = new Point(212, 147);
             rjPanel3.Name = "rjPanel3";
             rjPanel3.Size = new Size(383, 50);
             rjPanel3.TabIndex = 5;
@@ -731,7 +1070,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(59, 41, 55);
-            label1.Location = new Point(33, 108);
+            label1.Location = new Point(33, 90);
             label1.Name = "label1";
             label1.Size = new Size(166, 31);
             label1.TabIndex = 4;
@@ -789,7 +1128,7 @@
             rjPanel2.Controls.Add(rjButton2);
             rjPanel2.Controls.Add(tbxPhoneNumber);
             rjPanel2.ForeColor = Color.White;
-            rjPanel2.Location = new Point(212, 98);
+            rjPanel2.Location = new Point(212, 80);
             rjPanel2.Name = "rjPanel2";
             rjPanel2.Size = new Size(383, 50);
             rjPanel2.TabIndex = 3;
@@ -851,7 +1190,7 @@
             rjButton1.FlatStyle = FlatStyle.Flat;
             rjButton1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             rjButton1.ForeColor = Color.White;
-            rjButton1.Location = new Point(212, 14);
+            rjButton1.Location = new Point(212, 11);
             rjButton1.Name = "rjButton1";
             rjButton1.Size = new Size(232, 49);
             rjButton1.TabIndex = 0;
@@ -873,6 +1212,18 @@
             rjFlowLayoutPanel1.ResumeLayout(false);
             rjPanel1.ResumeLayout(false);
             rjPanel1.PerformLayout();
+            flowLayoutPanel5.ResumeLayout(false);
+            flowLayoutPanel5.PerformLayout();
+            rjPanel9.ResumeLayout(false);
+            rjPanel9.PerformLayout();
+            flowLayoutPanel3.ResumeLayout(false);
+            flowLayoutPanel3.PerformLayout();
+            rjPanel11.ResumeLayout(false);
+            rjPanel11.PerformLayout();
+            rjPanel12.ResumeLayout(false);
+            rjPanel12.PerformLayout();
+            flowLayoutPanel4.ResumeLayout(false);
+            flowLayoutPanel4.PerformLayout();
             rjPanel7.ResumeLayout(false);
             rjPanel7.PerformLayout();
             flowLayoutPanel2.ResumeLayout(false);
@@ -953,5 +1304,29 @@
         private Label label20;
         private FlowLayoutPanel flowLayoutPanel1;
         private FlowLayoutPanel flowLayoutPanel2;
+        private RJPanel rjPanel9;
+        private RJButton rjButton10;
+        private Label label35;
+        private RJButton rjButton12;
+        private Label label36;
+        private RJPanel rjPanel11;
+        private Label label37;
+        private Label label38;
+        private RJPanel rjPanel12;
+        private RJButton rjButton14;
+        private TextBox textBox1;
+        private RJButton rjButton15;
+        private FlowLayoutPanel flowLayoutPanel3;
+        private FlowLayoutPanel flowLayoutPanel5;
+        private Label lblTotalPayment;
+        private FlowLayoutPanel flowLayoutPanel4;
+        private Label label22;
+        private Label lblDiscount;
+        private Label label19;
+        private Label lblBalance;
+        private Label label26;
+        private Label label29;
+        private Label label23;
+        private Label lblDiscountUnit;
     }
 }

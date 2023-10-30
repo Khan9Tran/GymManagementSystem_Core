@@ -84,7 +84,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.dumbbell;
+            pictureBox1.Image = Properties.Resources.muscle;
             pictureBox1.Location = new Point(145, 3);
             pictureBox1.Margin = new Padding(145, 3, 145, 0);
             pictureBox1.Name = "pictureBox1";

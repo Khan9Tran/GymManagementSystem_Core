@@ -8,12 +8,14 @@ namespace GymManagementSystem.Models
 {
     internal static class Employee
     {
+        static string userID = "";
         static string userName = "";
         static string password = "";
         static string name = "";
         static int role = 1;
         static string branchName = null;
         static string branchID = null;
+        public static string UserID { get => userID; set => userID = value; }
         public static string UserName { get => userName; set => userName = value; }
         public static string Password { get => password; set => password = value; }
         public static int Role { get => role; set => role = value; }

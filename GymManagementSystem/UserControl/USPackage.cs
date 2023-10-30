@@ -12,15 +12,17 @@ namespace GymManagementSystem
 {
     public partial class USPackage : UserControl
     {
+        string packageID;
         string packageName;
         string packagePeriods;
         string packagePrice;
         string packageDesctiption;
         string packageNOPTSessions;
 
-        public USPackage(string packageName, string packagePeriods, string packagePrice, string packageDesctiption, string packageNOPTSessions)
+        public USPackage(string packageID, string packageName, string packagePeriods, string packagePrice, string packageDesctiption, string packageNOPTSessions)
         {
             InitializeComponent();
+            this.packageID = packageID;
             this.packageName = packageName;
             this.packagePeriods = packagePeriods;
             this.packagePrice = packagePrice;
@@ -40,7 +42,7 @@ namespace GymManagementSystem
 
         private void btnPkSelect_Click(object sender, EventArgs e)
         {
-            FPurchasePackage.showDetailPackage(packageName, packagePeriods, packagePrice, packageDesctiption, packageNOPTSessions);
+            FPurchasePackage.showDetailPackage(packageID, packageName, packagePeriods, packagePrice, packageDesctiption, packageNOPTSessions);
         }
     }
 }

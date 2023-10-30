@@ -29,188 +29,187 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FLogin));
-            this.rjPanel7 = new GymManagementSystem.RJPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.rjPanel8 = new GymManagementSystem.RJPanel();
-            this.txtFullName = new System.Windows.Forms.TextBox();
-            this.rjPanel1 = new GymManagementSystem.RJPanel();
-            this.lblPass = new System.Windows.Forms.Label();
-            this.rjPanel2 = new GymManagementSystem.RJPanel();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnLogin = new GymManagementSystem.RJButton();
-            this.label3 = new System.Windows.Forms.Label();
-            this.rjPanel7.SuspendLayout();
-            this.rjPanel8.SuspendLayout();
-            this.rjPanel1.SuspendLayout();
-            this.rjPanel2.SuspendLayout();
-            this.SuspendLayout();
+            rjPanel7 = new RJPanel();
+            label1 = new Label();
+            rjPanel8 = new RJPanel();
+            txtFullName = new TextBox();
+            rjPanel1 = new RJPanel();
+            lblPass = new Label();
+            rjPanel2 = new RJPanel();
+            txtPassword = new TextBox();
+            label2 = new Label();
+            btnLogin = new RJButton();
+            label3 = new Label();
+            rjPanel7.SuspendLayout();
+            rjPanel8.SuspendLayout();
+            rjPanel1.SuspendLayout();
+            rjPanel2.SuspendLayout();
+            SuspendLayout();
             // 
             // rjPanel7
             // 
-            this.rjPanel7.BackColor = System.Drawing.Color.White;
-            this.rjPanel7.BorderColor = System.Drawing.Color.White;
-            this.rjPanel7.BorderRadius = 40;
-            this.rjPanel7.BorderSize = 2;
-            this.rjPanel7.Controls.Add(this.label1);
-            this.rjPanel7.Controls.Add(this.rjPanel8);
-            this.rjPanel7.ForeColor = System.Drawing.Color.White;
-            this.rjPanel7.Location = new System.Drawing.Point(89, 94);
-            this.rjPanel7.Name = "rjPanel7";
-            this.rjPanel7.Size = new System.Drawing.Size(622, 82);
-            this.rjPanel7.TabIndex = 7;
+            rjPanel7.BackColor = Color.White;
+            rjPanel7.BorderColor = Color.White;
+            rjPanel7.BorderRadius = 40;
+            rjPanel7.BorderSize = 2;
+            rjPanel7.Controls.Add(label1);
+            rjPanel7.Controls.Add(rjPanel8);
+            rjPanel7.ForeColor = Color.White;
+            rjPanel7.Location = new Point(89, 94);
+            rjPanel7.Name = "rjPanel7";
+            rjPanel7.Size = new Size(622, 82);
+            rjPanel7.TabIndex = 7;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(41)))), ((int)(((byte)(55)))));
-            this.label1.Location = new System.Drawing.Point(23, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 28);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "User name";
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.FromArgb(59, 41, 55);
+            label1.Location = new Point(23, 30);
+            label1.Name = "label1";
+            label1.Size = new Size(112, 28);
+            label1.TabIndex = 4;
+            label1.Text = "User name";
             // 
             // rjPanel8
             // 
-            this.rjPanel8.BackColor = System.Drawing.Color.White;
-            this.rjPanel8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
-            this.rjPanel8.BorderRadius = 40;
-            this.rjPanel8.BorderSize = 2;
-            this.rjPanel8.Controls.Add(this.txtFullName);
-            this.rjPanel8.ForeColor = System.Drawing.Color.White;
-            this.rjPanel8.Location = new System.Drawing.Point(220, 14);
-            this.rjPanel8.Name = "rjPanel8";
-            this.rjPanel8.Size = new System.Drawing.Size(366, 59);
-            this.rjPanel8.TabIndex = 0;
+            rjPanel8.BackColor = Color.White;
+            rjPanel8.BorderColor = Color.FromArgb(44, 181, 245);
+            rjPanel8.BorderRadius = 40;
+            rjPanel8.BorderSize = 2;
+            rjPanel8.Controls.Add(txtFullName);
+            rjPanel8.ForeColor = Color.White;
+            rjPanel8.Location = new Point(220, 14);
+            rjPanel8.Name = "rjPanel8";
+            rjPanel8.Size = new Size(366, 59);
+            rjPanel8.TabIndex = 0;
             // 
             // txtFullName
             // 
-            this.txtFullName.BackColor = System.Drawing.Color.White;
-            this.txtFullName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtFullName.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtFullName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
-            this.txtFullName.Location = new System.Drawing.Point(31, 15);
-            this.txtFullName.Name = "txtFullName";
-            this.txtFullName.Size = new System.Drawing.Size(304, 29);
-            this.txtFullName.TabIndex = 0;
+            txtFullName.BackColor = Color.White;
+            txtFullName.BorderStyle = BorderStyle.None;
+            txtFullName.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            txtFullName.ForeColor = Color.FromArgb(44, 181, 245);
+            txtFullName.Location = new Point(31, 15);
+            txtFullName.Name = "txtFullName";
+            txtFullName.Size = new Size(304, 29);
+            txtFullName.TabIndex = 0;
             // 
             // rjPanel1
             // 
-            this.rjPanel1.BackColor = System.Drawing.Color.White;
-            this.rjPanel1.BorderColor = System.Drawing.Color.White;
-            this.rjPanel1.BorderRadius = 40;
-            this.rjPanel1.BorderSize = 2;
-            this.rjPanel1.Controls.Add(this.lblPass);
-            this.rjPanel1.Controls.Add(this.rjPanel2);
-            this.rjPanel1.ForeColor = System.Drawing.Color.White;
-            this.rjPanel1.Location = new System.Drawing.Point(89, 217);
-            this.rjPanel1.Name = "rjPanel1";
-            this.rjPanel1.Size = new System.Drawing.Size(622, 82);
-            this.rjPanel1.TabIndex = 7;
+            rjPanel1.BackColor = Color.White;
+            rjPanel1.BorderColor = Color.White;
+            rjPanel1.BorderRadius = 40;
+            rjPanel1.BorderSize = 2;
+            rjPanel1.Controls.Add(lblPass);
+            rjPanel1.Controls.Add(rjPanel2);
+            rjPanel1.ForeColor = Color.White;
+            rjPanel1.Location = new Point(89, 217);
+            rjPanel1.Name = "rjPanel1";
+            rjPanel1.Size = new Size(622, 82);
+            rjPanel1.TabIndex = 7;
             // 
             // lblPass
             // 
-            this.lblPass.AutoSize = true;
-            this.lblPass.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(41)))), ((int)(((byte)(55)))));
-            this.lblPass.Location = new System.Drawing.Point(23, 28);
-            this.lblPass.Name = "lblPass";
-            this.lblPass.Size = new System.Drawing.Size(101, 28);
-            this.lblPass.TabIndex = 4;
-            this.lblPass.Text = "Password";
+            lblPass.AutoSize = true;
+            lblPass.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lblPass.ForeColor = Color.FromArgb(59, 41, 55);
+            lblPass.Location = new Point(23, 28);
+            lblPass.Name = "lblPass";
+            lblPass.Size = new Size(101, 28);
+            lblPass.TabIndex = 4;
+            lblPass.Text = "Password";
             // 
             // rjPanel2
             // 
-            this.rjPanel2.BackColor = System.Drawing.Color.White;
-            this.rjPanel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
-            this.rjPanel2.BorderRadius = 40;
-            this.rjPanel2.BorderSize = 2;
-            this.rjPanel2.Controls.Add(this.txtPassword);
-            this.rjPanel2.ForeColor = System.Drawing.Color.White;
-            this.rjPanel2.Location = new System.Drawing.Point(220, 12);
-            this.rjPanel2.Name = "rjPanel2";
-            this.rjPanel2.Size = new System.Drawing.Size(366, 59);
-            this.rjPanel2.TabIndex = 0;
+            rjPanel2.BackColor = Color.White;
+            rjPanel2.BorderColor = Color.FromArgb(44, 181, 245);
+            rjPanel2.BorderRadius = 40;
+            rjPanel2.BorderSize = 2;
+            rjPanel2.Controls.Add(txtPassword);
+            rjPanel2.ForeColor = Color.White;
+            rjPanel2.Location = new Point(220, 12);
+            rjPanel2.Name = "rjPanel2";
+            rjPanel2.Size = new Size(366, 59);
+            rjPanel2.TabIndex = 0;
             // 
             // txtPassword
             // 
-            this.txtPassword.BackColor = System.Drawing.Color.White;
-            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
-            this.txtPassword.Location = new System.Drawing.Point(31, 16);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(304, 29);
-            this.txtPassword.TabIndex = 0;
+            txtPassword.BackColor = Color.White;
+            txtPassword.BorderStyle = BorderStyle.None;
+            txtPassword.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            txtPassword.ForeColor = Color.FromArgb(44, 181, 245);
+            txtPassword.Location = new Point(31, 16);
+            txtPassword.Name = "txtPassword";
+            txtPassword.PasswordChar = '*';
+            txtPassword.Size = new Size(304, 29);
+            txtPassword.TabIndex = 0;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Black", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
-            this.label2.Location = new System.Drawing.Point(260, 21);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(273, 45);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "MONSTER GYM";
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Black", 19.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = Color.FromArgb(44, 181, 245);
+            label2.Location = new Point(260, 21);
+            label2.Name = "label2";
+            label2.Size = new Size(273, 45);
+            label2.TabIndex = 8;
+            label2.Text = "MONSTER GYM";
             // 
             // btnLogin
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.White;
-            this.btnLogin.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
-            this.btnLogin.BorderRadius = 40;
-            this.btnLogin.BorderSize = 2;
-            this.btnLogin.FlatAppearance.BorderSize = 0;
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Image = global::GymManagementSystem.Properties.Resources.gym;
-            this.btnLogin.Location = new System.Drawing.Point(330, 346);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(188, 50);
-            this.btnLogin.TabIndex = 9;
-            this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            btnLogin.BackColor = Color.White;
+            btnLogin.BorderColor = Color.FromArgb(44, 181, 245);
+            btnLogin.BorderRadius = 40;
+            btnLogin.BorderSize = 2;
+            btnLogin.FlatAppearance.BorderSize = 0;
+            btnLogin.FlatStyle = FlatStyle.Flat;
+            btnLogin.ForeColor = Color.White;
+            btnLogin.Image = Properties.Resources.gym;
+            btnLogin.Location = new Point(330, 346);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(188, 50);
+            btnLogin.TabIndex = 9;
+            btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += btnLogin_Click;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
-            this.label3.Location = new System.Drawing.Point(12, 421);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(144, 20);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Designed by NHOM4";
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            label3.ForeColor = Color.FromArgb(67, 52, 67);
+            label3.Location = new Point(12, 421);
+            label3.Name = "label3";
+            label3.Size = new Size(144, 20);
+            label3.TabIndex = 10;
+            label3.Text = "Designed by NHOM4";
             // 
             // FLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(41)))), ((int)(((byte)(55)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.rjPanel1);
-            this.Controls.Add(this.rjPanel7);
-            this.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FLogin";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Monster gym";
-            this.rjPanel7.ResumeLayout(false);
-            this.rjPanel7.PerformLayout();
-            this.rjPanel8.ResumeLayout(false);
-            this.rjPanel8.PerformLayout();
-            this.rjPanel1.ResumeLayout(false);
-            this.rjPanel1.PerformLayout();
-            this.rjPanel2.ResumeLayout(false);
-            this.rjPanel2.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(59, 41, 55);
+            ClientSize = new Size(800, 450);
+            Controls.Add(label3);
+            Controls.Add(btnLogin);
+            Controls.Add(label2);
+            Controls.Add(rjPanel1);
+            Controls.Add(rjPanel7);
+            ForeColor = SystemColors.ControlLight;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "FLogin";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Monster gym";
+            rjPanel7.ResumeLayout(false);
+            rjPanel7.PerformLayout();
+            rjPanel8.ResumeLayout(false);
+            rjPanel8.PerformLayout();
+            rjPanel1.ResumeLayout(false);
+            rjPanel1.PerformLayout();
+            rjPanel2.ResumeLayout(false);
+            rjPanel2.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -222,9 +221,9 @@
         private RJPanel rjPanel1;
         private Label lblPass;
         private RJPanel rjPanel2;
-        private TextBox txtPassword;
         private Label label2;
         private RJButton btnLogin;
         private Label label3;
+        private TextBox txtPassword;
     }
 }
