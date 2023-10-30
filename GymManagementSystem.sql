@@ -1468,3 +1468,52 @@ BEGIN
         RAISERROR('Thay đổi thiết bị thất bại',16,1);
     END CATCH;
 END
+
+GO
+
+--PROC thêm workout
+CREATE PROCEDURE PROC_AddWorkout
+    @ID CHAR(6),
+    @Name NVARCHAR(50),
+    @Type VARCHAR(50),
+    @Description VARCHAR,
+    @Duration CHAR
+AS
+BEGIN
+	IF EXISTS (SELECT * FROM WorkOut WHERE [Name] = @Name)
+		RAISERROR('Bài tập đã tồn tại',16 ,1)
+	ELSE
+    INSERT INTO WorkOut([ID], [Name], [Type], [Description], [Duration])
+    VALUES (@ID, @Name, @Type, @Description, @Duration)
+END
+
+GO
+
+--PROC DELETE Workout
+CREATE PROCEDURE PROC_DeleteWorkout
+@ID CHAR(6)
+AS 
+BEGIN
+	DELETE WorkOut WHERE [ID] = @ID
+END
+
+GO
+
+--PROC update thông tin workout
+CREATE PROCEDURE PROC_UpdateWorkout
+	@ID char(6),
+    @Name NVARCHAR(50),
+    @Type VARCHAR(50),
+    @Description VARCHAR,
+    @Duration CHAR
+AS
+BEGIN
+		UPDATE WorkOut
+		SET
+			[Name] = @Name,
+			[Type] = @Type,
+			[Description] = @Description,
+			[Duration] = @Duration
+		WHERE [ID] = @ID
+
+END
