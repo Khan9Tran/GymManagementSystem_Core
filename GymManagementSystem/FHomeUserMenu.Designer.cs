@@ -338,7 +338,7 @@
             this.rjPanel1.BorderSize = 0;
             this.rjPanel1.Controls.Add(this.lblBranch);
             this.rjPanel1.ForeColor = System.Drawing.Color.White;
-            this.rjPanel1.Location = new System.Drawing.Point(12, 12);
+            this.rjPanel1.Location = new System.Drawing.Point(60, 50);
             this.rjPanel1.Name = "rjPanel1";
             this.rjPanel1.Size = new System.Drawing.Size(312, 69);
             this.rjPanel1.TabIndex = 9;

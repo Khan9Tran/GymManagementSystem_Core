@@ -144,27 +144,27 @@ GO
 CREATE VIEW V_MemberWorkOutSchedule AS
 SELECT WOP.ID, WOP.MemberID, Member.Name AS MemberName, WOP.TrainerID, Trainer.Name AS TrainerName, WOP.BranchID, Branch.Name AS BranchName, WOP.[Time], WOP.[Date]
 FROM dbo.WorkOutPlan WOP
-	JOIN dbo.Member ON WOP.MemberID = Member.ID
-	JOIN dbo.Branch ON WOP.BranchID = Branch.ID
-	JOIN dbo.Trainer ON WOP.TrainerID = Trainer.ID
+	LEFT JOIN dbo.Member ON WOP.MemberID = Member.ID
+	LEFT JOIN dbo.Branch ON WOP.BranchID = Branch.ID
+	LEFT JOIN dbo.Trainer ON WOP.TrainerID = Trainer.ID
 GO
 
 --Xem lịch tập các hội viên trong ngày
 CREATE VIEW V_MemberWorkOutScheduleInDay AS
 SELECT WOP.ID, WOP.MemberID, Member.Name AS MemberName, WOP.TrainerID, Trainer.Name AS TrainerName, WOP.BranchID, Branch.Name AS BranchName, WOP.[Time], WOP.[Date]
 FROM dbo.WorkOutPlan WOP
-	JOIN dbo.Member ON WOP.MemberID = Member.ID
-	JOIN dbo.Branch ON WOP.BranchID = Branch.ID
-	JOIN dbo.Trainer ON WOP.TrainerID = Trainer.ID
+	LEFT JOIN dbo.Member ON WOP.MemberID = Member.ID
+	LEFT JOIN dbo.Branch ON WOP.BranchID = Branch.ID
+	LEFT JOIN dbo.Trainer ON WOP.TrainerID = Trainer.ID
 WHERE CONVERT(DATE, wop.Date) = CONVERT(DATE, GETDATE());
 GO
 --Xem buổi tập sắp tới
 CREATE VIEW V_MemberWorkOutScheduleUpcoming AS
 SELECT WOP.ID, WOP.MemberID, Member.Name AS MemberName, WOP.TrainerID, Trainer.Name AS TrainerName, WOP.BranchID, Branch.Name AS BranchName, WOP.[Time], WOP.[Date]
 FROM dbo.WorkOutPlan WOP
-	JOIN dbo.Member ON WOP.MemberID = Member.ID
-	JOIN dbo.Branch ON WOP.BranchID = Branch.ID
-	JOIN dbo.Trainer ON WOP.TrainerID = Trainer.ID
+	LEFT JOIN dbo.Member ON WOP.MemberID = Member.ID
+	LEFT JOIN dbo.Branch ON WOP.BranchID = Branch.ID
+	LEFT JOIN dbo.Trainer ON WOP.TrainerID = Trainer.ID
 WHERE CONVERT(DATE, wop.Date) >= CONVERT(DATE, GETDATE());
 GO
 --View xem các buổi tập đang diễn ra
@@ -178,9 +178,9 @@ JOIN (
     GROUP BY PD.WorkOutPlanID
 )	
 	AS WD ON WOP.ID = WD.WorkOutPlanID
-	JOIN Member ON WOP.MemberID = Member.ID 
-	JOIN Trainer ON WOP.TrainerID = Trainer.ID
-	JOIN Branch ON WOP.BranchID = Branch.ID
+	LEFT JOIN Member ON WOP.MemberID = Member.ID 
+	LEFT JOIN Trainer ON WOP.TrainerID = Trainer.ID
+	LEFT JOIN Branch ON WOP.BranchID = Branch.ID
 	WHERE WOP.[Time] <= CONVERT(TIME, GETDATE())
 	AND DATEADD(MINUTE, WD.TotalDuration,[Time]) >= CONVERT(TIME, GETDATE()) AND  [Date] = CONVERT(DATE, GETDATE())
 GO
@@ -250,20 +250,6 @@ FROM dbo.MembershipType
 
 GO
 
--- Xem danh sách thiết bị hư hỏng
-CREATE VIEW V_DamagedEqpList AS
-SELECT dbo.Equipment.[ID], dbo.Equipment.[Name], dbo.Equipment.[Status], dbo.Branch.[Name] AS BranchName, dbo.EquipmentCategory.[Name] AS Category
-FROM dbo.Equipment JOIN dbo.Branch ON Branch.ID = Equipment.BranchID
-				   JOIN dbo.EquipmentCategory ON EquipmentCategory.ID = Equipment.CategoryID
-WHERE dbo.Equipment.[Status] = 'unavailable'
-Go
-	-- Xem danh sách thiết bị còn hoạt động
-CREATE VIEW V_AvailableEqpList AS
-SELECT dbo.Equipment.[ID], dbo.Equipment.[Name], dbo.Equipment.[Status], dbo.Branch.[Name] AS BranchName, dbo.EquipmentCategory.[Name] AS Category
-FROM dbo.Equipment JOIN dbo.Branch ON Branch.ID = Equipment.BranchID
-				   JOIN dbo.EquipmentCategory ON EquipmentCategory.ID = Equipment.CategoryID
-WHERE dbo.Equipment.[Status] = 'available'
-GO
 --Xem danh sách thiết bị sửa chữa trong ngày
 CREATE VIEW V_MaintDataListInDay AS
 SELECT eq.EquipmentID , eq.Description, eq.Cost
@@ -285,12 +271,30 @@ GO
 
 --Xem danh sách các thiết bị
 CREATE VIEW V_EquipmentList AS
-SELECT e.[ID], e.[Name], e.[Status], e.[Price], ec.[Name] AS Category, b.[Name] AS Branch
-FROM dbo.Equipment e
-	JOIN dbo.Branch b ON e.BranchID = b.ID
-	JOIN dbo.EquipmentCategory ec ON e.CategoryID = ec.ID
+SELECT dbo.Equipment.[ID], dbo.Equipment.[Name], dbo.Equipment.[Status], dbo.Branch.[Name] AS BranchName, dbo.EquipmentCategory.[Name] AS Category, BranchID
+FROM dbo.Equipment JOIN dbo.Branch ON Branch.ID = Equipment.BranchID
+				   JOIN dbo.EquipmentCategory ON EquipmentCategory.ID = Equipment.CategoryID
 GO
 
+-- Xem danh sách thiết bị hư hỏng
+CREATE VIEW V_DamagedEqpList AS
+SELECT dbo.Equipment.[ID], dbo.Equipment.[Name], dbo.Equipment.[Status], dbo.Branch.[Name] AS BranchName, dbo.EquipmentCategory.[Name] AS Category, BranchID
+FROM dbo.Equipment JOIN dbo.Branch ON Branch.ID = Equipment.BranchID
+				   JOIN dbo.EquipmentCategory ON EquipmentCategory.ID = Equipment.CategoryID
+WHERE dbo.Equipment.[Status] = 'unavailable'
+Go
+	-- Xem danh sách thiết bị còn hoạt động
+CREATE VIEW V_AvailableEqpList AS
+SELECT dbo.Equipment.[ID], dbo.Equipment.[Name], dbo.Equipment.[Status], dbo.Branch.[Name] AS BranchName, dbo.EquipmentCategory.[Name] AS Category, BranchID
+FROM dbo.Equipment JOIN dbo.Branch ON Branch.ID = Equipment.BranchID
+				   JOIN dbo.EquipmentCategory ON EquipmentCategory.ID = Equipment.CategoryID
+WHERE dbo.Equipment.[Status] = 'available'
+GO
+--Xem danh sách BMI
+CREATE VIEW V_BMIList AS
+SELECT BMI.ID, BMI.Status, BMI.Weight, BMI.Height, BMI.Date, MemberID,Member.Name, Member.PhoneNumber
+FROM BMI JOIN Member ON BMI.MemberID = Member.ID
+GO
 
 -- Trigger cập nhật số dư khi hội viên thực hiện thanh toán và tính số tiền khách cần phải trả cập nhật về Payment
 CREATE TRIGGER TR_UpdateMemberBalance
@@ -381,7 +385,7 @@ GO
 --Trigger đặt tình trạng BMI dựa theo công thức
 CREATE TRIGGER TR_BMIStatus
 ON dbo.BMI
-AFTER INSERT
+AFTER INSERT, UPDATE
 AS
 BEGIN
 UPDATE BMI
@@ -430,8 +434,9 @@ BEGIN
 	UPDATE dbo.Equipment
 	SET [Status] = 'available'
 	FROM dbo.Equipment eqp
-	INNER JOIN inserted i ON eqp.ID = i.ID
+	INNER JOIN inserted i ON eqp.ID = i.EquipmentID
 END;
+
 GO
 --Trigger báo quá số lượng đăng ký cho giờ tập trong khoản trước sau 45 phút (Dung tích chứa 50 member) 
 CREATE TRIGGER TR_OverCapacity ON WorkOutPlan
@@ -628,12 +633,12 @@ GO
 
 INSERT INTO WorkOutPlan ([ID], [MemberID], [TrainerID], [BranchID], [Time], [Date])
 VALUES
-	('WOP001', 'MEM001', 'TR0001', 'BR0001', '08:00:00', '2023-12-01'),
-	('WOP002', 'MEM002', 'TR0002', 'BR0002', '09:00:00', '2023-12-02'),
-	('WOP003', 'MEM003', 'TR0003', 'BR0003', '10:00:00', '2023-12-03'),
-	('WOP004', 'MEM004', 'TR0004', 'BR0004', '11:00:00', '2023-11-04'),
-	('WOP005', 'MEM005', 'TR0005', 'BR0005', '12:00:00', '2023-11-05'),
-	('WOP006', 'MEM006', 'TR0006', 'BR0001', '13:00:00', '2023-11-06'),
+
+	('WOP002', 'MEM002', 'TR0002', 'BR0002', '09:00:00', '2023-12-01'),
+	('WOP003', 'MEM003', 'TR0003', 'BR0003', '10:00:00', '2023-12-01'),
+	('WOP004', 'MEM004', 'TR0004', 'BR0004', '11:00:00', '2023-11-01'),
+	('WOP005', 'MEM005', 'TR0005', 'BR0005', '12:00:00', '2023-11-01'),
+	('WOP006', 'MEM006', 'TR0006', 'BR0001', '13:00:00', '2023-11-01'),
 	('WOP007', 'MEM007', 'TR0007', 'BR0002', '14:00:00', '2023-11-07'),
 	('WOP008', 'MEM008', 'TR0008', 'BR0003', '15:00:00', '2023-11-08'),
 	('WOP009', 'MEM009', 'TR0009', 'BR0004', '16:00:00', '2023-11-09'),
@@ -925,3 +930,553 @@ BEGIN
 		SELECT * FROM V_MemberList WHERE (ID = @Content OR [Name] LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE '%' + @Content + '%' OR [Address]  LIKE N'%' + @Content + '%') AND (EndOfPackageDate < CAST(GETDATE() AS DATE) OR EndOfPackageDate is NULL)
 END
 
+GO 
+--Proc Update member
+CREATE PROCEDURE PROC_UpdateMember
+@Name NVARCHAR(100),
+@PhoneNumber CHAR(10),
+@Address NVARCHAR(50),
+@Gender NVARCHAR(30),
+@ID CHAR(6)
+AS
+BEGIN
+	IF @Gender = 'Nam' OR @Gender = 'Male' OR @Gender = 'M' OR @Gender = 'm' OR @Gender = 'male' OR @Gender = 'nam'
+	BEGIN
+		SET @Gender = 'm'
+	END
+	ELSE IF @Gender = 'Nu' OR @Gender = 'Female' OR @Gender = 'F' OR @Gender = 'f' OR @Gender = 'female' OR @Gender = 'nu' OR @Gender = N'nữ' OR @Gender = 'Nữ'
+	BEGIN
+		SET @Gender = 'f'
+	END
+	ELSE IF @Gender = 'U' OR @Gender = 'u' OR @Gender = 'Unknown' OR @Gender = 'unknown'
+	BEGIN
+		SET @Gender = 'u'
+	END
+	ELSE 
+	BEGIN
+		RAISERROR ( N'Giới tính không hợp lệ',16,1);
+		RETURN
+	END
+	UPDATE Member 
+	SET Name = @Name, PhoneNumber = @PhoneNumber, [Address] = @Address, Gender = @Gender 
+	WHERE ID = @ID
+END
+
+GO
+--FUNCTION Tìm ID của Membership theo rank
+CREATE FUNCTION FUNC_FindMembershipByRank(@Rank NVARCHAR(50))
+RETURNS CHAR(6)
+AS
+BEGIN
+	DECLARE @tmp CHAR(6) 
+	SET @tmp = 'None'
+	SELECT @tmp = MembershipType.ID FROM MembershipType WHERE MembershipType.Rank = @Rank
+	RETURN @tmp
+END
+
+GO
+--PROC Load BMI mới nhất của thành viên
+CREATE PROCEDURE PROC_LatestBMI @MemberID char(6)
+AS
+BEGIN
+	SELECT TOP 1 *
+    FROM BMI
+    WHERE MemberID = @MemberID
+    ORDER BY Date DESC;
+END
+
+INSERT INTO BMI(ID,MemberID,Weight,Height,Date) VALUES('000001','MEM011',60,175,'2023/10/25');
+
+GO
+--Proc tìm trainerlist
+CREATE PROCEDURE PROC_FindTrainerList
+	@FilterType INT,
+	@Content NVARCHAR(50)
+AS
+BEGIN
+	IF (@FilterType = 0)
+		SELECT * FROM V_TrainerList WHERE (ID = @Content OR Address LIKE N'%' + @Content + '%' OR Name  LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE N'%' + @Content + '%' OR Branch  LIKE N'%' + @Content + '%' OR BranchID = @Content)
+	ELSE IF (@FilterType = 1)
+		SELECT * FROM V_TrainerList WHERE ((Gender = 'm') AND ID = @Content OR Address LIKE N'%' + @Content + '%' OR Name  LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE N'%' + @Content + '%' OR Branch  LIKE N'%' + @Content + '%' OR BranchID = @Content)
+	ELSE IF (@FilterType = 2)
+		SELECT * FROM V_TrainerList WHERE ((Gender = 'f') AND ID = @Content OR Address LIKE N'%' + @Content + '%' OR Name  LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE N'%' + @Content + '%' OR Branch  LIKE N'%' + @Content + '%' OR BranchID = @Content)
+END
+GO
+--PROC Insert BMI
+CREATE PROCEDURE PROC_AddBMI
+    @ID CHAR(6),
+    @Date DATETIME,
+    @Weight DECIMAL(4,1),
+    @Height INT,
+    @MemberPhone CHAR(10)
+AS
+BEGIN
+	BEGIN TRY
+
+		DECLARE @MemberID CHAR(6)
+		SELECT @MemberID = ID FROM Member WHERE PhoneNumber = @MemberPhone 
+		IF @MemberID IS NULL 
+		BEGIN
+			RAISERROR ('Thêm thất bại, không tìm thấy Member',16,1)
+			RETURN
+		END
+		ELSE
+		INSERT INTO BMI(ID, Date, Weight, Height, MemberID)
+			VALUES (@ID, @Date, @Weight, @Height, @MemberID)
+	END TRY
+	BEGIN CATCH
+		RAISERROR ('Thêm thất bại',16,1)
+		RETURN 0
+	END CATCH
+	SELECT * FROM V_BMIList
+END
+
+--Cập nhật BMI và trả về trạng thái
+GO
+CREATE PROCEDURE PROC_UpdateBMI @ID CHAR(6), @Weight DECIMAL(4,1), @Height INT
+AS
+BEGIN
+	BEGIN TRY
+		UPDATE BMI
+		SET Weight = @Weight, Height = @Height
+		WHERE ID = @ID
+	END TRY
+	BEGIN CATCH
+		RAISERROR ('Thông tin không đúng',16,1)
+		RETURN
+	END CATCH
+	SELECT [Status] FROM BMI WHERE ID = @ID
+END
+GO
+
+--Func lấy ngày và thể trạng 
+CREATE FUNCTION FUNC_DataForChartBMI(@PhoneNumber CHAR(10))
+RETURNS TABLE
+AS
+RETURN
+    SELECT [Date], 
+           CAST(([Weight] / POWER(([Height] / 100), 2)) AS DECIMAL(5, 2)) AS Rate
+    FROM V_BMIList
+    WHERE PhoneNumber = @PhoneNumber
+GO
+--Hàm tìm kiếm Branch
+CREATE FUNCTION FUNC_FindBranch(@Content NVARCHAR(100))
+RETURNS TABLE
+AS
+	RETURN SELECT * FROM V_BranchList WHERE ID = @Content OR [Name] LIKE  N'%' + @Content + '%' OR [Address] LIKE  N'%' + @Content + '%'
+
+GO
+
+--Proc insert Branch
+CREATE PROCEDURE PROC_AddBranch
+    @ID CHAR(6),
+    @Name NVARCHAR(50),
+    @Address NVARCHAR(50)
+AS
+BEGIN
+	BEGIN TRY
+		INSERT INTO Branch (ID, Name, Address)
+			VALUES (@ID, @Name, @Address);
+	END TRY
+	BEGIN CATCH
+		RAISERROR ('Thêm thất bại',16,1)
+	END CATCH
+END
+GO
+--Proc update branch
+CREATE PROCEDURE PROC_UpdateBranch
+    @ID CHAR(6),
+    @Name NVARCHAR(50),
+    @Address NVARCHAR(50)
+AS
+BEGIN
+	BEGIN TRY
+		UPDATE Branch
+		SET Name = @Name,
+			Address = @Address
+		WHERE 
+			ID = @ID
+	END TRY
+	BEGIN CATCH
+		RAISERROR ('Cập nhật thất bại',16,1)
+	END CATCH
+END
+
+GO
+--Proc update branch
+CREATE PROCEDURE PROC_DeleteBranch
+    @ID CHAR(6)
+AS
+BEGIN
+	BEGIN TRY
+	IF (@ID = 'BRRoot')
+	BEGIN
+		RAISERROR ('Không thể xóa chi nhánh gốc',16,1)
+		RETURN
+	END
+	ELSE
+	BEGIN
+		DELETE Branch
+		WHERE 
+			ID = @ID
+	END
+	END TRY
+	BEGIN CATCH
+		RAISERROR ('Xóa thất bại, cần phải đảm bảo chi nhánh trống',16,1)
+	END CATCH
+END
+
+USE GymManagerDB
+
+GO
+--Func check đăng nhập hợp lệ không
+CREATE FUNCTION FUNC_LoginAuthentication(@UserName varchar(20), @Password nvarchar(20))
+RETURNS INT
+AS
+BEGIN
+	IF EXISTS (SELECT * FROM Employee WHERE UserName = @UserName AND [Password] = @Password)
+		RETURN 1
+	RETURN 0
+END
+SELECT *FROM Employee
+INSERT INTO Branch(ID, Name, Address) VALUES('BRRoot',N'Monster GYM', N'Số 1, Võ Văn Ngân, Thủ Đức')
+INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('Admin0','admin','admin', 'admin', 'BRRoot', '1')
+
+GO
+--Proc Lấy thông tin nhân viên 
+CREATE PROCEDURE PROC_UserInfo
+@UserName VARCHAR(20)
+AS 
+	SELECT Employee.Name, Password, UserName, Branch.ID, Branch.Name AS  BranchName, Role FROM Employee JOIN Branch ON Employee.BranchID = Branch.ID 
+	WHERE UserName = @UserName
+
+GO
+--View Xem nhân viên
+CREATE VIEW V_EmployeeList
+AS
+SELECT * FROM Employee
+
+GO
+--Tìm nhân viên 
+CREATE FUNCTION dbo.FUNC_FindEmployee
+(
+    @Content NVARCHAR(100)
+)
+RETURNS TABLE
+AS
+RETURN
+(
+    SELECT *
+    FROM Employee
+    WHERE [Name] LIKE N'%' + @Content + '%'
+       OR [UserName] LIKE '%' + @Content + '%'
+);
+
+GO
+--PROC thêm nhân viên
+CREATE PROCEDURE PROC_AddEmployee
+    @ID CHAR(6),
+    @Name NVARCHAR(50),
+    @UserName VARCHAR(20),
+    @Password VARCHAR(20),
+    @Role CHAR(1),
+    @BranchID CHAR(6),
+	@YourRole CHAR(1)
+AS
+BEGIN
+	IF (@YourRole = 2 AND (@Role = 1 OR (SELECT TOP 1 Role FROM Employee WHERE UserName = @UserName) = 1 ))
+		RAISERROR ('Bạn không đủ quyền',16,1)
+	ELSE
+	IF EXISTS (SELECT * FROM Employee WHERE UserName = @UserName)
+		RAISERROR('User name đã tồn tại',16 ,1)
+	ELSE
+    INSERT INTO Employee ([ID], [Name], [UserName], [Password], [Role], [BranchID])
+    VALUES (@ID, @Name, @UserName, @Password, @Role, @BranchID)
+END
+
+GO
+--PROC Reser pass
+CREATE PROCEDURE PROC_ResetPasswordToDefault
+    @EmployeeID CHAR(6),
+	@YourRole CHAR(1)
+AS
+BEGIN
+    UPDATE Employee
+    SET [Password] = '123456'
+    WHERE [ID] = @EmployeeID
+END
+
+GO
+
+--PROC update thông tin employee
+CREATE PROCEDURE PROC_UpdateEmployeeInfo
+    @UserName VARCHAR(20),
+    @Name NVARCHAR(50),
+    @Role CHAR(1),
+    @BranchID CHAR(6),
+	@YourRole CHAR(1)
+AS
+BEGIN
+	IF (@YourRole = 2 AND (@Role = 1 OR (SELECT TOP 1 Role FROM Employee WHERE UserName = @UserName) = 1 ))
+		RAISERROR ('Bạn không đủ quyền',16,1)
+	ELSE
+	BEGIN
+		UPDATE Employee
+		SET
+			[Name] = @Name,
+			[Role] = @Role,
+			[BranchID] = @BranchID
+		WHERE [UserName] = @UserName
+	END
+END
+GO
+--DROC DELETE employee
+CREATE PROCEDURE PROC_DeleteEmployee
+@UserName VARCHAR(20),
+@YourRole CHAR(1)
+AS 
+BEGIN
+	IF (@YourRole = 2 AND (SELECT TOP 1 Role FROM Employee WHERE UserName = @UserName) = 1)
+		RAISERROR ('Bạn không đủ quyền',16,1)
+	ELSE
+	DELETE Employee WHERE UserName = @UserName
+END
+
+Go
+--Đổi pass
+CREATE PROCEDURE PROC_ChangePassword
+    @Password VARCHAR(20),
+    @UserName VARCHAR(20),
+    @NewPassword VARCHAR(20),
+    @ReEnterPassword VARCHAR(20)
+AS
+BEGIN
+    -- Kiểm tra mật khẩu hiện tại có đúng không
+    IF EXISTS (SELECT 1 FROM Employee WHERE [UserName] = @UserName AND [Password] = @Password)
+    BEGIN
+        -- Kiểm tra mật khẩu mới và mật khẩu nhập lại có khớp nhau không
+        IF @NewPassword = @ReEnterPassword
+        BEGIN
+            -- Cập nhật mật khẩu mới
+            UPDATE Employee
+            SET [Password] = @NewPassword
+            WHERE [UserName] = @UserName
+
+            SELECT N'Mật khẩu đã được thay đổi thành công.' AS Result
+        END
+        ELSE
+        BEGIN
+            SELECT N'Mật khẩu mới và mật khẩu nhập lại không khớp.' AS Result
+        END
+    END
+    ELSE
+    BEGIN
+        SELECT N'Mật khẩu hiện tại không chính xác.' AS Result
+    END
+END
+GO
+
+--PROC TÌm ds equipment
+CREATE PROCEDURE PROC_FindEquipment
+    @FilterType INT,
+    @Content NVARCHAR(50),
+    @BranchID CHAR(6)
+AS
+BEGIN
+    IF @BranchID = 'BRRoot' -- Tìm trên tất cả các chi nhánh
+    BEGIN
+        IF @FilterType = 0 -- All
+        BEGIN
+            SELECT *
+            FROM V_EquipmentList eq
+            WHERE eq.[Name] LIKE N'%' + @Content + '%'
+        END
+        ELSE IF @FilterType = 1 -- Avai
+        BEGIN
+            SELECT *
+            FROM V_AvailableEqpList eq
+            WHERE eq.[Name] LIKE N'%' + @Content + '%'
+        END
+        ELSE IF @FilterType = 2 -- Unvai
+        BEGIN
+            SELECT *
+            FROM V_DamagedEqpList eq
+            WHERE eq.[Name] LIKE N'%' + @Content + '%'
+        END
+    END
+    ELSE -- Tìm trên một chi nhánh cụ thể
+    BEGIN
+        IF @FilterType = 0 -- All
+        BEGIN
+            SELECT *
+            FROM V_EquipmentList eq
+            WHERE eq.[Name] LIKE N'%' + @Content + '%'
+                AND eq.[BranchID] = @BranchID
+        END
+        ELSE IF @FilterType = 1 -- Avai
+        BEGIN
+            SELECT *
+            FROM V_AvailableEqpList eq
+            WHERE eq.[Name] LIKE N'%' + @Content + '%'
+                AND eq.[BranchID] = @BranchID
+        END
+        ELSE IF @FilterType = 2 -- Unvai
+        BEGIN
+            SELECT *
+            FROM V_DamagedEqpList eq
+            WHERE eq.[Name] LIKE N'%' + @Content + '%'
+                AND eq.[BranchID] = @BranchID
+        END
+    END
+END
+
+INSERT INTO Equipment (ID, CategoryID, BranchID, Name, Status, Price)
+VALUES
+    ('EQ001', 'EQC001', 'BR0001', N'Tên thiết bị 1', 'Available', 100.00),
+    ('EQ002', 'EQC002', 'BR0002', N'Tên thiết bị 2', 'Unavailable', 150.00),
+    ('EQ003', 'EQC003', 'BR0003', N'Tên thiết bị 3', 'Available', 200.00),
+    ('EQ004', 'EQC004', 'BR0004', N'Tên thiết bị 4', 'Available', 120.00),
+    ('EQ005', 'EQC005', 'BR0005', N'Tên thiết bị 5', 'Unavailable', 180.00),
+    ('EQ006', 'EQC006', 'BRRoot', N'Tên thiết bị 6', 'Available', 250.00);
+
+GO
+--PROC Đổi trạng thái
+CREATE PROCEDURE PROC_SetUnavailable
+    @ID CHAR(6)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        -- Thực hiện các thay đổi cần thiết trên dữ liệu
+        UPDATE Equipment
+        SET Status = N'unavailable'
+        WHERE ID = @ID;
+        
+        -- Commit transaction nếu không có lỗi xảy ra
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        -- Rollback transaction nếu có lỗi xảy ra
+        ROLLBACK TRANSACTION;
+        THROW;
+    END CATCH;
+END
+GO
+--PROC Tìm lịch sử sửa chửa
+CREATE PROCEDURE PROC_FindMaintenanceData
+@ID CHAR(6)
+AS
+BEGIN
+	SELECT * FROM MaintenanceData
+	WHERE MaintenanceData.EquipmentID = @ID
+END
+
+GO 
+--PROC thêm lịch sử sửa chửa
+CREATE PROCEDURE PROC_AddMaintenanceData
+    @ID CHAR(6),
+    @EquipmentID CHAR(6),
+    @Date DATE,
+    @Cost MONEY,
+    @Description NTEXT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Kiểm tra xem thiết bị có trạng thái "Unavailable" không
+    DECLARE @Status NVARCHAR(20);
+    SELECT @Status = Status
+    FROM Equipment
+    WHERE ID = @EquipmentID;
+
+    IF @Status <> 'Unavailable' AND  @Status <> 'unavailable'
+    BEGIN
+       RAISERROR ('Thiết bị không có trạng thái "Unavailable".',16,1);
+        RETURN;
+    END;
+
+    -- Kiểm tra xem giá sửa chữa có cao hơn giá Price gốc của thiết bị không
+    DECLARE @Price MONEY;
+    SELECT @Price = Price
+    FROM Equipment
+    WHERE ID = @EquipmentID;
+
+    IF @Cost > @Price
+    BEGIN
+        RAISERROR ('Giá sửa chữa cao hơn giá Price gốc của thiết bị.',16,1)
+        RETURN;
+    END;
+
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        -- Thêm dữ liệu lịch sử sửa chữa vào bảng MaintenanceData
+        INSERT INTO MaintenanceData(ID, EquipmentID, [Date], Cost, [Description])
+        VALUES (@ID, @EquipmentID, @Date, @Cost, @Description);
+
+        -- Commit transaction nếu không có lỗi xảy ra
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        -- Rollback transaction nếu có lỗi xảy ra
+        ROLLBACK TRANSACTION;
+
+        RAISERROR('Thêm lịch sử sửa chửa thất bại',16,1);
+    END CATCH;
+END
+
+GO
+--FUNC Tìm Gia thiet bị 
+CREATE FUNCTION FUNC_FindPrice(@ID CHAR(6))
+RETURNS MONEY
+AS
+BEGIN
+	DECLARE @tmp MONEY
+	SELECT @tmp = Price FROM Equipment WHERE (ID = @ID)
+	RETURN @tmp
+END
+
+
+GO
+--PROC Thay mới thiết bị
+CREATE PROCEDURE PROC_ReplaceEquipment
+    @ID CHAR(6),
+    @EquipmentID CHAR(6),
+    @Date DATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Kiểm tra xem thiết bị có trạng thái "Unavailable" không
+    DECLARE @Status NVARCHAR(20);
+    SELECT @Status = Status
+    FROM Equipment
+    WHERE ID = @EquipmentID;
+
+    IF @Status <> 'Unavailable' AND  @Status <> 'unavailable'
+    BEGIN
+       RAISERROR ('Thiết bị không có trạng thái "Unavailable".',16,1);
+        RETURN;
+    END;
+
+
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        -- Thêm dữ liệu lịch sử sửa chữa vào bảng MaintenanceData
+        INSERT INTO MaintenanceData(ID, EquipmentID, [Date], Cost, [Description])
+        VALUES (@ID, @EquipmentID, @Date, dbo.FUNC_FindPrice(@EquipmentID), N'Thay thế thiết bị mới tương tự');
+
+        -- Commit transaction nếu không có lỗi xảy ra
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        -- Rollback transaction nếu có lỗi xảy ra
+        ROLLBACK TRANSACTION;
+
+        RAISERROR('Thay đổi thiết bị thất bại',16,1);
+    END CATCH;
+END

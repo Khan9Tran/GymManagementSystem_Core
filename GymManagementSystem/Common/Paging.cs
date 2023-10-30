@@ -19,6 +19,9 @@ namespace GymManagementSystem
             this.recordNum = recordNum;
         }
 
+        public NumericUpDown NudPage { get => nudPage; set => nudPage = value; }
+        public int RecordNum { get => recordNum; set => recordNum = value; }
+
         //Trả về Dữ liệu sao khi đã ngắt trang
         public DataTable NgatTrang(DataTable ds)
         {

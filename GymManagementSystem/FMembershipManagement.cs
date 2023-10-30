@@ -42,6 +42,7 @@ namespace GymManagementSystem
 
             return list;
         }
+
         private List<MembershipType> LoadMembershipType()
         {
             DBConnection connection = new DBConnection();
@@ -84,7 +85,6 @@ namespace GymManagementSystem
             command.Parameters.AddWithValue("@MembershipID", clicked.Membership.ID);
             txtNumberOfMember.Text = "Number of members: " + (int)command.ExecuteScalar();
             connection.closeConnection();
-
 
         }
 

@@ -150,7 +150,6 @@ namespace GymManagementSystem
         private Member FindMember(string phoneNumber)
         {
             member = new Member();
-            Employee.Role = 1;
             DBConnection connection = new DBConnection();
             connection.openConnection();
 
@@ -352,6 +351,7 @@ namespace GymManagementSystem
 
         private bool ConfirmPlan()
         {
+            txtID.Text = RandomIDGenerator.GenerateRandomID("WorkOutPlan", "P");
             DBConnection connection = new DBConnection();
             connection.openConnection();
             try
@@ -375,6 +375,8 @@ namespace GymManagementSystem
                 return false;
             }
             connection.closeConnection();
+            txtBranchResult.Text = branch.ID;
+            txtTrainerResult.Text = trainer.Name;
             return true;
                 
         }
