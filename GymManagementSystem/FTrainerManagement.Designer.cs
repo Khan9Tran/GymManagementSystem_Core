@@ -28,728 +28,764 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            rjPanel4 = new RJPanel();
-            gvTrainer = new DataGridView();
-            lblName = new Label();
-            lblAddress = new Label();
-            lblPhoneNumber = new Label();
-            rjPanel3 = new RJPanel();
-            lblID = new Label();
-            btnSearch = new RJButton();
-            rjPanel1 = new RJPanel();
-            txtSearch = new TextBox();
-            btnAdd = new RJButton();
-            btnEdit = new RJButton();
-            btnDelete = new RJButton();
-            rjFlowLayoutPanel2 = new RJFlowLayoutPanel();
-            btnAll = new RJButton();
-            btnMale = new RJButton();
-            btnFemale = new RJButton();
-            rjFlowLayoutPanel1 = new RJFlowLayoutPanel();
-            rjPanel5 = new RJPanel();
-            rjPanel16 = new RJPanel();
-            label7 = new Label();
-            rjPanel17 = new RJPanel();
-            txtGender = new TextBox();
-            rjPanel14 = new RJPanel();
-            label6 = new Label();
-            rjPanel15 = new RJPanel();
-            txtBranchID = new TextBox();
-            rjPanel10 = new RJPanel();
-            label4 = new Label();
-            rjPanel11 = new RJPanel();
-            txtPhoneNumber = new TextBox();
-            rjPanel12 = new RJPanel();
-            label5 = new Label();
-            rjPanel13 = new RJPanel();
-            txtAddress = new TextBox();
-            rjPanel6 = new RJPanel();
-            label3 = new Label();
-            rjPanel9 = new RJPanel();
-            txtName = new TextBox();
-            rjPanel7 = new RJPanel();
-            label1 = new Label();
-            rjPanel8 = new RJPanel();
-            txtID = new TextBox();
-            rjPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)gvTrainer).BeginInit();
-            rjPanel3.SuspendLayout();
-            rjPanel1.SuspendLayout();
-            rjFlowLayoutPanel2.SuspendLayout();
-            rjFlowLayoutPanel1.SuspendLayout();
-            rjPanel5.SuspendLayout();
-            rjPanel16.SuspendLayout();
-            rjPanel17.SuspendLayout();
-            rjPanel14.SuspendLayout();
-            rjPanel15.SuspendLayout();
-            rjPanel10.SuspendLayout();
-            rjPanel11.SuspendLayout();
-            rjPanel12.SuspendLayout();
-            rjPanel13.SuspendLayout();
-            rjPanel6.SuspendLayout();
-            rjPanel9.SuspendLayout();
-            rjPanel7.SuspendLayout();
-            rjPanel8.SuspendLayout();
-            SuspendLayout();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.rjPanel4 = new GymManagementSystem.RJPanel();
+            this.gvTrainer = new System.Windows.Forms.DataGridView();
+            this.lblName = new System.Windows.Forms.Label();
+            this.rjPanel3 = new GymManagementSystem.RJPanel();
+            this.lblID = new System.Windows.Forms.Label();
+            this.btnSearch = new GymManagementSystem.RJButton();
+            this.rjPanel1 = new GymManagementSystem.RJPanel();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnAdd = new GymManagementSystem.RJButton();
+            this.btnEdit = new GymManagementSystem.RJButton();
+            this.btnDelete = new GymManagementSystem.RJButton();
+            this.rjFlowLayoutPanel2 = new GymManagementSystem.RJFlowLayoutPanel();
+            this.btnAll = new GymManagementSystem.RJButton();
+            this.btnMale = new GymManagementSystem.RJButton();
+            this.btnFemale = new GymManagementSystem.RJButton();
+            this.rjFlowLayoutPanel1 = new GymManagementSystem.RJFlowLayoutPanel();
+            this.pnlManage = new GymManagementSystem.RJPanel();
+            this.rjPanel16 = new GymManagementSystem.RJPanel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.rjPanel17 = new GymManagementSystem.RJPanel();
+            this.cbxGender = new System.Windows.Forms.ComboBox();
+            this.rjPanel14 = new GymManagementSystem.RJPanel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.rjPanel15 = new GymManagementSystem.RJPanel();
+            this.cbxBranch = new System.Windows.Forms.ComboBox();
+            this.rjPanel10 = new GymManagementSystem.RJPanel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.rjPanel11 = new GymManagementSystem.RJPanel();
+            this.txtPhoneNumber = new System.Windows.Forms.TextBox();
+            this.rjPanel12 = new GymManagementSystem.RJPanel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.rjPanel13 = new GymManagementSystem.RJPanel();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.rjPanel6 = new GymManagementSystem.RJPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.rjPanel9 = new GymManagementSystem.RJPanel();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.rjFlowLayoutPanel3 = new GymManagementSystem.RJFlowLayoutPanel();
+            this.btnManage = new GymManagementSystem.RJButton();
+            this.rjPanel2 = new GymManagementSystem.RJPanel();
+            this.gvSchedule = new System.Windows.Forms.DataGridView();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.rjPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gvTrainer)).BeginInit();
+            this.rjPanel3.SuspendLayout();
+            this.rjPanel1.SuspendLayout();
+            this.rjFlowLayoutPanel2.SuspendLayout();
+            this.rjFlowLayoutPanel1.SuspendLayout();
+            this.pnlManage.SuspendLayout();
+            this.rjPanel16.SuspendLayout();
+            this.rjPanel17.SuspendLayout();
+            this.rjPanel14.SuspendLayout();
+            this.rjPanel15.SuspendLayout();
+            this.rjPanel10.SuspendLayout();
+            this.rjPanel11.SuspendLayout();
+            this.rjPanel12.SuspendLayout();
+            this.rjPanel13.SuspendLayout();
+            this.rjPanel6.SuspendLayout();
+            this.rjPanel9.SuspendLayout();
+            this.rjFlowLayoutPanel3.SuspendLayout();
+            this.rjPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gvSchedule)).BeginInit();
+            this.SuspendLayout();
             // 
             // rjPanel4
             // 
-            rjPanel4.BackColor = Color.WhiteSmoke;
-            rjPanel4.BorderColor = Color.PaleVioletRed;
-            rjPanel4.BorderRadius = 40;
-            rjPanel4.BorderSize = 0;
-            rjPanel4.Controls.Add(gvTrainer);
-            rjPanel4.ForeColor = Color.FromArgb(67, 52, 67);
-            rjPanel4.Location = new Point(95, 350);
-            rjPanel4.Name = "rjPanel4";
-            rjPanel4.Size = new Size(1003, 625);
-            rjPanel4.TabIndex = 12;
+            this.rjPanel4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.rjPanel4.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjPanel4.BorderRadius = 40;
+            this.rjPanel4.BorderSize = 0;
+            this.rjPanel4.Controls.Add(this.gvTrainer);
+            this.rjPanel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
+            this.rjPanel4.Location = new System.Drawing.Point(95, 226);
+            this.rjPanel4.Name = "rjPanel4";
+            this.rjPanel4.Size = new System.Drawing.Size(1003, 401);
+            this.rjPanel4.TabIndex = 12;
             // 
             // gvTrainer
             // 
-            gvTrainer.AllowUserToAddRows = false;
-            gvTrainer.AllowUserToDeleteRows = false;
-            gvTrainer.AllowUserToResizeColumns = false;
-            gvTrainer.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = Color.WhiteSmoke;
-            gvTrainer.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            gvTrainer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            gvTrainer.BackgroundColor = Color.WhiteSmoke;
-            gvTrainer.BorderStyle = BorderStyle.None;
-            gvTrainer.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            gvTrainer.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.WhiteSmoke;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            gvTrainer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            gvTrainer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.WhiteSmoke;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(67, 52, 67);
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            gvTrainer.DefaultCellStyle = dataGridViewCellStyle3;
-            gvTrainer.Location = new Point(3, 0);
-            gvTrainer.Name = "gvTrainer";
-            gvTrainer.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            gvTrainer.RowHeadersVisible = false;
-            gvTrainer.RowHeadersWidth = 51;
-            gvTrainer.RowTemplate.Height = 29;
-            gvTrainer.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            gvTrainer.Size = new Size(997, 605);
-            gvTrainer.TabIndex = 0;
-            gvTrainer.CellClick += gvTrainer_CellClick;
+            this.gvTrainer.AllowUserToAddRows = false;
+            this.gvTrainer.AllowUserToDeleteRows = false;
+            this.gvTrainer.AllowUserToResizeColumns = false;
+            this.gvTrainer.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.gvTrainer.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.gvTrainer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gvTrainer.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.gvTrainer.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gvTrainer.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.gvTrainer.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.gvTrainer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.gvTrainer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gvTrainer.DefaultCellStyle = dataGridViewCellStyle3;
+            this.gvTrainer.Location = new System.Drawing.Point(3, 3);
+            this.gvTrainer.Name = "gvTrainer";
+            this.gvTrainer.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.gvTrainer.RowHeadersVisible = false;
+            this.gvTrainer.RowHeadersWidth = 51;
+            this.gvTrainer.RowTemplate.Height = 29;
+            this.gvTrainer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gvTrainer.Size = new System.Drawing.Size(997, 375);
+            this.gvTrainer.TabIndex = 0;
+            this.gvTrainer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvTrainer_CellClick);
             // 
             // lblName
             // 
-            lblName.AutoSize = true;
-            lblName.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lblName.ForeColor = Color.FromArgb(67, 52, 67);
-            lblName.Location = new Point(469, 22);
-            lblName.Name = "lblName";
-            lblName.Size = new Size(71, 28);
-            lblName.TabIndex = 3;
-            lblName.Text = "Name:";
-            // 
-            // lblAddress
-            // 
-            lblAddress.AutoSize = true;
-            lblAddress.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lblAddress.ForeColor = Color.FromArgb(67, 52, 67);
-            lblAddress.Location = new Point(469, 72);
-            lblAddress.Name = "lblAddress";
-            lblAddress.Size = new Size(90, 28);
-            lblAddress.TabIndex = 2;
-            lblAddress.Text = "Address:";
-            // 
-            // lblPhoneNumber
-            // 
-            lblPhoneNumber.AutoSize = true;
-            lblPhoneNumber.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lblPhoneNumber.ForeColor = Color.FromArgb(67, 52, 67);
-            lblPhoneNumber.Location = new Point(42, 72);
-            lblPhoneNumber.Name = "lblPhoneNumber";
-            lblPhoneNumber.Size = new Size(152, 28);
-            lblPhoneNumber.TabIndex = 1;
-            lblPhoneNumber.Text = "PhoneNumber:";
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
+            this.lblName.Location = new System.Drawing.Point(248, 19);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(71, 28);
+            this.lblName.TabIndex = 3;
+            this.lblName.Text = "Name:";
             // 
             // rjPanel3
             // 
-            rjPanel3.BackColor = Color.WhiteSmoke;
-            rjPanel3.BorderColor = Color.PaleVioletRed;
-            rjPanel3.BorderRadius = 40;
-            rjPanel3.BorderSize = 0;
-            rjPanel3.Controls.Add(lblName);
-            rjPanel3.Controls.Add(lblAddress);
-            rjPanel3.Controls.Add(lblPhoneNumber);
-            rjPanel3.Controls.Add(lblID);
-            rjPanel3.ForeColor = Color.White;
-            rjPanel3.Location = new Point(95, 193);
-            rjPanel3.Name = "rjPanel3";
-            rjPanel3.Size = new Size(1003, 121);
-            rjPanel3.TabIndex = 11;
+            this.rjPanel3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.rjPanel3.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjPanel3.BorderRadius = 40;
+            this.rjPanel3.BorderSize = 0;
+            this.rjPanel3.Controls.Add(this.lblName);
+            this.rjPanel3.Controls.Add(this.lblID);
+            this.rjPanel3.ForeColor = System.Drawing.Color.White;
+            this.rjPanel3.Location = new System.Drawing.Point(95, 137);
+            this.rjPanel3.Name = "rjPanel3";
+            this.rjPanel3.Size = new System.Drawing.Size(695, 66);
+            this.rjPanel3.TabIndex = 11;
             // 
             // lblID
             // 
-            lblID.AutoSize = true;
-            lblID.Font = new Font("Segoe UI", 13.2F, FontStyle.Bold, GraphicsUnit.Point);
-            lblID.ForeColor = Color.FromArgb(67, 52, 67);
-            lblID.Location = new Point(42, 19);
-            lblID.Name = "lblID";
-            lblID.Size = new Size(42, 30);
-            lblID.TabIndex = 0;
-            lblID.Text = "ID:";
+            this.lblID.AutoSize = true;
+            this.lblID.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
+            this.lblID.Location = new System.Drawing.Point(42, 20);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(42, 30);
+            this.lblID.TabIndex = 0;
+            this.lblID.Text = "ID:";
             // 
             // btnSearch
             // 
-            btnSearch.BackColor = Color.Transparent;
-            btnSearch.BorderColor = Color.PaleVioletRed;
-            btnSearch.BorderRadius = 40;
-            btnSearch.BorderSize = 0;
-            btnSearch.FlatAppearance.BorderSize = 0;
-            btnSearch.FlatStyle = FlatStyle.Flat;
-            btnSearch.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSearch.ForeColor = Color.White;
-            btnSearch.Image = Properties.Resources.search;
-            btnSearch.Location = new Point(526, 6);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(36, 36);
-            btnSearch.TabIndex = 3;
-            btnSearch.UseVisualStyleBackColor = false;
-            btnSearch.Click += btnSearch_Click;
+            this.btnSearch.BackColor = System.Drawing.Color.Transparent;
+            this.btnSearch.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnSearch.BorderRadius = 40;
+            this.btnSearch.BorderSize = 0;
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.Image = global::GymManagementSystem.Properties.Resources.search;
+            this.btnSearch.Location = new System.Drawing.Point(337, 6);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(36, 36);
+            this.btnSearch.TabIndex = 3;
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // rjPanel1
             // 
-            rjPanel1.BackColor = Color.WhiteSmoke;
-            rjPanel1.BorderColor = Color.Black;
-            rjPanel1.BorderRadius = 40;
-            rjPanel1.BorderSize = 1;
-            rjPanel1.Controls.Add(txtSearch);
-            rjPanel1.Controls.Add(btnSearch);
-            rjPanel1.ForeColor = Color.White;
-            rjPanel1.Location = new Point(697, 109);
-            rjPanel1.Name = "rjPanel1";
-            rjPanel1.Size = new Size(573, 52);
-            rjPanel1.TabIndex = 9;
+            this.rjPanel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.rjPanel1.BorderColor = System.Drawing.Color.Black;
+            this.rjPanel1.BorderRadius = 40;
+            this.rjPanel1.BorderSize = 1;
+            this.rjPanel1.Controls.Add(this.txtSearch);
+            this.rjPanel1.Controls.Add(this.btnSearch);
+            this.rjPanel1.ForeColor = System.Drawing.Color.White;
+            this.rjPanel1.Location = new System.Drawing.Point(697, 70);
+            this.rjPanel1.Name = "rjPanel1";
+            this.rjPanel1.Size = new System.Drawing.Size(401, 52);
+            this.rjPanel1.TabIndex = 9;
             // 
             // txtSearch
             // 
-            txtSearch.BackColor = Color.WhiteSmoke;
-            txtSearch.BorderStyle = BorderStyle.None;
-            txtSearch.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            txtSearch.ForeColor = Color.FromArgb(95, 91, 92);
-            txtSearch.Location = new Point(15, 11);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(493, 31);
-            txtSearch.TabIndex = 0;
+            this.txtSearch.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(91)))), ((int)(((byte)(92)))));
+            this.txtSearch.Location = new System.Drawing.Point(15, 10);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(294, 31);
+            this.txtSearch.TabIndex = 0;
             // 
             // btnAdd
             // 
-            btnAdd.BackColor = Color.FromArgb(44, 181, 245);
-            btnAdd.BorderColor = Color.PaleVioletRed;
-            btnAdd.BorderRadius = 40;
-            btnAdd.BorderSize = 0;
-            btnAdd.FlatAppearance.BorderSize = 0;
-            btnAdd.FlatStyle = FlatStyle.Flat;
-            btnAdd.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAdd.ForeColor = Color.White;
-            btnAdd.Location = new Point(3, 3);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(145, 50);
-            btnAdd.TabIndex = 0;
-            btnAdd.Text = "Add";
-            btnAdd.UseVisualStyleBackColor = false;
-            btnAdd.Click += btnAdd_Click;
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
+            this.btnAdd.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnAdd.BorderRadius = 40;
+            this.btnAdd.BorderSize = 0;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Location = new System.Drawing.Point(3, 3);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(145, 50);
+            this.btnAdd.TabIndex = 0;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnEdit
             // 
-            btnEdit.BackColor = Color.FromArgb(44, 181, 245);
-            btnEdit.BorderColor = Color.PaleVioletRed;
-            btnEdit.BorderRadius = 40;
-            btnEdit.BorderSize = 0;
-            btnEdit.FlatAppearance.BorderSize = 0;
-            btnEdit.FlatStyle = FlatStyle.Flat;
-            btnEdit.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnEdit.ForeColor = Color.White;
-            btnEdit.Location = new Point(154, 3);
-            btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(140, 50);
-            btnEdit.TabIndex = 1;
-            btnEdit.Text = "Edit";
-            btnEdit.UseVisualStyleBackColor = false;
-            btnEdit.Click += btnEdit_Click;
+            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
+            this.btnEdit.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnEdit.BorderRadius = 40;
+            this.btnEdit.BorderSize = 0;
+            this.btnEdit.FlatAppearance.BorderSize = 0;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnEdit.ForeColor = System.Drawing.Color.White;
+            this.btnEdit.Location = new System.Drawing.Point(154, 3);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(140, 50);
+            this.btnEdit.TabIndex = 1;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
-            btnDelete.BackColor = Color.FromArgb(44, 181, 245);
-            btnDelete.BorderColor = Color.PaleVioletRed;
-            btnDelete.BorderRadius = 40;
-            btnDelete.BorderSize = 0;
-            btnDelete.FlatAppearance.BorderSize = 0;
-            btnDelete.FlatStyle = FlatStyle.Flat;
-            btnDelete.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnDelete.ForeColor = Color.White;
-            btnDelete.Location = new Point(300, 3);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(140, 50);
-            btnDelete.TabIndex = 2;
-            btnDelete.Text = "Delete";
-            btnDelete.UseVisualStyleBackColor = false;
-            btnDelete.Click += btnDelete_Click;
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
+            this.btnDelete.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnDelete.BorderRadius = 40;
+            this.btnDelete.BorderSize = 0;
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Location = new System.Drawing.Point(300, 3);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(140, 50);
+            this.btnDelete.TabIndex = 2;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // rjFlowLayoutPanel2
             // 
-            rjFlowLayoutPanel2.BackColor = Color.WhiteSmoke;
-            rjFlowLayoutPanel2.BorderColor = Color.PaleVioletRed;
-            rjFlowLayoutPanel2.BorderRadius = 40;
-            rjFlowLayoutPanel2.BorderSize = 0;
-            rjFlowLayoutPanel2.Controls.Add(btnAdd);
-            rjFlowLayoutPanel2.Controls.Add(btnEdit);
-            rjFlowLayoutPanel2.Controls.Add(btnDelete);
-            rjFlowLayoutPanel2.ForeColor = Color.White;
-            rjFlowLayoutPanel2.Location = new Point(1280, 105);
-            rjFlowLayoutPanel2.Name = "rjFlowLayoutPanel2";
-            rjFlowLayoutPanel2.Size = new Size(446, 54);
-            rjFlowLayoutPanel2.TabIndex = 8;
+            this.rjFlowLayoutPanel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.rjFlowLayoutPanel2.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjFlowLayoutPanel2.BorderRadius = 40;
+            this.rjFlowLayoutPanel2.BorderSize = 0;
+            this.rjFlowLayoutPanel2.Controls.Add(this.btnAdd);
+            this.rjFlowLayoutPanel2.Controls.Add(this.btnEdit);
+            this.rjFlowLayoutPanel2.Controls.Add(this.btnDelete);
+            this.rjFlowLayoutPanel2.ForeColor = System.Drawing.Color.White;
+            this.rjFlowLayoutPanel2.Location = new System.Drawing.Point(545, 23);
+            this.rjFlowLayoutPanel2.Name = "rjFlowLayoutPanel2";
+            this.rjFlowLayoutPanel2.Size = new System.Drawing.Size(446, 54);
+            this.rjFlowLayoutPanel2.TabIndex = 8;
             // 
             // btnAll
             // 
-            btnAll.BackColor = Color.FromArgb(44, 181, 245);
-            btnAll.BorderColor = Color.PaleVioletRed;
-            btnAll.BorderRadius = 40;
-            btnAll.BorderSize = 0;
-            btnAll.FlatAppearance.BorderSize = 0;
-            btnAll.FlatStyle = FlatStyle.Flat;
-            btnAll.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAll.ForeColor = Color.White;
-            btnAll.Location = new Point(3, 3);
-            btnAll.Name = "btnAll";
-            btnAll.Size = new Size(140, 50);
-            btnAll.TabIndex = 3;
-            btnAll.Text = "All";
-            btnAll.UseVisualStyleBackColor = false;
-            btnAll.Click += btnAll_Click;
+            this.btnAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
+            this.btnAll.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnAll.BorderRadius = 40;
+            this.btnAll.BorderSize = 0;
+            this.btnAll.FlatAppearance.BorderSize = 0;
+            this.btnAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAll.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAll.ForeColor = System.Drawing.Color.White;
+            this.btnAll.Location = new System.Drawing.Point(3, 3);
+            this.btnAll.Name = "btnAll";
+            this.btnAll.Size = new System.Drawing.Size(140, 50);
+            this.btnAll.TabIndex = 3;
+            this.btnAll.Text = "All";
+            this.btnAll.UseVisualStyleBackColor = false;
+            this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
             // 
             // btnMale
             // 
-            btnMale.BackColor = Color.FromArgb(44, 181, 245);
-            btnMale.BorderColor = Color.PaleVioletRed;
-            btnMale.BorderRadius = 40;
-            btnMale.BorderSize = 0;
-            btnMale.FlatAppearance.BorderSize = 0;
-            btnMale.FlatStyle = FlatStyle.Flat;
-            btnMale.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnMale.ForeColor = Color.White;
-            btnMale.Location = new Point(149, 3);
-            btnMale.Name = "btnMale";
-            btnMale.Size = new Size(140, 50);
-            btnMale.TabIndex = 4;
-            btnMale.Text = "Male";
-            btnMale.UseVisualStyleBackColor = false;
-            btnMale.Click += btnMale_Click;
+            this.btnMale.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
+            this.btnMale.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnMale.BorderRadius = 40;
+            this.btnMale.BorderSize = 0;
+            this.btnMale.FlatAppearance.BorderSize = 0;
+            this.btnMale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMale.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnMale.ForeColor = System.Drawing.Color.White;
+            this.btnMale.Location = new System.Drawing.Point(149, 3);
+            this.btnMale.Name = "btnMale";
+            this.btnMale.Size = new System.Drawing.Size(140, 50);
+            this.btnMale.TabIndex = 4;
+            this.btnMale.Text = "Male";
+            this.btnMale.UseVisualStyleBackColor = false;
+            this.btnMale.Click += new System.EventHandler(this.btnMale_Click);
             // 
             // btnFemale
             // 
-            btnFemale.BackColor = Color.FromArgb(44, 181, 245);
-            btnFemale.BorderColor = Color.PaleVioletRed;
-            btnFemale.BorderRadius = 40;
-            btnFemale.BorderSize = 0;
-            btnFemale.FlatAppearance.BorderSize = 0;
-            btnFemale.FlatStyle = FlatStyle.Flat;
-            btnFemale.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnFemale.ForeColor = Color.White;
-            btnFemale.Location = new Point(295, 3);
-            btnFemale.Name = "btnFemale";
-            btnFemale.Size = new Size(140, 50);
-            btnFemale.TabIndex = 5;
-            btnFemale.Text = "Female";
-            btnFemale.UseVisualStyleBackColor = false;
-            btnFemale.Click += btnFemale_Click;
+            this.btnFemale.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
+            this.btnFemale.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnFemale.BorderRadius = 40;
+            this.btnFemale.BorderSize = 0;
+            this.btnFemale.FlatAppearance.BorderSize = 0;
+            this.btnFemale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFemale.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnFemale.ForeColor = System.Drawing.Color.White;
+            this.btnFemale.Location = new System.Drawing.Point(295, 3);
+            this.btnFemale.Name = "btnFemale";
+            this.btnFemale.Size = new System.Drawing.Size(140, 50);
+            this.btnFemale.TabIndex = 5;
+            this.btnFemale.Text = "Female";
+            this.btnFemale.UseVisualStyleBackColor = false;
+            this.btnFemale.Click += new System.EventHandler(this.btnFemale_Click);
             // 
             // rjFlowLayoutPanel1
             // 
-            rjFlowLayoutPanel1.BackColor = Color.WhiteSmoke;
-            rjFlowLayoutPanel1.BorderColor = Color.WhiteSmoke;
-            rjFlowLayoutPanel1.BorderRadius = 40;
-            rjFlowLayoutPanel1.BorderSize = 0;
-            rjFlowLayoutPanel1.Controls.Add(btnAll);
-            rjFlowLayoutPanel1.Controls.Add(btnMale);
-            rjFlowLayoutPanel1.Controls.Add(btnFemale);
-            rjFlowLayoutPanel1.ForeColor = Color.WhiteSmoke;
-            rjFlowLayoutPanel1.Location = new Point(95, 105);
-            rjFlowLayoutPanel1.Name = "rjFlowLayoutPanel1";
-            rjFlowLayoutPanel1.Size = new Size(442, 54);
-            rjFlowLayoutPanel1.TabIndex = 7;
+            this.rjFlowLayoutPanel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.rjFlowLayoutPanel1.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.rjFlowLayoutPanel1.BorderRadius = 40;
+            this.rjFlowLayoutPanel1.BorderSize = 0;
+            this.rjFlowLayoutPanel1.Controls.Add(this.btnAll);
+            this.rjFlowLayoutPanel1.Controls.Add(this.btnMale);
+            this.rjFlowLayoutPanel1.Controls.Add(this.btnFemale);
+            this.rjFlowLayoutPanel1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.rjFlowLayoutPanel1.Location = new System.Drawing.Point(95, 66);
+            this.rjFlowLayoutPanel1.Name = "rjFlowLayoutPanel1";
+            this.rjFlowLayoutPanel1.Size = new System.Drawing.Size(596, 54);
+            this.rjFlowLayoutPanel1.TabIndex = 7;
             // 
-            // rjPanel5
+            // pnlManage
             // 
-            rjPanel5.BackColor = Color.WhiteSmoke;
-            rjPanel5.BorderColor = Color.PaleVioletRed;
-            rjPanel5.BorderRadius = 40;
-            rjPanel5.BorderSize = 0;
-            rjPanel5.Controls.Add(rjPanel16);
-            rjPanel5.Controls.Add(rjPanel14);
-            rjPanel5.Controls.Add(rjPanel10);
-            rjPanel5.Controls.Add(rjPanel12);
-            rjPanel5.Controls.Add(rjPanel6);
-            rjPanel5.Controls.Add(rjPanel7);
-            rjPanel5.ForeColor = Color.White;
-            rjPanel5.Location = new Point(1119, 193);
-            rjPanel5.Name = "rjPanel5";
-            rjPanel5.Size = new Size(607, 782);
-            rjPanel5.TabIndex = 15;
+            this.pnlManage.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlManage.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.pnlManage.BorderRadius = 40;
+            this.pnlManage.BorderSize = 0;
+            this.pnlManage.Controls.Add(this.rjPanel16);
+            this.pnlManage.Controls.Add(this.rjPanel14);
+            this.pnlManage.Controls.Add(this.rjPanel10);
+            this.pnlManage.Controls.Add(this.rjPanel12);
+            this.pnlManage.Controls.Add(this.rjPanel6);
+            this.pnlManage.Controls.Add(this.rjFlowLayoutPanel2);
+            this.pnlManage.ForeColor = System.Drawing.Color.White;
+            this.pnlManage.Location = new System.Drawing.Point(98, 653);
+            this.pnlManage.Name = "pnlManage";
+            this.pnlManage.Size = new System.Drawing.Size(1000, 333);
+            this.pnlManage.TabIndex = 15;
             // 
             // rjPanel16
             // 
-            rjPanel16.BackColor = Color.FromArgb(242, 242, 242);
-            rjPanel16.BorderColor = Color.WhiteSmoke;
-            rjPanel16.BorderRadius = 40;
-            rjPanel16.BorderSize = 0;
-            rjPanel16.Controls.Add(label7);
-            rjPanel16.Controls.Add(rjPanel17);
-            rjPanel16.ForeColor = Color.White;
-            rjPanel16.Location = new Point(22, 511);
-            rjPanel16.Name = "rjPanel16";
-            rjPanel16.Size = new Size(563, 82);
-            rjPanel16.TabIndex = 20;
+            this.rjPanel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.rjPanel16.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.rjPanel16.BorderRadius = 40;
+            this.rjPanel16.BorderSize = 0;
+            this.rjPanel16.Controls.Add(this.label7);
+            this.rjPanel16.Controls.Add(this.rjPanel17);
+            this.rjPanel16.ForeColor = System.Drawing.Color.White;
+            this.rjPanel16.Location = new System.Drawing.Point(22, 219);
+            this.rjPanel16.Name = "rjPanel16";
+            this.rjPanel16.Size = new System.Drawing.Size(491, 82);
+            this.rjPanel16.TabIndex = 20;
             // 
             // label7
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.ForeColor = Color.FromArgb(67, 52, 67);
-            label7.Location = new Point(8, 23);
-            label7.Name = "label7";
-            label7.Size = new Size(80, 28);
-            label7.TabIndex = 4;
-            label7.Text = "Gender";
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
+            this.label7.Location = new System.Drawing.Point(8, 13);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(80, 28);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Gender";
             // 
             // rjPanel17
             // 
-            rjPanel17.BackColor = Color.White;
-            rjPanel17.BorderColor = Color.White;
-            rjPanel17.BorderRadius = 40;
-            rjPanel17.BorderSize = 0;
-            rjPanel17.Controls.Add(txtGender);
-            rjPanel17.ForeColor = Color.White;
-            rjPanel17.Location = new Point(101, 12);
-            rjPanel17.Name = "rjPanel17";
-            rjPanel17.Size = new Size(441, 59);
-            rjPanel17.TabIndex = 0;
+            this.rjPanel17.BackColor = System.Drawing.Color.White;
+            this.rjPanel17.BorderColor = System.Drawing.Color.White;
+            this.rjPanel17.BorderRadius = 40;
+            this.rjPanel17.BorderSize = 0;
+            this.rjPanel17.Controls.Add(this.cbxGender);
+            this.rjPanel17.ForeColor = System.Drawing.Color.White;
+            this.rjPanel17.Location = new System.Drawing.Point(101, 2);
+            this.rjPanel17.Name = "rjPanel17";
+            this.rjPanel17.Size = new System.Drawing.Size(338, 59);
+            this.rjPanel17.TabIndex = 0;
             // 
-            // txtGender
+            // cbxGender
             // 
-            txtGender.BackColor = Color.White;
-            txtGender.BorderStyle = BorderStyle.None;
-            txtGender.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            txtGender.ForeColor = Color.FromArgb(69, 66, 67);
-            txtGender.Location = new Point(21, 16);
-            txtGender.Name = "txtGender";
-            txtGender.Size = new Size(401, 29);
-            txtGender.TabIndex = 0;
+            this.cbxGender.BackColor = System.Drawing.Color.White;
+            this.cbxGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxGender.FormattingEnabled = true;
+            this.cbxGender.Items.AddRange(new object[] {
+            "Male",
+            "Female",
+            "Unknown"});
+            this.cbxGender.Location = new System.Drawing.Point(45, 15);
+            this.cbxGender.Name = "cbxGender";
+            this.cbxGender.Size = new System.Drawing.Size(249, 28);
+            this.cbxGender.TabIndex = 19;
             // 
             // rjPanel14
             // 
-            rjPanel14.BackColor = Color.FromArgb(242, 242, 242);
-            rjPanel14.BorderColor = Color.WhiteSmoke;
-            rjPanel14.BorderRadius = 40;
-            rjPanel14.BorderSize = 0;
-            rjPanel14.Controls.Add(label6);
-            rjPanel14.Controls.Add(rjPanel15);
-            rjPanel14.ForeColor = Color.White;
-            rjPanel14.Location = new Point(22, 414);
-            rjPanel14.Name = "rjPanel14";
-            rjPanel14.Size = new Size(563, 82);
-            rjPanel14.TabIndex = 19;
+            this.rjPanel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.rjPanel14.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.rjPanel14.BorderRadius = 40;
+            this.rjPanel14.BorderSize = 0;
+            this.rjPanel14.Controls.Add(this.label6);
+            this.rjPanel14.Controls.Add(this.rjPanel15);
+            this.rjPanel14.ForeColor = System.Drawing.Color.White;
+            this.rjPanel14.Location = new System.Drawing.Point(549, 219);
+            this.rjPanel14.Name = "rjPanel14";
+            this.rjPanel14.Size = new System.Drawing.Size(426, 82);
+            this.rjPanel14.TabIndex = 19;
             // 
             // label6
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.ForeColor = Color.FromArgb(67, 52, 67);
-            label6.Location = new Point(8, 23);
-            label6.Name = "label6";
-            label6.Size = new Size(78, 28);
-            label6.TabIndex = 4;
-            label6.Text = "Branch";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
+            this.label6.Location = new System.Drawing.Point(8, 13);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(78, 28);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Branch";
             // 
             // rjPanel15
             // 
-            rjPanel15.BackColor = Color.White;
-            rjPanel15.BorderColor = Color.White;
-            rjPanel15.BorderRadius = 40;
-            rjPanel15.BorderSize = 0;
-            rjPanel15.Controls.Add(txtBranchID);
-            rjPanel15.ForeColor = Color.White;
-            rjPanel15.Location = new Point(101, 12);
-            rjPanel15.Name = "rjPanel15";
-            rjPanel15.Size = new Size(441, 59);
-            rjPanel15.TabIndex = 0;
+            this.rjPanel15.BackColor = System.Drawing.Color.White;
+            this.rjPanel15.BorderColor = System.Drawing.Color.White;
+            this.rjPanel15.BorderRadius = 40;
+            this.rjPanel15.BorderSize = 0;
+            this.rjPanel15.Controls.Add(this.cbxBranch);
+            this.rjPanel15.ForeColor = System.Drawing.Color.White;
+            this.rjPanel15.Location = new System.Drawing.Point(101, 2);
+            this.rjPanel15.Name = "rjPanel15";
+            this.rjPanel15.Size = new System.Drawing.Size(305, 59);
+            this.rjPanel15.TabIndex = 0;
             // 
-            // txtBranchID
+            // cbxBranch
             // 
-            txtBranchID.BackColor = Color.White;
-            txtBranchID.BorderStyle = BorderStyle.None;
-            txtBranchID.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            txtBranchID.ForeColor = Color.FromArgb(69, 66, 67);
-            txtBranchID.Location = new Point(21, 16);
-            txtBranchID.Name = "txtBranchID";
-            txtBranchID.Size = new Size(401, 29);
-            txtBranchID.TabIndex = 0;
+            this.cbxBranch.BackColor = System.Drawing.Color.White;
+            this.cbxBranch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxBranch.FormattingEnabled = true;
+            this.cbxBranch.Location = new System.Drawing.Point(24, 15);
+            this.cbxBranch.Name = "cbxBranch";
+            this.cbxBranch.Size = new System.Drawing.Size(249, 28);
+            this.cbxBranch.TabIndex = 18;
             // 
             // rjPanel10
             // 
-            rjPanel10.BackColor = Color.FromArgb(242, 242, 242);
-            rjPanel10.BorderColor = Color.WhiteSmoke;
-            rjPanel10.BorderRadius = 40;
-            rjPanel10.BorderSize = 0;
-            rjPanel10.Controls.Add(label4);
-            rjPanel10.Controls.Add(rjPanel11);
-            rjPanel10.ForeColor = Color.White;
-            rjPanel10.Location = new Point(22, 314);
-            rjPanel10.Name = "rjPanel10";
-            rjPanel10.Size = new Size(563, 82);
-            rjPanel10.TabIndex = 18;
+            this.rjPanel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.rjPanel10.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.rjPanel10.BorderRadius = 40;
+            this.rjPanel10.BorderSize = 0;
+            this.rjPanel10.Controls.Add(this.label4);
+            this.rjPanel10.Controls.Add(this.rjPanel11);
+            this.rjPanel10.ForeColor = System.Drawing.Color.White;
+            this.rjPanel10.Location = new System.Drawing.Point(549, 112);
+            this.rjPanel10.Name = "rjPanel10";
+            this.rjPanel10.Size = new System.Drawing.Size(426, 82);
+            this.rjPanel10.TabIndex = 18;
             // 
             // label4
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.ForeColor = Color.FromArgb(67, 52, 67);
-            label4.Location = new Point(8, 23);
-            label4.Name = "label4";
-            label4.Size = new Size(71, 28);
-            label4.TabIndex = 4;
-            label4.Text = "Phone";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
+            this.label4.Location = new System.Drawing.Point(8, 13);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(71, 28);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Phone";
             // 
             // rjPanel11
             // 
-            rjPanel11.BackColor = Color.White;
-            rjPanel11.BorderColor = Color.White;
-            rjPanel11.BorderRadius = 40;
-            rjPanel11.BorderSize = 0;
-            rjPanel11.Controls.Add(txtPhoneNumber);
-            rjPanel11.ForeColor = Color.White;
-            rjPanel11.Location = new Point(101, 12);
-            rjPanel11.Name = "rjPanel11";
-            rjPanel11.Size = new Size(441, 59);
-            rjPanel11.TabIndex = 0;
+            this.rjPanel11.BackColor = System.Drawing.Color.White;
+            this.rjPanel11.BorderColor = System.Drawing.Color.White;
+            this.rjPanel11.BorderRadius = 40;
+            this.rjPanel11.BorderSize = 0;
+            this.rjPanel11.Controls.Add(this.txtPhoneNumber);
+            this.rjPanel11.ForeColor = System.Drawing.Color.White;
+            this.rjPanel11.Location = new System.Drawing.Point(101, 2);
+            this.rjPanel11.Name = "rjPanel11";
+            this.rjPanel11.Size = new System.Drawing.Size(305, 59);
+            this.rjPanel11.TabIndex = 0;
             // 
             // txtPhoneNumber
             // 
-            txtPhoneNumber.BackColor = Color.White;
-            txtPhoneNumber.BorderStyle = BorderStyle.None;
-            txtPhoneNumber.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            txtPhoneNumber.ForeColor = Color.FromArgb(69, 66, 67);
-            txtPhoneNumber.Location = new Point(21, 16);
-            txtPhoneNumber.Name = "txtPhoneNumber";
-            txtPhoneNumber.Size = new Size(401, 29);
-            txtPhoneNumber.TabIndex = 0;
+            this.txtPhoneNumber.BackColor = System.Drawing.Color.White;
+            this.txtPhoneNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPhoneNumber.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtPhoneNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(66)))), ((int)(((byte)(67)))));
+            this.txtPhoneNumber.Location = new System.Drawing.Point(26, 13);
+            this.txtPhoneNumber.Name = "txtPhoneNumber";
+            this.txtPhoneNumber.Size = new System.Drawing.Size(252, 29);
+            this.txtPhoneNumber.TabIndex = 0;
             // 
             // rjPanel12
             // 
-            rjPanel12.BackColor = Color.FromArgb(242, 242, 242);
-            rjPanel12.BorderColor = Color.WhiteSmoke;
-            rjPanel12.BorderRadius = 40;
-            rjPanel12.BorderSize = 0;
-            rjPanel12.Controls.Add(label5);
-            rjPanel12.Controls.Add(rjPanel13);
-            rjPanel12.ForeColor = Color.White;
-            rjPanel12.Location = new Point(22, 215);
-            rjPanel12.Name = "rjPanel12";
-            rjPanel12.Size = new Size(563, 82);
-            rjPanel12.TabIndex = 17;
+            this.rjPanel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.rjPanel12.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.rjPanel12.BorderRadius = 40;
+            this.rjPanel12.BorderSize = 0;
+            this.rjPanel12.Controls.Add(this.label5);
+            this.rjPanel12.Controls.Add(this.rjPanel13);
+            this.rjPanel12.ForeColor = System.Drawing.Color.White;
+            this.rjPanel12.Location = new System.Drawing.Point(22, 112);
+            this.rjPanel12.Name = "rjPanel12";
+            this.rjPanel12.Size = new System.Drawing.Size(491, 82);
+            this.rjPanel12.TabIndex = 17;
             // 
             // label5
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.ForeColor = Color.FromArgb(67, 52, 67);
-            label5.Location = new Point(8, 23);
-            label5.Name = "label5";
-            label5.Size = new Size(87, 28);
-            label5.TabIndex = 4;
-            label5.Text = "Address";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
+            this.label5.Location = new System.Drawing.Point(8, 13);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(87, 28);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Address";
             // 
             // rjPanel13
             // 
-            rjPanel13.BackColor = Color.White;
-            rjPanel13.BorderColor = Color.White;
-            rjPanel13.BorderRadius = 40;
-            rjPanel13.BorderSize = 0;
-            rjPanel13.Controls.Add(txtAddress);
-            rjPanel13.ForeColor = Color.White;
-            rjPanel13.Location = new Point(101, 12);
-            rjPanel13.Name = "rjPanel13";
-            rjPanel13.Size = new Size(441, 59);
-            rjPanel13.TabIndex = 0;
+            this.rjPanel13.BackColor = System.Drawing.Color.White;
+            this.rjPanel13.BorderColor = System.Drawing.Color.White;
+            this.rjPanel13.BorderRadius = 40;
+            this.rjPanel13.BorderSize = 0;
+            this.rjPanel13.Controls.Add(this.txtAddress);
+            this.rjPanel13.ForeColor = System.Drawing.Color.White;
+            this.rjPanel13.Location = new System.Drawing.Point(101, 2);
+            this.rjPanel13.Name = "rjPanel13";
+            this.rjPanel13.Size = new System.Drawing.Size(363, 59);
+            this.rjPanel13.TabIndex = 0;
             // 
             // txtAddress
             // 
-            txtAddress.BackColor = Color.White;
-            txtAddress.BorderStyle = BorderStyle.None;
-            txtAddress.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            txtAddress.ForeColor = Color.FromArgb(69, 66, 67);
-            txtAddress.Location = new Point(21, 16);
-            txtAddress.Name = "txtAddress";
-            txtAddress.Size = new Size(401, 29);
-            txtAddress.TabIndex = 0;
+            this.txtAddress.BackColor = System.Drawing.Color.White;
+            this.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtAddress.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(66)))), ((int)(((byte)(67)))));
+            this.txtAddress.Location = new System.Drawing.Point(21, 13);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(317, 29);
+            this.txtAddress.TabIndex = 0;
             // 
             // rjPanel6
             // 
-            rjPanel6.BackColor = Color.FromArgb(242, 242, 242);
-            rjPanel6.BorderColor = Color.WhiteSmoke;
-            rjPanel6.BorderRadius = 40;
-            rjPanel6.BorderSize = 0;
-            rjPanel6.Controls.Add(label3);
-            rjPanel6.Controls.Add(rjPanel9);
-            rjPanel6.ForeColor = Color.White;
-            rjPanel6.Location = new Point(22, 119);
-            rjPanel6.Name = "rjPanel6";
-            rjPanel6.Size = new Size(563, 82);
-            rjPanel6.TabIndex = 16;
+            this.rjPanel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.rjPanel6.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.rjPanel6.BorderRadius = 40;
+            this.rjPanel6.BorderSize = 0;
+            this.rjPanel6.Controls.Add(this.label3);
+            this.rjPanel6.Controls.Add(this.rjPanel9);
+            this.rjPanel6.ForeColor = System.Drawing.Color.White;
+            this.rjPanel6.Location = new System.Drawing.Point(22, 5);
+            this.rjPanel6.Name = "rjPanel6";
+            this.rjPanel6.Size = new System.Drawing.Size(491, 82);
+            this.rjPanel6.TabIndex = 16;
             // 
             // label3
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.ForeColor = Color.FromArgb(67, 52, 67);
-            label3.Location = new Point(8, 23);
-            label3.Name = "label3";
-            label3.Size = new Size(68, 28);
-            label3.TabIndex = 4;
-            label3.Text = "Name";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
+            this.label3.Location = new System.Drawing.Point(8, 13);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 28);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Name";
             // 
             // rjPanel9
             // 
-            rjPanel9.BackColor = Color.White;
-            rjPanel9.BorderColor = Color.White;
-            rjPanel9.BorderRadius = 40;
-            rjPanel9.BorderSize = 0;
-            rjPanel9.Controls.Add(txtName);
-            rjPanel9.ForeColor = Color.White;
-            rjPanel9.Location = new Point(101, 12);
-            rjPanel9.Name = "rjPanel9";
-            rjPanel9.Size = new Size(441, 59);
-            rjPanel9.TabIndex = 0;
+            this.rjPanel9.BackColor = System.Drawing.Color.White;
+            this.rjPanel9.BorderColor = System.Drawing.Color.White;
+            this.rjPanel9.BorderRadius = 40;
+            this.rjPanel9.BorderSize = 0;
+            this.rjPanel9.Controls.Add(this.txtName);
+            this.rjPanel9.ForeColor = System.Drawing.Color.White;
+            this.rjPanel9.Location = new System.Drawing.Point(101, 2);
+            this.rjPanel9.Name = "rjPanel9";
+            this.rjPanel9.Size = new System.Drawing.Size(363, 59);
+            this.rjPanel9.TabIndex = 0;
             // 
             // txtName
             // 
-            txtName.BackColor = Color.White;
-            txtName.BorderStyle = BorderStyle.None;
-            txtName.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            txtName.ForeColor = Color.FromArgb(69, 66, 67);
-            txtName.Location = new Point(21, 16);
-            txtName.Name = "txtName";
-            txtName.Size = new Size(401, 29);
-            txtName.TabIndex = 0;
+            this.txtName.BackColor = System.Drawing.Color.White;
+            this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtName.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(66)))), ((int)(((byte)(67)))));
+            this.txtName.Location = new System.Drawing.Point(21, 17);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(317, 29);
+            this.txtName.TabIndex = 0;
             // 
-            // rjPanel7
+            // rjFlowLayoutPanel3
             // 
-            rjPanel7.BackColor = Color.FromArgb(242, 242, 242);
-            rjPanel7.BorderColor = Color.WhiteSmoke;
-            rjPanel7.BorderRadius = 40;
-            rjPanel7.BorderSize = 0;
-            rjPanel7.Controls.Add(label1);
-            rjPanel7.Controls.Add(rjPanel8);
-            rjPanel7.ForeColor = Color.White;
-            rjPanel7.Location = new Point(22, 20);
-            rjPanel7.Name = "rjPanel7";
-            rjPanel7.Size = new Size(563, 82);
-            rjPanel7.TabIndex = 15;
+            this.rjFlowLayoutPanel3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.rjFlowLayoutPanel3.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjFlowLayoutPanel3.BorderRadius = 40;
+            this.rjFlowLayoutPanel3.BorderSize = 0;
+            this.rjFlowLayoutPanel3.Controls.Add(this.btnManage);
+            this.rjFlowLayoutPanel3.ForeColor = System.Drawing.Color.White;
+            this.rjFlowLayoutPanel3.Location = new System.Drawing.Point(798, 137);
+            this.rjFlowLayoutPanel3.Name = "rjFlowLayoutPanel3";
+            this.rjFlowLayoutPanel3.Size = new System.Drawing.Size(300, 66);
+            this.rjFlowLayoutPanel3.TabIndex = 16;
+            // 
+            // btnManage
+            // 
+            this.btnManage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
+            this.btnManage.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnManage.BorderRadius = 40;
+            this.btnManage.BorderSize = 0;
+            this.btnManage.FlatAppearance.BorderSize = 0;
+            this.btnManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManage.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnManage.ForeColor = System.Drawing.Color.White;
+            this.btnManage.Location = new System.Drawing.Point(3, 3);
+            this.btnManage.Name = "btnManage";
+            this.btnManage.Size = new System.Drawing.Size(145, 50);
+            this.btnManage.TabIndex = 0;
+            this.btnManage.Text = "Manage";
+            this.btnManage.UseVisualStyleBackColor = false;
+            this.btnManage.Click += new System.EventHandler(this.btnManage_Click);
+            // 
+            // rjPanel2
+            // 
+            this.rjPanel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.rjPanel2.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjPanel2.BorderRadius = 40;
+            this.rjPanel2.BorderSize = 0;
+            this.rjPanel2.Controls.Add(this.gvSchedule);
+            this.rjPanel2.ForeColor = System.Drawing.Color.White;
+            this.rjPanel2.Location = new System.Drawing.Point(1133, 137);
+            this.rjPanel2.Name = "rjPanel2";
+            this.rjPanel2.Size = new System.Drawing.Size(617, 849);
+            this.rjPanel2.TabIndex = 17;
+            // 
+            // gvSchedule
+            // 
+            this.gvSchedule.AllowUserToAddRows = false;
+            this.gvSchedule.AllowUserToDeleteRows = false;
+            this.gvSchedule.AllowUserToResizeColumns = false;
+            this.gvSchedule.AllowUserToResizeRows = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.gvSchedule.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.gvSchedule.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gvSchedule.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.gvSchedule.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gvSchedule.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.gvSchedule.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.gvSchedule.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.gvSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gvSchedule.DefaultCellStyle = dataGridViewCellStyle6;
+            this.gvSchedule.Location = new System.Drawing.Point(0, 0);
+            this.gvSchedule.Name = "gvSchedule";
+            this.gvSchedule.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.gvSchedule.RowHeadersVisible = false;
+            this.gvSchedule.RowHeadersWidth = 51;
+            this.gvSchedule.RowTemplate.Height = 29;
+            this.gvSchedule.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gvSchedule.Size = new System.Drawing.Size(617, 825);
+            this.gvSchedule.TabIndex = 1;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(1500, 76);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(250, 27);
+            this.dateTimePicker1.TabIndex = 18;
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.FromArgb(67, 52, 67);
-            label1.Location = new Point(8, 23);
-            label1.Name = "label1";
-            label1.Size = new Size(33, 28);
-            label1.TabIndex = 4;
-            label1.Text = "ID";
-            // 
-            // rjPanel8
-            // 
-            rjPanel8.BackColor = Color.White;
-            rjPanel8.BorderColor = Color.White;
-            rjPanel8.BorderRadius = 40;
-            rjPanel8.BorderSize = 0;
-            rjPanel8.Controls.Add(txtID);
-            rjPanel8.ForeColor = Color.White;
-            rjPanel8.Location = new Point(101, 12);
-            rjPanel8.Name = "rjPanel8";
-            rjPanel8.Size = new Size(441, 59);
-            rjPanel8.TabIndex = 0;
-            // 
-            // txtID
-            // 
-            txtID.BackColor = Color.White;
-            txtID.BorderStyle = BorderStyle.None;
-            txtID.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            txtID.ForeColor = Color.FromArgb(69, 66, 67);
-            txtID.Location = new Point(21, 16);
-            txtID.Name = "txtID";
-            txtID.Size = new Size(401, 29);
-            txtID.TabIndex = 0;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
+            this.label1.Location = new System.Drawing.Point(1133, 69);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(106, 30);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Schedule";
             // 
             // FTrainerManagement
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
-            ClientSize = new Size(1820, 1080);
-            Controls.Add(rjPanel5);
-            Controls.Add(rjPanel4);
-            Controls.Add(rjPanel3);
-            Controls.Add(rjPanel1);
-            Controls.Add(rjFlowLayoutPanel2);
-            Controls.Add(rjFlowLayoutPanel1);
-            FormBorderStyle = FormBorderStyle.None;
-            Name = "FTrainerManagement";
-            Text = "FTrainerManagement";
-            rjPanel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)gvTrainer).EndInit();
-            rjPanel3.ResumeLayout(false);
-            rjPanel3.PerformLayout();
-            rjPanel1.ResumeLayout(false);
-            rjPanel1.PerformLayout();
-            rjFlowLayoutPanel2.ResumeLayout(false);
-            rjFlowLayoutPanel1.ResumeLayout(false);
-            rjPanel5.ResumeLayout(false);
-            rjPanel16.ResumeLayout(false);
-            rjPanel16.PerformLayout();
-            rjPanel17.ResumeLayout(false);
-            rjPanel17.PerformLayout();
-            rjPanel14.ResumeLayout(false);
-            rjPanel14.PerformLayout();
-            rjPanel15.ResumeLayout(false);
-            rjPanel15.PerformLayout();
-            rjPanel10.ResumeLayout(false);
-            rjPanel10.PerformLayout();
-            rjPanel11.ResumeLayout(false);
-            rjPanel11.PerformLayout();
-            rjPanel12.ResumeLayout(false);
-            rjPanel12.PerformLayout();
-            rjPanel13.ResumeLayout(false);
-            rjPanel13.PerformLayout();
-            rjPanel6.ResumeLayout(false);
-            rjPanel6.PerformLayout();
-            rjPanel9.ResumeLayout(false);
-            rjPanel9.PerformLayout();
-            rjPanel7.ResumeLayout(false);
-            rjPanel7.PerformLayout();
-            rjPanel8.ResumeLayout(false);
-            rjPanel8.PerformLayout();
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1820, 1080);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.rjPanel2);
+            this.Controls.Add(this.rjFlowLayoutPanel3);
+            this.Controls.Add(this.pnlManage);
+            this.Controls.Add(this.rjPanel4);
+            this.Controls.Add(this.rjPanel3);
+            this.Controls.Add(this.rjPanel1);
+            this.Controls.Add(this.rjFlowLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "FTrainerManagement";
+            this.Text = "FTrainerManagement";
+            this.rjPanel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gvTrainer)).EndInit();
+            this.rjPanel3.ResumeLayout(false);
+            this.rjPanel3.PerformLayout();
+            this.rjPanel1.ResumeLayout(false);
+            this.rjPanel1.PerformLayout();
+            this.rjFlowLayoutPanel2.ResumeLayout(false);
+            this.rjFlowLayoutPanel1.ResumeLayout(false);
+            this.pnlManage.ResumeLayout(false);
+            this.rjPanel16.ResumeLayout(false);
+            this.rjPanel16.PerformLayout();
+            this.rjPanel17.ResumeLayout(false);
+            this.rjPanel14.ResumeLayout(false);
+            this.rjPanel14.PerformLayout();
+            this.rjPanel15.ResumeLayout(false);
+            this.rjPanel10.ResumeLayout(false);
+            this.rjPanel10.PerformLayout();
+            this.rjPanel11.ResumeLayout(false);
+            this.rjPanel11.PerformLayout();
+            this.rjPanel12.ResumeLayout(false);
+            this.rjPanel12.PerformLayout();
+            this.rjPanel13.ResumeLayout(false);
+            this.rjPanel13.PerformLayout();
+            this.rjPanel6.ResumeLayout(false);
+            this.rjPanel6.PerformLayout();
+            this.rjPanel9.ResumeLayout(false);
+            this.rjPanel9.PerformLayout();
+            this.rjFlowLayoutPanel3.ResumeLayout(false);
+            this.rjPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gvSchedule)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
@@ -757,8 +793,6 @@
         private RJPanel rjPanel4;
         private DataGridView gvTrainer;
         private Label lblName;
-        private Label lblAddress;
-        private Label lblPhoneNumber;
         private RJPanel rjPanel3;
         private Label lblID;
         private RJButton btnSearch;
@@ -772,15 +806,13 @@
         private RJButton btnMale;
         private RJButton btnFemale;
         private RJFlowLayoutPanel rjFlowLayoutPanel1;
-        private RJPanel rjPanel5;
+        private RJPanel pnlManage;
         private RJPanel rjPanel16;
         private Label label7;
         private RJPanel rjPanel17;
-        private TextBox txtGender;
         private RJPanel rjPanel14;
         private Label label6;
         private RJPanel rjPanel15;
-        private TextBox txtBranchID;
         private RJPanel rjPanel10;
         private Label label4;
         private RJPanel rjPanel11;
@@ -789,13 +821,17 @@
         private Label label5;
         private RJPanel rjPanel13;
         private TextBox txtAddress;
+        private RJFlowLayoutPanel rjFlowLayoutPanel3;
+        private RJButton btnManage;
         private RJPanel rjPanel6;
         private Label label3;
         private RJPanel rjPanel9;
         private TextBox txtName;
-        private RJPanel rjPanel7;
+        private ComboBox cbxGender;
+        private ComboBox cbxBranch;
+        private RJPanel rjPanel2;
+        private DataGridView gvSchedule;
+        private DateTimePicker dateTimePicker1;
         private Label label1;
-        private RJPanel rjPanel8;
-        private TextBox txtID;
     }
 }

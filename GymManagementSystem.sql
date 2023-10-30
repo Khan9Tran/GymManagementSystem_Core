@@ -976,19 +976,34 @@ END
 INSERT INTO BMI(ID,MemberID,Weight,Height,Date) VALUES('000001','MEM011',60,175,'2023/10/25');
 
 GO
+
 --Proc tìm trainerlist
 CREATE PROCEDURE PROC_FindTrainerList
 	@FilterType INT,
-	@Content NVARCHAR(50)
+	@Content NVARCHAR(50),
+	@BranchID CHAR(6)
 AS
 BEGIN
-	IF (@FilterType = 0)
-		SELECT * FROM V_TrainerList WHERE (ID = @Content OR Address LIKE N'%' + @Content + '%' OR Name  LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE N'%' + @Content + '%' OR Branch  LIKE N'%' + @Content + '%' OR BranchID = @Content)
-	ELSE IF (@FilterType = 1)
-		SELECT * FROM V_TrainerList WHERE ((Gender = 'm') AND ID = @Content OR Address LIKE N'%' + @Content + '%' OR Name  LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE N'%' + @Content + '%' OR Branch  LIKE N'%' + @Content + '%' OR BranchID = @Content)
-	ELSE IF (@FilterType = 2)
-		SELECT * FROM V_TrainerList WHERE ((Gender = 'f') AND ID = @Content OR Address LIKE N'%' + @Content + '%' OR Name  LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE N'%' + @Content + '%' OR Branch  LIKE N'%' + @Content + '%' OR BranchID = @Content)
+	IF (@BranchID = 'BRRoot') --Neu chi nhanh goc duoc quyen search tren tat ca chi nhanh
+	BEGIN
+		IF (@FilterType = 0)
+			SELECT * FROM V_TrainerList WHERE (ID = @Content OR Address LIKE N'%' + @Content + '%' OR Name  LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE N'%' + @Content + '%' OR Branch  LIKE N'%' + @Content + '%' OR BranchID = @Content)
+		ELSE IF (@FilterType = 1)
+			SELECT * FROM V_TrainerList WHERE ((Gender = 'm') AND (ID = @Content OR Address LIKE N'%' + @Content + '%' OR Name  LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE N'%' + @Content + '%' OR Branch  LIKE N'%' + @Content + '%' OR BranchID = @Content))
+		ELSE IF (@FilterType = 2)
+			SELECT * FROM V_TrainerList WHERE ((Gender = 'f') AND (ID = @Content OR Address LIKE N'%' + @Content + '%' OR Name  LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE N'%' + @Content + '%' OR Branch  LIKE N'%' + @Content + '%' OR BranchID = @Content))
+	END
+	ELSE
+	BEGIN
+		IF (@FilterType = 0)
+			SELECT * FROM V_TrainerList WHERE (ID = @Content OR Address LIKE N'%' + @Content + '%' OR Name  LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE N'%' + @Content + '%' OR Branch  LIKE N'%' + @Content + '%' OR BranchID = @Content) AND (V_TrainerList.BranchID = @BranchID)
+		ELSE IF (@FilterType = 1)
+			SELECT * FROM V_TrainerList WHERE ((Gender = 'm') AND (ID = @Content OR Address LIKE N'%' + @Content + '%' OR Name  LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE N'%' + @Content + '%' OR Branch  LIKE N'%' + @Content + '%' OR BranchID = @Content) AND (V_TrainerList.BranchID = @BranchID))
+		ELSE IF (@FilterType = 2)
+			SELECT * FROM V_TrainerList WHERE ((Gender = 'f') AND (ID = @Content OR Address LIKE N'%' + @Content + '%' OR Name  LIKE N'%' + @Content + '%' OR PhoneNumber  LIKE N'%' + @Content + '%' OR Branch  LIKE N'%' + @Content + '%' OR BranchID = @Content) AND (V_TrainerList.BranchID = @BranchID))
+	END
 END
+
 GO
 --PROC Insert BMI
 CREATE PROCEDURE PROC_AddBMI
@@ -1468,3 +1483,126 @@ BEGIN
         RAISERROR('Thay đổi thiết bị thất bại',16,1);
     END CATCH;
 END
+GO
+--Insert Trainer
+CREATE PROCEDURE PROC_InsertTrainer
+    @ID CHAR(6),
+    @Name NVARCHAR(50),
+    @Address NVARCHAR(50),
+    @PhoneNumber CHAR(10),
+    @Gender NVARCHAR(10),
+    @BranchID CHAR(6)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Chuyển đổi giá trị giới tính
+    SET @Gender = CASE 
+                    WHEN @Gender = 'Male' THEN 'm'
+                    WHEN @Gender = 'Female' THEN 'f'
+                    WHEN @Gender = 'Unknown' THEN 'u'
+                    ELSE @Gender
+                 END;
+
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        -- Thêm dữ liệu trainer vào bảng Trainer
+        INSERT INTO Trainer (ID, Name, Address, PhoneNumber, Gender, BranchID)
+        VALUES (@ID, @Name, @Address, @PhoneNumber, @Gender, @BranchID);
+
+        -- Commit transaction nếu không có lỗi xảy ra
+        COMMIT TRANSACTION;
+
+        SELECT 'Thêm trainer thành công.' AS Result;
+    END TRY
+    BEGIN CATCH
+        -- Rollback transaction nếu có lỗi xảy ra
+        ROLLBACK TRANSACTION;
+
+        -- Lấy thông báo lỗi để trả về
+        SELECT ERROR_MESSAGE() AS Result;
+    END CATCH;
+END
+
+
+
+--Update Trainer
+GO
+CREATE PROCEDURE PROC_UpdateTrainer
+    @ID CHAR(6),
+    @Name NVARCHAR(50),
+    @Address NVARCHAR(50),
+    @PhoneNumber CHAR(10),
+    @Gender NVARCHAR(10),
+    @BranchID CHAR(6)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Chuyển đổi giá trị giới tính
+    SET @Gender = CASE 
+                    WHEN @Gender = 'Male' THEN 'm'
+                    WHEN @Gender = 'Female' THEN 'f'
+                    WHEN @Gender = 'Unknown' THEN 'u'
+                    ELSE @Gender
+                 END;
+
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        -- Thêm dữ liệu trainer vào bảng Trainer
+          UPDATE Trainer
+			SET Name = @Name,
+				Address = @Address,
+				PhoneNumber = @PhoneNumber,
+				Gender = @Gender,
+				BranchID = @BranchID
+			WHERE ID = @ID;
+
+        -- Commit transaction nếu không có lỗi xảy ra
+        COMMIT TRANSACTION;
+
+        SELECT N'Cập nhật Trainer thành công.' AS Result;
+    END TRY
+    BEGIN CATCH
+        -- Rollback transaction nếu có lỗi xảy ra
+        ROLLBACK TRANSACTION;
+
+        -- Lấy thông báo lỗi để trả về
+        SELECT ERROR_MESSAGE() AS Result;
+    END CATCH;
+END
+
+GO
+
+-- Tạo bảng Ảo lưu khoản thời gian
+CREATE TABLE TimeSlot (
+    SlotID INT PRIMARY KEY IDENTITY(1, 1),
+    StartTime TIME,
+    EndTime TIME
+);
+
+-- Điền dữ liệu vào bảng từ 6h đến 11h tối, cách nhau 2 tiếng
+DECLARE @StartTime TIME = '06:00:00'; -- 6h tối
+DECLARE @EndTime TIME = '20:00:00'; -- 11h tối
+
+WHILE @StartTime <= @EndTime
+BEGIN
+    INSERT INTO TimeSlot (StartTime, EndTime)
+    VALUES (@StartTime, DATEADD(HOUR, 2, @StartTime));
+
+    SET @StartTime = DATEADD(HOUR, 2, @StartTime);
+END
+	INSERT INTO TimeSlot (StartTime, EndTime)
+    VALUES ('22:00:00', '23:00:00');
+SELECT *FROM TimeSlot
+GO
+
+--FUNC Lấy lịch làm việc theo ngày của trainer
+
+CREATE FUNCTION FUNC_TrainerSchedule(@TrainerID CHAR(6), @Date Date)
+RETURNS TABLE
+AS
+	RETURN SELECT * FROM Trainer JOIN  WorkOutPlan ON Trainer.ID = WorkOutPlan.TrainerID , TimeSlot
+	WHERE WorkOutPlan.Date = Date AND TimeSlot.StartTime <= WorkOutPlan.Time AND TimeSlot.EndTime > WorkOutPlan.Time AND Trainer.ID = @TrainerID

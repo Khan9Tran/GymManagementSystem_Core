@@ -38,7 +38,7 @@
             this.itemBMI = new System.Windows.Forms.ToolStripMenuItem();
             this.itemMember = new System.Windows.Forms.ToolStripMenuItem();
             this.itemMemebrship = new System.Windows.Forms.ToolStripMenuItem();
-            this.trainerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemTrainer = new System.Windows.Forms.ToolStripMenuItem();
             this.itemBranch = new System.Windows.Forms.ToolStripMenuItem();
             this.equipmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itemCategory = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,6 +48,7 @@
             this.itemPackage = new System.Windows.Forms.ToolStripMenuItem();
             this.itemPayment = new System.Windows.Forms.ToolStripMenuItem();
             this.btnBMI = new System.Windows.Forms.Button();
+            this.btnEquipmentData = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.cmnusLogOut = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.itemLogOut = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,7 +57,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.btnAccount = new System.Windows.Forms.Button();
-            this.btnEquipmentData = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.cmnusManagement.SuspendLayout();
             this.cmnusLogOut.SuspendLayout();
@@ -139,7 +139,7 @@
             this.cmnusManagement.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.cmnusManagement.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.itemMemberSelect,
-            this.trainerToolStripMenuItem,
+            this.itemTrainer,
             this.itemBranch,
             this.equipmentToolStripMenuItem,
             this.itemWorkout,
@@ -148,7 +148,7 @@
             this.cmnusManagement.Name = "cmnusManagement";
             this.cmnusManagement.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.cmnusManagement.ShowImageMargin = false;
-            this.cmnusManagement.Size = new System.Drawing.Size(159, 228);
+            this.cmnusManagement.Size = new System.Drawing.Size(186, 256);
             this.cmnusManagement.Text = "Management";
             this.cmnusManagement.Opening += new System.ComponentModel.CancelEventHandler(this.cmnusManagement_Opening);
             // 
@@ -162,7 +162,7 @@
             this.itemMemberSelect.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.itemMemberSelect.ForeColor = System.Drawing.Color.White;
             this.itemMemberSelect.Name = "itemMemberSelect";
-            this.itemMemberSelect.Size = new System.Drawing.Size(158, 32);
+            this.itemMemberSelect.Size = new System.Drawing.Size(185, 32);
             this.itemMemberSelect.Text = "Member";
             // 
             // itemBMI
@@ -186,20 +186,21 @@
             this.itemMemebrship.Text = "Membership";
             this.itemMemebrship.Click += new System.EventHandler(this.itemMemebrship_Click);
             // 
-            // trainerToolStripMenuItem
+            // itemTrainer
             // 
-            this.trainerToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.trainerToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.trainerToolStripMenuItem.Name = "trainerToolStripMenuItem";
-            this.trainerToolStripMenuItem.Size = new System.Drawing.Size(158, 32);
-            this.trainerToolStripMenuItem.Text = "Trainer";
+            this.itemTrainer.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.itemTrainer.ForeColor = System.Drawing.Color.White;
+            this.itemTrainer.Name = "itemTrainer";
+            this.itemTrainer.Size = new System.Drawing.Size(185, 32);
+            this.itemTrainer.Text = "Trainer";
+            this.itemTrainer.Click += new System.EventHandler(this.itemTrainer_Click);
             // 
             // itemBranch
             // 
             this.itemBranch.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.itemBranch.ForeColor = System.Drawing.Color.White;
             this.itemBranch.Name = "itemBranch";
-            this.itemBranch.Size = new System.Drawing.Size(158, 32);
+            this.itemBranch.Size = new System.Drawing.Size(185, 32);
             this.itemBranch.Text = "Branch";
             this.itemBranch.Click += new System.EventHandler(this.itemBranch_Click);
             // 
@@ -212,7 +213,7 @@
             this.equipmentToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.equipmentToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.equipmentToolStripMenuItem.Name = "equipmentToolStripMenuItem";
-            this.equipmentToolStripMenuItem.Size = new System.Drawing.Size(158, 32);
+            this.equipmentToolStripMenuItem.Size = new System.Drawing.Size(185, 32);
             this.equipmentToolStripMenuItem.Text = "Equipment";
             // 
             // itemCategory
@@ -241,7 +242,7 @@
             this.itemWorkout.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.itemWorkout.ForeColor = System.Drawing.Color.White;
             this.itemWorkout.Name = "itemWorkout";
-            this.itemWorkout.Size = new System.Drawing.Size(158, 32);
+            this.itemWorkout.Size = new System.Drawing.Size(185, 32);
             this.itemWorkout.Text = "Workout";
             this.itemWorkout.Click += new System.EventHandler(this.itemWorkout_Click);
             // 
@@ -250,7 +251,7 @@
             this.itemPackage.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.itemPackage.ForeColor = System.Drawing.Color.White;
             this.itemPackage.Name = "itemPackage";
-            this.itemPackage.Size = new System.Drawing.Size(158, 32);
+            this.itemPackage.Size = new System.Drawing.Size(185, 32);
             this.itemPackage.Text = "Package";
             // 
             // itemPayment
@@ -258,7 +259,7 @@
             this.itemPayment.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.itemPayment.ForeColor = System.Drawing.Color.White;
             this.itemPayment.Name = "itemPayment";
-            this.itemPayment.Size = new System.Drawing.Size(158, 32);
+            this.itemPayment.Size = new System.Drawing.Size(185, 32);
             this.itemPayment.Text = "Payment";
             // 
             // btnBMI
@@ -278,6 +279,24 @@
             this.btnBMI.TabIndex = 4;
             this.btnBMI.UseVisualStyleBackColor = false;
             this.btnBMI.Click += new System.EventHandler(this.btnBMI_Click);
+            // 
+            // btnEquipmentData
+            // 
+            this.btnEquipmentData.BackColor = System.Drawing.Color.Transparent;
+            this.btnEquipmentData.BackgroundImage = global::GymManagementSystem.Properties.Resources.equipment;
+            this.btnEquipmentData.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnEquipmentData.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEquipmentData.FlatAppearance.BorderSize = 0;
+            this.btnEquipmentData.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(63)))), ((int)(((byte)(91)))));
+            this.btnEquipmentData.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(63)))), ((int)(((byte)(91)))));
+            this.btnEquipmentData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEquipmentData.Location = new System.Drawing.Point(23, 375);
+            this.btnEquipmentData.Margin = new System.Windows.Forms.Padding(23, 27, 23, 0);
+            this.btnEquipmentData.Name = "btnEquipmentData";
+            this.btnEquipmentData.Size = new System.Drawing.Size(60, 60);
+            this.btnEquipmentData.TabIndex = 6;
+            this.btnEquipmentData.UseVisualStyleBackColor = false;
+            this.btnEquipmentData.Click += new System.EventHandler(this.btnEquipmentData_Click);
             // 
             // btnLogOut
             // 
@@ -387,24 +406,6 @@
             this.btnAccount.UseVisualStyleBackColor = false;
             this.btnAccount.Click += new System.EventHandler(this.btnAccount_Click);
             // 
-            // btnEquipmentData
-            // 
-            this.btnEquipmentData.BackColor = System.Drawing.Color.Transparent;
-            this.btnEquipmentData.BackgroundImage = global::GymManagementSystem.Properties.Resources.equipment;
-            this.btnEquipmentData.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnEquipmentData.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEquipmentData.FlatAppearance.BorderSize = 0;
-            this.btnEquipmentData.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(63)))), ((int)(((byte)(91)))));
-            this.btnEquipmentData.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(63)))), ((int)(((byte)(91)))));
-            this.btnEquipmentData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEquipmentData.Location = new System.Drawing.Point(23, 375);
-            this.btnEquipmentData.Margin = new System.Windows.Forms.Padding(23, 27, 23, 0);
-            this.btnEquipmentData.Name = "btnEquipmentData";
-            this.btnEquipmentData.Size = new System.Drawing.Size(60, 60);
-            this.btnEquipmentData.TabIndex = 6;
-            this.btnEquipmentData.UseVisualStyleBackColor = false;
-            this.btnEquipmentData.Click += new System.EventHandler(this.btnEquipmentData_Click);
-            // 
             // FHomeUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -442,7 +443,7 @@
         private ToolStripMenuItem itemQuit;
         private Button button1;
         private Button btnAccount;
-        private ToolStripMenuItem trainerToolStripMenuItem;
+        private ToolStripMenuItem itemTrainer;
         private ToolStripMenuItem itemBMI;
         private ToolStripMenuItem itemBranch;
         private ToolStripMenuItem equipmentToolStripMenuItem;
