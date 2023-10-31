@@ -131,11 +131,24 @@ namespace GymManagementSystem
                 instance.packagePrice = Double.Parse(packagePrice);
                 instance.discountAmount = instance.packageDiscount * instance.packagePrice;
                 instance.paymentAmount = (instance.packagePrice - instance.discountAmount) - instance.memberBalance;
+                double tempBalance = 0;
 
-                instance.lblDiscount.Text = ((-1) * instance.discountAmount).ToString();
+                if ((instance.packagePrice - instance.discountAmount) >= instance.memberBalance)
+                {
+                    instance.paymentAmount = (instance.packagePrice - instance.discountAmount) - instance.memberBalance;
+                    tempBalance = 0;
+                }
+                else
+                {
+                    instance.paymentAmount = 0;
+                    tempBalance = instance.memberBalance - (instance.packagePrice - instance.discountAmount);
+                }
+
+                instance.lblDiscount.Text = instance.discountAmount.ToString();
                 instance.lblDiscountUnit.Text = "VND";
                 instance.lblTotalPayment.Text = instance.paymentAmount.ToString();
                 instance.lblDetailPkName.Text = packageName;
+                instance.lblBalance.Text = tempBalance.ToString();
                 instance.lblDetailPkPeriod.Text = packagePeriods;
                 instance.lblDetailPkPrice.Text = Math.Round(Convert.ToDouble(packagePrice), 0).ToString();
 
@@ -152,7 +165,7 @@ namespace GymManagementSystem
             }
         }
 
-        private void rjButton2_Click(object sender, EventArgs e)
+        private void btnSearchByPhone_Click(object sender, EventArgs e)
         {
             if (tbxPhoneNumber.Text.Length == 10)
             {
@@ -194,7 +207,7 @@ namespace GymManagementSystem
             }
         }
 
-        private void rjButton8_Click(object sender, EventArgs e)
+        private void btnBuy_Click(object sender, EventArgs e)
         {
             String query = "INSERT INTO dbo.Payment VALUES (@ID, @Date, @Note, @PaymentAmount, @BranchID, @PackageID, @MemberID, @EmployeeID)";
             DBConnection connection = new DBConnection();

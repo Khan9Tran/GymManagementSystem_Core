@@ -41,7 +41,7 @@
             lblBalance = new Label();
             label23 = new Label();
             rjButton10 = new RJButton();
-            rjButton8 = new RJButton();
+            btnBuy = new RJButton();
             label35 = new Label();
             rjButton12 = new RJButton();
             label36 = new Label();
@@ -53,9 +53,9 @@
             textBox1 = new TextBox();
             rjButton15 = new RJButton();
             flowLayoutPanel4 = new FlowLayoutPanel();
-            label22 = new Label();
-            lblDiscount = new Label();
             lblDiscountUnit = new Label();
+            lblDiscount = new Label();
+            label22 = new Label();
             label10 = new Label();
             rjPanel7 = new RJPanel();
             flowLayoutPanel2 = new FlowLayoutPanel();
@@ -104,7 +104,7 @@
             rjButton5 = new RJButton();
             textBox2 = new TextBox();
             rjPanel2 = new RJPanel();
-            rjButton2 = new RJButton();
+            btnSearchByPhone = new RJButton();
             tbxPhoneNumber = new TextBox();
             rjButton6 = new RJButton();
             rjButton1 = new RJButton();
@@ -221,7 +221,7 @@
             rjPanel9.BorderSize = 0;
             rjPanel9.Controls.Add(flowLayoutPanel3);
             rjPanel9.Controls.Add(rjButton10);
-            rjPanel9.Controls.Add(rjButton8);
+            rjPanel9.Controls.Add(btnBuy);
             rjPanel9.Controls.Add(label35);
             rjPanel9.Controls.Add(rjButton12);
             rjPanel9.Controls.Add(label36);
@@ -297,24 +297,24 @@
             rjButton10.Text = "No trainer";
             rjButton10.UseVisualStyleBackColor = false;
             // 
-            // rjButton8
+            // btnBuy
             // 
-            rjButton8.BackColor = Color.FromArgb(40, 181, 244);
-            rjButton8.BorderColor = Color.PaleVioletRed;
-            rjButton8.BorderRadius = 10;
-            rjButton8.BorderSize = 0;
-            rjButton8.FlatAppearance.BorderSize = 0;
-            rjButton8.FlatStyle = FlatStyle.Flat;
-            rjButton8.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            rjButton8.ForeColor = Color.White;
-            rjButton8.Location = new Point(0, 105);
-            rjButton8.Margin = new Padding(0);
-            rjButton8.Name = "rjButton8";
-            rjButton8.Size = new Size(671, 56);
-            rjButton8.TabIndex = 7;
-            rjButton8.Text = "Buy";
-            rjButton8.UseVisualStyleBackColor = false;
-            rjButton8.Click += rjButton8_Click;
+            btnBuy.BackColor = Color.FromArgb(40, 181, 244);
+            btnBuy.BorderColor = Color.PaleVioletRed;
+            btnBuy.BorderRadius = 10;
+            btnBuy.BorderSize = 0;
+            btnBuy.FlatAppearance.BorderSize = 0;
+            btnBuy.FlatStyle = FlatStyle.Flat;
+            btnBuy.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            btnBuy.ForeColor = Color.White;
+            btnBuy.Location = new Point(0, 105);
+            btnBuy.Margin = new Padding(0);
+            btnBuy.Name = "btnBuy";
+            btnBuy.Size = new Size(671, 56);
+            btnBuy.TabIndex = 7;
+            btnBuy.Text = "Buy";
+            btnBuy.UseVisualStyleBackColor = false;
+            btnBuy.Click += btnBuy_Click;
             // 
             // label35
             // 
@@ -462,16 +462,16 @@
             flowLayoutPanel4.Size = new Size(329, 44);
             flowLayoutPanel4.TabIndex = 28;
             // 
-            // label22
+            // lblDiscountUnit
             // 
-            label22.AutoSize = true;
-            label22.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label22.ForeColor = Color.FromArgb(59, 41, 55);
-            label22.Location = new Point(73, 0);
-            label22.Name = "label22";
-            label22.Size = new Size(124, 31);
-            label22.TabIndex = 31;
-            label22.Text = "Discount : ";
+            lblDiscountUnit.AutoSize = true;
+            lblDiscountUnit.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            lblDiscountUnit.ForeColor = Color.FromArgb(59, 41, 55);
+            lblDiscountUnit.Location = new Point(293, 0);
+            lblDiscountUnit.Name = "lblDiscountUnit";
+            lblDiscountUnit.Size = new Size(33, 31);
+            lblDiscountUnit.TabIndex = 33;
+            lblDiscountUnit.Text = "%";
             // 
             // lblDiscount
             // 
@@ -484,16 +484,16 @@
             lblDiscount.TabIndex = 32;
             lblDiscount.Text = "_______";
             // 
-            // lblDiscountUnit
+            // label22
             // 
-            lblDiscountUnit.AutoSize = true;
-            lblDiscountUnit.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            lblDiscountUnit.ForeColor = Color.FromArgb(59, 41, 55);
-            lblDiscountUnit.Location = new Point(293, 0);
-            lblDiscountUnit.Name = "lblDiscountUnit";
-            lblDiscountUnit.Size = new Size(33, 31);
-            lblDiscountUnit.TabIndex = 33;
-            lblDiscountUnit.Text = "%";
+            label22.AutoSize = true;
+            label22.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label22.ForeColor = Color.FromArgb(59, 41, 55);
+            label22.Location = new Point(82, 0);
+            label22.Name = "label22";
+            label22.Size = new Size(115, 31);
+            label22.TabIndex = 31;
+            label22.Text = "Refunds : ";
             // 
             // label10
             // 
@@ -1125,7 +1125,7 @@
             rjPanel2.BorderColor = Color.White;
             rjPanel2.BorderRadius = 40;
             rjPanel2.BorderSize = 0;
-            rjPanel2.Controls.Add(rjButton2);
+            rjPanel2.Controls.Add(btnSearchByPhone);
             rjPanel2.Controls.Add(tbxPhoneNumber);
             rjPanel2.ForeColor = Color.White;
             rjPanel2.Location = new Point(212, 80);
@@ -1133,23 +1133,23 @@
             rjPanel2.Size = new Size(383, 50);
             rjPanel2.TabIndex = 3;
             // 
-            // rjButton2
+            // btnSearchByPhone
             // 
-            rjButton2.BackColor = Color.Transparent;
-            rjButton2.BackgroundImage = Properties.Resources.search;
-            rjButton2.BackgroundImageLayout = ImageLayout.Center;
-            rjButton2.BorderColor = Color.PaleVioletRed;
-            rjButton2.BorderRadius = 40;
-            rjButton2.BorderSize = 0;
-            rjButton2.FlatAppearance.BorderSize = 0;
-            rjButton2.FlatStyle = FlatStyle.Flat;
-            rjButton2.ForeColor = Color.White;
-            rjButton2.Location = new Point(329, 6);
-            rjButton2.Name = "rjButton2";
-            rjButton2.Size = new Size(44, 41);
-            rjButton2.TabIndex = 5;
-            rjButton2.UseVisualStyleBackColor = false;
-            rjButton2.Click += rjButton2_Click;
+            btnSearchByPhone.BackColor = Color.Transparent;
+            btnSearchByPhone.BackgroundImage = Properties.Resources.search;
+            btnSearchByPhone.BackgroundImageLayout = ImageLayout.Center;
+            btnSearchByPhone.BorderColor = Color.PaleVioletRed;
+            btnSearchByPhone.BorderRadius = 40;
+            btnSearchByPhone.BorderSize = 0;
+            btnSearchByPhone.FlatAppearance.BorderSize = 0;
+            btnSearchByPhone.FlatStyle = FlatStyle.Flat;
+            btnSearchByPhone.ForeColor = Color.White;
+            btnSearchByPhone.Location = new Point(329, 6);
+            btnSearchByPhone.Name = "btnSearchByPhone";
+            btnSearchByPhone.Size = new Size(44, 41);
+            btnSearchByPhone.TabIndex = 5;
+            btnSearchByPhone.UseVisualStyleBackColor = false;
+            btnSearchByPhone.Click += btnSearchByPhone_Click;
             // 
             // tbxPhoneNumber
             // 
@@ -1255,7 +1255,7 @@
         private RJPanel rjPanel2;
         private TextBox tbxPhoneNumber;
         private Label label1;
-        private RJButton rjButton2;
+        private RJButton btnSearchByPhone;
         private Label label2;
         private RJPanel rjPanel3;
         private Label lblMemberName;
@@ -1299,7 +1299,7 @@
         private Label lblDetailPkName;
         private Label label18;
         private Label label25;
-        private RJButton rjButton8;
+        private RJButton btnBuy;
         private Label lblDetailNOTSestion;
         private Label label20;
         private FlowLayoutPanel flowLayoutPanel1;
