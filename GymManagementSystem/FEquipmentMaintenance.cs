@@ -99,6 +99,8 @@ namespace GymManagementSystem
             connection.closeConnection();
             gvEquipment.DataSource = dataTable;
             gvEquipment.Columns["BranchID"].Visible = false;
+            gvEquipment.Columns["Price"].Visible = false;
+            gvEquipment.Columns["CategoryID"].Visible = false;
         }
 
         private void SetUnavailable()

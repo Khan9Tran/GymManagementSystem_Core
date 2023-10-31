@@ -35,7 +35,6 @@
             this.btnManagement = new System.Windows.Forms.Button();
             this.cmnusManagement = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.itemMemberSelect = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemBMI = new System.Windows.Forms.ToolStripMenuItem();
             this.itemMember = new System.Windows.Forms.ToolStripMenuItem();
             this.itemMemebrship = new System.Windows.Forms.ToolStripMenuItem();
             this.itemTrainer = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,7 +42,6 @@
             this.equipmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itemCategory = new System.Windows.Forms.ToolStripMenuItem();
             this.itemEquipment = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemMaintenance = new System.Windows.Forms.ToolStripMenuItem();
             this.itemWorkout = new System.Windows.Forms.ToolStripMenuItem();
             this.itemPackage = new System.Windows.Forms.ToolStripMenuItem();
             this.itemPayment = new System.Windows.Forms.ToolStripMenuItem();
@@ -156,7 +154,6 @@
             // 
             this.itemMemberSelect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
             this.itemMemberSelect.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.itemBMI,
             this.itemMember,
             this.itemMemebrship});
             this.itemMemberSelect.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -165,24 +162,17 @@
             this.itemMemberSelect.Size = new System.Drawing.Size(185, 32);
             this.itemMemberSelect.Text = "Member";
             // 
-            // itemBMI
-            // 
-            this.itemBMI.Name = "itemBMI";
-            this.itemBMI.Size = new System.Drawing.Size(213, 32);
-            this.itemBMI.Text = "BMI";
-            this.itemBMI.Click += new System.EventHandler(this.itemBMI_Click);
-            // 
             // itemMember
             // 
             this.itemMember.Name = "itemMember";
-            this.itemMember.Size = new System.Drawing.Size(213, 32);
+            this.itemMember.Size = new System.Drawing.Size(224, 32);
             this.itemMember.Text = "All Members";
             this.itemMember.Click += new System.EventHandler(this.itemMember_Click);
             // 
             // itemMemebrship
             // 
             this.itemMemebrship.Name = "itemMemebrship";
-            this.itemMemebrship.Size = new System.Drawing.Size(213, 32);
+            this.itemMemebrship.Size = new System.Drawing.Size(224, 32);
             this.itemMemebrship.Text = "Membership";
             this.itemMemebrship.Click += new System.EventHandler(this.itemMemebrship_Click);
             // 
@@ -208,8 +198,7 @@
             // 
             this.equipmentToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.itemCategory,
-            this.itemEquipment,
-            this.itemMaintenance});
+            this.itemEquipment});
             this.equipmentToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.equipmentToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.equipmentToolStripMenuItem.Name = "equipmentToolStripMenuItem";
@@ -219,23 +208,16 @@
             // itemCategory
             // 
             this.itemCategory.Name = "itemCategory";
-            this.itemCategory.Size = new System.Drawing.Size(287, 32);
+            this.itemCategory.Size = new System.Drawing.Size(236, 32);
             this.itemCategory.Text = "Category";
             this.itemCategory.Click += new System.EventHandler(this.itemCategory_Click);
             // 
             // itemEquipment
             // 
             this.itemEquipment.Name = "itemEquipment";
-            this.itemEquipment.Size = new System.Drawing.Size(287, 32);
+            this.itemEquipment.Size = new System.Drawing.Size(236, 32);
             this.itemEquipment.Text = "All equipments";
             this.itemEquipment.Click += new System.EventHandler(this.itemEquipment_Click);
-            // 
-            // itemMaintenance
-            // 
-            this.itemMaintenance.Name = "itemMaintenance";
-            this.itemMaintenance.Size = new System.Drawing.Size(287, 32);
-            this.itemMaintenance.Text = "Maintenance History";
-            this.itemMaintenance.Click += new System.EventHandler(this.itemMaintenance_Click);
             // 
             // itemWorkout
             // 
@@ -444,12 +426,10 @@
         private Button button1;
         private Button btnAccount;
         private ToolStripMenuItem itemTrainer;
-        private ToolStripMenuItem itemBMI;
         private ToolStripMenuItem itemBranch;
         private ToolStripMenuItem equipmentToolStripMenuItem;
         private ToolStripMenuItem itemCategory;
         private ToolStripMenuItem itemEquipment;
-        private ToolStripMenuItem itemMaintenance;
         private ToolStripMenuItem itemWorkout;
         private ToolStripMenuItem itemPackage;
         private ToolStripMenuItem itemPayment;
