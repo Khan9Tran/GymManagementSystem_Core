@@ -91,7 +91,7 @@ namespace GymManagementSystem
                 command.Parameters.AddWithValue("@Name", txtName.Text);
                 command.Parameters.AddWithValue("@Type", txtType.Text);
                 command.Parameters.AddWithValue("@Description", txtDescription.Text);
-                command.Parameters.AddWithValue("@Duration", txtDuration.Text);
+                command.Parameters.AddWithValue("@Duration", Int32.Parse(txtDuration.Text));
                 command.ExecuteNonQuery();
 
             }
@@ -124,7 +124,7 @@ namespace GymManagementSystem
                 command.Parameters.AddWithValue("@Name", txtName.Text);
                 command.Parameters.AddWithValue("@Type", txtType.Text);
                 command.Parameters.AddWithValue("@Description", txtDescription.Text);
-                command.Parameters.AddWithValue("@Duration", txtDuration.Text);
+                command.Parameters.AddWithValue("@Duration", Int32.Parse(txtDuration.Text));
                 command.ExecuteNonQuery();
 
             }

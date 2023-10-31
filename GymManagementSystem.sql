@@ -1601,8 +1601,8 @@ CREATE PROCEDURE PROC_AddWorkout
     @ID CHAR(6),
     @Name NVARCHAR(50),
     @Type VARCHAR(50),
-    @Description VARCHAR,
-    @Duration CHAR
+    @Description NTEXT,
+    @Duration INT
 AS
 BEGIN
 	IF EXISTS (SELECT * FROM WorkOut WHERE [Name] = @Name)
@@ -1629,8 +1629,8 @@ CREATE PROCEDURE PROC_UpdateWorkout
 	@ID char(6),
     @Name NVARCHAR(50),
     @Type VARCHAR(50),
-    @Description VARCHAR,
-    @Duration CHAR
+    @Description NTEXT,
+    @Duration INT
 AS
 BEGIN
 		UPDATE WorkOut
