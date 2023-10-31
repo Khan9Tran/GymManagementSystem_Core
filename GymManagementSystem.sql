@@ -272,25 +272,24 @@ GO
 
 --Xem danh sách các thiết bị
 CREATE VIEW V_EquipmentList AS
-SELECT dbo.Equipment.[ID], dbo.Equipment.[Name], dbo.Equipment.[Status], dbo.Branch.[Name] AS BranchName, dbo.EquipmentCategory.[Name] AS Category, BranchID
+SELECT dbo.Equipment.[ID], dbo.Equipment.[Name], dbo.Equipment.[Status], dbo.Branch.[Name] AS BranchName, dbo.EquipmentCategory.[Name] AS Category, EquipmentCategory.ID AS CategoryID, BranchID, Price
 FROM dbo.Equipment JOIN dbo.Branch ON Branch.ID = Equipment.BranchID
 				   JOIN dbo.EquipmentCategory ON EquipmentCategory.ID = Equipment.CategoryID
 GO
-
 -- Xem danh sách thiết bị hư hỏng
 CREATE VIEW V_DamagedEqpList AS
-SELECT dbo.Equipment.[ID], dbo.Equipment.[Name], dbo.Equipment.[Status], dbo.Branch.[Name] AS BranchName, dbo.EquipmentCategory.[Name] AS Category, BranchID
+SELECT dbo.Equipment.[ID], dbo.Equipment.[Name], dbo.Equipment.[Status], dbo.Branch.[Name] AS BranchName, dbo.EquipmentCategory.[Name] AS Category, EquipmentCategory.ID AS CategoryID, BranchID, Price
 FROM dbo.Equipment JOIN dbo.Branch ON Branch.ID = Equipment.BranchID
 				   JOIN dbo.EquipmentCategory ON EquipmentCategory.ID = Equipment.CategoryID
 WHERE dbo.Equipment.[Status] = 'unavailable'
-Go
+Go 
 	-- Xem danh sách thiết bị còn hoạt động
 CREATE VIEW V_AvailableEqpList AS
-SELECT dbo.Equipment.[ID], dbo.Equipment.[Name], dbo.Equipment.[Status], dbo.Branch.[Name] AS BranchName, dbo.EquipmentCategory.[Name] AS Category, BranchID
+SELECT dbo.Equipment.[ID], dbo.Equipment.[Name], dbo.Equipment.[Status], dbo.Branch.[Name] AS BranchName, dbo.EquipmentCategory.[Name] AS Category, EquipmentCategory.ID AS CategoryID, BranchID, Price
 FROM dbo.Equipment JOIN dbo.Branch ON Branch.ID = Equipment.BranchID
 				   JOIN dbo.EquipmentCategory ON EquipmentCategory.ID = Equipment.CategoryID
 WHERE dbo.Equipment.[Status] = 'available'
-GO
+GO 
 --Xem danh sách BMI
 CREATE VIEW V_BMIList AS
 SELECT BMI.ID, BMI.Status, BMI.Weight, BMI.Height, BMI.Date, MemberID,Member.Name, Member.PhoneNumber
@@ -1174,8 +1173,6 @@ CREATE PROCEDURE PROC_UserInfo
 AS 
 	SELECT Employee.[Name], dbo.Employee.[ID] AS EmployeeID, [Password], [UserName], Branch.[ID], Branch.[Name] AS  BranchName, [Role] FROM Employee JOIN Branch ON Employee.BranchID = Branch.ID 
 	WHERE UserName = @UserName
-
-
 GO
 --View Xem nhân viên
 CREATE VIEW V_EmployeeList
@@ -1604,8 +1601,8 @@ CREATE PROCEDURE PROC_AddWorkout
     @ID CHAR(6),
     @Name NVARCHAR(50),
     @Type VARCHAR(50),
-    @Description VARCHAR,
-    @Duration CHAR
+    @Description NTEXT,
+    @Duration INT
 AS
 BEGIN
 	IF EXISTS (SELECT * FROM WorkOut WHERE [Name] = @Name)
@@ -1632,8 +1629,8 @@ CREATE PROCEDURE PROC_UpdateWorkout
 	@ID char(6),
     @Name NVARCHAR(50),
     @Type VARCHAR(50),
-    @Description VARCHAR,
-    @Duration CHAR
+    @Description NTEXT,
+    @Duration INT
 AS
 BEGIN
 		UPDATE WorkOut
@@ -1686,4 +1683,101 @@ AS
 	RIGHT JOIN TimeSlot 
 	ON (TimeSlot.StartTime <= TnPlan.Time AND TimeSlot.EndTime > TnPlan.Time) OR TnPlan.Time IS NULL 
 		
+
+
+GO
+--View category
+CREATE VIEW V_CategoryList
+AS
+SELECT *FROM EquipmentCategory
+
+SELECT *FROM Equipment
+
+
+Go
+--Thêm Equipment
+CREATE PROCEDURE PROC_AddEquipment
+    @ID CHAR(6),
+    @Name NVARCHAR(50),
+    @Status NVARCHAR(50),
+	@Price NVARCHAR(50),
+	@BranchID CHAR(6),
+	@CategoryID CHAR(6)
+AS
+BEGIN
+	DECLARE @TruePrice MONEY
+	BEGIN TRY
+		SET @TruePrice = CAST(@Price AS MONEY)
+	END TRY
+	BEGIN CATCH
+		RAISERROR ('Price không hợp lệ',16,1)
+		RETURN
+	END CATCH
+	BEGIN TRY
+		INSERT INTO Equipment(ID, Name, Status, Price, BranchID, CategoryID)
+			VALUES (@ID, @Name, @Status, @Price, @BranchID, @CategoryID);
+	END TRY
+	BEGIN CATCH
+		RAISERROR ('Thêm thất bại',16,1)
+		RETURN
+	END CATCH
+END
+GO
+
+--Cập nhật Equipment
+CREATE PROCEDURE PROC_UpdateEquipment
+    @ID CHAR(6),
+    @Name NVARCHAR(50),
+    @Status NVARCHAR(50),
+	@Price NVARCHAR(50),
+	@BranchID CHAR(6),
+	@CategoryID CHAR(6)
+AS
+BEGIN
+	DECLARE @TruePrice MONEY
+	BEGIN TRY
+		SET @TruePrice = CAST(@Price AS MONEY)
+	END TRY
+	BEGIN CATCH
+		RAISERROR ('Price không hợp lệ',16,1)
+		RETURN
+	END CATCH
+	BEGIN TRY
+		UPDATE Equipment
+		SET  
+			Name = @Name,
+			Status = @Status,
+			Price = @Price,
+			BranchID = @BranchID,
+			CategoryID = @CategoryID
+		WHERE 
+			ID = @ID 
+	END TRY
+	BEGIN CATCH
+		RAISERROR ('Cập nhật thất bại',16,1)
+		RETURN
+	END CATCH
+END
+
+
+Go
+-- Xóa Equipment
+CREATE PROCEDURE PROC_DeleteEquipment
+    @ID CHAR(6)
+AS
+BEGIN
+	IF NOT EXISTS (SELECT * FROM Equipment WHERE ID = @ID)
+	BEGIN
+		RAISERROR ('Thiết bị không tồn tại',16,1)
+		RETURN
+	END
+	BEGIN TRY
+	DELETE Equipment
+		WHERE 
+			ID = @ID
+	END TRY
+	BEGIN CATCH
+		RAISERROR ('Xóa thất bại',16,1)
+	END CATCH
+END
 

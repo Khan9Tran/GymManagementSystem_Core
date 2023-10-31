@@ -117,7 +117,7 @@ namespace GymManagementSystem
 
         private void itemEquipment_Click(object sender, EventArgs e)
         {
-
+            StackForm.HomeUser.ChildForm.Open(new FEquipmentManagement());
         }
 
         private void itemMaintenance_Click(object sender, EventArgs e)
