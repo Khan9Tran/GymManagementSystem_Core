@@ -65,6 +65,7 @@
             this.gvMaintenance = new System.Windows.Forms.DataGridView();
             this.btnFilter = new GymManagementSystem.RJButton();
             this.rjFlowLayoutPanel2 = new GymManagementSystem.RJFlowLayoutPanel();
+            this.usMenuBar1 = new GymManagementSystem.USMenuBar();
             this.rjPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvEquipment)).BeginInit();
             this.rjPanel8.SuspendLayout();
@@ -90,9 +91,9 @@
             this.rjPanel1.BorderSize = 0;
             this.rjPanel1.Controls.Add(this.gvEquipment);
             this.rjPanel1.ForeColor = System.Drawing.Color.Black;
-            this.rjPanel1.Location = new System.Drawing.Point(84, 165);
+            this.rjPanel1.Location = new System.Drawing.Point(87, 255);
             this.rjPanel1.Name = "rjPanel1";
-            this.rjPanel1.Size = new System.Drawing.Size(697, 807);
+            this.rjPanel1.Size = new System.Drawing.Size(697, 762);
             this.rjPanel1.TabIndex = 0;
             // 
             // gvEquipment
@@ -124,14 +125,14 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.gvEquipment.DefaultCellStyle = dataGridViewCellStyle3;
-            this.gvEquipment.Location = new System.Drawing.Point(3, 0);
+            this.gvEquipment.Location = new System.Drawing.Point(3, 3);
             this.gvEquipment.Name = "gvEquipment";
             this.gvEquipment.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.gvEquipment.RowHeadersVisible = false;
             this.gvEquipment.RowHeadersWidth = 51;
             this.gvEquipment.RowTemplate.Height = 29;
             this.gvEquipment.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gvEquipment.Size = new System.Drawing.Size(691, 784);
+            this.gvEquipment.Size = new System.Drawing.Size(691, 715);
             this.gvEquipment.TabIndex = 2;
             this.gvEquipment.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvEquipment_CellClick);
             // 
@@ -145,7 +146,7 @@
             this.rjPanel8.Controls.Add(this.txtSearch);
             this.rjPanel8.Controls.Add(this.textBox3);
             this.rjPanel8.ForeColor = System.Drawing.Color.White;
-            this.rjPanel8.Location = new System.Drawing.Point(302, 80);
+            this.rjPanel8.Location = new System.Drawing.Point(302, 165);
             this.rjPanel8.Name = "rjPanel8";
             this.rjPanel8.Size = new System.Drawing.Size(326, 66);
             this.rjPanel8.TabIndex = 18;
@@ -198,7 +199,7 @@
             this.rjFlowLayoutPanel3.BorderSize = 0;
             this.rjFlowLayoutPanel3.Controls.Add(this.btnReport);
             this.rjFlowLayoutPanel3.ForeColor = System.Drawing.Color.White;
-            this.rjFlowLayoutPanel3.Location = new System.Drawing.Point(638, 80);
+            this.rjFlowLayoutPanel3.Location = new System.Drawing.Point(638, 165);
             this.rjFlowLayoutPanel3.Name = "rjFlowLayoutPanel3";
             this.rjFlowLayoutPanel3.Size = new System.Drawing.Size(143, 66);
             this.rjFlowLayoutPanel3.TabIndex = 19;
@@ -249,9 +250,9 @@
             this.pnlLoadData.Controls.Add(this.rjFlowLayoutPanel1);
             this.pnlLoadData.Controls.Add(this.rjPanel3);
             this.pnlLoadData.ForeColor = System.Drawing.Color.DimGray;
-            this.pnlLoadData.Location = new System.Drawing.Point(803, 75);
+            this.pnlLoadData.Location = new System.Drawing.Point(802, 165);
             this.pnlLoadData.Name = "pnlLoadData";
-            this.pnlLoadData.Size = new System.Drawing.Size(953, 897);
+            this.pnlLoadData.Size = new System.Drawing.Size(953, 852);
             this.pnlLoadData.TabIndex = 23;
             // 
             // rjPanel2
@@ -489,7 +490,7 @@
             this.rjPanel3.ForeColor = System.Drawing.Color.DimGray;
             this.rjPanel3.Location = new System.Drawing.Point(15, 198);
             this.rjPanel3.Name = "rjPanel3";
-            this.rjPanel3.Size = new System.Drawing.Size(920, 665);
+            this.rjPanel3.Size = new System.Drawing.Size(920, 627);
             this.rjPanel3.TabIndex = 0;
             // 
             // gvMaintenance
@@ -528,7 +529,7 @@
             this.gvMaintenance.RowHeadersWidth = 51;
             this.gvMaintenance.RowTemplate.Height = 29;
             this.gvMaintenance.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gvMaintenance.Size = new System.Drawing.Size(914, 633);
+            this.gvMaintenance.Size = new System.Drawing.Size(914, 607);
             this.gvMaintenance.TabIndex = 3;
             // 
             // btnFilter
@@ -557,10 +558,19 @@
             this.rjFlowLayoutPanel2.Controls.Add(this.btnAll);
             this.rjFlowLayoutPanel2.Controls.Add(this.btnFilter);
             this.rjFlowLayoutPanel2.ForeColor = System.Drawing.Color.White;
-            this.rjFlowLayoutPanel2.Location = new System.Drawing.Point(84, 80);
+            this.rjFlowLayoutPanel2.Location = new System.Drawing.Point(90, 165);
             this.rjFlowLayoutPanel2.Name = "rjFlowLayoutPanel2";
             this.rjFlowLayoutPanel2.Size = new System.Drawing.Size(206, 66);
             this.rjFlowLayoutPanel2.TabIndex = 20;
+            // 
+            // usMenuBar1
+            // 
+            this.usMenuBar1.AutoScroll = true;
+            this.usMenuBar1.BackColor = System.Drawing.Color.Transparent;
+            this.usMenuBar1.Location = new System.Drawing.Point(90, 78);
+            this.usMenuBar1.Name = "usMenuBar1";
+            this.usMenuBar1.Size = new System.Drawing.Size(1665, 81);
+            this.usMenuBar1.TabIndex = 24;
             // 
             // FEquipmentMaintenance
             // 
@@ -568,6 +578,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1820, 1080);
+            this.Controls.Add(this.usMenuBar1);
             this.Controls.Add(this.pnlLoadData);
             this.Controls.Add(this.rjFlowLayoutPanel2);
             this.Controls.Add(this.rjFlowLayoutPanel3);
@@ -636,5 +647,6 @@
         private Label lblCost;
         private Label label1;
         private RJButton txtNewEquip;
+        private USMenuBar usMenuBar1;
     }
 }

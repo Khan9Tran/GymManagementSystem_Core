@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.rjPanel1 = new GymManagementSystem.RJPanel();
             this.gvMember = new System.Windows.Forms.DataGridView();
             this.rjPanel4 = new GymManagementSystem.RJPanel();
@@ -59,8 +59,6 @@
             this.rjPanel17 = new GymManagementSystem.RJPanel();
             this.lblStatus = new System.Windows.Forms.Label();
             this.btnBMI = new GymManagementSystem.RJButton();
-            this.rjFlowLayoutPanel1 = new GymManagementSystem.RJFlowLayoutPanel();
-            this.btnMembership = new GymManagementSystem.RJButton();
             this.rjFlowLayoutPanel2 = new GymManagementSystem.RJFlowLayoutPanel();
             this.btnInsert = new GymManagementSystem.RJButton();
             this.btnEdit = new GymManagementSystem.RJButton();
@@ -85,6 +83,7 @@
             this.ID = new System.Windows.Forms.Label();
             this.lblPackage = new System.Windows.Forms.Label();
             this.lblCard = new System.Windows.Forms.Label();
+            this.usMenuBar1 = new GymManagementSystem.USMenuBar();
             this.rjPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvMember)).BeginInit();
             this.rjPanel4.SuspendLayout();
@@ -101,7 +100,6 @@
             this.rjPanel19.SuspendLayout();
             this.rjPanel18.SuspendLayout();
             this.rjPanel17.SuspendLayout();
-            this.rjFlowLayoutPanel1.SuspendLayout();
             this.rjFlowLayoutPanel2.SuspendLayout();
             this.rjFlowLayoutPanel3.SuspendLayout();
             this.rjPanel2.SuspendLayout();
@@ -131,29 +129,29 @@
             this.gvMember.AllowUserToDeleteRows = false;
             this.gvMember.AllowUserToResizeColumns = false;
             this.gvMember.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.gvMember.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.gvMember.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.gvMember.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gvMember.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.gvMember.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gvMember.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gvMember.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.gvMember.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.gvMember.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gvMember.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gvMember.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gvMember.DefaultCellStyle = dataGridViewCellStyle3;
             this.gvMember.Location = new System.Drawing.Point(0, 0);
             this.gvMember.Name = "gvMember";
             this.gvMember.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -498,35 +496,6 @@
             this.btnBMI.UseVisualStyleBackColor = false;
             this.btnBMI.Click += new System.EventHandler(this.btnBMI_Click);
             // 
-            // rjFlowLayoutPanel1
-            // 
-            this.rjFlowLayoutPanel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.rjFlowLayoutPanel1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjFlowLayoutPanel1.BorderRadius = 40;
-            this.rjFlowLayoutPanel1.BorderSize = 0;
-            this.rjFlowLayoutPanel1.Controls.Add(this.btnMembership);
-            this.rjFlowLayoutPanel1.ForeColor = System.Drawing.Color.White;
-            this.rjFlowLayoutPanel1.Location = new System.Drawing.Point(75, 60);
-            this.rjFlowLayoutPanel1.Name = "rjFlowLayoutPanel1";
-            this.rjFlowLayoutPanel1.Size = new System.Drawing.Size(934, 56);
-            this.rjFlowLayoutPanel1.TabIndex = 4;
-            // 
-            // btnMembership
-            // 
-            this.btnMembership.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
-            this.btnMembership.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnMembership.BorderRadius = 40;
-            this.btnMembership.BorderSize = 0;
-            this.btnMembership.FlatAppearance.BorderSize = 0;
-            this.btnMembership.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMembership.ForeColor = System.Drawing.Color.White;
-            this.btnMembership.Location = new System.Drawing.Point(3, 3);
-            this.btnMembership.Name = "btnMembership";
-            this.btnMembership.Size = new System.Drawing.Size(188, 50);
-            this.btnMembership.TabIndex = 0;
-            this.btnMembership.Text = "Membership";
-            this.btnMembership.UseVisualStyleBackColor = false;
-            // 
             // rjFlowLayoutPanel2
             // 
             this.rjFlowLayoutPanel2.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -869,19 +838,28 @@
             this.lblCard.TabIndex = 4;
             this.lblCard.Text = "Card";
             // 
+            // usMenuBar1
+            // 
+            this.usMenuBar1.AutoScroll = true;
+            this.usMenuBar1.BackColor = System.Drawing.Color.Transparent;
+            this.usMenuBar1.Location = new System.Drawing.Point(82, 39);
+            this.usMenuBar1.Name = "usMenuBar1";
+            this.usMenuBar1.Size = new System.Drawing.Size(1261, 77);
+            this.usMenuBar1.TabIndex = 7;
+            // 
             // FMemberManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1820, 1080);
+            this.Controls.Add(this.usMenuBar1);
             this.Controls.Add(this.lblCard);
             this.Controls.Add(this.rjPanel3);
             this.Controls.Add(this.rjPanel2);
             this.Controls.Add(this.rjFlowLayoutPanel3);
             this.Controls.Add(this.rjFlowLayoutPanel2);
             this.Controls.Add(this.ptcRank);
-            this.Controls.Add(this.rjFlowLayoutPanel1);
             this.Controls.Add(this.rjPanel5);
             this.Controls.Add(this.rjPanel4);
             this.Controls.Add(this.rjPanel1);
@@ -915,7 +893,6 @@
             this.rjPanel18.PerformLayout();
             this.rjPanel17.ResumeLayout(false);
             this.rjPanel17.PerformLayout();
-            this.rjFlowLayoutPanel1.ResumeLayout(false);
             this.rjFlowLayoutPanel2.ResumeLayout(false);
             this.rjFlowLayoutPanel3.ResumeLayout(false);
             this.rjPanel2.ResumeLayout(false);
@@ -939,8 +916,6 @@
         private RJPanel rjPanel1;
         private RJPanel rjPanel4;
         private RJPanel rjPanel5;
-        private RJFlowLayoutPanel rjFlowLayoutPanel1;
-        private RJButton btnMembership;
         private RJFlowLayoutPanel rjFlowLayoutPanel2;
         private RJButton btnInsert;
         private RJFlowLayoutPanel rjFlowLayoutPanel3;
@@ -990,5 +965,6 @@
         private Label lblStatus;
         private Label lblCard;
         private Label ID;
+        private USMenuBar usMenuBar1;
     }
 }

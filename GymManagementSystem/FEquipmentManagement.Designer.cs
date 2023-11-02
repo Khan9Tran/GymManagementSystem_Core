@@ -72,6 +72,7 @@
             this.btnSearch = new GymManagementSystem.RJButton();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.usMenuBar1 = new GymManagementSystem.USMenuBar();
             this.rjFlowLayoutPanel2.SuspendLayout();
             this.rjFlowLayoutPanel3.SuspendLayout();
             this.rjPanel1.SuspendLayout();
@@ -667,11 +668,21 @@
             this.textBox3.Size = new System.Drawing.Size(272, 29);
             this.textBox3.TabIndex = 0;
             // 
+            // usMenuBar1
+            // 
+            this.usMenuBar1.AutoScroll = true;
+            this.usMenuBar1.BackColor = System.Drawing.Color.Transparent;
+            this.usMenuBar1.Location = new System.Drawing.Point(414, 67);
+            this.usMenuBar1.Name = "usMenuBar1";
+            this.usMenuBar1.Size = new System.Drawing.Size(1011, 83);
+            this.usMenuBar1.TabIndex = 27;
+            // 
             // FEquipmentManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1820, 1080);
+            this.Controls.Add(this.usMenuBar1);
             this.Controls.Add(this.rjPanel8);
             this.Controls.Add(this.pnlInfo);
             this.Controls.Add(this.rjFlowLayoutPanel2);
@@ -758,5 +769,6 @@
         private RJButton btnSearch;
         private TextBox txtSearch;
         private TextBox textBox3;
+        private USMenuBar usMenuBar1;
     }
 }
