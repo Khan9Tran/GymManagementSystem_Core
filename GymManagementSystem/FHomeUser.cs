@@ -21,7 +21,7 @@ namespace GymManagementSystem
             InitializeComponent();
             childForm = new OpenChildForm(pnlLoad);
             StackForm.HomeUser = this;
-            childForm.Open(new FHomeUserMenu());
+            StackForm.HomeUser.ChildForm.Open(new FHomeUserMenu());
         }
 
         internal OpenChildForm ChildForm { get => childForm; set => childForm = value; }
@@ -124,13 +124,16 @@ namespace GymManagementSystem
 
         private void itemEquipment_Click(object sender, EventArgs e)
         {
-            StackForm.HomeUser.ChildForm.Open(new FEquipmentManagement());
+            if (Employee.Role == 0)
+            {
+                MessageBox.Show("Không có quyền truy cập");
+            }
+            else
+            {
+                StackForm.HomeUser.ChildForm.Open(new FEquipmentManagement());
+            }
         }
 
-        private void itemMaintenance_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnAccount_Click(object sender, EventArgs e)
         {

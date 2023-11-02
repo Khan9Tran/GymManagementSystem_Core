@@ -363,6 +363,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FHomeUserMenu";
             this.Text = "FHomeUserMenu";
+            this.Load += new System.EventHandler(this.FHomeUserMenu_Load);
             this.flpnlLoadMember.ResumeLayout(false);
             this.flpnlMember.ResumeLayout(false);
             this.flpnlMember.PerformLayout();

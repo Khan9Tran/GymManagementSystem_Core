@@ -88,5 +88,10 @@ namespace GymManagementSystem
         {
             StackForm.HomeUser.ChildForm.Open(new FCreateMember());
         }
+
+        private void FHomeUserMenu_Load(object sender, EventArgs e)
+        {
+            lblBranch.Text = Employee.BranchName;
+        }
     }
 }

@@ -13,8 +13,8 @@ namespace GymManagementSystem.Models
         static string password = "";
         static string name = "";
         static int role = 1;
-        static string branchName = null;
-        static string branchID = null;
+        static string branchName;
+        static string branchID;
         public static string UserID { get => userID; set => userID = value; }
         public static string UserName { get => userName; set => userName = value; }
         public static string Password { get => password; set => password = value; }
