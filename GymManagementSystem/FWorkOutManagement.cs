@@ -161,10 +161,40 @@ namespace GymManagementSystem
         private void ptcImageWO_Click(object sender, EventArgs e)
         {
             toolForPicture.AddPicture(ofdPic, ptcImageWO);
-            if (ptcImageWO.Image != null )
+            if (ptcImageWO.Image != null)
             {
                 toolForPicture.SavePicture(gvWorkOut.CurrentRow.Cells["ID"].Value.ToString(), ofdPic, ptcImageWO);
             }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            gvWorkOut.DataSource = FindWorkout(txtSearch.Text);
+        }
+
+        private DataTable FindWorkout(string content)
+        {
+            DBConnection connection = new DBConnection();
+            string query = "SELECT * FROM dbo.FUNC_FindWorkout(@Content)";
+            DataTable dataTable = new DataTable();
+            connection.openConnection();
+            try
+            {
+                SqlCommand command = new SqlCommand(query, connection.GetConnection());
+                command.Parameters.AddWithValue("@Content", content);
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                adapter.Fill(dataTable);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                connection.closeConnection();
+            }
+            return dataTable;
         }
     }
 }
