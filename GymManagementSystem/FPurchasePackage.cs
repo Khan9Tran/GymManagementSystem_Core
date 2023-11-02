@@ -20,7 +20,7 @@ namespace GymManagementSystem
     {
         private static FPurchasePackage instance;
         private string paymentID = RandomIDGenerator.GenerateRandomID("Payment", "PM");
-        private string branchID = "BR0001";
+        private string branchID = Employee.BranchID;
         private string employeeID = Employee.UserID;
 
         private string memberID;
