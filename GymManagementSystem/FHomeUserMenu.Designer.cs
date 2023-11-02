@@ -28,361 +28,363 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.rjFlowLayoutPanel1 = new GymManagementSystem.RJFlowLayoutPanel();
-            this.flpnlLoadMember = new GymManagementSystem.RJFlowLayoutPanel();
-            this.flpnlMember = new System.Windows.Forms.FlowLayoutPanel();
-            this.ptcMember = new System.Windows.Forms.PictureBox();
-            this.lblMember = new System.Windows.Forms.Label();
-            this.rjFlowLayoutPanel3 = new GymManagementSystem.RJFlowLayoutPanel();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.rjFlowLayoutPanel4 = new GymManagementSystem.RJFlowLayoutPanel();
-            this.fpnlLoadNewChedule = new GymManagementSystem.RJFlowLayoutPanel();
-            this.fpnlNewSchedule = new System.Windows.Forms.FlowLayoutPanel();
-            this.ptcNewSchedule = new System.Windows.Forms.PictureBox();
-            this.lblNewSchedule = new System.Windows.Forms.Label();
-            this.rjFlowLayoutPanel6 = new GymManagementSystem.RJFlowLayoutPanel();
-            this.fpnlLoadViewShcedule = new GymManagementSystem.RJFlowLayoutPanel();
-            this.fpnlViewSchedule = new System.Windows.Forms.FlowLayoutPanel();
-            this.ptcViewSchedule = new System.Windows.Forms.PictureBox();
-            this.lblViewSchedule = new System.Windows.Forms.Label();
-            this.rjFlowLayoutPanel8 = new GymManagementSystem.RJFlowLayoutPanel();
-            this.lblBranch = new System.Windows.Forms.Label();
-            this.rjPanel1 = new GymManagementSystem.RJPanel();
-            this.flpnlLoadMember.SuspendLayout();
-            this.flpnlMember.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptcMember)).BeginInit();
-            this.rjFlowLayoutPanel3.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.fpnlLoadNewChedule.SuspendLayout();
-            this.fpnlNewSchedule.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptcNewSchedule)).BeginInit();
-            this.fpnlLoadViewShcedule.SuspendLayout();
-            this.fpnlViewSchedule.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptcViewSchedule)).BeginInit();
-            this.rjPanel1.SuspendLayout();
-            this.SuspendLayout();
+            rjFlowLayoutPanel1 = new RJFlowLayoutPanel();
+            flpnlLoadMember = new RJFlowLayoutPanel();
+            flpnlMember = new FlowLayoutPanel();
+            ptcMember = new PictureBox();
+            lblMember = new Label();
+            rjFlowLayoutPanel3 = new RJFlowLayoutPanel();
+            flowLayoutPanel2 = new FlowLayoutPanel();
+            pictureBox2 = new PictureBox();
+            label2 = new Label();
+            rjFlowLayoutPanel4 = new RJFlowLayoutPanel();
+            fpnlLoadNewChedule = new RJFlowLayoutPanel();
+            fpnlNewSchedule = new FlowLayoutPanel();
+            ptcNewSchedule = new PictureBox();
+            lblNewSchedule = new Label();
+            rjFlowLayoutPanel6 = new RJFlowLayoutPanel();
+            fpnlLoadViewShcedule = new RJFlowLayoutPanel();
+            fpnlViewSchedule = new FlowLayoutPanel();
+            ptcViewSchedule = new PictureBox();
+            lblViewSchedule = new Label();
+            rjFlowLayoutPanel8 = new RJFlowLayoutPanel();
+            lblBranch = new Label();
+            rjPanel1 = new RJPanel();
+            flpnlLoadMember.SuspendLayout();
+            flpnlMember.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ptcMember).BeginInit();
+            rjFlowLayoutPanel3.SuspendLayout();
+            flowLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            fpnlLoadNewChedule.SuspendLayout();
+            fpnlNewSchedule.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ptcNewSchedule).BeginInit();
+            fpnlLoadViewShcedule.SuspendLayout();
+            fpnlViewSchedule.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ptcViewSchedule).BeginInit();
+            rjPanel1.SuspendLayout();
+            SuspendLayout();
             // 
             // rjFlowLayoutPanel1
             // 
-            this.rjFlowLayoutPanel1.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjFlowLayoutPanel1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjFlowLayoutPanel1.BorderRadius = 40;
-            this.rjFlowLayoutPanel1.BorderSize = 0;
-            this.rjFlowLayoutPanel1.ForeColor = System.Drawing.Color.White;
-            this.rjFlowLayoutPanel1.Location = new System.Drawing.Point(225, 190);
-            this.rjFlowLayoutPanel1.Name = "rjFlowLayoutPanel1";
-            this.rjFlowLayoutPanel1.Size = new System.Drawing.Size(0, 0);
-            this.rjFlowLayoutPanel1.TabIndex = 0;
+            rjFlowLayoutPanel1.BackColor = Color.MediumSlateBlue;
+            rjFlowLayoutPanel1.BorderColor = Color.PaleVioletRed;
+            rjFlowLayoutPanel1.BorderRadius = 40;
+            rjFlowLayoutPanel1.BorderSize = 0;
+            rjFlowLayoutPanel1.ForeColor = Color.White;
+            rjFlowLayoutPanel1.Location = new Point(225, 190);
+            rjFlowLayoutPanel1.Name = "rjFlowLayoutPanel1";
+            rjFlowLayoutPanel1.Size = new Size(0, 0);
+            rjFlowLayoutPanel1.TabIndex = 0;
             // 
             // flpnlLoadMember
             // 
-            this.flpnlLoadMember.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.flpnlLoadMember.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.flpnlLoadMember.BorderRadius = 40;
-            this.flpnlLoadMember.BorderSize = 0;
-            this.flpnlLoadMember.Controls.Add(this.flpnlMember);
-            this.flpnlLoadMember.ForeColor = System.Drawing.Color.White;
-            this.flpnlLoadMember.Location = new System.Drawing.Point(280, 170);
-            this.flpnlLoadMember.Name = "flpnlLoadMember";
-            this.flpnlLoadMember.Size = new System.Drawing.Size(600, 350);
-            this.flpnlLoadMember.TabIndex = 1;
-            this.flpnlLoadMember.Click += new System.EventHandler(this.flpnlLoadMember_Click);
+            flpnlLoadMember.BackColor = Color.WhiteSmoke;
+            flpnlLoadMember.BorderColor = Color.PaleVioletRed;
+            flpnlLoadMember.BorderRadius = 40;
+            flpnlLoadMember.BorderSize = 0;
+            flpnlLoadMember.Controls.Add(flpnlMember);
+            flpnlLoadMember.ForeColor = Color.White;
+            flpnlLoadMember.Location = new Point(280, 170);
+            flpnlLoadMember.Name = "flpnlLoadMember";
+            flpnlLoadMember.Size = new Size(600, 350);
+            flpnlLoadMember.TabIndex = 1;
             // 
             // flpnlMember
             // 
-            this.flpnlMember.Controls.Add(this.ptcMember);
-            this.flpnlMember.Controls.Add(this.lblMember);
-            this.flpnlMember.Location = new System.Drawing.Point(50, 3);
-            this.flpnlMember.Margin = new System.Windows.Forms.Padding(50, 3, 50, 3);
-            this.flpnlMember.Name = "flpnlMember";
-            this.flpnlMember.Size = new System.Drawing.Size(500, 344);
-            this.flpnlMember.TabIndex = 0;
-            this.flpnlMember.Click += new System.EventHandler(this.flpnlMember_Click);
+            flpnlMember.Controls.Add(ptcMember);
+            flpnlMember.Controls.Add(lblMember);
+            flpnlMember.Cursor = Cursors.Hand;
+            flpnlMember.Location = new Point(5, 5);
+            flpnlMember.Margin = new Padding(5);
+            flpnlMember.Name = "flpnlMember";
+            flpnlMember.Size = new Size(590, 340);
+            flpnlMember.TabIndex = 0;
+            flpnlMember.Click += fpnlRegisterMenber_Click;
             // 
             // ptcMember
             // 
-            this.ptcMember.BackColor = System.Drawing.Color.Transparent;
-            this.ptcMember.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ptcMember.Image = global::GymManagementSystem.Properties.Resources.member_card;
-            this.ptcMember.Location = new System.Drawing.Point(150, 20);
-            this.ptcMember.Margin = new System.Windows.Forms.Padding(150, 20, 150, 20);
-            this.ptcMember.Name = "ptcMember";
-            this.ptcMember.Size = new System.Drawing.Size(200, 200);
-            this.ptcMember.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptcMember.TabIndex = 0;
-            this.ptcMember.TabStop = false;
-            this.ptcMember.Click += new System.EventHandler(this.ptcMember_Click);
+            ptcMember.BackColor = Color.Transparent;
+            ptcMember.BackgroundImageLayout = ImageLayout.Center;
+            ptcMember.Image = Properties.Resources.member_card;
+            ptcMember.Location = new Point(195, 20);
+            ptcMember.Margin = new Padding(195, 20, 195, 20);
+            ptcMember.Name = "ptcMember";
+            ptcMember.Size = new Size(200, 200);
+            ptcMember.SizeMode = PictureBoxSizeMode.StretchImage;
+            ptcMember.TabIndex = 0;
+            ptcMember.TabStop = false;
+            ptcMember.Click += fpnlRegisterMenber_Click;
             // 
             // lblMember
             // 
-            this.lblMember.AutoSize = true;
-            this.lblMember.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblMember.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(41)))), ((int)(((byte)(55)))));
-            this.lblMember.Location = new System.Drawing.Point(59, 240);
-            this.lblMember.Margin = new System.Windows.Forms.Padding(59, 0, 59, 0);
-            this.lblMember.Name = "lblMember";
-            this.lblMember.Size = new System.Drawing.Size(372, 59);
-            this.lblMember.TabIndex = 1;
-            this.lblMember.Text = "Register Member";
-            this.lblMember.Click += new System.EventHandler(this.lblMember_Click);
+            lblMember.AutoSize = true;
+            lblMember.Font = new Font("Segoe UI", 25.8F, FontStyle.Bold, GraphicsUnit.Point);
+            lblMember.ForeColor = Color.FromArgb(59, 41, 55);
+            lblMember.Location = new Point(109, 240);
+            lblMember.Margin = new Padding(109, 0, 109, 0);
+            lblMember.Name = "lblMember";
+            lblMember.Size = new Size(372, 59);
+            lblMember.TabIndex = 1;
+            lblMember.Text = "Register Member";
+            lblMember.Click += fpnlRegisterMenber_Click;
             // 
             // rjFlowLayoutPanel3
             // 
-            this.rjFlowLayoutPanel3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.rjFlowLayoutPanel3.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjFlowLayoutPanel3.BorderRadius = 40;
-            this.rjFlowLayoutPanel3.BorderSize = 0;
-            this.rjFlowLayoutPanel3.Controls.Add(this.flowLayoutPanel2);
-            this.rjFlowLayoutPanel3.ForeColor = System.Drawing.Color.White;
-            this.rjFlowLayoutPanel3.Location = new System.Drawing.Point(280, 589);
-            this.rjFlowLayoutPanel3.Name = "rjFlowLayoutPanel3";
-            this.rjFlowLayoutPanel3.Size = new System.Drawing.Size(600, 350);
-            this.rjFlowLayoutPanel3.TabIndex = 3;
+            rjFlowLayoutPanel3.BackColor = Color.WhiteSmoke;
+            rjFlowLayoutPanel3.BorderColor = Color.PaleVioletRed;
+            rjFlowLayoutPanel3.BorderRadius = 40;
+            rjFlowLayoutPanel3.BorderSize = 0;
+            rjFlowLayoutPanel3.Controls.Add(flowLayoutPanel2);
+            rjFlowLayoutPanel3.ForeColor = Color.White;
+            rjFlowLayoutPanel3.Location = new Point(280, 589);
+            rjFlowLayoutPanel3.Name = "rjFlowLayoutPanel3";
+            rjFlowLayoutPanel3.Size = new Size(600, 350);
+            rjFlowLayoutPanel3.TabIndex = 3;
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Controls.Add(this.pictureBox2);
-            this.flowLayoutPanel2.Controls.Add(this.label2);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(50, 3);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(50, 3, 50, 3);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(500, 344);
-            this.flowLayoutPanel2.TabIndex = 0;
+            flowLayoutPanel2.Controls.Add(pictureBox2);
+            flowLayoutPanel2.Controls.Add(label2);
+            flowLayoutPanel2.Cursor = Cursors.Hand;
+            flowLayoutPanel2.Location = new Point(5, 5);
+            flowLayoutPanel2.Margin = new Padding(5);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.Size = new Size(590, 340);
+            flowLayoutPanel2.TabIndex = 0;
+            flowLayoutPanel2.Click += fpnlPurshasePackage_Click;
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox2.Image = global::GymManagementSystem.Properties.Resources.member_card;
-            this.pictureBox2.Location = new System.Drawing.Point(150, 20);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(150, 20, 150, 20);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(200, 200);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            pictureBox2.BackColor = Color.Transparent;
+            pictureBox2.BackgroundImageLayout = ImageLayout.Center;
+            pictureBox2.Image = Properties.Resources.member_card;
+            pictureBox2.Location = new Point(195, 20);
+            pictureBox2.Margin = new Padding(195, 20, 195, 20);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(200, 200);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 0;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += fpnlPurshasePackage_Click;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(41)))), ((int)(((byte)(55)))));
-            this.label2.Location = new System.Drawing.Point(53, 240);
-            this.label2.Margin = new System.Windows.Forms.Padding(53, 0, 53, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(384, 59);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Purchase Package";
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 25.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = Color.FromArgb(59, 41, 55);
+            label2.Location = new Point(103, 240);
+            label2.Margin = new Padding(103, 0, 103, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(384, 59);
+            label2.TabIndex = 1;
+            label2.Text = "Purchase Package";
+            label2.Click += fpnlPurshasePackage_Click;
             // 
             // rjFlowLayoutPanel4
             // 
-            this.rjFlowLayoutPanel4.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjFlowLayoutPanel4.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjFlowLayoutPanel4.BorderRadius = 40;
-            this.rjFlowLayoutPanel4.BorderSize = 0;
-            this.rjFlowLayoutPanel4.ForeColor = System.Drawing.Color.White;
-            this.rjFlowLayoutPanel4.Location = new System.Drawing.Point(225, 679);
-            this.rjFlowLayoutPanel4.Name = "rjFlowLayoutPanel4";
-            this.rjFlowLayoutPanel4.Size = new System.Drawing.Size(0, 0);
-            this.rjFlowLayoutPanel4.TabIndex = 2;
+            rjFlowLayoutPanel4.BackColor = Color.MediumSlateBlue;
+            rjFlowLayoutPanel4.BorderColor = Color.PaleVioletRed;
+            rjFlowLayoutPanel4.BorderRadius = 40;
+            rjFlowLayoutPanel4.BorderSize = 0;
+            rjFlowLayoutPanel4.ForeColor = Color.White;
+            rjFlowLayoutPanel4.Location = new Point(225, 679);
+            rjFlowLayoutPanel4.Name = "rjFlowLayoutPanel4";
+            rjFlowLayoutPanel4.Size = new Size(0, 0);
+            rjFlowLayoutPanel4.TabIndex = 2;
             // 
             // fpnlLoadNewChedule
             // 
-            this.fpnlLoadNewChedule.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.fpnlLoadNewChedule.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.fpnlLoadNewChedule.BorderRadius = 40;
-            this.fpnlLoadNewChedule.BorderSize = 0;
-            this.fpnlLoadNewChedule.Controls.Add(this.fpnlNewSchedule);
-            this.fpnlLoadNewChedule.ForeColor = System.Drawing.Color.White;
-            this.fpnlLoadNewChedule.Location = new System.Drawing.Point(980, 170);
-            this.fpnlLoadNewChedule.Name = "fpnlLoadNewChedule";
-            this.fpnlLoadNewChedule.Size = new System.Drawing.Size(600, 350);
-            this.fpnlLoadNewChedule.TabIndex = 5;
-            this.fpnlLoadNewChedule.Click += new System.EventHandler(this.fpnlLoadNewChedule_Click);
+            fpnlLoadNewChedule.BackColor = Color.WhiteSmoke;
+            fpnlLoadNewChedule.BorderColor = Color.PaleVioletRed;
+            fpnlLoadNewChedule.BorderRadius = 40;
+            fpnlLoadNewChedule.BorderSize = 0;
+            fpnlLoadNewChedule.Controls.Add(fpnlNewSchedule);
+            fpnlLoadNewChedule.ForeColor = Color.White;
+            fpnlLoadNewChedule.Location = new Point(980, 170);
+            fpnlLoadNewChedule.Name = "fpnlLoadNewChedule";
+            fpnlLoadNewChedule.Size = new Size(600, 350);
+            fpnlLoadNewChedule.TabIndex = 5;
             // 
             // fpnlNewSchedule
             // 
-            this.fpnlNewSchedule.Controls.Add(this.ptcNewSchedule);
-            this.fpnlNewSchedule.Controls.Add(this.lblNewSchedule);
-            this.fpnlNewSchedule.Location = new System.Drawing.Point(50, 3);
-            this.fpnlNewSchedule.Margin = new System.Windows.Forms.Padding(50, 3, 50, 3);
-            this.fpnlNewSchedule.Name = "fpnlNewSchedule";
-            this.fpnlNewSchedule.Size = new System.Drawing.Size(500, 344);
-            this.fpnlNewSchedule.TabIndex = 0;
-            this.fpnlNewSchedule.Click += new System.EventHandler(this.lblNewSchedule_Click);
+            fpnlNewSchedule.Controls.Add(ptcNewSchedule);
+            fpnlNewSchedule.Controls.Add(lblNewSchedule);
+            fpnlNewSchedule.Cursor = Cursors.Hand;
+            fpnlNewSchedule.Location = new Point(5, 5);
+            fpnlNewSchedule.Margin = new Padding(5);
+            fpnlNewSchedule.Name = "fpnlNewSchedule";
+            fpnlNewSchedule.Size = new Size(590, 340);
+            fpnlNewSchedule.TabIndex = 0;
+            fpnlNewSchedule.Click += fpnlNewPlan_Click;
             // 
             // ptcNewSchedule
             // 
-            this.ptcNewSchedule.BackColor = System.Drawing.Color.Transparent;
-            this.ptcNewSchedule.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ptcNewSchedule.Image = global::GymManagementSystem.Properties.Resources.dumbbell;
-            this.ptcNewSchedule.Location = new System.Drawing.Point(150, 20);
-            this.ptcNewSchedule.Margin = new System.Windows.Forms.Padding(150, 20, 150, 20);
-            this.ptcNewSchedule.Name = "ptcNewSchedule";
-            this.ptcNewSchedule.Size = new System.Drawing.Size(200, 200);
-            this.ptcNewSchedule.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptcNewSchedule.TabIndex = 0;
-            this.ptcNewSchedule.TabStop = false;
-            this.ptcNewSchedule.Click += new System.EventHandler(this.ptcNewSchedule_Click);
+            ptcNewSchedule.BackColor = Color.Transparent;
+            ptcNewSchedule.BackgroundImageLayout = ImageLayout.Center;
+            ptcNewSchedule.Image = Properties.Resources.dumbbell;
+            ptcNewSchedule.Location = new Point(195, 20);
+            ptcNewSchedule.Margin = new Padding(195, 20, 195, 20);
+            ptcNewSchedule.Name = "ptcNewSchedule";
+            ptcNewSchedule.Size = new Size(200, 200);
+            ptcNewSchedule.SizeMode = PictureBoxSizeMode.StretchImage;
+            ptcNewSchedule.TabIndex = 0;
+            ptcNewSchedule.TabStop = false;
+            ptcNewSchedule.Click += fpnlNewPlan_Click;
             // 
             // lblNewSchedule
             // 
-            this.lblNewSchedule.AutoSize = true;
-            this.lblNewSchedule.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblNewSchedule.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(41)))), ((int)(((byte)(55)))));
-            this.lblNewSchedule.Location = new System.Drawing.Point(143, 240);
-            this.lblNewSchedule.Margin = new System.Windows.Forms.Padding(143, 0, 53, 0);
-            this.lblNewSchedule.Name = "lblNewSchedule";
-            this.lblNewSchedule.Size = new System.Drawing.Size(215, 59);
-            this.lblNewSchedule.TabIndex = 1;
-            this.lblNewSchedule.Text = "New Plan";
-            this.lblNewSchedule.Click += new System.EventHandler(this.lblNewSchedule_Click);
+            lblNewSchedule.AutoSize = true;
+            lblNewSchedule.Font = new Font("Segoe UI", 25.8F, FontStyle.Bold, GraphicsUnit.Point);
+            lblNewSchedule.ForeColor = Color.FromArgb(59, 41, 55);
+            lblNewSchedule.Location = new Point(187, 240);
+            lblNewSchedule.Margin = new Padding(187, 0, 187, 0);
+            lblNewSchedule.Name = "lblNewSchedule";
+            lblNewSchedule.Size = new Size(215, 59);
+            lblNewSchedule.TabIndex = 1;
+            lblNewSchedule.Text = "New Plan";
+            lblNewSchedule.Click += fpnlNewPlan_Click;
             // 
             // rjFlowLayoutPanel6
             // 
-            this.rjFlowLayoutPanel6.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjFlowLayoutPanel6.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjFlowLayoutPanel6.BorderRadius = 40;
-            this.rjFlowLayoutPanel6.BorderSize = 0;
-            this.rjFlowLayoutPanel6.ForeColor = System.Drawing.Color.White;
-            this.rjFlowLayoutPanel6.Location = new System.Drawing.Point(958, 190);
-            this.rjFlowLayoutPanel6.Name = "rjFlowLayoutPanel6";
-            this.rjFlowLayoutPanel6.Size = new System.Drawing.Size(0, 0);
-            this.rjFlowLayoutPanel6.TabIndex = 4;
+            rjFlowLayoutPanel6.BackColor = Color.MediumSlateBlue;
+            rjFlowLayoutPanel6.BorderColor = Color.PaleVioletRed;
+            rjFlowLayoutPanel6.BorderRadius = 40;
+            rjFlowLayoutPanel6.BorderSize = 0;
+            rjFlowLayoutPanel6.ForeColor = Color.White;
+            rjFlowLayoutPanel6.Location = new Point(958, 190);
+            rjFlowLayoutPanel6.Name = "rjFlowLayoutPanel6";
+            rjFlowLayoutPanel6.Size = new Size(0, 0);
+            rjFlowLayoutPanel6.TabIndex = 4;
             // 
             // fpnlLoadViewShcedule
             // 
-            this.fpnlLoadViewShcedule.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.fpnlLoadViewShcedule.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.fpnlLoadViewShcedule.BorderRadius = 40;
-            this.fpnlLoadViewShcedule.BorderSize = 0;
-            this.fpnlLoadViewShcedule.Controls.Add(this.fpnlViewSchedule);
-            this.fpnlLoadViewShcedule.ForeColor = System.Drawing.Color.White;
-            this.fpnlLoadViewShcedule.Location = new System.Drawing.Point(980, 589);
-            this.fpnlLoadViewShcedule.Name = "fpnlLoadViewShcedule";
-            this.fpnlLoadViewShcedule.Size = new System.Drawing.Size(600, 350);
-            this.fpnlLoadViewShcedule.TabIndex = 7;
-            this.fpnlLoadViewShcedule.Click += new System.EventHandler(this.fpnlLoadViewShcedule_Click);
+            fpnlLoadViewShcedule.BackColor = Color.WhiteSmoke;
+            fpnlLoadViewShcedule.BorderColor = Color.PaleVioletRed;
+            fpnlLoadViewShcedule.BorderRadius = 40;
+            fpnlLoadViewShcedule.BorderSize = 0;
+            fpnlLoadViewShcedule.Controls.Add(fpnlViewSchedule);
+            fpnlLoadViewShcedule.ForeColor = Color.White;
+            fpnlLoadViewShcedule.Location = new Point(980, 589);
+            fpnlLoadViewShcedule.Name = "fpnlLoadViewShcedule";
+            fpnlLoadViewShcedule.Size = new Size(600, 350);
+            fpnlLoadViewShcedule.TabIndex = 7;
             // 
             // fpnlViewSchedule
             // 
-            this.fpnlViewSchedule.Controls.Add(this.ptcViewSchedule);
-            this.fpnlViewSchedule.Controls.Add(this.lblViewSchedule);
-            this.fpnlViewSchedule.Location = new System.Drawing.Point(50, 3);
-            this.fpnlViewSchedule.Margin = new System.Windows.Forms.Padding(50, 3, 50, 3);
-            this.fpnlViewSchedule.Name = "fpnlViewSchedule";
-            this.fpnlViewSchedule.Size = new System.Drawing.Size(500, 344);
-            this.fpnlViewSchedule.TabIndex = 0;
-            this.fpnlViewSchedule.Click += new System.EventHandler(this.fpnlViewSchedule_Click);
+            fpnlViewSchedule.Controls.Add(ptcViewSchedule);
+            fpnlViewSchedule.Controls.Add(lblViewSchedule);
+            fpnlViewSchedule.Cursor = Cursors.Hand;
+            fpnlViewSchedule.Location = new Point(5, 5);
+            fpnlViewSchedule.Margin = new Padding(5);
+            fpnlViewSchedule.Name = "fpnlViewSchedule";
+            fpnlViewSchedule.Size = new Size(590, 340);
+            fpnlViewSchedule.TabIndex = 0;
+            fpnlViewSchedule.Click += fpnlViewSchedule_Click;
             // 
             // ptcViewSchedule
             // 
-            this.ptcViewSchedule.BackColor = System.Drawing.Color.Transparent;
-            this.ptcViewSchedule.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ptcViewSchedule.Image = global::GymManagementSystem.Properties.Resources.calendar;
-            this.ptcViewSchedule.Location = new System.Drawing.Point(150, 20);
-            this.ptcViewSchedule.Margin = new System.Windows.Forms.Padding(150, 20, 150, 20);
-            this.ptcViewSchedule.Name = "ptcViewSchedule";
-            this.ptcViewSchedule.Size = new System.Drawing.Size(200, 200);
-            this.ptcViewSchedule.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptcViewSchedule.TabIndex = 0;
-            this.ptcViewSchedule.TabStop = false;
-            this.ptcViewSchedule.Click += new System.EventHandler(this.ptcViewSchedule_Click);
+            ptcViewSchedule.BackColor = Color.Transparent;
+            ptcViewSchedule.BackgroundImageLayout = ImageLayout.Center;
+            ptcViewSchedule.Image = Properties.Resources.calendar;
+            ptcViewSchedule.Location = new Point(195, 20);
+            ptcViewSchedule.Margin = new Padding(195, 20, 195, 20);
+            ptcViewSchedule.Name = "ptcViewSchedule";
+            ptcViewSchedule.Size = new Size(200, 200);
+            ptcViewSchedule.SizeMode = PictureBoxSizeMode.StretchImage;
+            ptcViewSchedule.TabIndex = 0;
+            ptcViewSchedule.TabStop = false;
+            ptcViewSchedule.Click += fpnlViewSchedule_Click;
             // 
             // lblViewSchedule
             // 
-            this.lblViewSchedule.AutoSize = true;
-            this.lblViewSchedule.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblViewSchedule.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(41)))), ((int)(((byte)(55)))));
-            this.lblViewSchedule.Location = new System.Drawing.Point(87, 240);
-            this.lblViewSchedule.Margin = new System.Windows.Forms.Padding(87, 0, 88, 0);
-            this.lblViewSchedule.Name = "lblViewSchedule";
-            this.lblViewSchedule.Size = new System.Drawing.Size(317, 59);
-            this.lblViewSchedule.TabIndex = 1;
-            this.lblViewSchedule.Text = "View Schedule";
-            this.lblViewSchedule.Click += new System.EventHandler(this.lblViewSchedule_Click);
+            lblViewSchedule.AutoSize = true;
+            lblViewSchedule.Font = new Font("Segoe UI", 25.8F, FontStyle.Bold, GraphicsUnit.Point);
+            lblViewSchedule.ForeColor = Color.FromArgb(59, 41, 55);
+            lblViewSchedule.Location = new Point(136, 240);
+            lblViewSchedule.Margin = new Padding(136, 0, 136, 0);
+            lblViewSchedule.Name = "lblViewSchedule";
+            lblViewSchedule.Size = new Size(317, 59);
+            lblViewSchedule.TabIndex = 1;
+            lblViewSchedule.Text = "View Schedule";
+            lblViewSchedule.Click += fpnlViewSchedule_Click;
             // 
             // rjFlowLayoutPanel8
             // 
-            this.rjFlowLayoutPanel8.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjFlowLayoutPanel8.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjFlowLayoutPanel8.BorderRadius = 40;
-            this.rjFlowLayoutPanel8.BorderSize = 0;
-            this.rjFlowLayoutPanel8.ForeColor = System.Drawing.Color.White;
-            this.rjFlowLayoutPanel8.Location = new System.Drawing.Point(958, 679);
-            this.rjFlowLayoutPanel8.Name = "rjFlowLayoutPanel8";
-            this.rjFlowLayoutPanel8.Size = new System.Drawing.Size(0, 0);
-            this.rjFlowLayoutPanel8.TabIndex = 6;
+            rjFlowLayoutPanel8.BackColor = Color.MediumSlateBlue;
+            rjFlowLayoutPanel8.BorderColor = Color.PaleVioletRed;
+            rjFlowLayoutPanel8.BorderRadius = 40;
+            rjFlowLayoutPanel8.BorderSize = 0;
+            rjFlowLayoutPanel8.ForeColor = Color.White;
+            rjFlowLayoutPanel8.Location = new Point(958, 679);
+            rjFlowLayoutPanel8.Name = "rjFlowLayoutPanel8";
+            rjFlowLayoutPanel8.Size = new Size(0, 0);
+            rjFlowLayoutPanel8.TabIndex = 6;
             // 
             // lblBranch
             // 
-            this.lblBranch.AutoSize = true;
-            this.lblBranch.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblBranch.ForeColor = System.Drawing.Color.White;
-            this.lblBranch.Location = new System.Drawing.Point(15, 10);
-            this.lblBranch.Margin = new System.Windows.Forms.Padding(0, 6, 10, 0);
-            this.lblBranch.Name = "lblBranch";
-            this.lblBranch.Size = new System.Drawing.Size(245, 50);
-            this.lblBranch.TabIndex = 1;
-            this.lblBranch.Text = "branchName";
+            lblBranch.AutoSize = true;
+            lblBranch.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point);
+            lblBranch.ForeColor = Color.White;
+            lblBranch.Location = new Point(15, 10);
+            lblBranch.Margin = new Padding(0, 6, 10, 0);
+            lblBranch.Name = "lblBranch";
+            lblBranch.Size = new Size(245, 50);
+            lblBranch.TabIndex = 1;
+            lblBranch.Text = "branchName";
             // 
             // rjPanel1
             // 
-            this.rjPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(181)))), ((int)(((byte)(244)))));
-            this.rjPanel1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjPanel1.BorderRadius = 40;
-            this.rjPanel1.BorderSize = 0;
-            this.rjPanel1.Controls.Add(this.lblBranch);
-            this.rjPanel1.ForeColor = System.Drawing.Color.White;
-            this.rjPanel1.Location = new System.Drawing.Point(60, 50);
-            this.rjPanel1.Name = "rjPanel1";
-            this.rjPanel1.Size = new System.Drawing.Size(312, 69);
-            this.rjPanel1.TabIndex = 9;
+            rjPanel1.BackColor = Color.FromArgb(40, 181, 244);
+            rjPanel1.BorderColor = Color.PaleVioletRed;
+            rjPanel1.BorderRadius = 40;
+            rjPanel1.BorderSize = 0;
+            rjPanel1.Controls.Add(lblBranch);
+            rjPanel1.ForeColor = Color.White;
+            rjPanel1.Location = new Point(60, 50);
+            rjPanel1.Name = "rjPanel1";
+            rjPanel1.Size = new Size(312, 69);
+            rjPanel1.TabIndex = 9;
             // 
             // FHomeUserMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1820, 1080);
-            this.Controls.Add(this.rjPanel1);
-            this.Controls.Add(this.fpnlLoadViewShcedule);
-            this.Controls.Add(this.rjFlowLayoutPanel8);
-            this.Controls.Add(this.fpnlLoadNewChedule);
-            this.Controls.Add(this.rjFlowLayoutPanel6);
-            this.Controls.Add(this.rjFlowLayoutPanel3);
-            this.Controls.Add(this.rjFlowLayoutPanel4);
-            this.Controls.Add(this.flpnlLoadMember);
-            this.Controls.Add(this.rjFlowLayoutPanel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Location = new System.Drawing.Point(100, 0);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "FHomeUserMenu";
-            this.Text = "FHomeUserMenu";
-            this.flpnlLoadMember.ResumeLayout(false);
-            this.flpnlMember.ResumeLayout(false);
-            this.flpnlMember.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptcMember)).EndInit();
-            this.rjFlowLayoutPanel3.ResumeLayout(false);
-            this.flowLayoutPanel2.ResumeLayout(false);
-            this.flowLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.fpnlLoadNewChedule.ResumeLayout(false);
-            this.fpnlNewSchedule.ResumeLayout(false);
-            this.fpnlNewSchedule.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptcNewSchedule)).EndInit();
-            this.fpnlLoadViewShcedule.ResumeLayout(false);
-            this.fpnlViewSchedule.ResumeLayout(false);
-            this.fpnlViewSchedule.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptcViewSchedule)).EndInit();
-            this.rjPanel1.ResumeLayout(false);
-            this.rjPanel1.PerformLayout();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            ClientSize = new Size(1820, 1080);
+            Controls.Add(rjPanel1);
+            Controls.Add(fpnlLoadViewShcedule);
+            Controls.Add(rjFlowLayoutPanel8);
+            Controls.Add(fpnlLoadNewChedule);
+            Controls.Add(rjFlowLayoutPanel6);
+            Controls.Add(rjFlowLayoutPanel3);
+            Controls.Add(rjFlowLayoutPanel4);
+            Controls.Add(flpnlLoadMember);
+            Controls.Add(rjFlowLayoutPanel1);
+            FormBorderStyle = FormBorderStyle.None;
+            Location = new Point(100, 0);
+            Margin = new Padding(3, 4, 3, 4);
+            Name = "FHomeUserMenu";
+            Text = "FHomeUserMenu";
+            flpnlLoadMember.ResumeLayout(false);
+            flpnlMember.ResumeLayout(false);
+            flpnlMember.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)ptcMember).EndInit();
+            rjFlowLayoutPanel3.ResumeLayout(false);
+            flowLayoutPanel2.ResumeLayout(false);
+            flowLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            fpnlLoadNewChedule.ResumeLayout(false);
+            fpnlNewSchedule.ResumeLayout(false);
+            fpnlNewSchedule.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)ptcNewSchedule).EndInit();
+            fpnlLoadViewShcedule.ResumeLayout(false);
+            fpnlViewSchedule.ResumeLayout(false);
+            fpnlViewSchedule.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)ptcViewSchedule).EndInit();
+            rjPanel1.ResumeLayout(false);
+            rjPanel1.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion

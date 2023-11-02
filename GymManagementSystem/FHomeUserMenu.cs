@@ -22,70 +22,24 @@ namespace GymManagementSystem
                 lblBranch.Text = "All Branch";
         }
 
-        private void ptcViewSchedule_Click(object sender, EventArgs e)
-        {
-            StackForm.HomeUser.ChildForm.Open(new FViewWorkOutPlan());
-        }
-
-        private void lblViewSchedule_Click(object sender, EventArgs e)
-        {
-            StackForm.HomeUser.ChildForm.Open(new FViewWorkOutPlan());
-        }
-
         private void fpnlViewSchedule_Click(object sender, EventArgs e)
         {
             StackForm.HomeUser.ChildForm.Open(new FViewWorkOutPlan());
 
         }
 
-        private void fpnlLoadViewShcedule_Click(object sender, EventArgs e)
+        private void fpnlRegisterMenber_Click(object sender, EventArgs e)
         {
-            StackForm.HomeUser.ChildForm.Open(new FViewWorkOutPlan());
+            StackForm.HomeUser.ChildForm.Open(new FCreateMember());
         }
 
-        private void ptcNewSchedule_Click(object sender, EventArgs e)
-        {
-            StackForm.HomeUser.ChildForm.Open(new FCreateWorkOutPlan());
-        }
-
-        private void lblNewSchedule_Click(object sender, EventArgs e)
-        {
-            StackForm.HomeUser.ChildForm.Open(new FCreateWorkOutPlan());
-        }
-
-        private void fpnlNewSchedule_Click(object sender, EventArgs e)
-        {
-            StackForm.HomeUser.ChildForm.Open(new FCreateWorkOutPlan());
-        }
-
-        private void fpnlLoadNewChedule_Click(object sender, EventArgs e)
-        {
-            StackForm.HomeUser.ChildForm.Open(new FCreateWorkOutPlan());
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void fpnlPurshasePackage_Click(object sender, EventArgs e)
         {
             StackForm.HomeUser.ChildForm.Open(new FPurchasePackage());
         }
-
-        private void flpnlLoadMember_Click(object sender, EventArgs e)
+        private void fpnlNewPlan_Click(object sender, EventArgs e)
         {
-            StackForm.HomeUser.ChildForm.Open(new FCreateMember());
-        }
-
-        private void flpnlMember_Click(object sender, EventArgs e)
-        {
-            StackForm.HomeUser.ChildForm.Open(new FCreateMember());
-        }
-
-        private void ptcMember_Click(object sender, EventArgs e)
-        {
-            StackForm.HomeUser.ChildForm.Open(new FCreateMember());
-        }
-
-        private void lblMember_Click(object sender, EventArgs e)
-        {
-            StackForm.HomeUser.ChildForm.Open(new FCreateMember());
+            StackForm.HomeUser.ChildForm.Open(new FCreateWorkOutPlan());
         }
     }
 }
