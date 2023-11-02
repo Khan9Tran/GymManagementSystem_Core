@@ -1820,3 +1820,13 @@ BEGIN
 		WHERE [ID] = @ID
 
 END
+
+GO
+
+--Proc tìm kiếm trong category list
+CREATE PROCEDURE PROC_FindEquipmentCategory
+	@Content NVARCHAR(50)
+AS
+BEGIN
+			SELECT * FROM V_CategoryList WHERE (ID = @Content OR Name LIKE N'%' + @Content + '%')
+END

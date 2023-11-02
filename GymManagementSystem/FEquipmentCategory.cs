@@ -18,22 +18,22 @@ namespace GymManagementSystem
         public FEquipmentCategory()
         {
             InitializeComponent();
-            gvEquipmentCategory_Load();
+            gvEquipmentCategory_Load("");
+
         }
 
-        private DataTable gvEquipmentCategory_Load()
+        private DataTable gvEquipmentCategory_Load(string search)
         {
             Employee.Role = 1;
             DBConnection connection = new DBConnection();
             connection.openConnection();
-
-            String query = "SELECT * FROM V_CategoryList";
+            String query = "PROC_FindEquipmentCategory";
             SqlCommand command = new SqlCommand(query, connection.GetConnection());
-            command.CommandType = CommandType.Text;
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@Content", txtSearch.Text);
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);
-
             gvEquipmentCategory.DataSource = dataTable;
             connection.closeConnection();
             return dataTable;
@@ -72,7 +72,7 @@ namespace GymManagementSystem
             }
             connection.closeConnection();
             MessageBox.Show("Thêm thành công");
-            gvEquipmentCategory_Load();
+            gvEquipmentCategory_Load("");
         }
         private void btnEdit_Click(object sender, EventArgs e)
         {
@@ -101,7 +101,7 @@ namespace GymManagementSystem
             }
             connection.closeConnection();
             MessageBox.Show("Cập nhật thành công");
-            gvEquipmentCategory_Load();
+            gvEquipmentCategory_Load("");
 
         }
 
@@ -131,8 +131,13 @@ namespace GymManagementSystem
             }
             connection.closeConnection();
             MessageBox.Show("Xóa thành công");
-            gvEquipmentCategory_Load();
+            gvEquipmentCategory_Load("");
 
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            gvEquipmentCategory.DataSource = gvEquipmentCategory_Load(txtSearch.Text);
         }
     }
 }

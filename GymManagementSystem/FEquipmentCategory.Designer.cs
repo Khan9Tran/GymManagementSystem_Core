@@ -159,6 +159,7 @@
             btnSearch.Size = new Size(36, 36);
             btnSearch.TabIndex = 16;
             btnSearch.UseVisualStyleBackColor = false;
+            btnSearch.Click += btnSearch_Click;
             // 
             // textBox3
             // 
