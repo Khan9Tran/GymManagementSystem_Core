@@ -27,6 +27,7 @@ namespace GymManagementSystem
                 uSMembership.membershipClicked += MembershipType_MembershipType;
                 flpnlLoadMembership.Controls.Add(uSMembership);
             }
+            StackForm.Add(this);
         }
 
 

@@ -27,6 +27,7 @@ namespace GymManagementSystem
             pnlLoadManagement.Hide();
             LoadEmployee();
             LoadBranch();
+            StackForm.Add(this);
         }
 
         private void LoadInfo()

@@ -23,6 +23,7 @@ namespace GymManagementSystem
             LoadEquipment(filter);
             LoadBranch();
             LoadCategory();
+            StackForm.Add(this);
         }
 
         enum Filter

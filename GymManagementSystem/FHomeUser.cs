@@ -158,5 +158,10 @@ namespace GymManagementSystem
         {
             StackForm.HomeUser.ChildForm.Open(new FTrainerManagement());
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            StackForm.Back();
+        }
     }
 }

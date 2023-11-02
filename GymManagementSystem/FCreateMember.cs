@@ -19,6 +19,7 @@ namespace GymManagementSystem
         {
             InitializeComponent();
             pnlLoadMBS.Hide();
+            StackForm.Add(this);
         }
 
         private void Confirm()
@@ -74,5 +75,14 @@ namespace GymManagementSystem
             Confirm();
         }
 
+        private void btnBuyPackage_Click(object sender, EventArgs e)
+        {
+            StackForm.HomeUser.ChildForm.Open(new FPurchasePackage());
+        }
+
+        private void btnBMI_Click(object sender, EventArgs e)
+        {
+            StackForm.HomeUser.ChildForm.Open(new FBMIMnagement());
+        }
     }
 }

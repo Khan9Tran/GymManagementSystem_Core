@@ -19,6 +19,7 @@ namespace GymManagementSystem
         {
             InitializeComponent();
             gvEquipmentCategory_Load("");
+            StackForm.Add(this);
 
         }
 

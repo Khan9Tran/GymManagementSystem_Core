@@ -24,6 +24,7 @@ namespace GymManagementSystem
             pnlManage.Hide();
             gvTrainer_Load(filter, "");
             LoadBranch();
+            StackForm.Add(this);
         }
         enum Filter
         {

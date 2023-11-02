@@ -20,6 +20,7 @@ namespace GymManagementSystem
                 lblBranch.Text = Employee.BranchName;
             else
                 lblBranch.Text = "All Branch";
+            StackForm.Add(this);
         }
 
         private void ptcViewSchedule_Click(object sender, EventArgs e)

@@ -22,9 +22,10 @@ namespace GymManagementSystem
             pnlChart.Controls.Add(chartBMI);
             chartBMI.Show();
             chartBMI.Series.Clear();
+            StackForm.Add(this);
         }
 
-    
+
         void CreateChart(DataTable data)
         {
             if (data.Rows.Count <= 2)

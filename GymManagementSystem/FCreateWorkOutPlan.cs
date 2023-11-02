@@ -25,6 +25,7 @@ namespace GymManagementSystem
         public FCreateWorkOutPlan()
         {
             InitializeComponent();
+            StackForm.Add(this);
             List<Branch> branches = LoadBranch();
             for (int i = 0; i < branches.Count; i++)
             {

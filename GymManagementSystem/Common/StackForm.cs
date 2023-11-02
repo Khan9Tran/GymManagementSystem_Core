@@ -35,7 +35,14 @@ namespace GymManagementSystem
             if (forms.Count > 0)
             {
                 RemoveForm();
-                
+                try
+                {
+                    StackForm.HomeUser.ChildForm.Open(forms[forms.Count - 1]);
+                }
+                catch 
+                {
+                    StackForm.HomeUser.ChildForm.Open(new FHomeUserMenu());
+                }
             }
         }
 
