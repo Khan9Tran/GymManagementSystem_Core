@@ -618,9 +618,9 @@
             label24.ForeColor = Color.FromArgb(59, 41, 55);
             label24.Location = new Point(208, 0);
             label24.Name = "label24";
-            label24.Size = new Size(62, 31);
+            label24.Size = new Size(92, 31);
             label24.TabIndex = 21;
-            label24.Text = "days";
+            label24.Text = "months";
             // 
             // lblDetailNOTSestion
             // 
