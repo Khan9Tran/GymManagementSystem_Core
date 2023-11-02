@@ -31,7 +31,7 @@ namespace GymManagementSystem
             }
             else
             {
-                StackForm.HomeUser.ChildForm.Open(new FEquipmentManagement());
+                StackForm.HomeUser.ChildForm.Open(new FMembershipManagement());
             }
         }
 
@@ -76,7 +76,7 @@ namespace GymManagementSystem
 
         private void btnWorkOutPlan_Click(object sender, EventArgs e)
         {
-            StackForm.HomeUser.ChildForm.Open(new FWorkOutManagement());
+            StackForm.HomeUser.ChildForm.Open(new FViewWorkOutPlan());
         }
 
         private void btnTrainer_Click(object sender, EventArgs e)
@@ -97,7 +97,7 @@ namespace GymManagementSystem
             }
             else
             {
-                StackForm.HomeUser.ChildForm.Open(new FEquipmentManagement());
+                StackForm.HomeUser.ChildForm.Open(new FWorkOutManagement());
             }
         }
     }
