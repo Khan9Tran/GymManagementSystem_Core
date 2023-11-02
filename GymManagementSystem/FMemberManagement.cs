@@ -168,12 +168,12 @@ namespace GymManagementSystem
 
         private void btnPackage_Click(object sender, EventArgs e)
         {
-
+            StackForm.HomeUser.ChildForm.Open(new FPurchasePackage());
         }
 
         private void btnBMI_Click(object sender, EventArgs e)
         {
-
+            StackForm.HomeUser.ChildForm.Open(new FBMIMnagement());
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
@@ -192,9 +192,33 @@ namespace GymManagementSystem
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-
+            Delete();
         }
 
+        private void Delete()
+        {
+            DBConnection connection = new DBConnection();
+            connection.openConnection();
+            try
+            {
+
+                String query = "DELETE Member WHERE ID = @ID";
+                SqlCommand command = new SqlCommand(query, connection.GetConnection());
+                command.CommandType = CommandType.Text;
+                command.Parameters.AddWithValue("@ID", gvMember.CurrentRow.Cells["ID"].Value.ToString());
+                command.ExecuteNonQuery();
+            }
+            catch
+            (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                connection.closeConnection();
+                return;
+            }
+            MessageBox.Show("Xóa thành công");
+            connection.closeConnection();
+            return;
+        }
         private bool Update()
     {
             DBConnection connection = new DBConnection();
