@@ -1781,3 +1781,52 @@ BEGIN
 	END CATCH
 END
 
+GO
+
+--PROC thêm equipmentCategory
+CREATE PROCEDURE PROC_AddEquipmentCategory
+	@ID CHAR(6),
+	@Name NVARCHAR(50)
+AS
+BEGIN
+	IF EXISTS (SELECT * FROM EquipmentCategory WHERE [Name] = @Name)
+		RAISERROR('Category đã tồn tại',16 ,1)
+	ELSE
+    INSERT INTO EquipmentCategory([ID], [Name])
+    VALUES (@ID, @Name)
+END
+
+GO
+
+--PROC DELETE equipmentCategory
+CREATE PROCEDURE PROC_DeleteEquipmentCategory
+@ID CHAR(6)
+AS 
+BEGIN
+	DELETE EquipmentCategory WHERE [ID] = @ID
+END
+
+GO
+
+--PROC update thông tin equipmentCategory
+CREATE PROCEDURE PROC_UpdateEquipmentCategory
+	@ID char(6),
+    @Name NVARCHAR(50)
+AS
+BEGIN
+		UPDATE EquipmentCategory
+		SET
+			[Name] = @Name
+		WHERE [ID] = @ID
+
+END
+
+GO
+
+--Proc tìm kiếm trong category list
+CREATE PROCEDURE PROC_FindEquipmentCategory
+	@Content NVARCHAR(50)
+AS
+BEGIN
+			SELECT * FROM V_CategoryList WHERE (ID = @Content OR Name LIKE N'%' + @Content + '%')
+END

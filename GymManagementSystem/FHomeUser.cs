@@ -112,7 +112,14 @@ namespace GymManagementSystem
 
         private void itemCategory_Click(object sender, EventArgs e)
         {
-
+            if (Employee.Role != 1)
+            {
+                MessageBox.Show("Không có quyền truy cập");
+            }
+            else
+            {
+                childForm.Open(new FEquipmentCategory());
+            }
         }
 
         private void itemEquipment_Click(object sender, EventArgs e)
