@@ -59,6 +59,7 @@ namespace GymManagementSystem
             this.rjPanel4 = new GymManagementSystem.RJPanel();
             this.rjPanel5 = new GymManagementSystem.RJPanel();
             this.fpnlWorkOut = new System.Windows.Forms.FlowLayoutPanel();
+            this.usMenuBar1 = new GymManagementSystem.USMenuBar();
             ((System.ComponentModel.ISupportInitialize)(this.gvWorkOutPlan)).BeginInit();
             this.rjFlowLayoutPanel1.SuspendLayout();
             this.rjFlowLayoutPanel2.SuspendLayout();
@@ -105,7 +106,7 @@ namespace GymManagementSystem
             this.gvWorkOutPlan.RowHeadersWidth = 51;
             this.gvWorkOutPlan.RowTemplate.Height = 29;
             this.gvWorkOutPlan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gvWorkOutPlan.Size = new System.Drawing.Size(1042, 532);
+            this.gvWorkOutPlan.Size = new System.Drawing.Size(1042, 558);
             this.gvWorkOutPlan.TabIndex = 0;
             this.gvWorkOutPlan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvWorkOutPlan_CellClick);
             // 
@@ -120,7 +121,7 @@ namespace GymManagementSystem
             this.rjFlowLayoutPanel1.Controls.Add(this.btnInDay);
             this.rjFlowLayoutPanel1.Controls.Add(this.btnUpComing);
             this.rjFlowLayoutPanel1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.rjFlowLayoutPanel1.Location = new System.Drawing.Point(94, 74);
+            this.rjFlowLayoutPanel1.Location = new System.Drawing.Point(94, 159);
             this.rjFlowLayoutPanel1.Name = "rjFlowLayoutPanel1";
             this.rjFlowLayoutPanel1.Size = new System.Drawing.Size(596, 54);
             this.rjFlowLayoutPanel1.TabIndex = 1;
@@ -207,7 +208,7 @@ namespace GymManagementSystem
             this.rjFlowLayoutPanel2.Controls.Add(this.btnEdit);
             this.rjFlowLayoutPanel2.Controls.Add(this.btnDelete);
             this.rjFlowLayoutPanel2.ForeColor = System.Drawing.Color.White;
-            this.rjFlowLayoutPanel2.Location = new System.Drawing.Point(1279, 74);
+            this.rjFlowLayoutPanel2.Location = new System.Drawing.Point(1327, 157);
             this.rjFlowLayoutPanel2.Name = "rjFlowLayoutPanel2";
             this.rjFlowLayoutPanel2.Size = new System.Drawing.Size(446, 54);
             this.rjFlowLayoutPanel2.TabIndex = 2;
@@ -287,7 +288,7 @@ namespace GymManagementSystem
             this.rjPanel1.Controls.Add(this.txtSearch);
             this.rjPanel1.Controls.Add(this.btnSearch);
             this.rjPanel1.ForeColor = System.Drawing.Color.White;
-            this.rjPanel1.Location = new System.Drawing.Point(696, 78);
+            this.rjPanel1.Location = new System.Drawing.Point(725, 159);
             this.rjPanel1.Name = "rjPanel1";
             this.rjPanel1.Size = new System.Drawing.Size(573, 52);
             this.rjPanel1.TabIndex = 3;
@@ -321,7 +322,7 @@ namespace GymManagementSystem
             this.rjPanel2.Controls.Add(this.label2);
             this.rjPanel2.Controls.Add(this.lblTime);
             this.rjPanel2.ForeColor = System.Drawing.Color.White;
-            this.rjPanel2.Location = new System.Drawing.Point(1161, 149);
+            this.rjPanel2.Location = new System.Drawing.Point(1161, 233);
             this.rjPanel2.Name = "rjPanel2";
             this.rjPanel2.Size = new System.Drawing.Size(612, 121);
             this.rjPanel2.TabIndex = 4;
@@ -374,7 +375,7 @@ namespace GymManagementSystem
             this.rjPanel3.Controls.Add(this.lblBranch);
             this.rjPanel3.Controls.Add(this.lblID);
             this.rjPanel3.ForeColor = System.Drawing.Color.White;
-            this.rjPanel3.Location = new System.Drawing.Point(94, 149);
+            this.rjPanel3.Location = new System.Drawing.Point(94, 233);
             this.rjPanel3.Name = "rjPanel3";
             this.rjPanel3.Size = new System.Drawing.Size(1042, 121);
             this.rjPanel3.TabIndex = 5;
@@ -431,9 +432,9 @@ namespace GymManagementSystem
             this.rjPanel4.BorderSize = 0;
             this.rjPanel4.Controls.Add(this.gvWorkOutPlan);
             this.rjPanel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
-            this.rjPanel4.Location = new System.Drawing.Point(94, 292);
+            this.rjPanel4.Location = new System.Drawing.Point(94, 371);
             this.rjPanel4.Name = "rjPanel4";
-            this.rjPanel4.Size = new System.Drawing.Size(1042, 652);
+            this.rjPanel4.Size = new System.Drawing.Size(1042, 586);
             this.rjPanel4.TabIndex = 6;
             // 
             // rjPanel5
@@ -444,9 +445,9 @@ namespace GymManagementSystem
             this.rjPanel5.BorderSize = 0;
             this.rjPanel5.Controls.Add(this.fpnlWorkOut);
             this.rjPanel5.ForeColor = System.Drawing.Color.White;
-            this.rjPanel5.Location = new System.Drawing.Point(1161, 292);
+            this.rjPanel5.Location = new System.Drawing.Point(1161, 371);
             this.rjPanel5.Name = "rjPanel5";
-            this.rjPanel5.Size = new System.Drawing.Size(612, 649);
+            this.rjPanel5.Size = new System.Drawing.Size(612, 586);
             this.rjPanel5.TabIndex = 7;
             // 
             // fpnlWorkOut
@@ -454,8 +455,17 @@ namespace GymManagementSystem
             this.fpnlWorkOut.AutoScroll = true;
             this.fpnlWorkOut.Location = new System.Drawing.Point(15, 3);
             this.fpnlWorkOut.Name = "fpnlWorkOut";
-            this.fpnlWorkOut.Size = new System.Drawing.Size(590, 646);
+            this.fpnlWorkOut.Size = new System.Drawing.Size(590, 555);
             this.fpnlWorkOut.TabIndex = 0;
+            // 
+            // usMenuBar1
+            // 
+            this.usMenuBar1.AutoScroll = true;
+            this.usMenuBar1.BackColor = System.Drawing.Color.Transparent;
+            this.usMenuBar1.Location = new System.Drawing.Point(94, 60);
+            this.usMenuBar1.Name = "usMenuBar1";
+            this.usMenuBar1.Size = new System.Drawing.Size(1679, 85);
+            this.usMenuBar1.TabIndex = 8;
             // 
             // FViewWorkOutPlan
             // 
@@ -463,6 +473,7 @@ namespace GymManagementSystem
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1820, 1080);
+            this.Controls.Add(this.usMenuBar1);
             this.Controls.Add(this.rjPanel5);
             this.Controls.Add(this.rjPanel4);
             this.Controls.Add(this.rjPanel3);
@@ -516,5 +527,6 @@ namespace GymManagementSystem
         private RJPanel rjPanel4;
         private RJPanel rjPanel5;
         private FlowLayoutPanel fpnlWorkOut;
+        private USMenuBar usMenuBar1;
     }
 }
