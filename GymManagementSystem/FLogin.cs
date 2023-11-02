@@ -35,9 +35,7 @@ namespace GymManagementSystem
                 this.WindowState = FormWindowState.Maximized;
                 this.FormBorderStyle = FormBorderStyle.None;
 
-
-                UserInfo();
-
+                if(UserInfo())
                 openChildForm.Open(home);
             }
             else
@@ -69,7 +67,7 @@ namespace GymManagementSystem
             return tmp;
         }
 
-        private void UserInfo()
+        private bool UserInfo()
         {
             DBConnection connection = new DBConnection();
             connection.openConnection();
@@ -97,9 +95,16 @@ namespace GymManagementSystem
 
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Đã gặp sự cố, vui lòng khởi động lại");
+                    return false;
+                }    
             }
 
             connection.closeConnection();
+
+            return true;
 
         }
     }
