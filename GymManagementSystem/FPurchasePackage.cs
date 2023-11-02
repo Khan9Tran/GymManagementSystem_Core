@@ -1,4 +1,5 @@
-﻿using GymManagementSystem.Models;
+﻿using GymManagementSystem.Common;
+using GymManagementSystem.Models;
 using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
@@ -144,13 +145,13 @@ namespace GymManagementSystem
                     tempBalance = instance.memberBalance - (instance.packagePrice - instance.discountAmount);
                 }
 
-                instance.lblDiscount.Text = instance.discountAmount.ToString();
+                instance.lblDiscount.Text = ConverToMoney.conver(instance.discountAmount.ToString());
                 instance.lblDiscountUnit.Text = "VND";
-                instance.lblTotalPayment.Text = instance.paymentAmount.ToString();
+                instance.lblTotalPayment.Text = ConverToMoney.conver(instance.paymentAmount.ToString());
                 instance.lblDetailPkName.Text = packageName;
-                instance.lblBalance.Text = tempBalance.ToString();
+                instance.lblBalance.Text = ConverToMoney.conver(tempBalance.ToString());
                 instance.lblDetailPkPeriod.Text = packagePeriods;
-                instance.lblDetailPkPrice.Text = Math.Round(Convert.ToDouble(packagePrice), 0).ToString();
+                instance.lblDetailPkPrice.Text = Math.Round(Convert.ToDouble(packagePrice), 1).ToString();
 
                 if (packageNOPTSessions == "")
                 {
@@ -188,7 +189,7 @@ namespace GymManagementSystem
                     memberBalance = Convert.ToDouble(member[2]);
 
                     lblMemberName.Text = member[1].ToString();
-                    lblBalance.Text = Math.Round(Convert.ToDouble(member[2]), 0).ToString();
+                    lblBalance.Text = ConverToMoney.conver(Math.Round(Convert.ToDouble(member[2]), 1).ToString());
                     lblDiscount.Text = (packageDiscount * 100).ToString();
                 }
                 catch
