@@ -217,6 +217,7 @@ namespace GymManagementSystem
             }
             MessageBox.Show("Xóa thành công");
             connection.closeConnection();
+            gvMember.DataSource = LoadMember(filter, txtSearch.Text);
             return;
         }
         private bool Update()
@@ -246,6 +247,7 @@ namespace GymManagementSystem
             {
                 connection.closeConnection();
             }
+            gvMember.DataSource = LoadMember(filter, txtSearch.Text);
             return true;
         }
 
