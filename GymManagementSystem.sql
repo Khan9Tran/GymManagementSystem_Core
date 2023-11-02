@@ -1830,3 +1830,11 @@ AS
 BEGIN
 			SELECT * FROM V_CategoryList WHERE (ID = @Content OR Name LIKE N'%' + @Content + '%')
 END
+
+GO
+
+--Hàm tìm kiếm Workout
+CREATE FUNCTION FUNC_FindWorkout(@Content NVARCHAR(100))
+RETURNS TABLE
+AS
+	RETURN SELECT * FROM V_WorkOutList WHERE ID = @Content OR [Name] LIKE  N'%' + @Content + '%' OR [Type] LIKE  N'%' + @Content + '%' OR [Description] LIKE  N'%' + @Content + '%' OR [Duration] LIKE  N'%' + @Content + '%' 
