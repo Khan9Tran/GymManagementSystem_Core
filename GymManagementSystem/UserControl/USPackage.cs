@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GymManagementSystem.Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,7 +26,7 @@ namespace GymManagementSystem
             this.packageID = packageID;
             this.packageName = packageName;
             this.packagePeriods = packagePeriods;
-            this.packagePrice = packagePrice;
+            this.packagePrice = ConverToMoney.conver(Math.Round(Double.Parse(packagePrice), 1).ToString ());
             this.packageDesctiption = packageDesctiption;
             this.packageNOPTSessions = packageNOPTSessions;
             showPackage();
