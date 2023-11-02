@@ -20,6 +20,7 @@ namespace GymManagementSystem
                 lblBranch.Text = Employee.BranchName;
             else
                 lblBranch.Text = "All Branch";
+            StackForm.Add(this);
         }
 
         private void fpnlViewSchedule_Click(object sender, EventArgs e)
@@ -40,6 +41,11 @@ namespace GymManagementSystem
         private void fpnlNewPlan_Click(object sender, EventArgs e)
         {
             StackForm.HomeUser.ChildForm.Open(new FCreateWorkOutPlan());
+        }
+
+        private void FHomeUserMenu_Load(object sender, EventArgs e)
+        {
+            lblBranch.Text = Employee.BranchName;
         }
     }
 }

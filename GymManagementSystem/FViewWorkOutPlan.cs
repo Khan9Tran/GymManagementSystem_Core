@@ -21,6 +21,7 @@ namespace GymManagementSystem
             filter = Filter.All;
             gvWorkOutPlan.DataSource = LoadWorkOutPlan(filter,"");
             HeaderText();
+            StackForm.Add(this);
         }
         enum Filter
         {

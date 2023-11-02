@@ -21,7 +21,8 @@ namespace GymManagementSystem
             LoadEquipment(filter);
             if (Employee.Role == 0)
                 pnlLoadData.Visible = false;
-            
+            StackForm.Add(this);
+
         }
 
         private void btnAll_Click(object sender, EventArgs e)

@@ -20,6 +20,7 @@ namespace GymManagementSystem
             InitializeComponent();
             gvWorkOut_Load();
             toolForPicture = new ToolForPicture(ToolForPicture.Type.workOut);
+            StackForm.Add(this);
         }
 
         private DataTable gvWorkOut_Load()

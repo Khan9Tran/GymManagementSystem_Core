@@ -33,6 +33,7 @@ namespace GymManagementSystem
             {
 
             }
+            StackForm.Add(this);
         }
 
         Filter filter;

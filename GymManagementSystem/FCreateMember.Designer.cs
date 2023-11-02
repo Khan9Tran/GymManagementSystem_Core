@@ -52,15 +52,15 @@ namespace GymManagementSystem
             this.label1 = new System.Windows.Forms.Label();
             this.rjPanel7 = new GymManagementSystem.RJPanel();
             this.txtFullName = new System.Windows.Forms.TextBox();
+            this.pnlLoad = new GymManagementSystem.RJPanel();
+            this.label3 = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.rjButton1 = new GymManagementSystem.RJButton();
-            this.rjButton2 = new GymManagementSystem.RJButton();
+            this.btnBMI = new GymManagementSystem.RJButton();
+            this.btnBuyPackage = new GymManagementSystem.RJButton();
             this.rjFlowLayoutPanel1 = new GymManagementSystem.RJFlowLayoutPanel();
             this.pnlLoadMBS = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.pnlLoad = new GymManagementSystem.RJPanel();
             this.rjPanel5.SuspendLayout();
             this.rjPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rjPictureBox1)).BeginInit();
@@ -72,9 +72,9 @@ namespace GymManagementSystem
             this.rjPanel9.SuspendLayout();
             this.rjPanel6.SuspendLayout();
             this.rjPanel7.SuspendLayout();
+            this.pnlLoad.SuspendLayout();
             this.rjFlowLayoutPanel1.SuspendLayout();
             this.pnlLoadMBS.SuspendLayout();
-            this.pnlLoad.SuspendLayout();
             this.SuspendLayout();
             // 
             // rjPanel5
@@ -361,6 +361,31 @@ namespace GymManagementSystem
             this.txtFullName.Size = new System.Drawing.Size(408, 29);
             this.txtFullName.TabIndex = 0;
             // 
+            // pnlLoad
+            // 
+            this.pnlLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.pnlLoad.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlLoad.BorderRadius = 40;
+            this.pnlLoad.BorderSize = 0;
+            this.pnlLoad.Controls.Add(this.label3);
+            this.pnlLoad.ForeColor = System.Drawing.Color.White;
+            this.pnlLoad.Location = new System.Drawing.Point(29, 38);
+            this.pnlLoad.Name = "pnlLoad";
+            this.pnlLoad.Size = new System.Drawing.Size(749, 70);
+            this.pnlLoad.TabIndex = 0;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(179)))), ((int)(((byte)(241)))));
+            this.label3.Location = new System.Drawing.Point(281, 13);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(193, 37);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Monster GYM";
+            // 
             // txtAddress
             // 
             this.txtAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(7)))), ((int)(((byte)(43)))));
@@ -397,39 +422,41 @@ namespace GymManagementSystem
             this.txtName.Size = new System.Drawing.Size(457, 36);
             this.txtName.TabIndex = 8;
             // 
-            // rjButton1
+            // btnBMI
             // 
-            this.rjButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(179)))), ((int)(((byte)(241)))));
-            this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton1.BorderRadius = 40;
-            this.rjButton1.BorderSize = 0;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Location = new System.Drawing.Point(476, 3);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(131, 52);
-            this.rjButton1.TabIndex = 11;
-            this.rjButton1.Text = "BMI";
-            this.rjButton1.UseVisualStyleBackColor = false;
+            this.btnBMI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(179)))), ((int)(((byte)(241)))));
+            this.btnBMI.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnBMI.BorderRadius = 40;
+            this.btnBMI.BorderSize = 0;
+            this.btnBMI.FlatAppearance.BorderSize = 0;
+            this.btnBMI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBMI.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnBMI.ForeColor = System.Drawing.Color.White;
+            this.btnBMI.Location = new System.Drawing.Point(476, 3);
+            this.btnBMI.Name = "btnBMI";
+            this.btnBMI.Size = new System.Drawing.Size(131, 52);
+            this.btnBMI.TabIndex = 11;
+            this.btnBMI.Text = "BMI";
+            this.btnBMI.UseVisualStyleBackColor = false;
+            this.btnBMI.Click += new System.EventHandler(this.btnBMI_Click);
             // 
-            // rjButton2
+            // btnBuyPackage
             // 
-            this.rjButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(179)))), ((int)(((byte)(241)))));
-            this.rjButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton2.BorderRadius = 40;
-            this.rjButton2.BorderSize = 0;
-            this.rjButton2.FlatAppearance.BorderSize = 0;
-            this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton2.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.rjButton2.ForeColor = System.Drawing.Color.White;
-            this.rjButton2.Location = new System.Drawing.Point(283, 3);
-            this.rjButton2.Name = "rjButton2";
-            this.rjButton2.Size = new System.Drawing.Size(187, 52);
-            this.rjButton2.TabIndex = 12;
-            this.rjButton2.Text = "Buy Package";
-            this.rjButton2.UseVisualStyleBackColor = false;
+            this.btnBuyPackage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(179)))), ((int)(((byte)(241)))));
+            this.btnBuyPackage.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnBuyPackage.BorderRadius = 40;
+            this.btnBuyPackage.BorderSize = 0;
+            this.btnBuyPackage.FlatAppearance.BorderSize = 0;
+            this.btnBuyPackage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuyPackage.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnBuyPackage.ForeColor = System.Drawing.Color.White;
+            this.btnBuyPackage.Location = new System.Drawing.Point(283, 3);
+            this.btnBuyPackage.Name = "btnBuyPackage";
+            this.btnBuyPackage.Size = new System.Drawing.Size(187, 52);
+            this.btnBuyPackage.TabIndex = 12;
+            this.btnBuyPackage.Text = "Buy Package";
+            this.btnBuyPackage.UseVisualStyleBackColor = false;
+            this.btnBuyPackage.Click += new System.EventHandler(this.btnBuyPackage_Click);
             // 
             // rjFlowLayoutPanel1
             // 
@@ -438,8 +465,8 @@ namespace GymManagementSystem
             this.rjFlowLayoutPanel1.BorderRadius = 40;
             this.rjFlowLayoutPanel1.BorderSize = 0;
             this.rjFlowLayoutPanel1.Controls.Add(this.btnConfirm);
-            this.rjFlowLayoutPanel1.Controls.Add(this.rjButton1);
-            this.rjFlowLayoutPanel1.Controls.Add(this.rjButton2);
+            this.rjFlowLayoutPanel1.Controls.Add(this.btnBMI);
+            this.rjFlowLayoutPanel1.Controls.Add(this.btnBuyPackage);
             this.rjFlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.rjFlowLayoutPanel1.ForeColor = System.Drawing.Color.White;
             this.rjFlowLayoutPanel1.Location = new System.Drawing.Point(1005, 50);
@@ -457,31 +484,6 @@ namespace GymManagementSystem
             this.pnlLoadMBS.Name = "pnlLoadMBS";
             this.pnlLoadMBS.Size = new System.Drawing.Size(791, 479);
             this.pnlLoadMBS.TabIndex = 14;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(179)))), ((int)(((byte)(241)))));
-            this.label3.Location = new System.Drawing.Point(281, 13);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(193, 37);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Monster GYM";
-            // 
-            // pnlLoad
-            // 
-            this.pnlLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.pnlLoad.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.pnlLoad.BorderRadius = 40;
-            this.pnlLoad.BorderSize = 0;
-            this.pnlLoad.Controls.Add(this.label3);
-            this.pnlLoad.ForeColor = System.Drawing.Color.White;
-            this.pnlLoad.Location = new System.Drawing.Point(29, 38);
-            this.pnlLoad.Name = "pnlLoad";
-            this.pnlLoad.Size = new System.Drawing.Size(749, 70);
-            this.pnlLoad.TabIndex = 0;
             // 
             // FCreateMember
             // 
@@ -514,11 +516,11 @@ namespace GymManagementSystem
             this.rjPanel6.PerformLayout();
             this.rjPanel7.ResumeLayout(false);
             this.rjPanel7.PerformLayout();
+            this.pnlLoad.ResumeLayout(false);
+            this.pnlLoad.PerformLayout();
             this.rjFlowLayoutPanel1.ResumeLayout(false);
             this.pnlLoadMBS.ResumeLayout(false);
             this.pnlLoadMBS.PerformLayout();
-            this.pnlLoad.ResumeLayout(false);
-            this.pnlLoad.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -548,8 +550,8 @@ namespace GymManagementSystem
         private Label label1;
         private RJPanel rjPanel7;
         private TextBox txtFullName;
-        private RJButton rjButton1;
-        private RJButton rjButton2;
+        private RJButton btnBMI;
+        private RJButton btnBuyPackage;
         private RJFlowLayoutPanel rjFlowLayoutPanel1;
         private Panel panel1;
         private Panel pnlLoadMBS;

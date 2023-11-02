@@ -19,6 +19,7 @@ namespace GymManagementSystem
         {
             InitializeComponent();    
             gvBranch.DataSource = LoadBranch();
+            StackForm.Add(this);
         }
 
         private DataTable LoadBranch()

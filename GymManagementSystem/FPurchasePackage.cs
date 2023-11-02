@@ -62,6 +62,7 @@ namespace GymManagementSystem
             }
 
             instance = this;
+            StackForm.Add(this);
         }
 
         private void fillPackageToUSPackage(DataTable packageTable)
