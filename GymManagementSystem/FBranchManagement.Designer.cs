@@ -35,10 +35,6 @@
             this.btnAdd = new GymManagementSystem.RJButton();
             this.btnEdit = new GymManagementSystem.RJButton();
             this.btnDelete = new GymManagementSystem.RJButton();
-            this.rjFlowLayoutPanel1 = new GymManagementSystem.RJFlowLayoutPanel();
-            this.btnMembership = new GymManagementSystem.RJButton();
-            this.btnMember = new GymManagementSystem.RJButton();
-            this.btnPackage = new GymManagementSystem.RJButton();
             this.rjPanel4 = new GymManagementSystem.RJPanel();
             this.rjPanel2 = new GymManagementSystem.RJPanel();
             this.label3 = new System.Windows.Forms.Label();
@@ -61,8 +57,8 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.btnAll = new GymManagementSystem.RJButton();
+            this.usMenuBar1 = new GymManagementSystem.USMenuBar();
             this.rjFlowLayoutPanel3.SuspendLayout();
-            this.rjFlowLayoutPanel1.SuspendLayout();
             this.rjPanel4.SuspendLayout();
             this.rjPanel2.SuspendLayout();
             this.rjPanel3.SuspendLayout();
@@ -142,69 +138,6 @@
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // rjFlowLayoutPanel1
-            // 
-            this.rjFlowLayoutPanel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.rjFlowLayoutPanel1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjFlowLayoutPanel1.BorderRadius = 40;
-            this.rjFlowLayoutPanel1.BorderSize = 0;
-            this.rjFlowLayoutPanel1.Controls.Add(this.btnMembership);
-            this.rjFlowLayoutPanel1.Controls.Add(this.btnMember);
-            this.rjFlowLayoutPanel1.Controls.Add(this.btnPackage);
-            this.rjFlowLayoutPanel1.ForeColor = System.Drawing.Color.White;
-            this.rjFlowLayoutPanel1.Location = new System.Drawing.Point(415, 49);
-            this.rjFlowLayoutPanel1.Name = "rjFlowLayoutPanel1";
-            this.rjFlowLayoutPanel1.Size = new System.Drawing.Size(942, 56);
-            this.rjFlowLayoutPanel1.TabIndex = 15;
-            // 
-            // btnMembership
-            // 
-            this.btnMembership.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
-            this.btnMembership.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnMembership.BorderRadius = 40;
-            this.btnMembership.BorderSize = 0;
-            this.btnMembership.FlatAppearance.BorderSize = 0;
-            this.btnMembership.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMembership.ForeColor = System.Drawing.Color.White;
-            this.btnMembership.Location = new System.Drawing.Point(3, 3);
-            this.btnMembership.Name = "btnMembership";
-            this.btnMembership.Size = new System.Drawing.Size(188, 50);
-            this.btnMembership.TabIndex = 0;
-            this.btnMembership.Text = "Membership";
-            this.btnMembership.UseVisualStyleBackColor = false;
-            // 
-            // btnMember
-            // 
-            this.btnMember.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
-            this.btnMember.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnMember.BorderRadius = 40;
-            this.btnMember.BorderSize = 0;
-            this.btnMember.FlatAppearance.BorderSize = 0;
-            this.btnMember.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMember.ForeColor = System.Drawing.Color.White;
-            this.btnMember.Location = new System.Drawing.Point(197, 3);
-            this.btnMember.Name = "btnMember";
-            this.btnMember.Size = new System.Drawing.Size(188, 50);
-            this.btnMember.TabIndex = 3;
-            this.btnMember.Text = "Member";
-            this.btnMember.UseVisualStyleBackColor = false;
-            // 
-            // btnPackage
-            // 
-            this.btnPackage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(181)))), ((int)(((byte)(245)))));
-            this.btnPackage.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnPackage.BorderRadius = 40;
-            this.btnPackage.BorderSize = 0;
-            this.btnPackage.FlatAppearance.BorderSize = 0;
-            this.btnPackage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPackage.ForeColor = System.Drawing.Color.White;
-            this.btnPackage.Location = new System.Drawing.Point(391, 3);
-            this.btnPackage.Name = "btnPackage";
-            this.btnPackage.Size = new System.Drawing.Size(188, 50);
-            this.btnPackage.TabIndex = 2;
-            this.btnPackage.Text = "Package";
-            this.btnPackage.UseVisualStyleBackColor = false;
-            // 
             // rjPanel4
             // 
             this.rjPanel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -217,7 +150,7 @@
             this.rjPanel4.Controls.Add(this.rjPanel9);
             this.rjPanel4.Controls.Add(this.rjPanel7);
             this.rjPanel4.ForeColor = System.Drawing.Color.White;
-            this.rjPanel4.Location = new System.Drawing.Point(418, 198);
+            this.rjPanel4.Location = new System.Drawing.Point(418, 231);
             this.rjPanel4.Name = "rjPanel4";
             this.rjPanel4.Size = new System.Drawing.Size(939, 208);
             this.rjPanel4.TabIndex = 14;
@@ -403,7 +336,7 @@
             this.rjPanel1.BorderSize = 0;
             this.rjPanel1.Controls.Add(this.gvBranch);
             this.rjPanel1.ForeColor = System.Drawing.Color.DimGray;
-            this.rjPanel1.Location = new System.Drawing.Point(415, 424);
+            this.rjPanel1.Location = new System.Drawing.Point(415, 457);
             this.rjPanel1.Name = "rjPanel1";
             this.rjPanel1.Size = new System.Drawing.Size(942, 527);
             this.rjPanel1.TabIndex = 13;
@@ -458,7 +391,7 @@
             this.rjPanel8.Controls.Add(this.txtSearch);
             this.rjPanel8.Controls.Add(this.textBox3);
             this.rjPanel8.ForeColor = System.Drawing.Color.White;
-            this.rjPanel8.Location = new System.Drawing.Point(493, 122);
+            this.rjPanel8.Location = new System.Drawing.Point(493, 153);
             this.rjPanel8.Name = "rjPanel8";
             this.rjPanel8.Size = new System.Drawing.Size(864, 59);
             this.rjPanel8.TabIndex = 1;
@@ -512,7 +445,7 @@
             this.btnAll.FlatAppearance.BorderSize = 0;
             this.btnAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAll.ForeColor = System.Drawing.Color.White;
-            this.btnAll.Location = new System.Drawing.Point(418, 122);
+            this.btnAll.Location = new System.Drawing.Point(415, 153);
             this.btnAll.Name = "btnAll";
             this.btnAll.Size = new System.Drawing.Size(58, 59);
             this.btnAll.TabIndex = 16;
@@ -520,15 +453,24 @@
             this.btnAll.UseVisualStyleBackColor = false;
             this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
             // 
+            // usMenuBar1
+            // 
+            this.usMenuBar1.AutoScroll = true;
+            this.usMenuBar1.BackColor = System.Drawing.Color.Transparent;
+            this.usMenuBar1.Location = new System.Drawing.Point(418, 53);
+            this.usMenuBar1.Name = "usMenuBar1";
+            this.usMenuBar1.Size = new System.Drawing.Size(939, 85);
+            this.usMenuBar1.TabIndex = 17;
+            // 
             // FBranchManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1820, 1080);
+            this.Controls.Add(this.usMenuBar1);
             this.Controls.Add(this.btnAll);
             this.Controls.Add(this.rjPanel8);
-            this.Controls.Add(this.rjFlowLayoutPanel1);
             this.Controls.Add(this.rjPanel4);
             this.Controls.Add(this.rjPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -536,7 +478,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FBranchManagement";
             this.rjFlowLayoutPanel3.ResumeLayout(false);
-            this.rjFlowLayoutPanel1.ResumeLayout(false);
             this.rjPanel4.ResumeLayout(false);
             this.rjPanel2.ResumeLayout(false);
             this.rjPanel2.PerformLayout();
@@ -563,10 +504,6 @@
         #endregion
 
         private RJFlowLayoutPanel rjFlowLayoutPanel3;
-        private RJFlowLayoutPanel rjFlowLayoutPanel1;
-        private RJButton btnMembership;
-        private RJButton btnMember;
-        private RJButton btnPackage;
         private RJPanel rjPanel4;
         private RJPanel rjPanel2;
         private Label label3;
@@ -592,5 +529,6 @@
         private TextBox textBox3;
         private RJButton btnSearch;
         private RJButton btnAll;
+        private USMenuBar usMenuBar1;
     }
 }

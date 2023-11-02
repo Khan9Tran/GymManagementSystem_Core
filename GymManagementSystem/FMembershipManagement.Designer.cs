@@ -59,6 +59,7 @@
             this.rjPanel9 = new GymManagementSystem.RJPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.dtpStart = new System.Windows.Forms.DateTimePicker();
+            this.usMenuBar1 = new GymManagementSystem.USMenuBar();
             this.rjPanel1.SuspendLayout();
             this.rjPanel2.SuspendLayout();
             this.rjPanel3.SuspendLayout();
@@ -83,7 +84,7 @@
             this.rjPanel1.BorderSize = 0;
             this.rjPanel1.Controls.Add(this.rjPanel2);
             this.rjPanel1.ForeColor = System.Drawing.Color.White;
-            this.rjPanel1.Location = new System.Drawing.Point(53, 242);
+            this.rjPanel1.Location = new System.Drawing.Point(50, 283);
             this.rjPanel1.Name = "rjPanel1";
             this.rjPanel1.Size = new System.Drawing.Size(709, 718);
             this.rjPanel1.TabIndex = 0;
@@ -121,7 +122,7 @@
             this.rjPanel3.Controls.Add(this.rjPanel5);
             this.rjPanel3.Controls.Add(this.rjPanel4);
             this.rjPanel3.ForeColor = System.Drawing.Color.White;
-            this.rjPanel3.Location = new System.Drawing.Point(56, 132);
+            this.rjPanel3.Location = new System.Drawing.Point(50, 180);
             this.rjPanel3.Name = "rjPanel3";
             this.rjPanel3.Size = new System.Drawing.Size(706, 87);
             this.rjPanel3.TabIndex = 1;
@@ -210,7 +211,7 @@
             this.rjFlowLayoutPanel1.Controls.Add(this.btnImage);
             this.rjFlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.rjFlowLayoutPanel1.ForeColor = System.Drawing.Color.White;
-            this.rjFlowLayoutPanel1.Location = new System.Drawing.Point(56, 49);
+            this.rjFlowLayoutPanel1.Location = new System.Drawing.Point(50, 108);
             this.rjFlowLayoutPanel1.Name = "rjFlowLayoutPanel1";
             this.rjFlowLayoutPanel1.Size = new System.Drawing.Size(706, 58);
             this.rjFlowLayoutPanel1.TabIndex = 2;
@@ -257,9 +258,9 @@
             this.rjPanel6.BorderSize = 0;
             this.rjPanel6.Controls.Add(this.rjPanel10);
             this.rjPanel6.ForeColor = System.Drawing.Color.DimGray;
-            this.rjPanel6.Location = new System.Drawing.Point(779, 193);
+            this.rjPanel6.Location = new System.Drawing.Point(776, 283);
             this.rjPanel6.Name = "rjPanel6";
-            this.rjPanel6.Size = new System.Drawing.Size(968, 767);
+            this.rjPanel6.Size = new System.Drawing.Size(968, 718);
             this.rjPanel6.TabIndex = 3;
             // 
             // rjPanel10
@@ -270,9 +271,9 @@
             this.rjPanel10.BorderSize = 0;
             this.rjPanel10.Controls.Add(this.gvMbs);
             this.rjPanel10.ForeColor = System.Drawing.Color.White;
-            this.rjPanel10.Location = new System.Drawing.Point(21, 34);
+            this.rjPanel10.Location = new System.Drawing.Point(23, 21);
             this.rjPanel10.Name = "rjPanel10";
-            this.rjPanel10.Size = new System.Drawing.Size(929, 693);
+            this.rjPanel10.Size = new System.Drawing.Size(929, 662);
             this.rjPanel10.TabIndex = 0;
             // 
             // gvMbs
@@ -327,7 +328,7 @@
             this.rjFlowLayoutPanel2.Controls.Add(this.btnReset);
             this.rjFlowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.rjFlowLayoutPanel2.ForeColor = System.Drawing.Color.White;
-            this.rjFlowLayoutPanel2.Location = new System.Drawing.Point(1355, 49);
+            this.rjFlowLayoutPanel2.Location = new System.Drawing.Point(1352, 153);
             this.rjFlowLayoutPanel2.Name = "rjFlowLayoutPanel2";
             this.rjFlowLayoutPanel2.Size = new System.Drawing.Size(392, 114);
             this.rjFlowLayoutPanel2.TabIndex = 3;
@@ -392,7 +393,7 @@
             this.rjPanel7.Controls.Add(this.rjPanel8);
             this.rjPanel7.Controls.Add(this.rjPanel9);
             this.rjPanel7.ForeColor = System.Drawing.Color.White;
-            this.rjPanel7.Location = new System.Drawing.Point(779, 49);
+            this.rjPanel7.Location = new System.Drawing.Point(776, 153);
             this.rjPanel7.Name = "rjPanel7";
             this.rjPanel7.Size = new System.Drawing.Size(570, 114);
             this.rjPanel7.TabIndex = 2;
@@ -467,12 +468,22 @@
             this.dtpStart.Size = new System.Drawing.Size(250, 34);
             this.dtpStart.TabIndex = 0;
             // 
+            // usMenuBar1
+            // 
+            this.usMenuBar1.AutoScroll = true;
+            this.usMenuBar1.BackColor = System.Drawing.Color.Transparent;
+            this.usMenuBar1.Location = new System.Drawing.Point(779, 45);
+            this.usMenuBar1.Name = "usMenuBar1";
+            this.usMenuBar1.Size = new System.Drawing.Size(965, 90);
+            this.usMenuBar1.TabIndex = 4;
+            // 
             // FMembershipManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1820, 1080);
+            this.Controls.Add(this.usMenuBar1);
             this.Controls.Add(this.rjPanel7);
             this.Controls.Add(this.rjPanel6);
             this.Controls.Add(this.rjFlowLayoutPanel1);
@@ -534,5 +545,6 @@
         private RJButton btnReset;
         private RJPanel rjPanel11;
         private TextBox txtNumberOfMember;
+        private USMenuBar usMenuBar1;
     }
 }

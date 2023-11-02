@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.rjPanel4 = new GymManagementSystem.RJPanel();
             this.gvTrainer = new System.Windows.Forms.DataGridView();
             this.lblName = new System.Windows.Forms.Label();
@@ -49,7 +49,6 @@
             this.btnAll = new GymManagementSystem.RJButton();
             this.btnMale = new GymManagementSystem.RJButton();
             this.btnFemale = new GymManagementSystem.RJButton();
-            this.rjFlowLayoutPanel1 = new GymManagementSystem.RJFlowLayoutPanel();
             this.pnlManage = new GymManagementSystem.RJPanel();
             this.rjPanel16 = new GymManagementSystem.RJPanel();
             this.label7 = new System.Windows.Forms.Label();
@@ -77,12 +76,12 @@
             this.gvSchedule = new System.Windows.Forms.DataGridView();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
+            this.usMenuBar1 = new GymManagementSystem.USMenuBar();
             this.rjPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvTrainer)).BeginInit();
             this.rjPanel3.SuspendLayout();
             this.rjPanel1.SuspendLayout();
             this.rjFlowLayoutPanel2.SuspendLayout();
-            this.rjFlowLayoutPanel1.SuspendLayout();
             this.pnlManage.SuspendLayout();
             this.rjPanel16.SuspendLayout();
             this.rjPanel17.SuspendLayout();
@@ -118,29 +117,29 @@
             this.gvTrainer.AllowUserToDeleteRows = false;
             this.gvTrainer.AllowUserToResizeColumns = false;
             this.gvTrainer.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.gvTrainer.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.gvTrainer.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.gvTrainer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gvTrainer.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.gvTrainer.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gvTrainer.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gvTrainer.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.gvTrainer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.gvTrainer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gvTrainer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gvTrainer.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gvTrainer.DefaultCellStyle = dataGridViewCellStyle3;
             this.gvTrainer.Location = new System.Drawing.Point(3, 3);
             this.gvTrainer.Name = "gvTrainer";
             this.gvTrainer.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -174,7 +173,7 @@
             this.rjPanel3.ForeColor = System.Drawing.Color.White;
             this.rjPanel3.Location = new System.Drawing.Point(95, 137);
             this.rjPanel3.Name = "rjPanel3";
-            this.rjPanel3.Size = new System.Drawing.Size(695, 66);
+            this.rjPanel3.Size = new System.Drawing.Size(550, 66);
             this.rjPanel3.TabIndex = 11;
             // 
             // lblID
@@ -199,7 +198,7 @@
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSearch.ForeColor = System.Drawing.Color.White;
             this.btnSearch.Image = global::GymManagementSystem.Properties.Resources.search;
-            this.btnSearch.Location = new System.Drawing.Point(337, 6);
+            this.btnSearch.Location = new System.Drawing.Point(357, 6);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(36, 36);
             this.btnSearch.TabIndex = 3;
@@ -215,9 +214,9 @@
             this.rjPanel1.Controls.Add(this.txtSearch);
             this.rjPanel1.Controls.Add(this.btnSearch);
             this.rjPanel1.ForeColor = System.Drawing.Color.White;
-            this.rjPanel1.Location = new System.Drawing.Point(697, 70);
+            this.rjPanel1.Location = new System.Drawing.Point(680, 63);
             this.rjPanel1.Name = "rjPanel1";
-            this.rjPanel1.Size = new System.Drawing.Size(401, 52);
+            this.rjPanel1.Size = new System.Drawing.Size(418, 52);
             this.rjPanel1.TabIndex = 9;
             // 
             // txtSearch
@@ -226,9 +225,9 @@
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(91)))), ((int)(((byte)(92)))));
-            this.txtSearch.Location = new System.Drawing.Point(15, 10);
+            this.txtSearch.Location = new System.Drawing.Point(8, 11);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(294, 31);
+            this.txtSearch.Size = new System.Drawing.Size(333, 31);
             this.txtSearch.TabIndex = 0;
             // 
             // btnAdd
@@ -310,9 +309,9 @@
             this.btnAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAll.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAll.ForeColor = System.Drawing.Color.White;
-            this.btnAll.Location = new System.Drawing.Point(3, 3);
+            this.btnAll.Location = new System.Drawing.Point(321, 3);
             this.btnAll.Name = "btnAll";
-            this.btnAll.Size = new System.Drawing.Size(140, 50);
+            this.btnAll.Size = new System.Drawing.Size(100, 56);
             this.btnAll.TabIndex = 3;
             this.btnAll.Text = "All";
             this.btnAll.UseVisualStyleBackColor = false;
@@ -328,9 +327,9 @@
             this.btnMale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMale.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnMale.ForeColor = System.Drawing.Color.White;
-            this.btnMale.Location = new System.Drawing.Point(149, 3);
+            this.btnMale.Location = new System.Drawing.Point(215, 3);
             this.btnMale.Name = "btnMale";
-            this.btnMale.Size = new System.Drawing.Size(140, 50);
+            this.btnMale.Size = new System.Drawing.Size(100, 56);
             this.btnMale.TabIndex = 4;
             this.btnMale.Text = "Male";
             this.btnMale.UseVisualStyleBackColor = false;
@@ -346,28 +345,13 @@
             this.btnFemale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFemale.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnFemale.ForeColor = System.Drawing.Color.White;
-            this.btnFemale.Location = new System.Drawing.Point(295, 3);
+            this.btnFemale.Location = new System.Drawing.Point(109, 3);
             this.btnFemale.Name = "btnFemale";
-            this.btnFemale.Size = new System.Drawing.Size(140, 50);
+            this.btnFemale.Size = new System.Drawing.Size(100, 56);
             this.btnFemale.TabIndex = 5;
             this.btnFemale.Text = "Female";
             this.btnFemale.UseVisualStyleBackColor = false;
             this.btnFemale.Click += new System.EventHandler(this.btnFemale_Click);
-            // 
-            // rjFlowLayoutPanel1
-            // 
-            this.rjFlowLayoutPanel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.rjFlowLayoutPanel1.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.rjFlowLayoutPanel1.BorderRadius = 40;
-            this.rjFlowLayoutPanel1.BorderSize = 0;
-            this.rjFlowLayoutPanel1.Controls.Add(this.btnAll);
-            this.rjFlowLayoutPanel1.Controls.Add(this.btnMale);
-            this.rjFlowLayoutPanel1.Controls.Add(this.btnFemale);
-            this.rjFlowLayoutPanel1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.rjFlowLayoutPanel1.Location = new System.Drawing.Point(95, 66);
-            this.rjFlowLayoutPanel1.Name = "rjFlowLayoutPanel1";
-            this.rjFlowLayoutPanel1.Size = new System.Drawing.Size(596, 54);
-            this.rjFlowLayoutPanel1.TabIndex = 7;
             // 
             // pnlManage
             // 
@@ -641,10 +625,13 @@
             this.rjFlowLayoutPanel3.BorderRadius = 40;
             this.rjFlowLayoutPanel3.BorderSize = 0;
             this.rjFlowLayoutPanel3.Controls.Add(this.btnManage);
+            this.rjFlowLayoutPanel3.Controls.Add(this.btnFemale);
+            this.rjFlowLayoutPanel3.Controls.Add(this.btnMale);
+            this.rjFlowLayoutPanel3.Controls.Add(this.btnAll);
             this.rjFlowLayoutPanel3.ForeColor = System.Drawing.Color.White;
-            this.rjFlowLayoutPanel3.Location = new System.Drawing.Point(798, 137);
+            this.rjFlowLayoutPanel3.Location = new System.Drawing.Point(655, 137);
             this.rjFlowLayoutPanel3.Name = "rjFlowLayoutPanel3";
-            this.rjFlowLayoutPanel3.Size = new System.Drawing.Size(300, 66);
+            this.rjFlowLayoutPanel3.Size = new System.Drawing.Size(443, 66);
             this.rjFlowLayoutPanel3.TabIndex = 16;
             // 
             // btnManage
@@ -659,7 +646,7 @@
             this.btnManage.ForeColor = System.Drawing.Color.White;
             this.btnManage.Location = new System.Drawing.Point(3, 3);
             this.btnManage.Name = "btnManage";
-            this.btnManage.Size = new System.Drawing.Size(145, 50);
+            this.btnManage.Size = new System.Drawing.Size(100, 56);
             this.btnManage.TabIndex = 0;
             this.btnManage.Text = "Manage";
             this.btnManage.UseVisualStyleBackColor = false;
@@ -684,29 +671,29 @@
             this.gvSchedule.AllowUserToDeleteRows = false;
             this.gvSchedule.AllowUserToResizeColumns = false;
             this.gvSchedule.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.gvSchedule.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.gvSchedule.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.gvSchedule.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gvSchedule.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.gvSchedule.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gvSchedule.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gvSchedule.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.gvSchedule.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.gvSchedule.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.gvSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gvSchedule.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gvSchedule.DefaultCellStyle = dataGridViewCellStyle6;
             this.gvSchedule.Location = new System.Drawing.Point(3, 3);
             this.gvSchedule.Name = "gvSchedule";
             this.gvSchedule.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -729,11 +716,20 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
-            this.label1.Location = new System.Drawing.Point(1133, 69);
+            this.label1.Location = new System.Drawing.Point(1376, 76);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 30);
             this.label1.TabIndex = 19;
             this.label1.Text = "Schedule";
+            // 
+            // usMenuBar1
+            // 
+            this.usMenuBar1.AutoScroll = true;
+            this.usMenuBar1.BackColor = System.Drawing.Color.Transparent;
+            this.usMenuBar1.Location = new System.Drawing.Point(95, 34);
+            this.usMenuBar1.Name = "usMenuBar1";
+            this.usMenuBar1.Size = new System.Drawing.Size(540, 81);
+            this.usMenuBar1.TabIndex = 20;
             // 
             // FTrainerManagement
             // 
@@ -741,6 +737,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1820, 1080);
+            this.Controls.Add(this.usMenuBar1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.rjPanel2);
@@ -749,7 +746,6 @@
             this.Controls.Add(this.rjPanel4);
             this.Controls.Add(this.rjPanel3);
             this.Controls.Add(this.rjPanel1);
-            this.Controls.Add(this.rjFlowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FTrainerManagement";
             this.Text = "FTrainerManagement";
@@ -760,7 +756,6 @@
             this.rjPanel1.ResumeLayout(false);
             this.rjPanel1.PerformLayout();
             this.rjFlowLayoutPanel2.ResumeLayout(false);
-            this.rjFlowLayoutPanel1.ResumeLayout(false);
             this.pnlManage.ResumeLayout(false);
             this.rjPanel16.ResumeLayout(false);
             this.rjPanel16.PerformLayout();
@@ -805,7 +800,6 @@
         private RJButton btnAll;
         private RJButton btnMale;
         private RJButton btnFemale;
-        private RJFlowLayoutPanel rjFlowLayoutPanel1;
         private RJPanel pnlManage;
         private RJPanel rjPanel16;
         private Label label7;
@@ -833,5 +827,6 @@
         private DataGridView gvSchedule;
         private DateTimePicker dtpDate;
         private Label label1;
+        private USMenuBar usMenuBar1;
     }
 }

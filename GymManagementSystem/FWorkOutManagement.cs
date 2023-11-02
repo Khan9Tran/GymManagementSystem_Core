@@ -18,10 +18,11 @@ namespace GymManagementSystem
         public FWorkOutManagement()
         {
             InitializeComponent();
-            gvBranch_Load();
+            gvWorkOut_Load();
+            toolForPicture = new ToolForPicture(ToolForPicture.Type.workOut);
         }
 
-        private DataTable gvBranch_Load()
+        private DataTable gvWorkOut_Load()
         {
             Employee.Role = 1;
             DBConnection connection = new DBConnection();
@@ -34,18 +35,27 @@ namespace GymManagementSystem
             DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);
 
-            gvBranch.DataSource = dataTable;
+            gvWorkOut.DataSource = dataTable;
             connection.closeConnection();
             return dataTable;
         }
 
-        private void gvBranch_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void gvWorkOut_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtID.Text = gvBranch.CurrentRow.Cells["ID"].Value.ToString();
-            txtName.Text = gvBranch.CurrentRow.Cells["Name"].Value.ToString();
-            txtType.Text = gvBranch.CurrentRow.Cells["Type"].Value.ToString();
-            txtDescription.Text = gvBranch.CurrentRow.Cells["Description"].Value.ToString();
-            txtDuration.Text = gvBranch.CurrentRow.Cells["Duration"].Value.ToString();
+            txtID.Text = gvWorkOut.CurrentRow.Cells["ID"].Value.ToString();
+            txtName.Text = gvWorkOut.CurrentRow.Cells["Name"].Value.ToString();
+            txtType.Text = gvWorkOut.CurrentRow.Cells["Type"].Value.ToString();
+            txtDescription.Text = gvWorkOut.CurrentRow.Cells["Description"].Value.ToString();
+            txtDuration.Text = gvWorkOut.CurrentRow.Cells["Duration"].Value.ToString();
+
+            try
+            {
+                toolForPicture.GetPicture(gvWorkOut.CurrentRow.Cells["ID"].Value.ToString(), ptcImageWO);
+            }
+            catch
+            {
+
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -69,7 +79,7 @@ namespace GymManagementSystem
             }
             connection.closeConnection();
             MessageBox.Show("Xóa thành công");
-            gvBranch_Load();
+            gvWorkOut_Load();
 
         }
 
@@ -103,7 +113,7 @@ namespace GymManagementSystem
             }
             connection.closeConnection();
             MessageBox.Show("Thêm thành công");
-            gvBranch_Load();
+            gvWorkOut_Load();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -136,8 +146,24 @@ namespace GymManagementSystem
             }
             connection.closeConnection();
             MessageBox.Show("Cập nhật thành công");
-            gvBranch_Load();
+            gvWorkOut_Load();
 
+        }
+
+        ToolForPicture toolForPicture;
+
+        private void LoadImg()
+        {
+
+        }
+
+        private void ptcImageWO_Click(object sender, EventArgs e)
+        {
+            toolForPicture.AddPicture(ofdPic, ptcImageWO);
+            if (ptcImageWO.Image != null )
+            {
+                toolForPicture.SavePicture(gvWorkOut.CurrentRow.Cells["ID"].Value.ToString(), ofdPic, ptcImageWO);
+            }
         }
     }
 }
