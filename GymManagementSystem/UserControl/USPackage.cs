@@ -26,7 +26,7 @@ namespace GymManagementSystem
             this.packageID = packageID;
             this.packageName = packageName;
             this.packagePeriods = packagePeriods;
-            this.packagePrice = ConverToMoney.conver(Math.Round(Double.Parse(packagePrice), 1).ToString ());
+            this.packagePrice = ConverToMoney.conver(Math.Round(Double.Parse(packagePrice), 3).ToString ());
             this.packageDesctiption = packageDesctiption;
             this.packageNOPTSessions = packageNOPTSessions;
             showPackage();

@@ -243,7 +243,7 @@
             flowLayoutPanel3.Controls.Add(label23);
             flowLayoutPanel3.Location = new Point(0, 3);
             flowLayoutPanel3.Name = "flowLayoutPanel3";
-            flowLayoutPanel3.Size = new Size(336, 44);
+            flowLayoutPanel3.Size = new Size(392, 44);
             flowLayoutPanel3.TabIndex = 27;
             // 
             // label19
@@ -457,9 +457,9 @@
             flowLayoutPanel4.Controls.Add(lblDiscount);
             flowLayoutPanel4.Controls.Add(label22);
             flowLayoutPanel4.FlowDirection = FlowDirection.RightToLeft;
-            flowLayoutPanel4.Location = new Point(342, 3);
+            flowLayoutPanel4.Location = new Point(398, 3);
             flowLayoutPanel4.Name = "flowLayoutPanel4";
-            flowLayoutPanel4.Size = new Size(329, 44);
+            flowLayoutPanel4.Size = new Size(273, 44);
             flowLayoutPanel4.TabIndex = 28;
             // 
             // lblDiscountUnit
@@ -467,7 +467,7 @@
             lblDiscountUnit.AutoSize = true;
             lblDiscountUnit.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             lblDiscountUnit.ForeColor = Color.FromArgb(59, 41, 55);
-            lblDiscountUnit.Location = new Point(293, 0);
+            lblDiscountUnit.Location = new Point(237, 0);
             lblDiscountUnit.Name = "lblDiscountUnit";
             lblDiscountUnit.Size = new Size(33, 31);
             lblDiscountUnit.TabIndex = 33;
@@ -478,7 +478,7 @@
             lblDiscount.AutoSize = true;
             lblDiscount.Font = new Font("Segoe UI", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point);
             lblDiscount.ForeColor = Color.FromArgb(59, 41, 55);
-            lblDiscount.Location = new Point(203, 0);
+            lblDiscount.Location = new Point(147, 0);
             lblDiscount.Name = "lblDiscount";
             lblDiscount.Size = new Size(84, 31);
             lblDiscount.TabIndex = 32;
@@ -489,7 +489,7 @@
             label22.AutoSize = true;
             label22.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             label22.ForeColor = Color.FromArgb(59, 41, 55);
-            label22.Location = new Point(82, 0);
+            label22.Location = new Point(26, 0);
             label22.Name = "label22";
             label22.Size = new Size(115, 31);
             label22.TabIndex = 31;

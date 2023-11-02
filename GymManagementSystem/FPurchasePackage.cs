@@ -151,7 +151,7 @@ namespace GymManagementSystem
                 instance.lblDetailPkName.Text = packageName;
                 instance.lblBalance.Text = ConverToMoney.conver(tempBalance.ToString());
                 instance.lblDetailPkPeriod.Text = packagePeriods;
-                instance.lblDetailPkPrice.Text = Math.Round(Convert.ToDouble(packagePrice), 1).ToString();
+                instance.lblDetailPkPrice.Text = Math.Round(Convert.ToDouble(packagePrice), 3).ToString();
 
                 if (packageNOPTSessions == "")
                 {
@@ -189,7 +189,7 @@ namespace GymManagementSystem
                     memberBalance = Convert.ToDouble(member[2]);
 
                     lblMemberName.Text = member[1].ToString();
-                    lblBalance.Text = ConverToMoney.conver(Math.Round(Convert.ToDouble(member[2]), 1).ToString());
+                    lblBalance.Text = ConverToMoney.conver(Math.Round(Convert.ToDouble(member[2]), 3).ToString());
                     lblDiscount.Text = (packageDiscount * 100).ToString();
                 }
                 catch
