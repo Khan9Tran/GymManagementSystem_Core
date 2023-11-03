@@ -131,24 +131,39 @@ namespace GymManagementSystem
 
         private void gvEquipment_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            LoadMaintenanceData(gvEquipment.CurrentRow.Cells["ID"].Value.ToString());
+            try
+            {
+                LoadMaintenanceData(gvEquipment.CurrentRow.Cells["ID"].Value.ToString());
+            }
+            catch
+            {
+                MessageBox.Show("Không có thông tin ");
+            }
         }
 
         private void LoadMaintenanceData(string ID)
         {
-            String query = "PROC_FindMaintenanceData";
-            DBConnection connection = new DBConnection();
-            connection.openConnection();
+            try
+            {
+                String query = "PROC_FindMaintenanceData";
+                DBConnection connection = new DBConnection();
+                connection.openConnection();
 
-            SqlCommand command = new SqlCommand(query, connection.GetConnection());
-            command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.AddWithValue("@ID", ID);
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
+                SqlCommand command = new SqlCommand(query, connection.GetConnection());
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@ID", ID);
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
 
-            DataTable dataTable = new DataTable();
-            adapter.Fill(dataTable);
-            connection.closeConnection();
-            gvMaintenance.DataSource = dataTable;
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+                connection.closeConnection();
+                gvMaintenance.DataSource = dataTable;
+            }
+            catch
+            (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void AddMaintenanceData()
