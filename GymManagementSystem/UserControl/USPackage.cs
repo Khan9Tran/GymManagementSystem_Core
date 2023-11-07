@@ -19,7 +19,7 @@ namespace GymManagementSystem
         string packagePrice;
         string packageDesctiption;
         string packageNOPTSessions;
-
+        ToolForPicture tool;
         public USPackage(string packageID, string packageName, string packagePeriods, string packagePrice, string packageDesctiption, string packageNOPTSessions)
         {
             InitializeComponent();
@@ -29,6 +29,8 @@ namespace GymManagementSystem
             this.packagePrice = ConverToMoney.conver(Math.Round(Double.Parse(packagePrice), 3).ToString ());
             this.packageDesctiption = packageDesctiption;
             this.packageNOPTSessions = packageNOPTSessions;
+            tool = new ToolForPicture(ToolForPicture.Type.package);
+            tool.GetPicture(this.packageID, ptcHinh);
             showPackage();
         }
 

@@ -28,267 +28,267 @@
         /// </summary>
         private void InitializeComponent()
         {
-            rjFlowLayoutPanel1 = new RJFlowLayoutPanel();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            pictureBox1 = new PictureBox();
-            btnPkName = new RJButton();
-            panel1 = new Panel();
-            lblPkDescription = new Label();
-            label1 = new Label();
-            flowLayoutPanel2 = new FlowLayoutPanel();
-            label2 = new Label();
-            lblPkPeriods = new Label();
-            flowLayoutPanel3 = new FlowLayoutPanel();
-            lblPkPrice = new Label();
-            label4 = new Label();
-            flowLayoutPanel4 = new FlowLayoutPanel();
-            label6 = new Label();
-            lblPkNumberOfTrainerSessions = new Label();
-            btnPkSelect = new RJButton();
-            rjFlowLayoutPanel1.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panel1.SuspendLayout();
-            flowLayoutPanel2.SuspendLayout();
-            flowLayoutPanel3.SuspendLayout();
-            flowLayoutPanel4.SuspendLayout();
-            SuspendLayout();
+            this.rjFlowLayoutPanel1 = new GymManagementSystem.RJFlowLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.ptcHinh = new System.Windows.Forms.PictureBox();
+            this.btnPkName = new GymManagementSystem.RJButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblPkDescription = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblPkPeriods = new System.Windows.Forms.Label();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblPkPrice = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblPkNumberOfTrainerSessions = new System.Windows.Forms.Label();
+            this.btnPkSelect = new GymManagementSystem.RJButton();
+            this.rjFlowLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptcHinh)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
+            this.flowLayoutPanel4.SuspendLayout();
+            this.SuspendLayout();
             // 
             // rjFlowLayoutPanel1
             // 
-            rjFlowLayoutPanel1.BackColor = Color.White;
-            rjFlowLayoutPanel1.BorderColor = Color.PaleVioletRed;
-            rjFlowLayoutPanel1.BorderRadius = 15;
-            rjFlowLayoutPanel1.BorderSize = 0;
-            rjFlowLayoutPanel1.Controls.Add(flowLayoutPanel1);
-            rjFlowLayoutPanel1.ForeColor = Color.White;
-            rjFlowLayoutPanel1.Location = new Point(0, 0);
-            rjFlowLayoutPanel1.Name = "rjFlowLayoutPanel1";
-            rjFlowLayoutPanel1.Size = new Size(410, 350);
-            rjFlowLayoutPanel1.TabIndex = 0;
+            this.rjFlowLayoutPanel1.BackColor = System.Drawing.Color.White;
+            this.rjFlowLayoutPanel1.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjFlowLayoutPanel1.BorderRadius = 15;
+            this.rjFlowLayoutPanel1.BorderSize = 0;
+            this.rjFlowLayoutPanel1.Controls.Add(this.flowLayoutPanel1);
+            this.rjFlowLayoutPanel1.ForeColor = System.Drawing.Color.White;
+            this.rjFlowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.rjFlowLayoutPanel1.Name = "rjFlowLayoutPanel1";
+            this.rjFlowLayoutPanel1.Size = new System.Drawing.Size(410, 350);
+            this.rjFlowLayoutPanel1.TabIndex = 0;
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Controls.Add(pictureBox1);
-            flowLayoutPanel1.Controls.Add(btnPkName);
-            flowLayoutPanel1.Controls.Add(panel1);
-            flowLayoutPanel1.Controls.Add(flowLayoutPanel2);
-            flowLayoutPanel1.Controls.Add(flowLayoutPanel3);
-            flowLayoutPanel1.Controls.Add(flowLayoutPanel4);
-            flowLayoutPanel1.Controls.Add(btnPkSelect);
-            flowLayoutPanel1.Location = new Point(5, 3);
-            flowLayoutPanel1.Margin = new Padding(5, 3, 5, 3);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(400, 346);
-            flowLayoutPanel1.TabIndex = 0;
+            this.flowLayoutPanel1.Controls.Add(this.ptcHinh);
+            this.flowLayoutPanel1.Controls.Add(this.btnPkName);
+            this.flowLayoutPanel1.Controls.Add(this.panel1);
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel3);
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel4);
+            this.flowLayoutPanel1.Controls.Add(this.btnPkSelect);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(5, 3);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(400, 346);
+            this.flowLayoutPanel1.TabIndex = 0;
             // 
-            // pictureBox1
+            // ptcHinh
             // 
-            pictureBox1.Image = Properties.Resources.muscle;
-            pictureBox1.Location = new Point(145, 3);
-            pictureBox1.Margin = new Padding(145, 3, 145, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(110, 110);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            this.ptcHinh.Image = global::GymManagementSystem.Properties.Resources.muscle;
+            this.ptcHinh.Location = new System.Drawing.Point(145, 3);
+            this.ptcHinh.Margin = new System.Windows.Forms.Padding(145, 3, 145, 0);
+            this.ptcHinh.Name = "ptcHinh";
+            this.ptcHinh.Size = new System.Drawing.Size(110, 110);
+            this.ptcHinh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptcHinh.TabIndex = 0;
+            this.ptcHinh.TabStop = false;
             // 
             // btnPkName
             // 
-            btnPkName.BackColor = Color.FromArgb(59, 41, 55);
-            btnPkName.BorderColor = Color.PaleVioletRed;
-            btnPkName.BorderRadius = 10;
-            btnPkName.BorderSize = 0;
-            btnPkName.FlatAppearance.BorderSize = 0;
-            btnPkName.FlatStyle = FlatStyle.Flat;
-            btnPkName.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            btnPkName.ForeColor = Color.White;
-            btnPkName.Location = new Point(75, 118);
-            btnPkName.Margin = new Padding(75, 5, 75, 0);
-            btnPkName.Name = "btnPkName";
-            btnPkName.Size = new Size(250, 35);
-            btnPkName.TabIndex = 1;
-            btnPkName.Text = "Package Name";
-            btnPkName.UseVisualStyleBackColor = false;
+            this.btnPkName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(41)))), ((int)(((byte)(55)))));
+            this.btnPkName.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnPkName.BorderRadius = 10;
+            this.btnPkName.BorderSize = 0;
+            this.btnPkName.FlatAppearance.BorderSize = 0;
+            this.btnPkName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPkName.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnPkName.ForeColor = System.Drawing.Color.White;
+            this.btnPkName.Location = new System.Drawing.Point(75, 118);
+            this.btnPkName.Margin = new System.Windows.Forms.Padding(75, 5, 75, 0);
+            this.btnPkName.Name = "btnPkName";
+            this.btnPkName.Size = new System.Drawing.Size(250, 35);
+            this.btnPkName.TabIndex = 1;
+            this.btnPkName.Text = "Package Name";
+            this.btnPkName.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
-            panel1.Controls.Add(lblPkDescription);
-            panel1.Controls.Add(label1);
-            panel1.Location = new Point(0, 160);
-            panel1.Margin = new Padding(0, 7, 0, 3);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(400, 70);
-            panel1.TabIndex = 2;
+            this.panel1.Controls.Add(this.lblPkDescription);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(0, 160);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0, 7, 0, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(400, 70);
+            this.panel1.TabIndex = 2;
             // 
             // lblPkDescription
             // 
-            lblPkDescription.AutoSize = true;
-            lblPkDescription.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            lblPkDescription.ForeColor = Color.FromArgb(59, 41, 55);
-            lblPkDescription.Location = new Point(110, 0);
-            lblPkDescription.Name = "lblPkDescription";
-            lblPkDescription.Size = new Size(70, 23);
-            lblPkDescription.TabIndex = 1;
-            lblPkDescription.Text = "Chicken";
+            this.lblPkDescription.AutoSize = true;
+            this.lblPkDescription.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPkDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(41)))), ((int)(((byte)(55)))));
+            this.lblPkDescription.Location = new System.Drawing.Point(110, 0);
+            this.lblPkDescription.Name = "lblPkDescription";
+            this.lblPkDescription.Size = new System.Drawing.Size(70, 23);
+            this.lblPkDescription.TabIndex = 1;
+            this.lblPkDescription.Text = "Chicken";
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.FromArgb(59, 41, 55);
-            label1.Location = new Point(3, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(112, 23);
-            label1.TabIndex = 0;
-            label1.Text = "Descriptions: ";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(41)))), ((int)(((byte)(55)))));
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(112, 23);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Descriptions: ";
             // 
             // flowLayoutPanel2
             // 
-            flowLayoutPanel2.Controls.Add(label2);
-            flowLayoutPanel2.Controls.Add(lblPkPeriods);
-            flowLayoutPanel2.Location = new Point(0, 236);
-            flowLayoutPanel2.Margin = new Padding(0, 3, 0, 3);
-            flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(200, 30);
-            flowLayoutPanel2.TabIndex = 3;
+            this.flowLayoutPanel2.Controls.Add(this.label2);
+            this.flowLayoutPanel2.Controls.Add(this.lblPkPeriods);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 236);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(200, 30);
+            this.flowLayoutPanel2.TabIndex = 3;
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.ForeColor = Color.FromArgb(59, 41, 55);
-            label2.Location = new Point(3, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(69, 23);
-            label2.TabIndex = 0;
-            label2.Text = "Periods:";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(41)))), ((int)(((byte)(55)))));
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(69, 23);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Periods:";
             // 
             // lblPkPeriods
             // 
-            lblPkPeriods.AutoSize = true;
-            lblPkPeriods.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            lblPkPeriods.ForeColor = Color.FromArgb(59, 41, 55);
-            lblPkPeriods.Location = new Point(78, 0);
-            lblPkPeriods.Name = "lblPkPeriods";
-            lblPkPeriods.Size = new Size(30, 23);
-            lblPkPeriods.TabIndex = 1;
-            lblPkPeriods.Text = "10";
+            this.lblPkPeriods.AutoSize = true;
+            this.lblPkPeriods.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPkPeriods.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(41)))), ((int)(((byte)(55)))));
+            this.lblPkPeriods.Location = new System.Drawing.Point(78, 0);
+            this.lblPkPeriods.Name = "lblPkPeriods";
+            this.lblPkPeriods.Size = new System.Drawing.Size(30, 23);
+            this.lblPkPeriods.TabIndex = 1;
+            this.lblPkPeriods.Text = "10";
             // 
             // flowLayoutPanel3
             // 
-            flowLayoutPanel3.Controls.Add(lblPkPrice);
-            flowLayoutPanel3.Controls.Add(label4);
-            flowLayoutPanel3.FlowDirection = FlowDirection.RightToLeft;
-            flowLayoutPanel3.Location = new Point(200, 236);
-            flowLayoutPanel3.Margin = new Padding(0, 3, 0, 3);
-            flowLayoutPanel3.Name = "flowLayoutPanel3";
-            flowLayoutPanel3.Size = new Size(200, 30);
-            flowLayoutPanel3.TabIndex = 4;
+            this.flowLayoutPanel3.Controls.Add(this.lblPkPrice);
+            this.flowLayoutPanel3.Controls.Add(this.label4);
+            this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(200, 236);
+            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(200, 30);
+            this.flowLayoutPanel3.TabIndex = 4;
             // 
             // lblPkPrice
             // 
-            lblPkPrice.AutoSize = true;
-            lblPkPrice.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            lblPkPrice.ForeColor = Color.FromArgb(59, 41, 55);
-            lblPkPrice.Location = new Point(100, 0);
-            lblPkPrice.Margin = new Padding(3, 0, 10, 0);
-            lblPkPrice.Name = "lblPkPrice";
-            lblPkPrice.Size = new Size(90, 23);
-            lblPkPrice.TabIndex = 4;
-            lblPkPrice.Text = "3,000,000";
+            this.lblPkPrice.AutoSize = true;
+            this.lblPkPrice.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPkPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(41)))), ((int)(((byte)(55)))));
+            this.lblPkPrice.Location = new System.Drawing.Point(100, 0);
+            this.lblPkPrice.Margin = new System.Windows.Forms.Padding(3, 0, 10, 0);
+            this.lblPkPrice.Name = "lblPkPrice";
+            this.lblPkPrice.Size = new System.Drawing.Size(90, 23);
+            this.lblPkPrice.TabIndex = 4;
+            this.lblPkPrice.Text = "3,000,000";
             // 
             // label4
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.ForeColor = Color.FromArgb(59, 41, 55);
-            label4.Location = new Point(43, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(51, 23);
-            label4.TabIndex = 3;
-            label4.Text = "Price:";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(41)))), ((int)(((byte)(55)))));
+            this.label4.Location = new System.Drawing.Point(43, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(51, 23);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Price:";
             // 
             // flowLayoutPanel4
             // 
-            flowLayoutPanel4.Controls.Add(label6);
-            flowLayoutPanel4.Controls.Add(lblPkNumberOfTrainerSessions);
-            flowLayoutPanel4.Location = new Point(0, 272);
-            flowLayoutPanel4.Margin = new Padding(0, 3, 0, 0);
-            flowLayoutPanel4.Name = "flowLayoutPanel4";
-            flowLayoutPanel4.Size = new Size(400, 30);
-            flowLayoutPanel4.TabIndex = 5;
+            this.flowLayoutPanel4.Controls.Add(this.label6);
+            this.flowLayoutPanel4.Controls.Add(this.lblPkNumberOfTrainerSessions);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(0, 272);
+            this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(400, 30);
+            this.flowLayoutPanel4.TabIndex = 5;
             // 
             // label6
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.ForeColor = Color.FromArgb(59, 41, 55);
-            label6.Location = new Point(3, 0);
-            label6.Name = "label6";
-            label6.Size = new Size(219, 23);
-            label6.TabIndex = 2;
-            label6.Text = "Number of trainer sessions:";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(41)))), ((int)(((byte)(55)))));
+            this.label6.Location = new System.Drawing.Point(3, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(219, 23);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Number of trainer sessions:";
             // 
             // lblPkNumberOfTrainerSessions
             // 
-            lblPkNumberOfTrainerSessions.AutoSize = true;
-            lblPkNumberOfTrainerSessions.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            lblPkNumberOfTrainerSessions.ForeColor = Color.FromArgb(59, 41, 55);
-            lblPkNumberOfTrainerSessions.Location = new Point(228, 0);
-            lblPkNumberOfTrainerSessions.Name = "lblPkNumberOfTrainerSessions";
-            lblPkNumberOfTrainerSessions.Size = new Size(30, 23);
-            lblPkNumberOfTrainerSessions.TabIndex = 3;
-            lblPkNumberOfTrainerSessions.Text = "10";
+            this.lblPkNumberOfTrainerSessions.AutoSize = true;
+            this.lblPkNumberOfTrainerSessions.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPkNumberOfTrainerSessions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(41)))), ((int)(((byte)(55)))));
+            this.lblPkNumberOfTrainerSessions.Location = new System.Drawing.Point(228, 0);
+            this.lblPkNumberOfTrainerSessions.Name = "lblPkNumberOfTrainerSessions";
+            this.lblPkNumberOfTrainerSessions.Size = new System.Drawing.Size(30, 23);
+            this.lblPkNumberOfTrainerSessions.TabIndex = 3;
+            this.lblPkNumberOfTrainerSessions.Text = "10";
             // 
             // btnPkSelect
             // 
-            btnPkSelect.BackColor = Color.FromArgb(40, 181, 244);
-            btnPkSelect.BorderColor = Color.PaleVioletRed;
-            btnPkSelect.BorderRadius = 10;
-            btnPkSelect.BorderSize = 0;
-            btnPkSelect.Cursor = Cursors.Hand;
-            btnPkSelect.FlatAppearance.BorderSize = 0;
-            btnPkSelect.FlatStyle = FlatStyle.Flat;
-            btnPkSelect.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            btnPkSelect.ForeColor = Color.White;
-            btnPkSelect.Location = new Point(0, 302);
-            btnPkSelect.Margin = new Padding(0);
-            btnPkSelect.Name = "btnPkSelect";
-            btnPkSelect.Size = new Size(400, 40);
-            btnPkSelect.TabIndex = 6;
-            btnPkSelect.Text = "Select";
-            btnPkSelect.UseVisualStyleBackColor = false;
-            btnPkSelect.Click += btnPkSelect_Click;
+            this.btnPkSelect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(181)))), ((int)(((byte)(244)))));
+            this.btnPkSelect.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnPkSelect.BorderRadius = 10;
+            this.btnPkSelect.BorderSize = 0;
+            this.btnPkSelect.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPkSelect.FlatAppearance.BorderSize = 0;
+            this.btnPkSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPkSelect.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnPkSelect.ForeColor = System.Drawing.Color.White;
+            this.btnPkSelect.Location = new System.Drawing.Point(0, 302);
+            this.btnPkSelect.Margin = new System.Windows.Forms.Padding(0);
+            this.btnPkSelect.Name = "btnPkSelect";
+            this.btnPkSelect.Size = new System.Drawing.Size(400, 40);
+            this.btnPkSelect.TabIndex = 6;
+            this.btnPkSelect.Text = "Select";
+            this.btnPkSelect.UseVisualStyleBackColor = false;
             // 
             // USPackage
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Transparent;
-            Controls.Add(rjFlowLayoutPanel1);
-            Margin = new Padding(30, 30, 0, 0);
-            Name = "USPackage";
-            Size = new Size(410, 350);
-            rjFlowLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            flowLayoutPanel2.ResumeLayout(false);
-            flowLayoutPanel2.PerformLayout();
-            flowLayoutPanel3.ResumeLayout(false);
-            flowLayoutPanel3.PerformLayout();
-            flowLayoutPanel4.ResumeLayout(false);
-            flowLayoutPanel4.PerformLayout();
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.rjFlowLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(30, 30, 0, 0);
+            this.Name = "USPackage";
+            this.Size = new System.Drawing.Size(410, 350);
+            this.rjFlowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ptcHinh)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
+            this.flowLayoutPanel3.ResumeLayout(false);
+            this.flowLayoutPanel3.PerformLayout();
+            this.flowLayoutPanel4.ResumeLayout(false);
+            this.flowLayoutPanel4.PerformLayout();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
 
         private RJFlowLayoutPanel rjFlowLayoutPanel1;
         private FlowLayoutPanel flowLayoutPanel1;
-        private PictureBox pictureBox1;
+        private PictureBox ptcHinh;
         private RJButton btnPkName;
         private Panel panel1;
         private Label label1;

@@ -14,7 +14,7 @@ namespace GymManagementSystem
         //String lưu địa chỉ folder chứa hình ảnh
         private static string pathWorkOut = @"..\..\..\..\WorkOut";
         private static string pathTrainer = @"..\..\..\..\Trainer";
-        private static string pathAvatar = @"..\..\..\..\Avatar";
+        private static string pathPackage = @"..\..\..\..\Package";
         private static string pathMembership = @"..\..\..\..\Membership";
         private string path;
 
@@ -24,8 +24,8 @@ namespace GymManagementSystem
                 path = pathWorkOut;
             else if (type == Type.trainer)
                 path = pathTrainer;
-            else if (type == Type.avatar)
-                path = pathAvatar;
+            else if (type == Type.package)
+                path = pathPackage;
             else 
                 path = pathMembership;
         }
@@ -33,7 +33,7 @@ namespace GymManagementSystem
         {
             workOut,
             trainer,
-            avatar,
+            package,
             membership
         }
         public string GetFolderPath()

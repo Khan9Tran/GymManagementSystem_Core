@@ -1842,3 +1842,165 @@ CREATE FUNCTION FUNC_FindWorkout(@Content NVARCHAR(100))
 RETURNS TABLE
 AS
 	RETURN SELECT * FROM V_WorkOutList WHERE ID = @Content OR [Name] LIKE  N'%' + @Content + '%' OR [Type] LIKE  N'%' + @Content + '%' OR [Description] LIKE  N'%' + @Content + '%' OR [Duration] LIKE  N'%' + @Content + '%' 
+
+
+
+
+GO
+
+CREATE PROCEDURE PROC_AddPackage
+    @ID CHAR(6),
+    @Name NVARCHAR(100),
+    @Periods INT,
+    @Price MONEY,
+    @Description NTEXT,
+    @NumberOfPTSessions INT
+AS
+BEGIN
+    BEGIN TRY
+        BEGIN TRANSACTION;
+
+        -- Check and set NumberOfPTSessions to NULL if it's 0
+        IF @NumberOfPTSessions = 0
+        BEGIN
+            SET @NumberOfPTSessions = NULL;
+        END
+
+        INSERT INTO Package (ID, Name, Periods, Price, Description, NumberOfPTSessions)
+        VALUES (@ID, @Name, @Periods, @Price, @Description, @NumberOfPTSessions);
+
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRANSACTION;
+        SELECT N'Thêm thất bại' AS Result
+		RETURN
+    END CATCH
+	SELECT N'Thêm thành công' AS Result
+END
+
+
+GO
+
+CREATE PROCEDURE PROC_FindAllPackages
+    @FilterType INT,
+    @Content NVARCHAR(50)
+AS
+BEGIN
+	IF (@FilterType = 0)
+	BEGIN
+		SELECT *
+		FROM V_PackageList
+		WHERE (
+				ID = @Content
+				OR [Name] LIKE N'%' + @Content + '%'
+				OR [Description] LIKE N'%' + @Content + '%'
+			) 
+	END
+	IF (@FilterType = 1)
+	BEGIN
+		SELECT *
+		FROM V_PackageList
+		WHERE (
+				ID = @Content
+				OR [Name] LIKE N'%' + @Content + '%'
+				OR [Description] LIKE N'%' + @Content + '%'
+			) AND (NumberOfPTSessions IS NOT NULL)
+	END
+	IF (@FilterType = 2)
+	BEGIN
+		SELECT *
+		FROM V_PackageList
+		WHERE (
+				ID = @Content
+				OR [Name] LIKE N'%' + @Content + '%'
+				OR [Description] LIKE N'%' + @Content + '%'
+			) AND (NumberOfPTSessions IS NULL)
+	END
+END
+
+GO
+
+CREATE PROCEDURE PROC_UpdatePackage
+    @ID CHAR(6),
+    @Name NVARCHAR(100),
+    @Periods INT,
+    @Price MONEY,
+    @Description NTEXT,
+    @NumberOfPTSessions INT
+AS
+BEGIN
+    DECLARE @RowCount INT;
+
+    -- Check if the ID exists in the Package table
+    SELECT @RowCount = COUNT(*)
+    FROM Package
+    WHERE ID = @ID;
+	IF @NumberOfPTSessions = 0
+        BEGIN
+            SET @NumberOfPTSessions = NULL;
+        END
+    IF @RowCount > 0
+    BEGIN
+        -- The ID exists, perform the update
+        BEGIN TRY
+            BEGIN TRANSACTION;
+
+            UPDATE Package
+            SET
+                [Name] = @Name,
+                Periods = @Periods,
+                Price = @Price,
+                [Description] = @Description,
+                NumberOfPTSessions = @NumberOfPTSessions
+            WHERE ID = @ID;
+
+            COMMIT TRANSACTION;
+
+            -- Return a success message or code if needed
+            SELECT N'Cập nhật gói tập thành công' AS Result;
+        END TRY
+        BEGIN CATCH
+            ROLLBACK TRANSACTION;
+            THROW;
+        END CATCH
+    END
+    ELSE
+    BEGIN
+        -- The ID does not exist, return an error message or code
+        SELECT N'Package với ID ' + @ID + N' không tồn tại' AS Result;
+    END
+END
+GO
+
+CREATE FUNCTION FUNC_CheckPackageMembers
+(
+    @PackageID CHAR(6)
+)
+RETURNS BIT
+AS
+BEGIN
+    DECLARE @HasMembers BIT = 0;
+
+    -- Check if there are any members registered for the package
+    IF EXISTS (SELECT 1 FROM Member WHERE PackageID = @PackageID)
+    BEGIN
+        SET @HasMembers = 1;
+    END
+
+    RETURN @HasMembers;
+END
+GO
+CREATE PROCEDURE PROC_DeletePackage @ID CHAR(6)
+AS
+BEGIN
+	IF (dbo.FUNC_CheckPackageMembers(@ID) = 1)
+	BEGIN
+		 SELECT N'Gói tập vẫn còn lượt sử dụng ' AS Result;
+	END
+	ELSE
+	BEGIN
+		DELETE Package WHERE ID = @ID
+		 SELECT N'Xóa thành công' AS Result;
+	END
+END
