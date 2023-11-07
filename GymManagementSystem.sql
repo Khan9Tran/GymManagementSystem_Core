@@ -535,6 +535,13 @@ END
 
 GO
 
+INSERT INTO Branch ([ID], [Name], [Address])
+VALUES
+	('BR0001', N'Monster Thảo Điền', N'Quận 2, HCM'),
+	('BR0002', N'Monster Thủ Đức', N'Tp. Thủ Đức, HCM'),
+	('BRRoot', N'Monster GYM', N'trụ sở chính');
+
+GO
 INSERT INTO MembershipType (ID, [Rank], Rate)
 VALUES ('000001', N'Thành viên', 0),
        ('000002', N'Đồng', 0.04),
@@ -555,7 +562,8 @@ VALUES
     ('WO0009', N'Romanian Deadlift', N'Legs', N'Bài tập kéo đạp chân thẳng tập trung vào cơ lưng và cơ chân.', 15),
     ('WO0010', N'Overhead Press', N'Shoulders', N'Bài tập đẩy tạ từ trên đầu tập trung vào cơ vai và cơ tay trên.', 7),
     ('WO0011', N'Incline Bench Press', N'Chest', N'Bài tập đẩy tạ nghiêng tập trung vào cơ ngực, vai và cánh tay.', 12),
-    ('WO0012', N'Barbell Hip Thrust', N'Legs', N'Bài tập đẩy hông bằng tạ giúp phát triển cơ mông và cơ chân.', 15);
+    ('WO0012', N'Barbell Hip Thrust', N'Legs', N'Bài tập đẩy hông bằng tạ giúp phát triển cơ mông và cơ chân.', 15),
+	('WO0013', N'Tự do', N'All', N'Tập tùy thích.', 119);
 GO
 
 INSERT INTO EquipmentCategory (ID, Name)
@@ -572,75 +580,68 @@ VALUES
 	('EQC010', N'Bánh tạ'),
 	('EQC011', N'Ghế tập'),
 	('EQC012', N'Thảm'),
-	('EQC013', N'Tạ đơn');
-
+	('EQC013', N'Tạ đơn'),
+	('EQC014', N'Khác');
+GO
+INSERT INTO Equipment (ID, CategoryID, BranchID, Name, Status, Price)
+VALUES
+    ('EQ001', 'EQC001', 'BR0001', N'Máy chạy MaxSpeed', 'available', 1000000.00),
+    ('EQ002', 'EQC002', 'BR0002', N'Máy gập có hỗ trợ', 'unavailable', 1500000.00),
+    ('EQ003', 'EQC003', 'BR0001', N'Xe đạp PowerTraining', 'available', 2000000.00),
+    ('EQ004', 'EQC004', 'BR0002', N'Máy đẩy ngực Hulk', 'uvailable', 1200000.00),
+    ('EQ005', 'EQC005', 'BR0001', N'Máy đẩy vai sau', 'anavailable', 18000000.00),
+    ('EQ006', 'EQC006', 'BR0002', N'Máy Squat', 'uvailable', 2500000.00);
 
 -- Kiểm tra lịch tập có huấn luyện viên nhưng bị trùng giờ với lịch của huấn luyện viên đó (insert, update woukloutplan) rollback báo lỗi.
 GO
-INSERT INTO Branch ([ID], [Name], [Address])
-VALUES
-	('BR0001', 'Branch 1', '123 Main St'),
-	('BR0002', 'Branch 2', '456 Elm St'),
-	('BR0003', 'Branch 3', '789 Oak St'),
-	('BR0004', 'Branch 4', '321 Pine St'),
-	('BR0005', 'Branch 5', '987 Cedar St');
-
-GO
 INSERT INTO Trainer ([ID], [Name], [Address], [PhoneNumber], [Gender], [BranchID])
 VALUES
-	('TR0001', 'Trainer 1', 'Address 1', '1234567890', 'm', 'BR0001'),
-	('TR0002', 'Trainer 2', 'Address 2', '2345678901', 'f', 'BR0002'),
-	('TR0003', 'Trainer 3', 'Address 3', '3456789012', 'm', 'BR0003'),
-	('TR0004', 'Trainer 4', 'Address 4', '4567890123', 'f', 'BR0004'),
-	('TR0005', 'Trainer 5', 'Address 5', '5678901234', 'm', 'BR0005'),
-	('TR0006', 'Trainer 6', 'Address 6', '6789012345', 'f', 'BR0001'),
-	('TR0007', 'Trainer 7', 'Address 7', '7890123456', 'm', 'BR0002'),
-	('TR0008', 'Trainer 8', 'Address 8', '8901234567', 'f', 'BR0003'),
-	('TR0009', 'Trainer 9', 'Address 9', '9012345678', 'm', 'BR0004'),
-	('TR0010', 'Trainer 10', 'Address 10', '0123456789', 'f', 'BR0005');
+	('TR0001', N'Lê Nguyễn Bảo', N'ktx D2, Lê Văn Việt, Thủ Đức', '1234567890', 'm', 'BR0001'),
+	('TR0002', N'Nguyễn Thiện Luân', N'ktx D2, Lê Văn Việt, Thủ Đức', '2345678901', 'm', 'BR0002'),
+    ('TR0003', N'Hoàng Anh Tuấn', N'999 Đường Hàm Nghi, Quận 2, TP.HCM', '6789012345', 'm', 'BR0002'),
+    ('TR0004', N'Phạm Minh Trí', N'222 Đường Lý Tự Trọng, Quận 5, TP.HCM', '7890123456', 'm', 'BR0001'),
+    ('TR0005', N'Trainer 8', N'333 Đường Trường Sa, Quận 11, TP.HCM', '8901234567', 'm', 'BR0002'),
+    ('TR0006', N'Lê Thị Mai', N'444 Đường Lê Lai, Quận 3, TP.HCM', '9012345678', 'f', 'BR0001'),
+    ('TR0007', N'Nguyễn Đình Hoàng', N'555 Đường Nguyễn Trãi, Quận 10, TP.HCM', '0123456789', 'm', 'BR0002');
 
 
 GO
 INSERT INTO Package ([ID], [Name], [Periods], [Price], [Description], [NumberOfPTSessions])
 VALUES
-	('PK0001', 'Package 1', 3, 100.00, 'Description 1', 5),
-	('PK0002', 'Package 2', 6, 200.00, 'Description 2', 10),
-	('PK0003', 'Package 3', 12, 300.00, 'Description 3', 15),
-	('PK0004', 'Package 4', 1, 50.00, 'Description 4', NULL),
-	('PK0005', 'Package 5', 4, 150.00, 'Description 5', 8),
-	('PK0006', 'Package 6', 8, 250.00, 'Description 6', NULL),
-	('PK0007', 'Package 7', 2, 80.00, 'Description 7', 4),
-	('PK0008', 'Package 8', 6, 180.00, 'Description 8', 12),
-	('PK0009', 'Package 9', 12, 350.00, 'Description 9', NULL),
-	('PK0010', 'Package 10', 3, 120.00, 'Description 10', 6);
+	('PK0001', N'Gói Vận Động Sức Khỏe', 3, 5000000, N'Gói tập thể dục hàng ngày', 15),
+	('PK0002', N'Gói Siêu Thể Hình', 6, 1000000, N'Gói tập mục tiêu giữ dáng', 30),
+	('PK0003', N'Gói Đỉnh Cao Sức Khỏe', 12, 1500000, N'Gói tập toàn diện', 15),
+	('PK0004', N'Gói Thử Thách Tập Luyện', 1, 250000, N'Gói tập dành cho thử thách', NULL),
+	('PK0005', N'Gói Tăng Sức Bền', 4, 750000, N'Gói tập nhẹ nhàng cải thiện sức bền', 8),
+	('PK0006', N'Gói Thách Thức Thể Hình', 8, 1250000, N'Gói tập nâng cao cường độ', NULL),
+	('PK0007', N'Gói Cải Thiện Sức Khỏe', 2, 400000, N'Gói tập ngắn hạn', 10),
+	('PK0008', N'Gói Đặc Biệt Thể Hình', 6, 900000, N'Gói tập cao cấp', 12),
+	('PK0009', N'Gói Tập Luyện Chuyên Sâu', 12, 1750000, N'Gói tập chuyên nghiệp', NULL),
+	('PK0010', N'Gói Xây Dựng Cơ Bắp', 3, 600000, N'Gói tập xây dựng cơ bắp', 30);
 
 GO 
 INSERT INTO Member ([ID], [MembershipTypeID], [Name], [Gender], [PhoneNumber], [Address], [Balance], [PackageID], [EndOfPackageDate], [RemainingTS])
 VALUES
-	('MEM001', '000001', 'Member 1', 'm', '1234567890', 'Address 1', 100.00, 'PK0001', '2023-12-30',11),
-	('MEM002', '000002', 'Member 2', 'f', '2345678901', 'Address 2', 200.00, 'PK0002', '2023-12-30',5),
-	('MEM003', '000003', 'Member 3', 'm', '3456789012', 'Address 3', 300.00, 'PK0003', '2023-12-30',5),
-	('MEM004', '000001', 'Member 4', 'f', '4567890123', 'Address 4', 400.00, 'PK0004', '2023-12-30',23),
-	('MEM005', '000002', 'Member 5', 'm', '5678901234', 'Address 5', 500.00, 'PK0005', '2023-12-30',44),
-	('MEM006', '000003', 'Member 6', 'f', '6789012345', 'Address 6', 600.00, 'PK0006', '2023-12-30',10),
-	('MEM007', '000001', 'Member 7', 'm', '7890123456', 'Address 7', 700.00, 'PK0007', '2023-12-30',10),
-	('MEM008', '000002', 'Member 8', 'f', '8901234567', 'Address 8', 800.00, 'PK0008', '2023-12-30',1),
-	('MEM009', '000003', 'Member 9', 'm', '9012345678', 'Address 9', 900.00, 'PK0009', '2023-12-30',3),
-	('MEM010', '000001', 'Member 10', 'f', '0123456789', 'Address 10', 1000.00, 'PK0010', '2023-12-30',2);
+	('MB0001', '000001', 'Member 1', 'm', '1234567890', 'Address 1', 100.00, 'PK0001', '2023-12-30',11),
+	('MB0002', '000002', 'Member 2', 'f', '2345678901', 'Address 2', 200.00, 'PK0002', '2023-12-30',5),
+	('MB0003', '000003', 'Member 3', 'm', '3456789012', 'Address 3', 300.00, 'PK0003', '2023-12-30',5),
+	('MB0004', '000001', 'Member 4', 'f', '4567890123', 'Address 4', 400.00, 'PK0004', '2023-12-30',NULL),
+	('MB0005', '000002', 'Member 5', 'm', '5678901234', 'Address 5', 500.00, 'PK0005', '2023-12-30',44),
+	('MB0006', '000003', 'Member 6', 'f', '6789012345', 'Address 6', 600.00, 'PK0006', '2023-12-30',NULL),
+	('MB0007', '000001', 'Member 7', 'm', '7890123456', 'Address 7', 700.00, 'PK0007', '2023-12-30',10),
+	('MB0008', '000002', 'Member 8', 'f', '8901234567', 'Address 8', 800.00, 'PK0008', '2023-12-30',1),
+	('MB0009', '000003', 'Member 9', 'm', '9012345678', 'Address 9', 900.00, 'PK0009', '2023-12-30',NULL),
+	('MB0010', '000001', 'Member 10', 'f', '0123456789', 'Address 10', 1000.00, 'PK0010', '2023-12-30',0);
 
 GO 
 INSERT INTO WorkOutPlan ([ID], [MemberID], [TrainerID], [BranchID], [Time], [Date])
 VALUES
-	('WOP001', 'MEM001', 'TR0002', 'BR0002', '20:00:00', '2023-12-01'),
-	('WOP002', 'MEM002', 'TR0002', 'BR0002', '09:00:00', '2023-12-01'),
-	('WOP003', 'MEM003', 'TR0003', 'BR0003', '10:00:00', '2023-12-01'),
-	('WOP004', 'MEM004', 'TR0004', 'BR0004', '11:00:00', '2023-11-01'),
-	('WOP005', 'MEM005', 'TR0005', 'BR0005', '12:00:00', '2023-11-01'),
-	('WOP006', 'MEM006', 'TR0006', 'BR0001', '13:00:00', '2023-11-01'),
-	('WOP007', 'MEM007', 'TR0007', 'BR0002', '14:00:00', '2023-11-07'),
-	('WOP008', 'MEM008', 'TR0008', 'BR0003', '15:00:00', '2023-11-08'),
-	('WOP009', 'MEM009', 'TR0009', 'BR0004', '16:00:00', '2023-11-09'),
-	('WOP010', 'MEM010', 'TR0010', 'BR0005', '17:00:00', '2023-11-10');
+	('WOP001', 'MB0001', 'TR0002', 'BR0002', '20:00:00', '2023-12-01'),
+	('WOP002', 'MB0002', 'TR0002', 'BR0002', '09:00:00', '2023-12-07'),
+	('WOP003', 'MB0003', 'TR0003', 'BR0001', '10:00:00', '2023-12-04'),
+	('WOP005', 'MB0005', 'TR0005', 'BR0001', '12:00:00', '2023-12-02'),
+	('WOP007', 'MB0007', 'TR0007', 'BR0002', '14:00:00', '2023-12-07'),
+	('WOP008', 'MB0008', 'TR0001', 'BR0001', '15:00:00', '2023-12-08')
 
 GO
 
@@ -664,13 +665,7 @@ VALUES
 	('WOP003', 'WO0009')
 	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
-	('WOP004', 'WO0004')
-	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
-VALUES
    	('WOP005', 'WO0010')
-	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
-VALUES
-	('WOP006', 'WO0006')
 	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP007', 'WO0002')
@@ -679,21 +674,8 @@ VALUES
 	('WOP007', 'WO0003')
 	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
-	('WOP008', 'WO0005')
-	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
-VALUES
-	('WOP009', 'WO0008')
-	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
-VALUES
-	('WOP010', 'WO0007')
-	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
-VALUES
-	('WOP010', 'WO0006');
-	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
-VALUES
-	('WOP010', 'WO0003');
+	('WOP008', 'WO0013')
 
-GO
 ---PROCDURE Tìm Member theo phone
 GO
 CREATE PROCEDURE dbo.PROC_FindMemberByPhoneNumber
@@ -1163,8 +1145,7 @@ BEGIN
 END
 
 GO
-INSERT INTO Branch(ID, Name, Address) VALUES('BRRoot',N'Monster GYM', N'Số 1, Võ Văn Ngân, Thủ Đức')
-INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('Admin0','admin','admin', 'admin', 'BRRoot', '1')
+
 
 GO
 --Proc Lấy thông tin nhân viên 
@@ -1357,14 +1338,6 @@ BEGIN
     END
 END
 
-INSERT INTO Equipment (ID, CategoryID, BranchID, Name, Status, Price)
-VALUES
-    ('EQ001', 'EQC001', 'BR0001', N'Tên thiết bị 1', 'Available', 100.00),
-    ('EQ002', 'EQC002', 'BR0002', N'Tên thiết bị 2', 'Unavailable', 150.00),
-    ('EQ003', 'EQC003', 'BR0003', N'Tên thiết bị 3', 'Available', 200.00),
-    ('EQ004', 'EQC004', 'BR0004', N'Tên thiết bị 4', 'Available', 120.00),
-    ('EQ005', 'EQC005', 'BR0005', N'Tên thiết bị 5', 'Unavailable', 180.00),
-    ('EQ006', 'EQC006', 'BRRoot', N'Tên thiết bị 6', 'Available', 250.00);
 
 GO
 --PROC Đổi trạng thái
@@ -1695,7 +1668,6 @@ CREATE VIEW V_CategoryList
 AS
 SELECT *FROM EquipmentCategory
 
-SELECT *FROM Equipment
 
 
 Go
@@ -2004,3 +1976,12 @@ BEGIN
 		 SELECT N'Xóa thành công' AS Result;
 	END
 END
+
+
+INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('Admin0','admin','admin', 'admin', 'BRRoot', '1')
+
+INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('mg0001','manager','manager', 'manager1', 'BR0001', '2')
+INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('mg0002','manager','manager', 'manager2', 'BR0002', '2')
+
+INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('st0001','employee','employee', 'employee1', 'BR0001', '0')
+INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('st0002','employee','employee', 'employee2', 'BR0002', '0')
