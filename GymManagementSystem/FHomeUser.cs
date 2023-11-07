@@ -79,10 +79,6 @@ namespace GymManagementSystem
         }
 
 
-        private void cmnusManagement_Opening(object sender, CancelEventArgs e)
-        {
-
-        }
 
         private void itemBMI_Click(object sender, EventArgs e)
         {
@@ -177,7 +173,14 @@ namespace GymManagementSystem
 
         private void itemPayment_Click(object sender, EventArgs e)
         {
-            StackForm.HomeUser.ChildForm.Open(new FPaymentManagement());
+            if (Employee.Role != 1)
+            {
+                MessageBox.Show("Bạn không có quyền truy cập");
+            }
+            else
+            {
+                StackForm.HomeUser.ChildForm.Open(new FPaymentManagement());
+            }
         }
 
         private void itemPackage_Click(object sender, EventArgs e)
