@@ -166,5 +166,10 @@ namespace GymManagementSystem
         {
             StackForm.Back();
         }
+
+        private void itemPayment_Click(object sender, EventArgs e)
+        {
+            StackForm.HomeUser.ChildForm.Open(new FPaymentManagement());
+        }
     }
 }

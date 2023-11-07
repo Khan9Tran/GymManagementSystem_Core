@@ -137,13 +137,13 @@ namespace GymManagementSystem
 
                 if ((instance.packagePrice - instance.discountAmount) >= instance.memberBalance)
                 {
-                    instance.paymentAmount = (instance.packagePrice - instance.discountAmount) - instance.memberBalance;
+                    instance.paymentAmount = instance.packagePrice - instance.memberBalance;
                     tempBalance = 0;
                 }
                 else
                 {
                     instance.paymentAmount = 0;
-                    tempBalance = instance.memberBalance - (instance.packagePrice - instance.discountAmount);
+                    tempBalance = instance.memberBalance - instance.packagePrice;
                 }
 
                 instance.lblDiscount.Text = ConverToMoney.conver(instance.discountAmount.ToString());
@@ -192,6 +192,15 @@ namespace GymManagementSystem
                     lblMemberName.Text = member[1].ToString();
                     lblBalance.Text = ConverToMoney.conver(Math.Round(Convert.ToDouble(member[2]), 3).ToString());
                     lblDiscount.Text = (packageDiscount * 100).ToString();
+                    lblDiscountUnit.Text = "%";
+                    lblDetailPkName.Text = "";
+                    lblDetailPkPeriod.Text = "";
+                    lblDetailPkPrice.Text = "";
+                    lblDetailPkTrainer.Text = "";
+                    lblDetailNOTSestion.Text = "";
+                    lblDetailPkDescription.Text = "";
+                    lblBalance.Text = "";
+                    lblTotalPayment.Text = "";
                 }
                 catch
                 {
@@ -230,6 +239,17 @@ namespace GymManagementSystem
                 command.ExecuteScalar();
                 paymentID = RandomIDGenerator.GenerateRandomID("Payment", "PM");
                 MessageBox.Show("Success!!!", "Message");
+                lblMemberName.Text = "";
+                tbxPhoneNumber.Text = "";
+                lblDetailPkName.Text = "";
+                lblDetailPkPeriod.Text = "";
+                lblDetailPkPrice.Text = "";
+                lblDetailPkTrainer.Text = "";
+                lblDetailNOTSestion.Text = "";
+                lblDetailPkDescription.Text = "";
+                lblBalance.Text = "";
+                lblDiscount.Text = "";
+                lblTotalPayment.Text = "";
             }
             catch
             (Exception ex)

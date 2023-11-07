@@ -289,13 +289,40 @@ SELECT dbo.Equipment.[ID], dbo.Equipment.[Name], dbo.Equipment.[Status], dbo.Bra
 FROM dbo.Equipment JOIN dbo.Branch ON Branch.ID = Equipment.BranchID
 				   JOIN dbo.EquipmentCategory ON EquipmentCategory.ID = Equipment.CategoryID
 WHERE dbo.Equipment.[Status] = 'available'
+
 GO 
 --Xem danh sách BMI
 CREATE VIEW V_BMIList AS
 SELECT BMI.ID, BMI.Status, BMI.Weight, BMI.Height, BMI.Date, MemberID,Member.Name, Member.PhoneNumber
 FROM BMI JOIN Member ON BMI.MemberID = Member.ID
+
 GO
 
+-- Xem danh sách thanh toán mua gói tập 
+CREATE VIEW V_PaymentPackageList
+AS 
+	SELECT dbo.Payment.ID, dbo.[Member].[Name] AS 'Member Name', dbo.[Member].PhoneNumber AS 'Phone Number', 
+		   dbo.Package.[Name] AS 'Package Name', dbo.Payment.PaymentAmount AS Amount, dbo.Payment.[Date], 
+		   dbo.Branch.[Name] AS 'Branch Name'
+	FROM dbo.Payment, dbo.[Member], dbo.Branch, dbo.Package
+	WHERE (dbo.Payment.MemberID = dbo.[Member].ID) 
+	      AND (dbo.Payment.BranchID = dbo.Branch.ID) 
+		  AND (dbo.Payment.PackageID = dbo.Package.ID);
+
+GO
+
+-- Danh sách thi tiêu cho việc bảo trì và sửa chữa thiết bị 
+CREATE VIEW V_PaymentEquipmentMaintenanceList
+AS 
+	SELECT dbo.MaintenanceData.ID, dbo.Equipment.[Name] AS 'Equiment Name', dbo.MaintenanceData.Cost, 
+		   dbo.Branch.[Name] AS 'Branch Name', dbo.MaintenanceData.[Date] 
+    FROM dbo.MaintenanceData, dbo.Equipment, dbo.Branch
+	WHERE (dbo.MaintenanceData.EquipmentID = dbo.Equipment.ID) 
+		  AND (dbo.Equipment.BranchID = dbo.Branch.ID);
+
+
+
+GO
 -- Trigger cập nhật số dư khi hội viên thực hiện thanh toán và tính số tiền khách cần phải trả cập nhật về Payment
 CREATE TRIGGER TR_UpdateMemberBalance
 ON Payment
@@ -634,13 +661,13 @@ VALUES
 	('WOP001', 'MEM001', 'TR0002', 'BR0002', '20:00:00', '2023-12-01'),
 	('WOP002', 'MEM002', 'TR0002', 'BR0002', '09:00:00', '2023-12-01'),
 	('WOP003', 'MEM003', 'TR0003', 'BR0003', '10:00:00', '2023-12-01'),
-	('WOP004', 'MEM004', 'TR0004', 'BR0004', '11:00:00', '2023-11-01'),
-	('WOP005', 'MEM005', 'TR0005', 'BR0005', '12:00:00', '2023-11-01'),
-	('WOP006', 'MEM006', 'TR0006', 'BR0001', '13:00:00', '2023-11-01'),
-	('WOP007', 'MEM007', 'TR0007', 'BR0002', '14:00:00', '2023-11-07'),
-	('WOP008', 'MEM008', 'TR0008', 'BR0003', '15:00:00', '2023-11-08'),
-	('WOP009', 'MEM009', 'TR0009', 'BR0004', '16:00:00', '2023-11-09'),
-	('WOP010', 'MEM010', 'TR0010', 'BR0005', '17:00:00', '2023-11-10');
+	('WOP004', 'MEM004', 'TR0004', 'BR0004', '11:00:00', '2023-12-01'),
+	('WOP005', 'MEM005', 'TR0005', 'BR0005', '12:00:00', '2023-12-01'),
+	('WOP006', 'MEM006', 'TR0006', 'BR0001', '13:00:00', '2023-12-01'),
+	('WOP007', 'MEM007', 'TR0007', 'BR0002', '14:00:00', '2023-12-07'),
+	('WOP008', 'MEM008', 'TR0008', 'BR0003', '15:00:00', '2023-12-08'),
+	('WOP009', 'MEM009', 'TR0009', 'BR0004', '16:00:00', '2023-12-09'),
+	('WOP010', 'MEM010', 'TR0010', 'BR0005', '17:00:00', '2023-12-10');
 
 GO
 
@@ -705,6 +732,22 @@ BEGIN
     WHERE PhoneNumber = @PhoneNumber
 END
 
+-- PROCDURE Lấy danh sách các thanh toán được thực hiện bởi member thông qua số điện thoại 
+GO
+CREATE PROCEDURE dbo.PROC_FindListPaymentByPhoneNumber
+    @PhoneNumber CHAR(10)
+AS
+BEGIN
+    SELECT dbo.Payment.ID, dbo.[Member].[Name] AS 'Member Name', dbo.[Member].PhoneNumber AS 'Phone Number', 
+		   dbo.Package.[Name] AS 'Package Name', dbo.Payment.PaymentAmount AS Amount, dbo.Payment.[Date], 
+		   dbo.Branch.[Name] AS 'Branch Name'
+	FROM dbo.Payment, dbo.[Member], dbo.Branch, dbo.Package
+	WHERE (dbo.[Member].PhoneNumber = @PhoneNumber)
+	      AND (dbo.Payment.MemberID = dbo.[Member].ID) 
+	      AND (dbo.Payment.BranchID = dbo.Branch.ID) 
+		  AND (dbo.Payment.PackageID = dbo.Package.ID);
+END
+
 GO
 CREATE PROCEDURE dbo.PROC_PaymentByPhoneNumber
     @PhoneNumber CHAR(10)
@@ -740,6 +783,18 @@ END
 
 GO
 
+-- Tính tổng giá trị của một cột trong bảng 
+CREATE PROCEDURE PROC_CalcSum
+    @TableName CHAR(50),
+    @ColumnName CHAR(50)
+AS 
+BEGIN
+    DECLARE @SqlStatement NVARCHAR(MAX);
+    SET @SqlStatement = N'SELECT SUM(' + QUOTENAME(@ColumnName) + N') FROM ' + QUOTENAME(@TableName) + N';';
+    EXEC sp_executesql @SqlStatement;
+END
+
+GO
 --Thêm WorkOutPlan
 CREATE PROCEDURE PROC_AddWorkOutPlan
     @ID CHAR(6),
@@ -1695,7 +1750,6 @@ CREATE VIEW V_CategoryList
 AS
 SELECT *FROM EquipmentCategory
 
-SELECT *FROM Equipment
 
 
 Go
@@ -1842,3 +1896,9 @@ CREATE FUNCTION FUNC_FindWorkout(@Content NVARCHAR(100))
 RETURNS TABLE
 AS
 	RETURN SELECT * FROM V_WorkOutList WHERE ID = @Content OR [Name] LIKE  N'%' + @Content + '%' OR [Type] LIKE  N'%' + @Content + '%' OR [Description] LIKE  N'%' + @Content + '%' OR [Duration] LIKE  N'%' + @Content + '%' 
+
+
+GO
+SELECT * FROM dbo.Employee;
+
+
