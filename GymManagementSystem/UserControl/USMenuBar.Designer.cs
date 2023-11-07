@@ -140,6 +140,7 @@
             this.btnPackage.TabIndex = 2;
             this.btnPackage.Text = "Package";
             this.btnPackage.UseVisualStyleBackColor = false;
+            this.btnPackage.Click += new System.EventHandler(this.btnPackage_Click);
             // 
             // btnTrainer
             // 
@@ -292,7 +293,7 @@
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.fpnlLoad);
             this.Name = "USMenuBar";
-            this.Size = new System.Drawing.Size(516, 36);
+            this.Size = new System.Drawing.Size(495, 15);
             this.fpnlLoad.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

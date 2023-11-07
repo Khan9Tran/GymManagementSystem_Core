@@ -100,5 +100,17 @@ namespace GymManagementSystem
                 StackForm.HomeUser.ChildForm.Open(new FWorkOutManagement());
             }
         }
+
+        private void btnPackage_Click(object sender, EventArgs e)
+        {
+            if (Employee.Role == 0 || Employee.Role == 2)
+            {
+                MessageBox.Show("Bạn không có quyền truy cập");
+            }
+            else
+            {
+                StackForm.HomeUser.ChildForm.Open(new FPackageManagement());
+            }
+        }
     }
 }
