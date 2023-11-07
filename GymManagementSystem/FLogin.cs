@@ -14,29 +14,24 @@ namespace GymManagementSystem
 {
     public partial class FLogin : Form
     {
-        private Panel pnlFull;
-        OpenChildForm openChildForm;
-        FHomeUser home;
         public FLogin()
         {
             InitializeComponent();
-            home = new FHomeUser();
-            pnlFull = new Panel();
-            pnlFull.Dock = DockStyle.Fill;
+            
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
             if (Login() == 1)
             {
-                this.Controls.Clear();
-                this.Controls.Add(pnlFull);
-                openChildForm = new OpenChildForm(pnlFull);
-                this.WindowState = FormWindowState.Maximized;
-                this.FormBorderStyle = FormBorderStyle.None;
+                
 
                 if(UserInfo())
-                openChildForm.Open(home);
+                {
+                    Hide();
+                    FHomeUser fHome = new FHomeUser(this);
+                    fHome.Show();
+                }
             }
             else
             {
@@ -106,6 +101,31 @@ namespace GymManagementSystem
 
             return true;
 
+        }
+
+        private void txtFullName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                // Chuyển tới TextBox khác bằng cách gán focus vào TextBox tiếp theo
+                txtPassword.Focus();
+            }
+        }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true; // Ngăn việc xuất hiện dấu xuống dòng trong TextBox
+
+                // Gọi sự kiện Click của Button
+                btnLogin_Click(this, null);
+            }
+        }
+
+        private void FLogin_Load(object sender, EventArgs e)
+        {
+            txtFullName.Focus();
         }
     }
 }

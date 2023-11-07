@@ -16,12 +16,20 @@ namespace GymManagementSystem
     {
 
         private OpenChildForm childForm;
-        public FHomeUser()
+        private FLogin fLogin;
+
+        public FHomeUser(FLogin fLogin)
         {
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.None;
             InitializeComponent();
             childForm = new OpenChildForm(pnlLoad);
             StackForm.HomeUser = this;
             StackForm.HomeUser.ChildForm.Open(new FHomeUserMenu());
+            this.fLogin= fLogin;
+            
+         
+
         }
 
         internal OpenChildForm ChildForm { get => childForm; set => childForm = value; }
@@ -170,6 +178,23 @@ namespace GymManagementSystem
         private void itemPayment_Click(object sender, EventArgs e)
         {
             StackForm.HomeUser.ChildForm.Open(new FPaymentManagement());
+        }
+
+        private void itemPackage_Click(object sender, EventArgs e)
+        {
+            StackForm.HomeUser.ChildForm.Open(new FPackageManagement());
+        }
+
+        private void itemLogOut_Click(object sender, EventArgs e)
+        {
+            Hide();
+            fLogin.Show();
+            StackForm.ClearAll();
+        }
+
+        private void btnSize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

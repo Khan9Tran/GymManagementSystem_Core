@@ -263,6 +263,16 @@ namespace GymManagementSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap squares__1_ {
+            get {
+                object obj = ResourceManager.GetObject("squares (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap undo {
             get {
                 object obj = ResourceManager.GetObject("undo", resourceCulture);

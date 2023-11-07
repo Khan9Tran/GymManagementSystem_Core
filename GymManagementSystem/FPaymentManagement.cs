@@ -39,6 +39,7 @@ namespace GymManagementSystem
             connection.closeConnection();
 
             calcAndShow();
+            StackForm.Add(this);
 
         }
 
@@ -303,6 +304,11 @@ namespace GymManagementSystem
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
             exportDatatableToCSV(maintenanceTable, "listExpense");
+        }
+
+        private void FPaymentManagement_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

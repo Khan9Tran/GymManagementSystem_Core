@@ -74,8 +74,8 @@
             this.flowLayoutPanel1.Controls.Add(this.panel1);
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel3);
-            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel4);
             this.flowLayoutPanel1.Controls.Add(this.btnPkSelect);
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel4);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(5, 3);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -213,7 +213,7 @@
             // 
             this.flowLayoutPanel4.Controls.Add(this.label6);
             this.flowLayoutPanel4.Controls.Add(this.lblPkNumberOfTrainerSessions);
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(0, 272);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(0, 312);
             this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Size = new System.Drawing.Size(400, 30);
@@ -252,13 +252,14 @@
             this.btnPkSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPkSelect.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnPkSelect.ForeColor = System.Drawing.Color.White;
-            this.btnPkSelect.Location = new System.Drawing.Point(0, 302);
+            this.btnPkSelect.Location = new System.Drawing.Point(0, 269);
             this.btnPkSelect.Margin = new System.Windows.Forms.Padding(0);
             this.btnPkSelect.Name = "btnPkSelect";
             this.btnPkSelect.Size = new System.Drawing.Size(400, 40);
             this.btnPkSelect.TabIndex = 6;
             this.btnPkSelect.Text = "Select";
             this.btnPkSelect.UseVisualStyleBackColor = false;
+            this.btnPkSelect.Click += new System.EventHandler(this.btnPkSelect_Click);
             // 
             // USPackage
             // 

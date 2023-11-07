@@ -615,9 +615,9 @@ VALUES
     ('EQ001', 'EQC001', 'BR0001', N'Máy chạy MaxSpeed', 'available', 1000000.00),
     ('EQ002', 'EQC002', 'BR0002', N'Máy gập có hỗ trợ', 'unavailable', 1500000.00),
     ('EQ003', 'EQC003', 'BR0001', N'Xe đạp PowerTraining', 'available', 2000000.00),
-    ('EQ004', 'EQC004', 'BR0002', N'Máy đẩy ngực Hulk', 'uvailable', 1200000.00),
-    ('EQ005', 'EQC005', 'BR0001', N'Máy đẩy vai sau', 'anavailable', 18000000.00),
-    ('EQ006', 'EQC006', 'BR0002', N'Máy Squat', 'uvailable', 2500000.00);
+    ('EQ004', 'EQC004', 'BR0002', N'Máy đẩy ngực Hulk', 'unavailable', 1200000.00),
+    ('EQ005', 'EQC005', 'BR0001', N'Máy đẩy vai sau', 'available', 18000000.00),
+    ('EQ006', 'EQC006', 'BR0002', N'Máy Squat', 'unavailable', 2500000.00);
 
 -- Kiểm tra lịch tập có huấn luyện viên nhưng bị trùng giờ với lịch của huấn luyện viên đó (insert, update woukloutplan) rollback báo lỗi.
 GO
@@ -663,16 +663,12 @@ VALUES
 GO 
 INSERT INTO WorkOutPlan ([ID], [MemberID], [TrainerID], [BranchID], [Time], [Date])
 VALUES
-	('WOP001', 'MEM001', 'TR0002', 'BR0002', '20:00:00', '2023-12-01'),
-	('WOP002', 'MEM002', 'TR0002', 'BR0002', '09:00:00', '2023-12-01'),
-	('WOP003', 'MEM003', 'TR0003', 'BR0003', '10:00:00', '2023-12-01'),
-	('WOP004', 'MEM004', 'TR0004', 'BR0004', '11:00:00', '2023-12-01'),
-	('WOP005', 'MEM005', 'TR0005', 'BR0005', '12:00:00', '2023-12-01'),
-	('WOP006', 'MEM006', 'TR0006', 'BR0001', '13:00:00', '2023-12-01'),
-	('WOP007', 'MEM007', 'TR0007', 'BR0002', '14:00:00', '2023-12-07'),
-	('WOP008', 'MEM008', 'TR0008', 'BR0003', '15:00:00', '2023-12-08'),
-	('WOP009', 'MEM009', 'TR0009', 'BR0004', '16:00:00', '2023-12-09'),
-	('WOP010', 'MEM010', 'TR0010', 'BR0005', '17:00:00', '2023-12-10');
+	('WOP001', 'MB0001', 'TR0002', 'BR0002', '20:00:00', '2023-12-01'),
+	('WOP002', 'MB0002', 'TR0002', 'BR0002', '09:00:00', '2023-12-07'),
+	('WOP003', 'MB0003', 'TR0003', 'BR0001', '10:00:00', '2023-12-04'),
+	('WOP005', 'MB0005', 'TR0005', 'BR0001', '12:00:00', '2023-12-02'),
+	('WOP007', 'MB0007', 'TR0007', 'BR0002', '14:00:00', '2023-12-07'),
+	('WOP008', 'MB0008', 'TR0001', 'BR0001', '15:00:00', '2023-12-08')
 
 GO
 
@@ -1873,3 +1869,173 @@ CREATE FUNCTION FUNC_FindWorkout(@Content NVARCHAR(100))
 RETURNS TABLE
 AS
 	RETURN SELECT * FROM V_WorkOutList WHERE ID = @Content OR [Name] LIKE  N'%' + @Content + '%' OR [Type] LIKE  N'%' + @Content + '%' OR [Description] LIKE  N'%' + @Content + '%' OR [Duration] LIKE  N'%' + @Content + '%' 
+	
+GO
+
+CREATE PROCEDURE PROC_AddPackage
+    @ID CHAR(6),
+    @Name NVARCHAR(100),
+    @Periods INT,
+    @Price MONEY,
+    @Description NTEXT,
+    @NumberOfPTSessions INT
+AS
+BEGIN
+    BEGIN TRY
+        BEGIN TRANSACTION;
+
+        -- Check and set NumberOfPTSessions to NULL if it's 0
+        IF @NumberOfPTSessions = 0
+        BEGIN
+            SET @NumberOfPTSessions = NULL;
+        END
+
+        INSERT INTO Package (ID, Name, Periods, Price, Description, NumberOfPTSessions)
+        VALUES (@ID, @Name, @Periods, @Price, @Description, @NumberOfPTSessions);
+
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRANSACTION;
+        SELECT N'Thêm thất bại' AS Result
+		RETURN
+    END CATCH
+	SELECT N'Thêm thành công' AS Result
+END
+
+
+GO
+
+CREATE PROCEDURE PROC_FindAllPackages
+    @FilterType INT,
+    @Content NVARCHAR(50)
+AS
+BEGIN
+	IF (@FilterType = 0)
+	BEGIN
+		SELECT *
+		FROM V_PackageList
+		WHERE (
+				ID = @Content
+				OR [Name] LIKE N'%' + @Content + '%'
+				OR [Description] LIKE N'%' + @Content + '%'
+			) 
+	END
+	IF (@FilterType = 1)
+	BEGIN
+		SELECT *
+		FROM V_PackageList
+		WHERE (
+				ID = @Content
+				OR [Name] LIKE N'%' + @Content + '%'
+				OR [Description] LIKE N'%' + @Content + '%'
+			) AND (NumberOfPTSessions IS NOT NULL)
+	END
+	IF (@FilterType = 2)
+	BEGIN
+		SELECT *
+		FROM V_PackageList
+		WHERE (
+				ID = @Content
+				OR [Name] LIKE N'%' + @Content + '%'
+				OR [Description] LIKE N'%' + @Content + '%'
+			) AND (NumberOfPTSessions IS NULL)
+	END
+END
+
+GO
+
+CREATE PROCEDURE PROC_UpdatePackage
+    @ID CHAR(6),
+    @Name NVARCHAR(100),
+    @Periods INT,
+    @Price MONEY,
+    @Description NTEXT,
+    @NumberOfPTSessions INT
+AS
+BEGIN
+    DECLARE @RowCount INT;
+
+    -- Check if the ID exists in the Package table
+    SELECT @RowCount = COUNT(*)
+    FROM Package
+    WHERE ID = @ID;
+	IF @NumberOfPTSessions = 0
+        BEGIN
+            SET @NumberOfPTSessions = NULL;
+        END
+    IF @RowCount > 0
+    BEGIN
+        -- The ID exists, perform the update
+        BEGIN TRY
+            BEGIN TRANSACTION;
+
+            UPDATE Package
+            SET
+                [Name] = @Name,
+                Periods = @Periods,
+                Price = @Price,
+                [Description] = @Description,
+                NumberOfPTSessions = @NumberOfPTSessions
+            WHERE ID = @ID;
+
+            COMMIT TRANSACTION;
+
+            -- Return a success message or code if needed
+            SELECT N'Cập nhật gói tập thành công' AS Result;
+        END TRY
+        BEGIN CATCH
+            ROLLBACK TRANSACTION;
+            THROW;
+        END CATCH
+    END
+    ELSE
+    BEGIN
+        -- The ID does not exist, return an error message or code
+        SELECT N'Package với ID ' + @ID + N' không tồn tại' AS Result;
+    END
+END
+GO
+
+CREATE FUNCTION FUNC_CheckPackageMembers
+(
+    @PackageID CHAR(6)
+)
+RETURNS BIT
+AS
+BEGIN
+    DECLARE @HasMembers BIT = 0;
+
+    -- Check if there are any members registered for the package
+    IF EXISTS (SELECT 1 FROM Member WHERE PackageID = @PackageID)
+    BEGIN
+        SET @HasMembers = 1;
+    END
+
+    RETURN @HasMembers;
+END
+GO
+CREATE PROCEDURE PROC_DeletePackage @ID CHAR(6)
+AS
+BEGIN
+	IF (dbo.FUNC_CheckPackageMembers(@ID) = 1)
+	BEGIN
+		 SELECT N'Gói tập vẫn còn lượt sử dụng ' AS Result;
+	END
+	ELSE
+	BEGIN
+		DELETE Package WHERE ID = @ID
+		 SELECT N'Xóa thành công' AS Result;
+	END
+END
+
+GO
+
+
+INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('Admin0','admin','admin', 'admin', 'BRRoot', '1')
+
+INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('mg0001','manager','manager', 'manager1', 'BR0001', '2')
+INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('mg0002','manager','manager', 'manager2', 'BR0002', '2')
+
+INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('st0001','employee','employee', 'employee1', 'BR0001', '0')
+INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('st0002','employee','employee', 'employee2', 'BR0002', '0')
