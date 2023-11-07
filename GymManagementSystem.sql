@@ -609,15 +609,15 @@ VALUES
 	('EQC012', N'Thảm'),
 	('EQC013', N'Tạ đơn'),
 	('EQC014', N'Khác');
-GO
+GO SELECT *FROM Equipment
 INSERT INTO Equipment (ID, CategoryID, BranchID, Name, Status, Price)
 VALUES
-    ('EQ001', 'EQC001', 'BR0001', N'Máy chạy MaxSpeed', 'available', 1000000.00),
-    ('EQ002', 'EQC002', 'BR0002', N'Máy gập có hỗ trợ', 'unavailable', 1500000.00),
-    ('EQ003', 'EQC003', 'BR0001', N'Xe đạp PowerTraining', 'available', 2000000.00),
-    ('EQ004', 'EQC004', 'BR0002', N'Máy đẩy ngực Hulk', 'unavailable', 1200000.00),
-    ('EQ005', 'EQC005', 'BR0001', N'Máy đẩy vai sau', 'available', 18000000.00),
-    ('EQ006', 'EQC006', 'BR0002', N'Máy Squat', 'unavailable', 2500000.00);
+    ('EQ0001', 'EQC001', 'BR0001', N'Máy chạy MaxSpeed', 'available', 1000000.00),
+    ('EQ0002', 'EQC002', 'BR0002', N'Máy gập có hỗ trợ', 'unavailable', 1500000.00),
+    ('EQ0003', 'EQC003', 'BR0001', N'Xe đạp PowerTraining', 'available', 2000000.00),
+    ('EQ0004', 'EQC004', 'BR0002', N'Máy đẩy ngực Hulk', 'unavailable', 1200000.00),
+    ('EQ0005', 'EQC005', 'BR0001', N'Máy đẩy vai sau', 'available', 18000000.00),
+    ('EQ0006', 'EQC006', 'BR0002', N'Máy Squat', 'unavailable', 2500000.00);
 
 -- Kiểm tra lịch tập có huấn luyện viên nhưng bị trùng giờ với lịch của huấn luyện viên đó (insert, update woukloutplan) rollback báo lỗi.
 GO

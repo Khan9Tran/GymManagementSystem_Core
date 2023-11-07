@@ -256,7 +256,7 @@ namespace GymManagementSystem
       
         private void btnManage_Click(object sender, EventArgs e)
         {
-            if (Employee.Role == 3)
+            if (Employee.Role == 0)
             {
                 MessageBox.Show("Bạn không có quyền truy cập");
             }
