@@ -86,7 +86,7 @@ namespace GymManagementSystem
 
         private void btnCategory_Click(object sender, EventArgs e)
         {
-
+            StackForm.HomeUser.ChildForm.Open(new FEquipmentCategory());
         }
 
         private void btnWorkOut_Click(object sender, EventArgs e)

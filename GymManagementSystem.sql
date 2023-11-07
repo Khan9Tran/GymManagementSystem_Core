@@ -1210,6 +1210,8 @@ BEGIN
 	IF (@YourRole = 2 AND (@Role = 1 OR (SELECT TOP 1 Role FROM Employee WHERE UserName = @UserName) = 1 ))
 		RAISERROR ('Bạn không đủ quyền',16,1)
 	ELSE
+	IF (@YourRole = 2 AND @BranchID = 'BRRoot')
+		RAISERROR ('Bạn không được thêm thành viên vào chi nhánh chính',16,1)
 	IF EXISTS (SELECT * FROM Employee WHERE UserName = @UserName)
 		RAISERROR('User name đã tồn tại',16 ,1)
 	ELSE
@@ -1242,6 +1244,8 @@ AS
 BEGIN
 	IF (@YourRole = 2 AND (@Role = 1 OR (SELECT TOP 1 Role FROM Employee WHERE UserName = @UserName) = 1 ))
 		RAISERROR ('Bạn không đủ quyền',16,1)
+	IF (@YourRole = 2 AND @BranchID = 'BRRoot')
+		RAISERROR ('Bạn không được thêm thành viên vào chi nhánh chính',16,1)
 	ELSE
 	BEGIN
 		UPDATE Employee
