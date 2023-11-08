@@ -15,7 +15,7 @@ namespace GymManagementSystem
         private SqlConnection conn;
         public DBConnection()
         {
-            if (Employee.Role == 3)
+            if (Employee.Role != 1)
             {
                 conn = new SqlConnection(@"Data Source=LAPTOP-TSVFN4HJ;Initial Catalog=GymManagementDB;User Id=" + Employee.UserName + ";Password=" + Employee.Password + ";");
 
@@ -31,13 +31,6 @@ namespace GymManagementSystem
             return conn;
         }
         public void openConnection()
-        {
-            if (conn.State == ConnectionState.Closed)
-            {
-                conn.Open();
-            }
-        }
-        public void openConnectionAdmin()
         {
             if (conn.State == ConnectionState.Closed)
             {

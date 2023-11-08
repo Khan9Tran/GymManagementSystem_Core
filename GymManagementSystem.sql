@@ -1165,17 +1165,18 @@ END
 
 GO
 --Proc update branch
+
 CREATE PROCEDURE PROC_DeleteBranch
     @ID CHAR(6)
 AS
 BEGIN
-	BEGIN TRY
 	IF (@ID = 'BRRoot')
 	BEGIN
 		RAISERROR ('Không thể xóa chi nhánh gốc',16,1)
 		RETURN
 	END
 	ELSE
+	BEGIN TRY
 	BEGIN
 		DELETE Branch
 		WHERE 
@@ -1430,7 +1431,7 @@ BEGIN
 END
 
 GO 
---PROC thêm lịch sử sửa chửa
+--PROC thêm lịch sử sửa chửaPROC_ReplaceEquipment
 CREATE PROCEDURE PROC_AddMaintenanceData
     @ID CHAR(6),
     @EquipmentID CHAR(6),
@@ -1839,12 +1840,16 @@ END
 
 GO
 
+
 --PROC update thông tin equipmentCategory
 CREATE PROCEDURE PROC_UpdateEquipmentCategory
 	@ID char(6),
     @Name NVARCHAR(50)
 AS
 BEGIN
+		IF EXISTS (SELECT * FROM EquipmentCategory WHERE [Name] = @Name)
+			RAISERROR('Category đã tồn tại',16 ,1)
+		ELSE
 		UPDATE EquipmentCategory
 		SET
 			[Name] = @Name
@@ -1875,6 +1880,8 @@ GO
 CREATE PROCEDURE PROC_AddPackage
     @ID CHAR(6),
     @Name NVARCHAR(100),
+
+
     @Periods INT,
     @Price MONEY,
     @Description NTEXT,
@@ -2039,3 +2046,30 @@ INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('mg0002','m
 
 INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('st0001','employee','employee', 'employee1', 'BR0001', '0')
 INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('st0002','employee','employee', 'employee2', 'BR0002', '0')
+
+GO
+
+CREATE PROCEDURE PROC_AddMember
+    @ID CHAR(6),
+    @Name NVARCHAR(50),
+    @PhoneNumber CHAR(10),
+    @Address NVARCHAR(50),
+    @Balance MONEY,
+    @Gender CHAR(1)
+AS
+BEGIN
+	BEGIN TRY
+		BEGIN TRANSACTION;
+		INSERT INTO Member (ID, Name, PhoneNumber, Address, Balance, Gender)
+		VALUES (@ID, @Name, @PhoneNumber, @Address, @Balance, @Gender)
+		COMMIT TRANSACTION
+	END TRY
+	BEGIN CATCH
+
+		ROLLBACK TRANSACTION
+		SELECT N'Thêm thất bại' AS Result
+		RETURN
+	END CATCH
+	SELECT N'Thêm thành công' AS Result
+		
+END

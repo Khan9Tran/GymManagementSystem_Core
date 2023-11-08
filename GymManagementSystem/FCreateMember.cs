@@ -29,9 +29,9 @@ namespace GymManagementSystem
             try
             {
 
-                String query = "INSERT INTO Member(ID, Name, PhoneNumber, Address, Balance, Gender) VALUES (@ID, @Name, @PhoneNumber, @Address, @Balance, @Gender)";
+                String query = "PROC_AddMember";
                 SqlCommand command = new SqlCommand(query, connection.GetConnection());
-                command.CommandType = CommandType.Text;
+                command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@ID", RandomIDGenerator.GenerateRandomID("Member", "M"));
                 command.Parameters.AddWithValue("@Name", txtFullName.Text);
                 command.Parameters.AddWithValue("@PhoneNumber", txtPhoneNumber.Text);
@@ -49,20 +49,26 @@ namespace GymManagementSystem
                 else
                 {
                     command.Parameters.AddWithValue("@Gender", "u");
-                }    
-                command.ExecuteNonQuery();
+                }
+                string result = (string)command.ExecuteScalar();
+                MessageBox.Show(result);
                 connection.closeConnection();
+
+                if (result.Contains("thành công"))
+                {
+                    txtName.Text = txtFullName.Text;
+                    txtPhone.Text = txtPhoneNumber.Text;
+                    txtAddress.Text = txtAddressInput.Text;
+                    pnlLoadMBS.Show();
+                }
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 return;
             }
-            MessageBox.Show("Đăng ký thành công");
-            txtName.Text = txtFullName.Text;
-            txtPhone.Text = txtPhoneNumber.Text;
-            txtAddress.Text = txtAddressInput.Text;
-            pnlLoadMBS.Show();
+           
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)

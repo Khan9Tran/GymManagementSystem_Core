@@ -169,21 +169,21 @@ namespace GymManagementSystem
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            InsertBranch(RandomIDGenerator.GenerateRandomID("Equipment", "EQ"));
+            InsertEquipment(RandomIDGenerator.GenerateRandomID("Equipment", "EQ"));
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            UpdateBranch();
+            UpdateEquipment();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DeleteBranch();
+            DeleteEquipment();
         }
 
 
-        private void InsertBranch(string ID)
+        private void InsertEquipment(string ID)
         {
             DBConnection connection = new DBConnection();
             string query = "PROC_AddEquipment";
@@ -214,7 +214,7 @@ namespace GymManagementSystem
 
         }
 
-        private void UpdateBranch()
+        private void UpdateEquipment()
         {
             DBConnection connection = new DBConnection();
             string query = "PROC_UpdateEquipment";
@@ -247,7 +247,7 @@ namespace GymManagementSystem
 
 
 
-        private void DeleteBranch()
+        private void DeleteEquipment()
         {
             DBConnection connection = new DBConnection();
             string query = "PROC_DeleteEquipment";
