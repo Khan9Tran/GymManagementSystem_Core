@@ -254,7 +254,7 @@ namespace GymManagementSystem
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-            listOptionExport.Show(1700, 130);
+            listOptionExport.Show(1700, 200);
         }
 
         private void exportDatatableToCSV(DataTable dataTable, string fileName)
