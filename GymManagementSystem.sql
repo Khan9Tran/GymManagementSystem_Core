@@ -615,7 +615,6 @@ VALUES
 	('EQC013', N'Tạ đơn'),
 	('EQC014', N'Khác');
 GO 
-SELECT *FROM Equipment
 INSERT INTO Equipment (ID, CategoryID, BranchID, Name, Status, Price)
 VALUES
     ('EQ0001', 'EQC001', 'BR0001', N'Máy chạy MaxSpeed', 'available', 1000000.00),
@@ -708,7 +707,34 @@ VALUES
 	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP008', 'WO0013')
+GO
+CREATE FUNCTION FUNC_CheckPhone(@Phone CHAR(20))
+RETURNS INT
+AS
+BEGIN
+    DECLARE @IsValid INT;
+    SET @IsValid = 1;  
 
+    DECLARE @Position INT;
+    SET @Position = 1;
+
+    WHILE @Position <= LEN(@Phone)
+    BEGIN
+        DECLARE @Character CHAR(1);
+        SET @Character = SUBSTRING(@Phone, @Position, 1);
+
+        IF @Character NOT LIKE '[0-9]'
+        BEGIN
+            SET @IsValid = 0;
+            BREAK;
+        END
+
+        SET @Position = @Position + 1;
+    END
+
+    RETURN @IsValid;
+END
+GO
 ---PROCDURE Tìm Member theo phone
 GO
 CREATE PROCEDURE dbo.PROC_FindMemberByPhoneNumber
@@ -1239,12 +1265,22 @@ RETURN
 );
 
 GO
+  
+CREATE FUNCTION FUNC_DefaultPass()
+RETURNS CHAR(20)
+AS
+BEGIN
+	DECLARE @pass CHAR(20)
+	SET @pass = '123456'
+	RETURN @pass
+END
+GO
+
 --PROC thêm nhân viên
 CREATE PROCEDURE PROC_AddEmployee
     @ID CHAR(6),
     @Name NVARCHAR(50),
     @UserName VARCHAR(20),
-    @Password VARCHAR(20),
     @Role CHAR(1),
     @BranchID CHAR(6),
 	@YourRole CHAR(1)
@@ -1259,9 +1295,8 @@ BEGIN
 		RAISERROR('User name đã tồn tại',16 ,1)
 	ELSE
     INSERT INTO Employee ([ID], [Name], [UserName], [Password], [Role], [BranchID])
-    VALUES (@ID, @Name, @UserName, @Password, @Role, @BranchID)
+    VALUES (@ID, @Name, @UserName, dbo.FUNC_DefaultPass(), @Role, @BranchID)
 END
-
 GO
 --PROC Reser pass
 CREATE PROCEDURE PROC_ResetPasswordToDefault
@@ -1270,8 +1305,8 @@ CREATE PROCEDURE PROC_ResetPasswordToDefault
 AS
 BEGIN
     UPDATE Employee
-    SET [Password] = '123456'
-    WHERE [ID] = @EmployeeID
+    SET [Password] = dbo.FUNC_DefaultPass()
+    WHERE [ID] = @EmployeeID AND (@YourRole = 1 OR (@YourRole = 2 AND Employee.Role = 0))
 END
 
 GO
@@ -1583,7 +1618,6 @@ BEGIN
         SELECT ERROR_MESSAGE() AS Result;
     END CATCH;
 END
-
 
 
 --Update Trainer
@@ -2066,6 +2100,11 @@ AS
 BEGIN
 	BEGIN TRY
 		BEGIN TRANSACTION;
+		IF (dbo.FUNC_CheckPhone(@PhoneNumber) = 0)
+		BEGIN
+			RAISERROR ('Số điện thoại không hợp lệ',16,1)
+			RETURN
+		END
 		INSERT INTO Member (ID, Name, PhoneNumber, Address, Balance, Gender)
 		VALUES (@ID, @Name, @PhoneNumber, @Address, @Balance, @Gender)
 		COMMIT TRANSACTION
@@ -2079,5 +2118,3 @@ BEGIN
 	SELECT N'Thêm thành công' AS Result
 		
 END
-
-
