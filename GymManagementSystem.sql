@@ -1912,6 +1912,7 @@ AS
 	
 GO
 
+USE GymManagerDB
 CREATE PROCEDURE PROC_AddPackage
     @ID CHAR(6),
     @Name NVARCHAR(100),
@@ -1939,7 +1940,7 @@ BEGIN
     END TRY
     BEGIN CATCH
         ROLLBACK TRANSACTION;
-        SELECT N'Thêm thất bại' AS Result
+        SELECT N'Thêm thất bại: ' +  ERROR_MESSAGE() AS Result
 		RETURN
     END CATCH
 	SELECT N'Thêm thành công' AS Result

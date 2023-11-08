@@ -377,7 +377,11 @@ namespace GymManagementSystem
             }
             connection.closeConnection();
             txtBranchResult.Text = branch.ID;
-            txtTrainerResult.Text = trainer.Name;
+            if ( trainer != null)
+            {
+                txtTrainerResult.Text = trainer.Name;
+            }
+            
             return true;
                 
         }
