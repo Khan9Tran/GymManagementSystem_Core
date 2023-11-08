@@ -1,4 +1,5 @@
 CREATE DATABASE GymManagerDB;
+
 GO
 USE GymManagerDB;
 
@@ -299,27 +300,31 @@ FROM BMI JOIN Member ON BMI.MemberID = Member.ID
 GO
 
 -- Xem danh sách thanh toán mua gói tập 
-CREATE VIEW V_PaymentPackageList
+CREATE PROC PROC_PaymentPackageList
 AS 
+BEGIN
 	SELECT dbo.Payment.ID, dbo.[Member].[Name] AS 'Member Name', dbo.[Member].PhoneNumber AS 'Phone Number', 
 		   dbo.Package.[Name] AS 'Package Name', dbo.Payment.PaymentAmount AS Amount, dbo.Payment.[Date], 
 		   dbo.Branch.[Name] AS 'Branch Name'
 	FROM dbo.Payment, dbo.[Member], dbo.Branch, dbo.Package
 	WHERE (dbo.Payment.MemberID = dbo.[Member].ID) 
-	      AND (dbo.Payment.BranchID = dbo.Branch.ID) 
-		  AND (dbo.Payment.PackageID = dbo.Package.ID);
+		   AND (dbo.Payment.BranchID = dbo.Branch.ID) 
+		   AND (dbo.Payment.PackageID = dbo.Package.ID);
+END
+	
 
 GO
 
 -- Danh sách thi tiêu cho việc bảo trì và sửa chữa thiết bị 
-CREATE VIEW V_PaymentEquipmentMaintenanceList
+CREATE PROC PROC_PaymentEquipmentMaintenanceList
 AS 
+BEGIN
 	SELECT dbo.MaintenanceData.ID, dbo.Equipment.[Name] AS 'Equiment Name', dbo.MaintenanceData.Cost, 
 		   dbo.Branch.[Name] AS 'Branch Name', dbo.MaintenanceData.[Date] 
     FROM dbo.MaintenanceData, dbo.Equipment, dbo.Branch
 	WHERE (dbo.MaintenanceData.EquipmentID = dbo.Equipment.ID) 
 		  AND (dbo.Equipment.BranchID = dbo.Branch.ID);
-
+END
 
 
 GO
@@ -1330,7 +1335,7 @@ BEGIN
 	END
 END
 GO
---DROC DELETE employee
+--PROC DELETE employee
 CREATE PROCEDURE PROC_DeleteEmployee
 @UserName VARCHAR(20),
 @YourRole CHAR(1)
@@ -2114,7 +2119,3 @@ BEGIN
 	SELECT N'Thêm thành công' AS Result
 		
 END
-
-GO
-
-
