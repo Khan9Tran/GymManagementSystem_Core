@@ -199,7 +199,6 @@ namespace GymManagementSystem
                     lblDetailPkTrainer.Text = "";
                     lblDetailNOTSestion.Text = "";
                     lblDetailPkDescription.Text = "";
-                    lblBalance.Text = "";
                     lblTotalPayment.Text = "";
                 }
                 catch

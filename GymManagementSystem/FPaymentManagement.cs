@@ -28,9 +28,9 @@ namespace GymManagementSystem
             InitializeComponent();
             DBConnection connection = new DBConnection();
             connection.openConnection();
-            String query = "SELECT * FROM V_PaymentPackageList";
+            String query = "PROC_PaymentPackageList";
             SqlCommand command = new SqlCommand(query, connection.GetConnection());
-            command.CommandType = CommandType.Text;
+            command.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable paymentPurchaseTable = new DataTable();
             adapter.Fill(paymentPurchaseTable);
@@ -120,9 +120,9 @@ namespace GymManagementSystem
         {
             DBConnection connection = new DBConnection();
             connection.openConnection();
-            String query = "SELECT * FROM V_PaymentPackageList";
+            String query = "PROC_PaymentPackageList";
             SqlCommand command = new SqlCommand(query, connection.GetConnection());
-            command.CommandType = CommandType.Text;
+            command.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable paymentPurchaseTable = new DataTable();
             adapter.Fill(paymentPurchaseTable);
@@ -140,9 +140,9 @@ namespace GymManagementSystem
         {
             DBConnection connection = new DBConnection();
             connection.openConnection();
-            String query = "SELECT * FROM V_PaymentEquipmentMaintenanceList";
+            String query = "PROC_PaymentEquipmentMaintenanceList";
             SqlCommand command = new SqlCommand(query, connection.GetConnection());
-            command.CommandType = CommandType.Text;
+            command.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable maintenanceDataTable = new DataTable();
             adapter.Fill(maintenanceDataTable);
@@ -234,7 +234,16 @@ namespace GymManagementSystem
                     DataTable listPaymentTable = new DataTable();
                     adapter.Fill(listPaymentTable);
                     connection.closeConnection();
-                    dgvListData.DataSource = listPaymentTable;
+                    if(listPaymentTable.Rows.Count > 0)
+                    {
+                        dgvListData.DataSource = listPaymentTable;
+                    }
+                    else
+                    {
+                        string message = "Số điện thoại không tồn tại!!!";
+                        string title = "Error";
+                        MessageBox.Show(message, title);
+                    }
                 }
                 catch
                 {
