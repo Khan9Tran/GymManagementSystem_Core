@@ -127,6 +127,7 @@
             btnShowListExpense.TabIndex = 23;
             btnShowListExpense.Text = "Expense";
             btnShowListExpense.UseVisualStyleBackColor = false;
+            btnShowListExpense.Click += btnShowListExpense_Click;
             // 
             // rjFlowLayoutPanel2
             // 
@@ -160,6 +161,7 @@
             btnExport.TabIndex = 22;
             btnExport.Text = "Export";
             btnExport.UseVisualStyleBackColor = false;
+            btnExport.Click += btnExport_Click;
             // 
             // btnDelete
             // 
@@ -177,6 +179,7 @@
             btnDelete.TabIndex = 2;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // rjPanel9
             // 
@@ -236,6 +239,7 @@
             btnSearch.Size = new Size(32, 27);
             btnSearch.TabIndex = 5;
             btnSearch.UseVisualStyleBackColor = false;
+            btnSearch.Click += btnSearch_Click;
             // 
             // tbxPhoneNumber
             // 
@@ -506,6 +510,7 @@
             toolStripMenuItem1.Name = "toolStripMenuItem1";
             toolStripMenuItem1.Size = new Size(139, 26);
             toolStripMenuItem1.Text = "List Income";
+            toolStripMenuItem1.Click += toolStripMenuItem1_Click;
             // 
             // toolStripMenuItem2
             // 
@@ -513,6 +518,7 @@
             toolStripMenuItem2.Name = "toolStripMenuItem2";
             toolStripMenuItem2.Size = new Size(139, 26);
             toolStripMenuItem2.Text = "List Expense";
+            toolStripMenuItem2.Click += toolStripMenuItem2_Click;
             // 
             // usMenuBar1
             // 
@@ -528,7 +534,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1592, 810);
+            ClientSize = new Size(1556, 810);
             Controls.Add(usMenuBar1);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(rjFlowLayoutPanel5);
