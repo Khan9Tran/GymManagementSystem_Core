@@ -292,7 +292,6 @@ namespace GymManagementSystem
                 command.Parameters.AddWithValue("@ID", RandomIDGenerator.GenerateRandomID("Employee","E"));
                 command.Parameters.AddWithValue("@Name", txtName.Text);
                 command.Parameters.AddWithValue("@UserName", txtUSer.Text);
-                command.Parameters.AddWithValue("@Password", "123456");
                 command.Parameters.AddWithValue("@Role", cbxRole.SelectedIndex.ToString());
                 command.Parameters.AddWithValue("@YourRole", Employee.Role);
                 command.Parameters.AddWithValue("@BranchID", (cbxBranch.SelectedItem as DataRowView)["ID"].ToString());
@@ -352,6 +351,7 @@ namespace GymManagementSystem
                 SqlCommand command = new SqlCommand(query, connection.GetConnection());
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@EmployeeID", gvEmployee.CurrentRow.Cells["ID"].Value.ToString());
+                command.Parameters.AddWithValue("@YourRole", Employee.Role);
                 command.ExecuteNonQuery();
 
             }

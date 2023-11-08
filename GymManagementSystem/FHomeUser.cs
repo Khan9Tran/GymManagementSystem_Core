@@ -197,7 +197,12 @@ namespace GymManagementSystem
 
         private void btnSize_Click(object sender, EventArgs e)
         {
+            if ( this.WindowState == FormWindowState.Maximized )
             this.WindowState = FormWindowState.Normal;
+            else if (this.WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Minimized;
+            }
         }
     }
 }

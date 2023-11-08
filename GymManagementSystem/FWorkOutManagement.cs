@@ -25,19 +25,25 @@ namespace GymManagementSystem
 
         private DataTable gvWorkOut_Load()
         {
-            Employee.Role = 1;
-            DBConnection connection = new DBConnection();
-            connection.openConnection();
-
-            String query = "SELECT * FROM V_WorkOutList";
-            SqlCommand command = new SqlCommand(query, connection.GetConnection());
-            command.CommandType = CommandType.Text;
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable dataTable = new DataTable();
-            adapter.Fill(dataTable);
+            try
+            {
+                DBConnection connection = new DBConnection();
+                connection.openConnection();
 
+                String query = "SELECT * FROM V_WorkOutList";
+                SqlCommand command = new SqlCommand(query, connection.GetConnection());
+                command.CommandType = CommandType.Text;
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                adapter.Fill(dataTable);
+                connection.closeConnection();
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+                
+            }
             gvWorkOut.DataSource = dataTable;
-            connection.closeConnection();
             return dataTable;
         }
 
