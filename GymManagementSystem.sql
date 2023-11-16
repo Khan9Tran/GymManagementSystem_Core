@@ -1,17 +1,19 @@
+-- TẠO DATABASE 
 CREATE DATABASE GymManagerDB;
 
 GO
 USE GymManagerDB;
 
 
+-- TẠO CÁC BẢNG TRONG DATABASE
 GO
 CREATE TABLE Branch(
 	[ID] CHAR(6) CONSTRAINT PK_Branch PRIMARY KEY,
 	[Name] NVARCHAR(50) NOT NULL,
 	[Address] NVARCHAR(50) NOT NULL
 	);
-GO
 
+GO
 CREATE TABLE Trainer(
 	[ID] CHAR(6) CONSTRAINT PK_Trainer PRIMARY KEY,
 	[Name] NVARCHAR(50) NOT NULL,
@@ -21,9 +23,7 @@ CREATE TABLE Trainer(
 	[BranchID] CHAR(6) CONSTRAINT FK_Trainer_Branch FOREIGN KEY REFERENCES dbo.Branch(ID),
 	);
 
-
 GO
-
 CREATE TABLE Employee(
 	[ID] CHAR(6) CONSTRAINT PK_Employee PRIMARY KEY,
 	[Name] NVARCHAR(50) NOT NULL,
@@ -32,14 +32,14 @@ CREATE TABLE Employee(
 	[BranchID] CHAR(6) CONSTRAINT FK_Employee_Branch FOREIGN KEY REFERENCES dbo.Branch(ID),
 	[Role] CHAR(1) NOT NULL
 	);
+	
 GO
-
 CREATE TABLE EquipmentCategory(
 	[ID] CHAR(6) CONSTRAINT PK_EquipmentCategory PRIMARY KEY,
 	[Name] NVARCHAR(50) NOT NULL
 );
-GO
 
+GO
 CREATE TABLE Equipment (
 	[ID] CHAR(6) CONSTRAINT PK_Equiment PRIMARY KEY,
 	[CategoryID] CHAR(6) CONSTRAINT FK_Equiment_EquimentCategory FOREIGN KEY REFERENCES dbo.EquipmentCategory(ID),
@@ -48,8 +48,8 @@ CREATE TABLE Equipment (
 	[Status] NVARCHAR(50) NULL, 
 	[Price] MONEY NOT NULL CONSTRAINT CHK_EqpPrice CHECK([Price] >= 0)
 	);
-GO
 
+GO
 CREATE TABLE MaintenanceData(
 	[ID] CHAR(6) CONSTRAINT PK_MaintenanceData PRIMARY KEY,
 	[EquipmentID] CHAR(6) CONSTRAINT FK_MaintenanceData_Equipment FOREIGN KEY REFERENCES dbo.Equipment(ID) ON DELETE SET NULL,
@@ -58,9 +58,7 @@ CREATE TABLE MaintenanceData(
 	[Description] NTEXT NULL
 	);
 
-
 GO
-
 CREATE TABLE Package(
 	[ID] CHAR(6) CONSTRAINT PK_Package PRIMARY KEY,
 	[Name] NVARCHAR(100) NOT NULL, 
@@ -76,6 +74,7 @@ CREATE TABLE MembershipType(
 	[Rate] FLOAT(2) NOT NULL, 
 	[Rank] NVARCHAR(50)
 	);
+
 GO
 CREATE TABLE Member(
 	[ID] CHAR(6) CONSTRAINT PK_Member PRIMARY KEY, 
@@ -89,8 +88,8 @@ CREATE TABLE Member(
 	[EndOfPackageDate] DATE,
 	[RemainingTS] INT CONSTRAINT CHK_MemberRemainingTS CHECK(RemainingTS >= 0)
 	);
-GO
 
+GO
 CREATE TABLE WorkOut(
 	[ID] CHAR(6) CONSTRAINT PK_WorkOut PRIMARY KEY, 
 	[Name] NVARCHAR(50) NOT NULL, 
@@ -98,8 +97,8 @@ CREATE TABLE WorkOut(
 	[Description] NTEXT NULL, 
 	[Duration] INT NOT NULL CONSTRAINT CHK_WorkOutDuration CHECK([Duration] >= 0)
 	);
-GO
 
+GO
 CREATE TABLE WorkOutPlan(
 	[ID] CHAR(6) CONSTRAINT PK_WorkOutPlan PRIMARY KEY,
 	[MemberID] CHAR(6) CONSTRAINT FK_WorkOutPlan_Member FOREIGN KEY REFERENCES dbo.Member(ID),
@@ -140,17 +139,19 @@ CREATE TABLE PlanDetails(
 	CONSTRAINT PK_PlanDetails PRIMARY KEY(WorkOutPlanID, WorkOutID)
 	);
 
+
+-- CÁC VIEW TRONG DATABASE
 GO
---Xem lịch tập các hội viên 
+-- Xem lịch tập các hội viên 
 CREATE VIEW V_MemberWorkOutSchedule AS
 SELECT WOP.ID, WOP.MemberID, Member.Name AS MemberName, WOP.TrainerID, Trainer.Name AS TrainerName, WOP.BranchID, Branch.Name AS BranchName, WOP.[Time], WOP.[Date]
 FROM dbo.WorkOutPlan WOP
 	LEFT JOIN dbo.Member ON WOP.MemberID = Member.ID
 	LEFT JOIN dbo.Branch ON WOP.BranchID = Branch.ID
 	LEFT JOIN dbo.Trainer ON WOP.TrainerID = Trainer.ID
-GO
 
---Xem lịch tập các hội viên trong ngày
+GO
+-- Xem lịch tập của các hội viên trong ngày
 CREATE VIEW V_MemberWorkOutScheduleInDay AS
 SELECT WOP.ID, WOP.MemberID, Member.Name AS MemberName, WOP.TrainerID, Trainer.Name AS TrainerName, WOP.BranchID, Branch.Name AS BranchName, WOP.[Time], WOP.[Date]
 FROM dbo.WorkOutPlan WOP
@@ -158,8 +159,9 @@ FROM dbo.WorkOutPlan WOP
 	LEFT JOIN dbo.Branch ON WOP.BranchID = Branch.ID
 	LEFT JOIN dbo.Trainer ON WOP.TrainerID = Trainer.ID
 WHERE CONVERT(DATE, wop.Date) = CONVERT(DATE, GETDATE());
+
 GO
---Xem buổi tập sắp tới
+-- Xem các buổi tập sắp tới
 CREATE VIEW V_MemberWorkOutScheduleUpcoming AS
 SELECT WOP.ID, WOP.MemberID, Member.Name AS MemberName, WOP.TrainerID, Trainer.Name AS TrainerName, WOP.BranchID, Branch.Name AS BranchName, WOP.[Time], WOP.[Date]
 FROM dbo.WorkOutPlan WOP
@@ -167,8 +169,9 @@ FROM dbo.WorkOutPlan WOP
 	LEFT JOIN dbo.Branch ON WOP.BranchID = Branch.ID
 	LEFT JOIN dbo.Trainer ON WOP.TrainerID = Trainer.ID
 WHERE CONVERT(DATE, wop.Date) >= CONVERT(DATE, GETDATE());
+
 GO
---View xem các buổi tập đang diễn ra
+-- View xem các buổi tập đang diễn ra
 CREATE VIEW  V_MemberWorkOutScheduleCurrent AS
 SELECT WOP.ID, WOP.MemberID, Member.Name AS MemberName, WOP.TrainerID, Trainer.Name AS TrainerName, WOP.BranchID, Branch.Name AS BranchName, WOP.[Time], WOP.[Date]
 FROM WorkOutPlan WOP
@@ -184,9 +187,9 @@ JOIN (
 	LEFT JOIN Branch ON WOP.BranchID = Branch.ID
 	WHERE WOP.[Time] <= CONVERT(TIME, GETDATE())
 	AND DATEADD(MINUTE, WD.TotalDuration,[Time]) >= CONVERT(TIME, GETDATE()) AND  [Date] = CONVERT(DATE, GETDATE())
-GO
 
---Danh sách thành viên hết hạn gói tập
+GO
+-- Danh sách thành viên hết hạn gói tập
 CREATE VIEW V_ExpiredMembershipList AS
 SELECT 
 	mb.ID, mb.[Name], EndOfPackageDate, mb.PhoneNumber
@@ -196,48 +199,58 @@ WHERE
 	mb.EndOfPackageDate < CAST(GETDATE() AS DATE);
 
 GO
+-- Xem danh sách nhân viên
+CREATE VIEW V_EmployeeList
+AS
+SELECT * FROM Employee
+
+GO
 -- Xem danh sách các chi nhánh
 CREATE VIEW V_BranchList AS
 SELECT *
 FROM dbo.Branch
 
 GO
+-- Xem danh sách category
+CREATE VIEW V_CategoryList
+AS
+SELECT *FROM EquipmentCategory
 
+GO
 -- Xem danh sách các gói tập
 CREATE VIEW V_PackageList AS
 SELECT *
 FROM dbo.Package
 
-
 GO
+-- Xem danh sách gói tập có huấn luyện viên 
 CREATE VIEW V_PackageListHasTrainer AS
 SELECT *
 FROM dbo.Package
 WHERE (NumberOfPTSessions IS NOT NULL) AND (NumberOfPTSessions != 0);
 
 GO
+-- Xem danh sách gói tập không có huấn luyện viên 
 CREATE VIEW V_PackageListNoTrainer AS
 SELECT *
 FROM dbo.Package
 WHERE (NumberOfPTSessions IS NULL) OR (NumberOfPTSessions = 0);
 
-
 GO
-
 -- Xem danh sách các bài tập
 CREATE VIEW V_WorkOutList AS
 SELECT *
 FROM dbo.WorkOut
 
 GO
-
---Xem danh sách pt
+-- Xem danh sách huấn luyện viên 
 CREATE VIEW V_TrainerList AS
 SELECT t.ID, t.Name, t.Address, t.PhoneNumber, t.Gender, b.Name AS Branch, t.BranchID
 FROM dbo.Trainer t
 	JOIN dbo.Branch b ON t.BranchID = b.ID
+
 GO
---Xem danh sách hội viên
+-- Xem danh sách hội viên
 CREATE VIEW V_MemberList AS
 SELECT m.[ID], m.[Name], m.[Gender], m.[PhoneNumber], m.[Address], m.[Balance], mt.[rank] AS MemberRank, p.[Name] AS MemberPackage, m.RemainingTS, m.EndOfPackageDate
 FROM dbo.Member m
@@ -245,21 +258,20 @@ FROM dbo.Member m
 	LEFT JOIN dbo.Package p ON m.PackageID = p.ID
 
 GO
+-- Xem danh sách MembershipType 
 CREATE VIEW V_MembershipType AS
 SELECT *
 FROM dbo.MembershipType
 
-
 GO
-
---Xem danh sách thiết bị sửa chữa trong ngày
+-- Xem danh sách thiết bị sửa chữa trong ngày
 CREATE VIEW V_MaintDataListInDay AS
 SELECT eq.EquipmentID , eq.Description, eq.Cost
 FROM dbo.MaintenanceData eq
 WHERE CONVERT(date, eq.Date) = CONVERT(DATE, GETDATE());
 
 GO
---Xem danh sách hóa đơn thực hiện trong ngày
+-- Xem danh sách hóa đơn thực hiện trong ngày
 CREATE VIEW V_PaymentListInDay AS
 SELECT dbo.Payment.[ID], dbo.Member.[ID] AS MemberID, dbo.Member.[Name] AS MemberName, dbo.Package.[Name] AS PackageName,  dbo.Payment.[PaymentAmount],
 	   dbo.Branch.[Name] AS BranchName, dbo.Payment.[Date], dbo.Employee.[Name] as [Cashier] 
@@ -270,12 +282,12 @@ FROM  dbo.Payment JOIN dbo.Member ON Member.ID = Payment.MemberID
 WHERE CAST(dbo.Payment.[Date] AS DATE) = CAST(GETDATE() AS DATE)
 
 GO
-
---Xem danh sách các thiết bị
+-- Xem danh sách các thiết bị
 CREATE VIEW V_EquipmentList AS
 SELECT dbo.Equipment.[ID], dbo.Equipment.[Name], dbo.Equipment.[Status], dbo.Branch.[Name] AS BranchName, dbo.EquipmentCategory.[Name] AS Category, EquipmentCategory.ID AS CategoryID, BranchID, Price
 FROM dbo.Equipment JOIN dbo.Branch ON Branch.ID = Equipment.BranchID
 				   JOIN dbo.EquipmentCategory ON EquipmentCategory.ID = Equipment.CategoryID
+
 GO
 -- Xem danh sách thiết bị hư hỏng
 CREATE VIEW V_DamagedEqpList AS
@@ -283,8 +295,9 @@ SELECT dbo.Equipment.[ID], dbo.Equipment.[Name], dbo.Equipment.[Status], dbo.Bra
 FROM dbo.Equipment JOIN dbo.Branch ON Branch.ID = Equipment.BranchID
 				   JOIN dbo.EquipmentCategory ON EquipmentCategory.ID = Equipment.CategoryID
 WHERE dbo.Equipment.[Status] = 'unavailable'
-Go 
-	-- Xem danh sách thiết bị còn hoạt động
+
+GO 
+-- Xem danh sách thiết bị còn hoạt động
 CREATE VIEW V_AvailableEqpList AS
 SELECT dbo.Equipment.[ID], dbo.Equipment.[Name], dbo.Equipment.[Status], dbo.Branch.[Name] AS BranchName, dbo.EquipmentCategory.[Name] AS Category, EquipmentCategory.ID AS CategoryID, BranchID, Price
 FROM dbo.Equipment JOIN dbo.Branch ON Branch.ID = Equipment.BranchID
@@ -292,13 +305,12 @@ FROM dbo.Equipment JOIN dbo.Branch ON Branch.ID = Equipment.BranchID
 WHERE dbo.Equipment.[Status] = 'available'
 
 GO 
---Xem danh sách BMI
+-- Xem danh sách BMI
 CREATE VIEW V_BMIList AS
 SELECT BMI.ID, BMI.Status, BMI.Weight, BMI.Height, BMI.Date, MemberID,Member.Name, Member.PhoneNumber
 FROM BMI JOIN Member ON BMI.MemberID = Member.ID
 
 GO
-
 -- Xem danh sách thanh toán mua gói tập 
 CREATE PROC PROC_PaymentPackageList
 AS 
@@ -312,9 +324,7 @@ BEGIN
 		   AND (dbo.Payment.PackageID = dbo.Package.ID);
 END
 	
-
 GO
-
 -- Danh sách thi tiêu cho việc bảo trì và sửa chữa thiết bị 
 CREATE PROC PROC_PaymentEquipmentMaintenanceList
 AS 
@@ -327,8 +337,9 @@ BEGIN
 END
 
 
+-- CÁC TRIGGER TRONG DATABASE  
 GO
--- Trigger cập nhật số dư khi hội viên thực hiện thanh toán và tính số tiền khách cần phải trả cập nhật về Payment
+-- Trigger cập nhật số dư khi hội viên thực hiện thanh toán và tính số tiền khách cần phải trả cập nhật về bảng Payment
 CREATE TRIGGER TR_UpdateMemberBalance
 ON Payment
 	AFTER INSERT AS
@@ -364,7 +375,7 @@ END;
 
 
 GO
---Trigger thêm gói tập/ gia hạn và chỉnh ngày hết hạn gói tập khi hội viên thực hiện thanh toán và chỉnh số buổi tập với PT.
+-- Trigger thêm/gia hạn gói tập, chỉnh ngày hết hạn gói tập khi hội viên thực hiện thanh toán và cập nhật lại số buổi tập với huấn luyện viên.
 CREATE TRIGGER TR_UpdatePkgOfMember
 ON Payment
 	AFTER INSERT AS
@@ -379,7 +390,7 @@ BEGIN
 		END
 	, RemainingTS = 
 		CASE
-		--Khi gia hạn thì giữ lại số buổi tập còn lại với PT cho hội viên ngược lại buổi tập còn lại sẽ được tính theo package
+		-- Khi gia hạn thì giữ lại số buổi tập còn lại với PT cho hội viên ngược lại buổi tập còn lại sẽ được tính theo package
 			WHEN (M.PackageID = I.PackageID) AND ( CAST(I.[Date] AS DATE)) < M.EndOfPackageDate THEN 
 				ISNULL(M.RemainingTS, 0) + ISNULL(P.NumberOfPTSessions, 0)
 			ELSE
@@ -391,10 +402,9 @@ BEGIN
     INNER JOIN inserted I ON M.ID = I.MemberID
     INNER JOIN Package P ON I.PackageID = P.ID;
 END;
+
 GO
-
-
---Trigger thêm membershiptype là 'thành viên' cho hội viên mới
+-- Trigger thêm membershiptype là 'Thành viên' cho hội viên mới
 CREATE TRIGGER TR_AssignDefaultMembershipType
 ON Member
 AFTER INSERT
@@ -413,6 +423,7 @@ BEGIN
         WHERE ID IN (SELECT ID FROM inserted);
     END
 END;
+
 GO
 --Trigger đặt tình trạng BMI dựa theo công thức
 CREATE TRIGGER TR_BMIStatus
@@ -434,9 +445,7 @@ INNER JOIN inserted I ON B.ID = I.ID;
 END;
 
 GO
-
-
---Trigger kiểm tra gói tập trùng tên
+-- Trigger kiểm tra gói tập trùng tên
 CREATE TRIGGER TR_UniquePackage
 ON dbo.Package
 AFTER INSERT, UPDATE
@@ -456,9 +465,9 @@ BEGIN
 		ROLLBACK;
 	END
 END
-GO
 
---Trigger thay đổi trạng thái thiết bị khi đã thực hiện bảo trì
+GO
+-- Trigger thay đổi trạng thái thiết bị khi đã thực hiện bảo trì
 CREATE TRIGGER TR_ChangeStEquipment ON dbo.MaintenanceData
 FOR INSERT
 AS
@@ -470,7 +479,7 @@ BEGIN
 END;
 
 GO
---Trigger báo quá số lượng đăng ký cho giờ tập trong khoản trước sau 45 phút (Dung tích chứa 50 member) 
+-- Trigger báo quá số lượng đăng ký cho giờ tập trong khoản trước sau 45 phút (chứa tối đa 50 member tập trong cùng một thời điểm) 
 CREATE TRIGGER TR_OverCapacity ON WorkOutPlan
 AFTER INSERT, UPDATE 
 AS
@@ -484,8 +493,9 @@ BEGIN
 		ROLLBACK;
 	END
 END;
+
 GO
---Trigger kiểm tra buổi tập có thời lượng quá 2 tiếng
+-- Trigger kiểm tra buổi tập có thời lượng quá 2 tiếng
 CREATE TRIGGER TR_OverTimeTraining
 ON PlanDetails
 AFTER INSERT, UPDATE 
@@ -505,12 +515,8 @@ BEGIN
    END
 END
 
-
 GO
-
-
-
---Trigger Kiểm tra buổi tập đăng ký nằm ngoài ngày hết hạng gói tập
+-- Trigger kiểm tra buổi tập đăng ký nằm ngoài ngày hết hạng gói tập
 CREATE TRIGGER	TR_ExceededPkgEndDate ON WorkOutPlan
 AFTER INSERT, UPDATE
 AS 
@@ -529,7 +535,6 @@ BEGIN
 END;
 
 GO
-
 -- Kiểm tra liệu member còn số buổi tập với trainer hay không 
 CREATE TRIGGER TR_WorkOutPlanHaveTrainer ON dbo.WorkOutPlan
 FOR INSERT, UPDATE
@@ -545,9 +550,9 @@ BEGIN
 		ROLLBACK
 	END
 END
-GO
 
--- Kiểm tra việc đăng ký mới lịch tập với huấn luyện viên có bị trùng lịch không 
+GO
+-- Kiểm tra việc đăng ký mới lịch tập với huấn luyện viên có bị trùng lịch biểu của huấn luyện viên hay không 
 CREATE TRIGGER TR_WorkOutPlaConflictChecking ON WorkOutPlan
 FOR INSERT, UPDATE 
 AS
@@ -565,149 +570,12 @@ BEGIN
 END
 
 
+-- CÁC FUNCTION TRONG DATABASE 
 GO
-
-INSERT INTO Branch ([ID], [Name], [Address])
-VALUES
-	('BR0001', N'Monster Thảo Điền', N'Quận 2, HCM'),
-	('BR0002', N'Monster Thủ Đức', N'Tp. Thủ Đức, HCM'),
-	('BRRoot', N'Monster GYM', N'trụ sở chính');
-
-GO
-INSERT INTO MembershipType (ID, [Rank], Rate)
-VALUES ('000001', N'Thành viên', 0),
-       ('000002', N'Đồng', 0.04),
-       ('000003', N'Bạc', 0.08),
-       ('000004', N'Vàng', 0.12),
-	   ('000005', N'Bạch kim', 0.16)
-
-INSERT INTO WorkOut (ID, Name, Type, Description, Duration)
-VALUES
-    ('WO0001', N'Squat', N'Legs', N'Bài tập gập người giúp phát triển cơ chân và hông.', 10),
-    ('WO0002', N'Deadlift', N'Legs', N'Bài tập kéo đạp tập trung vào cơ lưng và cơ chân.', 15),
-    ('WO0003', N'Bench Press', N'Chest', N'Bài tập đẩy tạ ngang tập trung vào cơ ngực, vai và cánh tay.', 15),
-    ('WO0004', N'Shoulder Press', N'Shoulders', N'Bài tập đẩy tạ vai giúp phát triển cơ vai và cơ tay trên.', 10),
-    ('WO0005', N'Barbell Row', N'Back', N'Bài tập kéo tạ ngang tập trung vào cơ lưng và cơ tay.', 12),
-    ('WO0006', N'Bicep Curl', N'Arms', N'Bài tập curl tạ cơ bắp cánh tay.', 8),
-    ('WO0007', N'Tricep Extension', N'Arms', N'Bài tập nghịch cánh tay.', 12),
-    ('WO0008', N'Lunges', N'Legs', N'Bài tập chân trước giúp cải thiện sức mạnh chân và cơ mông.', 15),
-    ('WO0009', N'Romanian Deadlift', N'Legs', N'Bài tập kéo đạp chân thẳng tập trung vào cơ lưng và cơ chân.', 15),
-    ('WO0010', N'Overhead Press', N'Shoulders', N'Bài tập đẩy tạ từ trên đầu tập trung vào cơ vai và cơ tay trên.', 7),
-    ('WO0011', N'Incline Bench Press', N'Chest', N'Bài tập đẩy tạ nghiêng tập trung vào cơ ngực, vai và cánh tay.', 12),
-    ('WO0012', N'Barbell Hip Thrust', N'Legs', N'Bài tập đẩy hông bằng tạ giúp phát triển cơ mông và cơ chân.', 15),
-	('WO0013', N'Tự do', N'All', N'Tập tùy thích.', 119);
-GO
-
-INSERT INTO EquipmentCategory (ID, Name)
-VALUES
-    ('EQC001', N'Máy chạy bộ'),
-	('EQC002', N'Máy tập bụng'),
-    ('EQC003', N'Xe đạp đứng'),
-    ('EQC004', N'Máy tập ngực'),
-    ('EQC005', N'Máy tập vai'),
-    ('EQC006', N'Máy tập chân'),
-	('EQC007', N'Máy tập tay'),
-	('EQC008', N'Máy tập lưng/xô'),
-	('EQC009', N'Thanh đòn'),
-	('EQC010', N'Bánh tạ'),
-	('EQC011', N'Ghế tập'),
-	('EQC012', N'Thảm'),
-	('EQC013', N'Tạ đơn'),
-	('EQC014', N'Khác');
-GO 
-INSERT INTO Equipment (ID, CategoryID, BranchID, Name, Status, Price)
-VALUES
-    ('EQ0001', 'EQC001', 'BR0001', N'Máy chạy MaxSpeed', 'available', 1000000.00),
-    ('EQ0002', 'EQC002', 'BR0002', N'Máy gập có hỗ trợ', 'unavailable', 1500000.00),
-    ('EQ0003', 'EQC003', 'BR0001', N'Xe đạp PowerTraining', 'available', 2000000.00),
-    ('EQ0004', 'EQC004', 'BR0002', N'Máy đẩy ngực Hulk', 'unavailable', 1200000.00),
-    ('EQ0005', 'EQC005', 'BR0001', N'Máy đẩy vai sau', 'available', 18000000.00),
-    ('EQ0006', 'EQC006', 'BR0002', N'Máy Squat', 'unavailable', 2500000.00);
-
--- Kiểm tra lịch tập có huấn luyện viên nhưng bị trùng giờ với lịch của huấn luyện viên đó (insert, update woukloutplan) rollback báo lỗi.
-GO
-INSERT INTO Trainer ([ID], [Name], [Address], [PhoneNumber], [Gender], [BranchID])
-VALUES
-	('TR0001', N'Lê Nguyễn Bảo', N'ktx D2, Lê Văn Việt, Thủ Đức', '1234567890', 'm', 'BR0001'),
-	('TR0002', N'Nguyễn Thiện Luân', N'ktx D2, Lê Văn Việt, Thủ Đức', '2345678901', 'm', 'BR0002'),
-    ('TR0003', N'Hoàng Anh Tuấn', N'999 Đường Hàm Nghi, Quận 2, TP.HCM', '6789012345', 'm', 'BR0002'),
-    ('TR0004', N'Phạm Minh Trí', N'222 Đường Lý Tự Trọng, Quận 5, TP.HCM', '7890123456', 'm', 'BR0001'),
-    ('TR0005', N'Trainer 8', N'333 Đường Trường Sa, Quận 11, TP.HCM', '8901234567', 'm', 'BR0002'),
-    ('TR0006', N'Lê Thị Mai', N'444 Đường Lê Lai, Quận 3, TP.HCM', '9012345678', 'f', 'BR0001'),
-    ('TR0007', N'Nguyễn Đình Hoàng', N'555 Đường Nguyễn Trãi, Quận 10, TP.HCM', '0123456789', 'm', 'BR0002');
-
-
-GO
-INSERT INTO Package ([ID], [Name], [Periods], [Price], [Description], [NumberOfPTSessions])
-VALUES
-	('PK0001', N'Gói Vận Động Sức Khỏe', 3, 5000000, N'Gói tập thể dục hàng ngày', 15),
-	('PK0002', N'Gói Siêu Thể Hình', 6, 1000000, N'Gói tập mục tiêu giữ dáng', 30),
-	('PK0003', N'Gói Đỉnh Cao Sức Khỏe', 12, 1500000, N'Gói tập toàn diện', 15),
-	('PK0004', N'Gói Thử Thách Tập Luyện', 1, 250000, N'Gói tập dành cho thử thách', NULL),
-	('PK0005', N'Gói Tăng Sức Bền', 4, 750000, N'Gói tập nhẹ nhàng cải thiện sức bền', 8),
-	('PK0006', N'Gói Thách Thức Thể Hình', 8, 1250000, N'Gói tập nâng cao cường độ', NULL),
-	('PK0007', N'Gói Cải Thiện Sức Khỏe', 2, 400000, N'Gói tập ngắn hạn', 10),
-	('PK0008', N'Gói Đặc Biệt Thể Hình', 6, 900000, N'Gói tập cao cấp', 12),
-	('PK0009', N'Gói Tập Luyện Chuyên Sâu', 12, 1750000, N'Gói tập chuyên nghiệp', NULL),
-	('PK0010', N'Gói Xây Dựng Cơ Bắp', 3, 600000, N'Gói tập xây dựng cơ bắp', 30);
-
-GO 
-INSERT INTO Member ([ID], [MembershipTypeID], [Name], [Gender], [PhoneNumber], [Address], [Balance], [PackageID], [EndOfPackageDate], [RemainingTS])
-VALUES
-	('MB0001', '000001', 'Member 1', 'm', '1234567890', 'Address 1', 100.00, 'PK0001', '2023-12-30',11),
-	('MB0002', '000002', 'Member 2', 'f', '2345678901', 'Address 2', 200.00, 'PK0002', '2023-12-30',5),
-	('MB0003', '000003', 'Member 3', 'm', '3456789012', 'Address 3', 300.00, 'PK0003', '2023-12-30',5),
-	('MB0004', '000001', 'Member 4', 'f', '4567890123', 'Address 4', 400.00, 'PK0004', '2023-12-30',NULL),
-	('MB0005', '000002', 'Member 5', 'm', '5678901234', 'Address 5', 500.00, 'PK0005', '2023-12-30',44),
-	('MB0006', '000003', 'Member 6', 'f', '6789012345', 'Address 6', 600.00, 'PK0006', '2023-12-30',NULL),
-	('MB0007', '000001', 'Member 7', 'm', '7890123456', 'Address 7', 700.00, 'PK0007', '2023-12-30',10),
-	('MB0008', '000002', 'Member 8', 'f', '8901234567', 'Address 8', 800.00, 'PK0008', '2023-12-30',1),
-	('MB0009', '000003', 'Member 9', 'm', '9012345678', 'Address 9', 900.00, 'PK0009', '2023-12-30',NULL),
-	('MB0010', '000001', 'Member 10', 'f', '0123456789', 'Address 10', 1000.00, 'PK0010', '2023-12-30',0);
-
-GO 
-INSERT INTO WorkOutPlan ([ID], [MemberID], [TrainerID], [BranchID], [Time], [Date])
-VALUES
-	('WOP001', 'MB0001', 'TR0002', 'BR0002', '20:00:00', '2023-12-01'),
-	('WOP002', 'MB0002', 'TR0002', 'BR0002', '09:00:00', '2023-12-07'),
-	('WOP003', 'MB0003', 'TR0003', 'BR0001', '10:00:00', '2023-12-04'),
-	('WOP005', 'MB0005', 'TR0005', 'BR0001', '12:00:00', '2023-12-02'),
-	('WOP007', 'MB0007', 'TR0007', 'BR0002', '14:00:00', '2023-12-07'),
-	('WOP008', 'MB0008', 'TR0001', 'BR0001', '15:00:00', '2023-12-08')
-
-GO
-
-INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
-VALUES
-	('WOP001', 'WO0001')
-	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
-VALUES
-	('WOP001', 'WO0003')
-	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
-VALUES
-	('WOP002', 'WO0005')
-	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
-VALUES
-	('WOP002', 'WO0001')
-	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
-VALUES
-	('WOP003', 'WO0007')
-	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
-VALUES
-	('WOP003', 'WO0009')
-	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
-VALUES
-   	('WOP005', 'WO0010')
-	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
-VALUES
-	('WOP007', 'WO0002')
-	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
-VALUES
-	('WOP007', 'WO0003')
-	INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
-VALUES
-	('WOP008', 'WO0013')
-GO
+-- Function kiểm tra số điện thoại có hợp lệ hay không
+-- Số điện thoại hợp lệ nếu:
+-- -- Có đúng 10 ký tự
+-- -- Không chứa ký tự khác ký tự số 
 CREATE FUNCTION FUNC_CheckPhone(@Phone CHAR(20))
 RETURNS INT
 AS
@@ -734,8 +602,183 @@ BEGIN
 
     RETURN @IsValid;
 END
+
 GO
----PROCDURE Tìm Member theo phone
+-- Function tìm WorkOut theo WorkOutPlanID
+CREATE FUNCTION FUNC_FindWorkOutByWorkOutPlan(@ID char(6))
+RETURNS TABLE
+AS
+	RETURN SELECT * FROM V_WorkOutList WHERE ID IN (SELECT WorkOutID FROM PlanDeTails WHERE WorkOutPlanID = @ID)
+GO
+
+GO
+-- Function lấy Member với tổng chi tiêu của member đó trong khoản thời gian StartDate đến EndDate
+CREATE FUNCTION FUNC_ListMemberWithTotalPaymentAmount(@StartDate Date,@EndDate Date)
+RETURNS TABLE
+AS
+	RETURN SELECT  Member.ID, Member.Name, Member.PhoneNumber, ISNULL(SUM(PayByDate.PaymentAmount), 0) as TotalPaymentAmount 
+	FROM Member LEFT JOIN (SELECT * FROM Payment WHERE Payment.Date >= @StartDate AND Payment.Date <= @EndDate ) As PayByDate ON Member.ID = PayByDate.MemberID
+	GROUP BY Member.ID, Member.Name, Member.PhoneNumber 
+
+GO
+-- Function đếm số người theo hạng của membership 
+CREATE FUNCTION FUNC_FindNumberOfMemberByMemberShip(@MembershipID char(6))
+RETURNS INT
+AS
+BEGIN
+	DECLARE @tmp INT
+	SELECT @tmp = COUNT(*) 
+	FROM Member JOIN MembershipType ON Member.MembershipTypeID = MembershipType.ID 
+	WHERE @MembershipID = MembershipType.ID
+	RETURN @tmp
+END
+
+GO
+-- Function tìm ID của Membership theo rank
+CREATE FUNCTION FUNC_FindMembershipByRank(@Rank NVARCHAR(50))
+RETURNS CHAR(6)
+AS
+BEGIN
+	DECLARE @tmp CHAR(6) 
+	SET @tmp = 'None'
+	SELECT @tmp = MembershipType.ID FROM MembershipType WHERE MembershipType.Rank = @Rank
+	RETURN @tmp
+END
+
+GO
+-- Function lấy ngày và thể trạng (dựa theo BMI được đo trong ngày đó) 
+CREATE FUNCTION FUNC_DataForChartBMI(@PhoneNumber CHAR(10))
+RETURNS TABLE
+AS
+RETURN
+    SELECT [Date], 
+           CAST(([Weight] / POWER(([Height] / 100), 2)) AS DECIMAL(5, 2)) AS Rate
+    FROM V_BMIList
+    WHERE PhoneNumber = @PhoneNumber
+
+GO
+-- Function tìm kiếm Branch
+CREATE FUNCTION FUNC_FindBranch(@Content NVARCHAR(100))
+RETURNS TABLE
+AS
+	RETURN SELECT * FROM V_BranchList WHERE ID = @Content OR [Name] LIKE  N'%' + @Content + '%' OR [Address] LIKE  N'%' + @Content + '%'
+
+GO
+-- Function kiểm tra đăng nhập hợp lệ không đăng nhập hợp lệ không
+CREATE FUNCTION FUNC_LoginAuthentication(@UserName varchar(20), @Password nvarchar(20))
+RETURNS INT
+AS
+BEGIN
+	IF EXISTS (SELECT * FROM Employee WHERE UserName = @UserName AND [Password] = @Password)
+		RETURN 1
+	RETURN 0
+END
+
+GO
+-- Function tìm nhân viên 
+CREATE FUNCTION dbo.FUNC_FindEmployee
+(
+    @Content NVARCHAR(100)
+)
+RETURNS TABLE
+AS
+RETURN
+(
+    SELECT *
+    FROM Employee
+    WHERE [Name] LIKE N'%' + @Content + '%'
+       OR [UserName] LIKE '%' + @Content + '%'
+);
+
+GO
+-- Function đặt password với giá trị mặc định là 123456
+CREATE FUNCTION FUNC_DefaultPass()
+RETURNS CHAR(20)
+AS
+BEGIN
+	DECLARE @pass CHAR(20)
+	SET @pass = '123456'
+	RETURN @pass
+END
+
+GO
+-- Function tìm giá của thiết bị 
+CREATE FUNCTION FUNC_FindPrice(@ID CHAR(6))
+RETURNS MONEY
+AS
+BEGIN
+	DECLARE @tmp MONEY
+	SELECT @tmp = Price FROM Equipment WHERE (ID = @ID)
+	RETURN @tmp
+END
+
+GO
+-- Tạo bảng ảo lưu các khoản thời gian cách nhau 2 tiếng 
+CREATE TABLE TimeSlot (
+    SlotID INT PRIMARY KEY IDENTITY(1, 1),
+    StartTime TIME,
+    EndTime TIME
+);
+
+-- Điền dữ liệu vào bảng từ 6h sáng đến 8h tối, cách nhau 2 tiếng
+DECLARE @StartTime TIME = '06:00:00'; -- 6h sáng
+DECLARE @EndTime TIME = '20:00:00'; -- 8h tối
+
+WHILE @StartTime <= @EndTime
+BEGIN
+    INSERT INTO TimeSlot (StartTime, EndTime)
+    VALUES (@StartTime, DATEADD(HOUR, 2, @StartTime));
+
+    SET @StartTime = DATEADD(HOUR, 2, @StartTime);
+END
+	INSERT INTO TimeSlot (StartTime, EndTime)
+    VALUES ('22:00:00', '23:00:00');
+
+GO
+-- Function lấy lịch làm việc theo ngày của huấn luyện viên 
+CREATE FUNCTION FUNC_TrainerSchedule(@TrainerID CHAR(6), @Date Date)
+RETURNS TABLE
+AS
+	RETURN
+	SELECT CAST(StartTime AS CHAR(9)) + ' - ' + CAST(EndTime AS CHAR(9)) AS TimeFrame, ID, Time FROM
+	(SELECT WorkOutPlan.ID, WorkOutPlan.Time
+	FROM Trainer 
+		LEFT JOIN   
+		WorkOutPlan ON Trainer.ID = WorkOutPlan.TrainerID WHERE Trainer.ID = @TrainerID AND WorkOutPlan.Date = @Date) AS TnPlan
+	RIGHT JOIN TimeSlot 
+	ON (TimeSlot.StartTime <= TnPlan.Time AND TimeSlot.EndTime > TnPlan.Time) OR TnPlan.Time IS NULL 
+		
+GO
+-- Function tìm kiếm Workout
+CREATE FUNCTION FUNC_FindWorkout(@Content NVARCHAR(100))
+RETURNS TABLE
+AS
+	RETURN SELECT * FROM V_WorkOutList WHERE ID = @Content OR [Name] LIKE  N'%' + @Content + '%' OR [Type] LIKE  N'%' + @Content + '%' OR [Description] LIKE  N'%' + @Content + '%' OR [Duration] LIKE  N'%' + @Content + '%' 
+	
+GO
+-- Function kiểm tran xem member có đăng ký gói tập đó hay chưa 
+CREATE FUNCTION FUNC_CheckPackageMembers
+(
+    @PackageID CHAR(6)
+)
+RETURNS BIT
+AS
+BEGIN
+    DECLARE @HasMembers BIT = 0;
+
+    -- Check if there are any members registered for the package
+    IF EXISTS (SELECT 1 FROM Member WHERE PackageID = @PackageID)
+    BEGIN
+        SET @HasMembers = 1;
+    END
+
+    RETURN @HasMembers;
+END
+
+
+-- CÁC PROCEDURE TRONG DATABASE 
+GO
+-- PROCEDURE ìm member theo số điện thoại 
 GO
 CREATE PROCEDURE dbo.PROC_FindMemberByPhoneNumber
     @PhoneNumber CHAR(10)
@@ -746,7 +789,7 @@ BEGIN
     WHERE PhoneNumber = @PhoneNumber
 END
 
--- PROCDURE Lấy danh sách các thanh toán được thực hiện bởi member thông qua số điện thoại 
+-- PROCEDURE lấy danh sách các thanh toán được thực hiện bởi member thông qua số điện thoại 
 GO
 CREATE PROCEDURE dbo.PROC_FindListPaymentByPhoneNumber
     @PhoneNumber CHAR(10)
@@ -763,6 +806,7 @@ BEGIN
 END
 
 GO
+-- PROCEDURE lấy danh sách các thanh toán được thực hiện bởi member thông qua số điện thoại 
 CREATE PROCEDURE dbo.PROC_PaymentByPhoneNumber
     @PhoneNumber CHAR(10)
 AS
@@ -774,7 +818,7 @@ BEGIN
 END
 
 GO
----Tìm chi nhánh
+---PROCEDURE tìm chi nhánh
 CREATE PROCEDURE dbo.PROC_FindBranchByContent
 	@Content NVARCHAR(50)
 AS
@@ -783,8 +827,9 @@ BEGIN
 	FROM V_BranchList
 	WHERE Name LIKE '%' + @Content + '%' OR ID = @Content OR Address LIKE '%' + @Content + '%'
 END
+
 GO
----Tìm trainer
+-- PROCEDURE tìm trainer
 CREATE PROCEDURE dbo.PROC_FindTrainerByBranchAndContent
 	@Content NVARCHAR(50),
 	@Branch NVARCHAR(50)
@@ -796,8 +841,7 @@ BEGIN
 END
 
 GO
-
--- Tính tổng giá trị của một cột trong bảng 
+-- PROCEDURE tính tổng giá trị của một cột trong bảng 
 CREATE PROCEDURE PROC_CalcSum
     @TableName CHAR(50),
     @ColumnName CHAR(50)
@@ -809,7 +853,7 @@ BEGIN
 END
 
 GO
---Thêm WorkOutPlan
+--PROCEDURE thêm WorkOutPlan (lịch tập)
 CREATE PROCEDURE PROC_AddWorkOutPlan
     @ID CHAR(6),
     @MemberID CHAR(6),
@@ -841,7 +885,7 @@ BEGIN
 END
 
 GO
---Thêm Plandetails
+-- PROCEDURE thêm Plandetails (chi tiết về buổi tập)
 CREATE PROCEDURE PROC_AddPlanDetails
     @WorkOutPlanID CHAR(6),
     @WorkOutID CHAR(6)
@@ -868,9 +912,9 @@ BEGIN
         RAISERROR ( 'Buổi tập có thời lượng quá 2 tiếng',16,1);
     END CATCH;
 END
-GO
 
---Proc tìm kiếm trogn lịch tập
+GO
+-- PROCEDURE tìm kiếm trong bảng lịch tập (WorkOutPlan)
 CREATE PROCEDURE PROC_FindWorkOutPlan
 	@FilterType INT,
 	@Content NVARCHAR(50)
@@ -885,8 +929,9 @@ BEGIN
 	ELSE IF (@FilterType = 3)
 		SELECT * FROM V_MemberWorkOutScheduleUpcoming WHERE  (ID = @Content OR MemberName LIKE N'%' + @Content + '%' OR TrainerName  LIKE N'%' + @Content + '%' OR BranchName  LIKE N'%' + @Content + '%' OR MemberID = @Content OR TrainerID = @Content OR BranchID = @Content)
 END
+
 GO
--- PROC Cập nhật remaingTS
+-- PROCEDURE cập nhật số buổi tập với trainer (RemainingTS)
 CREATE PROCEDURE PROC_UpdateRemainingTS
 @WorkOutPlanID char(6)
 AS
@@ -897,6 +942,7 @@ BEGIN
 END
 
 GO
+-- PROCEDURE cập nhật lịch tập (WorkOutPlan)
 CREATE PROCEDURE PROC_UpdateWorkOutPlan
 	@Date Date,
 	@Time Time,
@@ -930,38 +976,7 @@ BEGIN
 END
 
 GO
-
---Hàm tìm WorkOut theo WorkOutPlanID
-CREATE FUNCTION FUNC_FindWorkOutByWorkOutPlan(@ID char(6))
-RETURNS TABLE
-AS
-	RETURN SELECT * FROM V_WorkOutList WHERE ID IN (SELECT WorkOutID FROM PlanDeTails WHERE WorkOutPlanID = @ID)
-GO
-
---Hàm lấy Member dựa theo ngày cùng với tổng số tiền chi tiêu
-CREATE FUNCTION FUNC_ListMemberWithTotalPaymentAmount(@StartDate Date,@EndDate Date)
-RETURNS TABLE
-AS
-	RETURN SELECT  Member.ID, Member.Name, Member.PhoneNumber, ISNULL(SUM(PayByDate.PaymentAmount), 0) as TotalPaymentAmount 
-	FROM Member LEFT JOIN (SELECT * FROM Payment WHERE Payment.Date >= @StartDate AND Payment.Date <= @EndDate ) As PayByDate ON Member.ID = PayByDate.MemberID
-	GROUP BY Member.ID, Member.Name, Member.PhoneNumber 
-GO
---Hàm tìm số ngươi theo hạng membership 
-CREATE FUNCTION FUNC_FindNumberOfMemberByMemberShip(@MembershipID char(6))
-RETURNS INT
-AS
-BEGIN
-	DECLARE @tmp INT
-	SELECT @tmp = COUNT(*) 
-	FROM Member JOIN MembershipType ON Member.MembershipTypeID = MembershipType.ID 
-	WHERE @MembershipID = MembershipType.ID
-	RETURN @tmp
-END
-
-
-GO
-
---PROC tạo mùa membership mới theo công thức
+-- PROCEDURE tạo mùa membership mới theo công thức
 CREATE PROCEDURE PROC_NewSeason
 @StartDate Date,
 @EndDate Date
@@ -994,7 +1009,7 @@ BEGIN
 END
 
 GO
---Proc tìm alll member
+-- PROCEDURE tìm trong bảng Member
 CREATE PROCEDURE PROC_FindAllMember
 	@FilterType INT,
 	@Content NVARCHAR(50)
@@ -1009,7 +1024,7 @@ BEGIN
 END
 
 GO 
---Proc Update member
+-- PROCEDURE cập nhật member
 CREATE PROCEDURE PROC_UpdateMember
 @Name NVARCHAR(100),
 @PhoneNumber CHAR(10),
@@ -1041,19 +1056,7 @@ BEGIN
 END
 
 GO
---FUNCTION Tìm ID của Membership theo rank
-CREATE FUNCTION FUNC_FindMembershipByRank(@Rank NVARCHAR(50))
-RETURNS CHAR(6)
-AS
-BEGIN
-	DECLARE @tmp CHAR(6) 
-	SET @tmp = 'None'
-	SELECT @tmp = MembershipType.ID FROM MembershipType WHERE MembershipType.Rank = @Rank
-	RETURN @tmp
-END
-
-GO
---PROC Load BMI mới nhất của thành viên
+-- PROCEDURE tải BMI mới nhất của thành viên
 CREATE PROCEDURE PROC_LatestBMI @MemberID char(6)
 AS
 BEGIN
@@ -1063,11 +1066,8 @@ BEGIN
     ORDER BY Date DESC;
 END
 
-INSERT INTO BMI(ID,MemberID,Weight,Height,Date) VALUES('000001','MEM011',60,175,'2023/10/25');
-
 GO
-
---Proc tìm trainerlist
+-- PROCEDURE tìm trong danh sách trainer 
 CREATE PROCEDURE PROC_FindTrainerList
 	@FilterType INT,
 	@Content NVARCHAR(50),
@@ -1095,7 +1095,7 @@ BEGIN
 END
 
 GO
---PROC Insert BMI
+-- PROCEDURE thêm BMI
 CREATE PROCEDURE PROC_AddBMI
     @ID CHAR(6),
     @Date DATETIME,
@@ -1124,8 +1124,8 @@ BEGIN
 	SELECT * FROM V_BMIList
 END
 
---Cập nhật BMI và trả về trạng thái
 GO
+-- PROCEDURE cập nhật BMI và trả về trạng thái
 CREATE PROCEDURE PROC_UpdateBMI @ID CHAR(6), @Weight DECIMAL(4,1), @Height INT
 AS
 BEGIN
@@ -1140,27 +1140,9 @@ BEGIN
 	END CATCH
 	SELECT [Status] FROM BMI WHERE ID = @ID
 END
-GO
-
---Func lấy ngày và thể trạng 
-CREATE FUNCTION FUNC_DataForChartBMI(@PhoneNumber CHAR(10))
-RETURNS TABLE
-AS
-RETURN
-    SELECT [Date], 
-           CAST(([Weight] / POWER(([Height] / 100), 2)) AS DECIMAL(5, 2)) AS Rate
-    FROM V_BMIList
-    WHERE PhoneNumber = @PhoneNumber
-GO
---Hàm tìm kiếm Branch
-CREATE FUNCTION FUNC_FindBranch(@Content NVARCHAR(100))
-RETURNS TABLE
-AS
-	RETURN SELECT * FROM V_BranchList WHERE ID = @Content OR [Name] LIKE  N'%' + @Content + '%' OR [Address] LIKE  N'%' + @Content + '%'
 
 GO
-
---Proc insert Branch
+-- PROCEDURE thêm chi nhánh
 CREATE PROCEDURE PROC_AddBranch
     @ID CHAR(6),
     @Name NVARCHAR(50),
@@ -1175,8 +1157,9 @@ BEGIN
 		RAISERROR ('Thêm thất bại',16,1)
 	END CATCH
 END
+
 GO
---Proc update branch
+-- PROCEDURE cập nhật chi nhánh 
 CREATE PROCEDURE PROC_UpdateBranch
     @ID CHAR(6),
     @Name NVARCHAR(50),
@@ -1196,8 +1179,7 @@ BEGIN
 END
 
 GO
---Proc update branch
-
+-- PROCEDURE xóa chi nhánh 
 CREATE PROCEDURE PROC_DeleteBranch
     @ID CHAR(6)
 AS
@@ -1220,63 +1202,17 @@ BEGIN
 	END CATCH
 END
 
-
 GO
---Func check đăng nhập hợp lệ không
-CREATE FUNCTION FUNC_LoginAuthentication(@UserName varchar(20), @Password nvarchar(20))
-RETURNS INT
-AS
-BEGIN
-	IF EXISTS (SELECT * FROM Employee WHERE UserName = @UserName AND [Password] = @Password)
-		RETURN 1
-	RETURN 0
-END
-
-GO
-
-
-GO
---Proc Lấy thông tin nhân viên 
+-- PROCEDURE lấy thông tin nhân viên 
 CREATE PROCEDURE PROC_UserInfo
 @UserName VARCHAR(20)
 AS 
 	SELECT Employee.[Name], dbo.Employee.[ID] AS EmployeeID, [Password], [UserName], Branch.[ID], Branch.[Name] AS  BranchName, [Role] FROM Employee JOIN Branch ON Employee.BranchID = Branch.ID 
 	WHERE UserName = @UserName
-GO
---View Xem nhân viên
-CREATE VIEW V_EmployeeList
-AS
-SELECT * FROM Employee
+
 
 GO
---Tìm nhân viên 
-CREATE FUNCTION dbo.FUNC_FindEmployee
-(
-    @Content NVARCHAR(100)
-)
-RETURNS TABLE
-AS
-RETURN
-(
-    SELECT *
-    FROM Employee
-    WHERE [Name] LIKE N'%' + @Content + '%'
-       OR [UserName] LIKE '%' + @Content + '%'
-);
-
-GO
-  
-CREATE FUNCTION FUNC_DefaultPass()
-RETURNS CHAR(20)
-AS
-BEGIN
-	DECLARE @pass CHAR(20)
-	SET @pass = '123456'
-	RETURN @pass
-END
-GO
-
---PROC thêm nhân viên
+-- PROCEDURE thêm nhân viên
 CREATE PROCEDURE PROC_AddEmployee
     @ID CHAR(6),
     @Name NVARCHAR(50),
@@ -1298,7 +1234,7 @@ BEGIN
     VALUES (@ID, @Name, @UserName, dbo.FUNC_DefaultPass(), @Role, @BranchID)
 END
 GO
---PROC Reser pass
+-- PROCEDURE resest mật khẩu
 CREATE PROCEDURE PROC_ResetPasswordToDefault
     @EmployeeID CHAR(6),
 	@YourRole CHAR(1)
@@ -1311,7 +1247,7 @@ END
 
 GO
 
---PROC update thông tin employee
+-- PROCEDURE cập nhật thông tin nhân viên 
 CREATE PROCEDURE PROC_UpdateEmployeeInfo
     @UserName VARCHAR(20),
     @Name NVARCHAR(50),
@@ -1335,7 +1271,7 @@ BEGIN
 	END
 END
 GO
---PROC DELETE employee
+-- PROCEDURE xóa nhân viên 
 CREATE PROCEDURE PROC_DeleteEmployee
 @UserName VARCHAR(20),
 @YourRole CHAR(1)
@@ -1347,8 +1283,8 @@ BEGIN
 	DELETE Employee WHERE UserName = @UserName
 END
 
-Go
---Đổi pass
+GO
+-- PROCEDURE đổi mật khẩu 
 CREATE PROCEDURE PROC_ChangePassword
     @Password VARCHAR(20),
     @UserName VARCHAR(20),
@@ -1379,9 +1315,9 @@ BEGIN
         SELECT N'Mật khẩu hiện tại không chính xác.' AS Result
     END
 END
-GO
 
---PROC TÌm ds equipment
+GO
+-- PROCEDURE tìm trong danh sách thiết bị 
 CREATE PROCEDURE PROC_FindEquipment
     @FilterType INT,
     @Content NVARCHAR(50),
@@ -1435,9 +1371,8 @@ BEGIN
     END
 END
 
-
 GO
---PROC Đổi trạng thái
+-- PROCEDURE đổi trạng thái thiết bị thành Unavaliable
 CREATE PROCEDURE PROC_SetUnavailable
     @ID CHAR(6)
 AS
@@ -1461,8 +1396,9 @@ BEGIN
         THROW;
     END CATCH;
 END
+
 GO
---PROC Tìm lịch sử sửa chửa
+-- PROCEDURE lấy lịch sử sửa chữa của thiết bị 
 CREATE PROCEDURE PROC_FindMaintenanceData
 @ID CHAR(6)
 AS
@@ -1472,7 +1408,7 @@ BEGIN
 END
 
 GO 
---PROC thêm lịch sử sửa chửaPROC_ReplaceEquipment
+-- PROCEDURE thêm lịch sử sửa chửa cho thiết bị 
 CREATE PROCEDURE PROC_AddMaintenanceData
     @ID CHAR(6),
     @EquipmentID CHAR(6),
@@ -1525,20 +1461,9 @@ BEGIN
     END CATCH;
 END
 
-GO
---FUNC Tìm Gia thiet bị 
-CREATE FUNCTION FUNC_FindPrice(@ID CHAR(6))
-RETURNS MONEY
-AS
-BEGIN
-	DECLARE @tmp MONEY
-	SELECT @tmp = Price FROM Equipment WHERE (ID = @ID)
-	RETURN @tmp
-END
-
 
 GO
---PROC Thay mới thiết bị
+-- PROCEDURE thay mới thiết bị
 CREATE PROCEDURE PROC_ReplaceEquipment
     @ID CHAR(6),
     @EquipmentID CHAR(6),
@@ -1577,8 +1502,9 @@ BEGIN
         RAISERROR('Thay đổi thiết bị thất bại',16,1);
     END CATCH;
 END
+
 GO
---Insert Trainer
+-- PROCEDURE thêm trainer
 CREATE PROCEDURE PROC_InsertTrainer
     @ID CHAR(6),
     @Name NVARCHAR(50),
@@ -1620,8 +1546,8 @@ BEGIN
 END
 
 
---Update Trainer
 GO
+-- Cập nhật trainer
 CREATE PROCEDURE PROC_UpdateTrainer
     @ID CHAR(6),
     @Name NVARCHAR(50),
@@ -1668,8 +1594,7 @@ BEGIN
 END
 
 GO
-
---PROC thêm workout
+-- PROCEDURE thêm bài tập 
 CREATE PROCEDURE PROC_AddWorkout
     @ID CHAR(6),
     @Name NVARCHAR(50),
@@ -1686,8 +1611,7 @@ BEGIN
 END
 
 GO
-
---PROC DELETE Workout
+-- PROCEDURE xóa bài tập 
 CREATE PROCEDURE PROC_DeleteWorkout
 @ID CHAR(6)
 AS 
@@ -1696,8 +1620,7 @@ BEGIN
 END
 
 GO
-
---PROC update thông tin workout
+-- PROCEDURE cập nhật thông tin bài tập 
 CREATE PROCEDURE PROC_UpdateWorkout
 	@ID char(6),
     @Name NVARCHAR(50),
@@ -1716,58 +1639,9 @@ BEGIN
 
 END
 
-GO
-
--- Tạo bảng Ảo lưu khoản thời gian
-CREATE TABLE TimeSlot (
-    SlotID INT PRIMARY KEY IDENTITY(1, 1),
-    StartTime TIME,
-    EndTime TIME
-);
-
--- Điền dữ liệu vào bảng từ 6h đến 11h tối, cách nhau 2 tiếng
-DECLARE @StartTime TIME = '06:00:00'; -- 6h tối
-DECLARE @EndTime TIME = '20:00:00'; -- 11h tối
-
-WHILE @StartTime <= @EndTime
-BEGIN
-    INSERT INTO TimeSlot (StartTime, EndTime)
-    VALUES (@StartTime, DATEADD(HOUR, 2, @StartTime));
-
-    SET @StartTime = DATEADD(HOUR, 2, @StartTime);
-END
-	INSERT INTO TimeSlot (StartTime, EndTime)
-    VALUES ('22:00:00', '23:00:00');
-SELECT *FROM TimeSlot
-GO
-
---FUNC Lấy lịch làm việc theo ngày của trainer
-
-CREATE FUNCTION FUNC_TrainerSchedule(@TrainerID CHAR(6), @Date Date)
-RETURNS TABLE
-AS
-
-	RETURN
-	SELECT CAST(StartTime AS CHAR(9)) + ' - ' + CAST(EndTime AS CHAR(9)) AS TimeFrame, ID, Time FROM
-	(SELECT WorkOutPlan.ID, WorkOutPlan.Time
-	FROM Trainer 
-		LEFT JOIN   
-		WorkOutPlan ON Trainer.ID = WorkOutPlan.TrainerID WHERE Trainer.ID = @TrainerID AND WorkOutPlan.Date = @Date) AS TnPlan
-	RIGHT JOIN TimeSlot 
-	ON (TimeSlot.StartTime <= TnPlan.Time AND TimeSlot.EndTime > TnPlan.Time) OR TnPlan.Time IS NULL 
-		
-
 
 GO
---View category
-CREATE VIEW V_CategoryList
-AS
-SELECT *FROM EquipmentCategory
-
-
-
-Go
---Thêm Equipment
+-- PROCEDURE thêm thiết bị 
 CREATE PROCEDURE PROC_AddEquipment
     @ID CHAR(6),
     @Name NVARCHAR(50),
@@ -1796,7 +1670,7 @@ BEGIN
 END
 GO
 
---Cập nhật Equipment
+-- PROCEDURE cập nhật thiết bị 
 CREATE PROCEDURE PROC_UpdateEquipment
     @ID CHAR(6),
     @Name NVARCHAR(50),
@@ -1833,7 +1707,7 @@ END
 
 
 Go
--- Xóa Equipment
+-- PROCUDURE xóa thiết bị  
 CREATE PROCEDURE PROC_DeleteEquipment
     @ID CHAR(6)
 AS
@@ -1854,8 +1728,7 @@ BEGIN
 END
 
 GO
-
---PROC thêm equipmentCategory
+-- PROCEDURE thêm category 
 CREATE PROCEDURE PROC_AddEquipmentCategory
 	@ID CHAR(6),
 	@Name NVARCHAR(50)
@@ -1869,8 +1742,7 @@ BEGIN
 END
 
 GO
-
---PROC DELETE equipmentCategory
+-- PROCEDURE xóa category
 CREATE PROCEDURE PROC_DeleteEquipmentCategory
 @ID CHAR(6)
 AS 
@@ -1879,9 +1751,7 @@ BEGIN
 END
 
 GO
-
-
---PROC update thông tin equipmentCategory
+-- PROCEDURE cập nhật thông tin category
 CREATE PROCEDURE PROC_UpdateEquipmentCategory
 	@ID char(6),
     @Name NVARCHAR(50)
@@ -1898,8 +1768,7 @@ BEGIN
 END
 
 GO
-
---Proc tìm kiếm trong category list
+-- PROCEDURE tìm trong danh sách category 
 CREATE PROCEDURE PROC_FindEquipmentCategory
 	@Content NVARCHAR(50)
 AS
@@ -1908,21 +1777,10 @@ BEGIN
 END
 
 GO
-
---Hàm tìm kiếm Workout
-CREATE FUNCTION FUNC_FindWorkout(@Content NVARCHAR(100))
-RETURNS TABLE
-AS
-	RETURN SELECT * FROM V_WorkOutList WHERE ID = @Content OR [Name] LIKE  N'%' + @Content + '%' OR [Type] LIKE  N'%' + @Content + '%' OR [Description] LIKE  N'%' + @Content + '%' OR [Duration] LIKE  N'%' + @Content + '%' 
-	
-GO
-
-USE GymManagerDB
+-- PROCEDURE thêm gói tập 
 CREATE PROCEDURE PROC_AddPackage
     @ID CHAR(6),
     @Name NVARCHAR(100),
-
-
     @Periods INT,
     @Price MONEY,
     @Description NTEXT,
@@ -1951,9 +1809,8 @@ BEGIN
 	SELECT N'Thêm thành công' AS Result
 END
 
-
 GO
-
+-- PROCEDURE tìm kiếm trong danh sách gói tập
 CREATE PROCEDURE PROC_FindAllPackages
     @FilterType INT,
     @Content NVARCHAR(50)
@@ -1992,7 +1849,7 @@ BEGIN
 END
 
 GO
-
+-- PROCEDURE cập nhật gói tập 
 CREATE PROCEDURE PROC_UpdatePackage
     @ID CHAR(6),
     @Name NVARCHAR(100),
@@ -2045,24 +1902,8 @@ BEGIN
 END
 GO
 
-CREATE FUNCTION FUNC_CheckPackageMembers
-(
-    @PackageID CHAR(6)
-)
-RETURNS BIT
-AS
-BEGIN
-    DECLARE @HasMembers BIT = 0;
-
-    -- Check if there are any members registered for the package
-    IF EXISTS (SELECT 1 FROM Member WHERE PackageID = @PackageID)
-    BEGIN
-        SET @HasMembers = 1;
-    END
-
-    RETURN @HasMembers;
-END
 GO
+-- PROCEDURE xóa gói tập 
 CREATE PROCEDURE PROC_DeletePackage @ID CHAR(6)
 AS
 BEGIN
@@ -2079,17 +1920,8 @@ END
 
 GO
 
-
-INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('Admin0','admin','admin', 'admin', 'BRRoot', '1')
-
-INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('mg0001','manager','manager', 'manager1', 'BR0001', '2')
-INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('mg0002','manager','manager', 'manager2', 'BR0002', '2')
-
-INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('st0001','employee','employee', 'employee1', 'BR0001', '0')
-INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('st0002','employee','employee', 'employee2', 'BR0002', '0')
-
 GO
-
+-- PROCEDURE thêm member 
 CREATE PROCEDURE PROC_AddMember
     @ID CHAR(6),
     @Name NVARCHAR(50),
@@ -2119,3 +1951,189 @@ BEGIN
 	SELECT N'Thêm thành công' AS Result
 		
 END
+
+
+-- INSERT MỘT SỐ DỮ LIỆU ĐỂ DEMO 
+GO
+INSERT INTO Branch ([ID], [Name], [Address])
+VALUES
+	('BR0001', N'Monster Thảo Điền', N'Quận 2, HCM'),
+	('BR0002', N'Monster Thủ Đức', N'Tp. Thủ Đức, HCM'),
+	('BRRoot', N'Monster GYM', N'trụ sở chính');
+
+GO
+INSERT INTO MembershipType (ID, [Rank], Rate)
+VALUES ('000001', N'Thành viên', 0),
+       ('000002', N'Đồng', 0.04),
+       ('000003', N'Bạc', 0.08),
+       ('000004', N'Vàng', 0.12),
+	   ('000005', N'Bạch kim', 0.16)
+
+GO
+INSERT INTO WorkOut (ID, Name, Type, Description, Duration)
+VALUES
+    ('WO0001', N'Squat', N'Legs', N'Bài tập gập người giúp phát triển cơ chân và hông.', 10),
+    ('WO0002', N'Deadlift', N'Legs', N'Bài tập kéo đạp tập trung vào cơ lưng và cơ chân.', 15),
+    ('WO0003', N'Bench Press', N'Chest', N'Bài tập đẩy tạ ngang tập trung vào cơ ngực, vai và cánh tay.', 15),
+    ('WO0004', N'Shoulder Press', N'Shoulders', N'Bài tập đẩy tạ vai giúp phát triển cơ vai và cơ tay trên.', 10),
+    ('WO0005', N'Barbell Row', N'Back', N'Bài tập kéo tạ ngang tập trung vào cơ lưng và cơ tay.', 20),
+    ('WO0006', N'Bicep Curl', N'Arms', N'Bài tập curl tạ cơ bắp cánh tay.', 15),
+    ('WO0007', N'Tricep Extension', N'Arms', N'Bài tập nghịch cánh tay.', 15),
+    ('WO0008', N'Lunges', N'Legs', N'Bài tập chân trước giúp cải thiện sức mạnh chân và cơ mông.', 15),
+    ('WO0009', N'Romanian Deadlift', N'Legs', N'Bài tập kéo đạp chân thẳng tập trung vào cơ lưng và cơ chân.', 15),
+    ('WO0010', N'Overhead Press', N'Shoulders', N'Bài tập đẩy tạ từ trên đầu tập trung vào cơ vai và cơ tay trên.', 20),
+    ('WO0011', N'Incline Bench Press', N'Chest', N'Bài tập đẩy tạ nghiêng tập trung vào cơ ngực, vai và cánh tay.', 10),
+    ('WO0012', N'Barbell Hip Thrust', N'Legs', N'Bài tập đẩy hông bằng tạ giúp phát triển cơ mông và cơ chân.', 15),
+	('WO0013', N'Tự do', N'All', N'Tập tùy thích.', 119);
+
+GO
+INSERT INTO EquipmentCategory (ID, Name)
+VALUES
+    ('EQC001', N'Máy chạy bộ'),
+	('EQC002', N'Máy tập bụng'),
+    ('EQC003', N'Xe đạp đứng'),
+    ('EQC004', N'Máy tập ngực'),
+    ('EQC005', N'Máy tập vai'),
+    ('EQC006', N'Máy tập chân'),
+	('EQC007', N'Máy tập tay'),
+	('EQC008', N'Máy tập lưng/xô'),
+	('EQC009', N'Thanh đòn'),
+	('EQC010', N'Bánh tạ'),
+	('EQC011', N'Ghế tập'),
+	('EQC012', N'Thảm'),
+	('EQC013', N'Tạ đơn'),
+	('EQC014', N'Khác');
+
+GO 
+INSERT INTO Equipment (ID, CategoryID, BranchID, Name, Status, Price)
+VALUES
+    ('EQ0001', 'EQC001', 'BR0001', N'Máy chạy MaxSpeed', 'available', 1000000.00),
+    ('EQ0002', 'EQC002', 'BR0002', N'Máy gập có hỗ trợ', 'unavailable', 1500000.00),
+    ('EQ0003', 'EQC003', 'BR0001', N'Xe đạp PowerTraining', 'available', 2000000.00),
+    ('EQ0004', 'EQC004', 'BR0002', N'Máy đẩy ngực Hulk', 'unavailable', 1200000.00),
+    ('EQ0005', 'EQC005', 'BR0001', N'Máy đẩy vai sau', 'available', 18000000.00),
+    ('EQ0006', 'EQC006', 'BR0002', N'Máy Squat', 'unavailable', 2500000.00);
+
+GO
+INSERT INTO Trainer ([ID], [Name], [Address], [PhoneNumber], [Gender], [BranchID])
+VALUES
+	('TR0001', N'Lê Nguyễn Bảo', N'ktx D2, Lê Văn Việt, Thủ Đức', '0123456789', 'm', 'BR0001'),
+	('TR0002', N'Nguyễn Thiện Luân', N'ktx D2, Lê Văn Việt, Thủ Đức', '0234567891', 'm', 'BR0002'),
+    ('TR0003', N'Hoàng Anh Tuấn', N'999 Đường Hàm Nghi, Quận 2, TP.HCM', '0345678912', 'm', 'BR0002'),
+    ('TR0004', N'Phạm Minh Trí', N'222 Đường Lý Tự Trọng, Quận 5, TP.HCM', '0456789123', 'm', 'BR0001'),
+    ('TR0005', N'Đỗ Thanh Khang', N'333 Đường Trường Sa, Quận 11, TP.HCM', '0567891234', 'm', 'BR0002'),
+    ('TR0006', N'Lê Thị Mai', N'444 Đường Lê Lai, Quận 3, TP.HCM', '0678912345', 'f', 'BR0001'),
+    ('TR0007', N'Nguyễn Đình Hoàng', N'555 Đường Nguyễn Trãi, Quận 10, TP.HCM', '0789123456', 'm', 'BR0002');
+
+GO
+INSERT INTO Package ([ID], [Name], [Periods], [Price], [Description], [NumberOfPTSessions])
+VALUES
+	('PK0001', N'Gói Vận Động Sức Khỏe', 3, 5000000, N'Gói tập thể dục hàng ngày', 15),
+	('PK0002', N'Gói Siêu Thể Hình', 6, 1000000, N'Gói tập mục tiêu giữ dáng', 30),
+	('PK0003', N'Gói Đỉnh Cao Sức Khỏe', 12, 1500000, N'Gói tập toàn diện', 15),
+	('PK0004', N'Gói Thử Thách Tập Luyện', 1, 2500000, N'Gói tập dành cho thử thách', NULL),
+	('PK0005', N'Gói Tăng Sức Bền', 4, 750000, N'Gói tập nhẹ nhàng cải thiện sức bền', 20),
+	('PK0006', N'Gói Thách Thức Thể Hình', 8, 1250000, N'Gói tập nâng cao cường độ', NULL),
+	('PK0007', N'Gói Cải Thiện Sức Khỏe', 2, 400000, N'Gói tập ngắn hạn', 10),
+	('PK0008', N'Gói Đặc Biệt Thể Hình', 6, 3000000, N'Gói tập cao cấp', 20),
+	('PK0009', N'Gói Tập Luyện Chuyên Sâu', 12, 2500000, N'Gói tập chuyên nghiệp', NULL),
+	('PK0010', N'Gói Xây Dựng Cơ Bắp', 3, 600000, N'Gói tập xây dựng cơ bắp', 30);
+
+GO 
+INSERT INTO Member ([ID], [MembershipTypeID], [Name], [Gender], [PhoneNumber], [Address], [Balance], [PackageID], [EndOfPackageDate], [RemainingTS])
+VALUES
+	('MB0001', '000001', N'Nguyễn Thanh Huy', 'm', '0869017464', N'Bến Tre', 50000.00, 'PK0001', '2023-12-30',10),
+	('MB0002', '000002', N'Trần Lâm Nhựt Khang', 'm', '0123456789', N'Trà Vinh', 20000.00, 'PK0002', '2023-12-30',5),
+	('MB0003', '000003', N'Đỗ Thanh Khang', 'm', '0234567891', N'TP.HCM', 3000.00, 'PK0003', '2023-12-30',5),
+	('MB0004', '000001', N'Hoàng Anh Tuấn', 'm', '0345678912', N'TP.HCM', 4000.00, 'PK0004', '2023-12-30',10),
+	('MB0005', '000002', N'Trần Thanh Hiếu', 'm', '0456789123', N'An Giang', 30000.00, 'PK0005', '2023-12-30',40),
+	('MB0006', '000003', N'Lê Nguyễn Bảo', 'm', '0567891234', N'Phú Yên', 60000.00, 'PK0006', '2023-12-30',20),
+	('MB0007', '000001', N'Nguyễn Quỳnh Như', 'f', '0678912345', N'Hà Tĩnh', 7000.00, 'PK0007', '2023-12-30',10),
+	('MB0008', '000002', N'Trần Thị Hương', 'f', '0123456709', N'Hải Phòng', 8000.00, 'PK0008', '2023-12-30',1),
+	('MB0009', '000003', N'Nguyễn Văn Nam', 'm', '0123456781', N'Hà Nội', 9000.00, 'PK0009', '2023-12-30',15),
+	('MB0010', '000001', N'Lê Thị Anh', 'f', '0123456897', N'Đà Nẵng', 1000.00, 'PK0010', '2023-12-30',30);
+
+GO 
+INSERT INTO WorkOutPlan ([ID], [MemberID], [TrainerID], [BranchID], [Time], [Date])
+VALUES
+	('WOP001', 'MB0001', 'TR0002', 'BR0002', '20:00:00', '2023-12-01'),
+	('WOP002', 'MB0002', 'TR0002', 'BR0002', '09:00:00', '2023-12-07'),
+	('WOP003', 'MB0003', 'TR0003', 'BR0001', '10:00:00', '2023-12-04'),
+	('WOP005', 'MB0005', 'TR0005', 'BR0001', '12:00:00', '2023-12-02'),
+	('WOP007', 'MB0007', 'TR0007', 'BR0002', '14:00:00', '2023-12-07'),
+	('WOP008', 'MB0008', 'TR0001', 'BR0001', '15:00:00', '2023-12-08')
+
+GO
+INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+VALUES
+	('WOP001', 'WO0001')
+
+INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+VALUES
+	('WOP001', 'WO0003')
+
+INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+VALUES
+	('WOP002', 'WO0005')
+
+INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+VALUES
+	('WOP002', 'WO0001')
+
+INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+VALUES
+	('WOP003', 'WO0007')
+
+INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+VALUES
+	('WOP003', 'WO0009')
+
+INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+VALUES
+   	('WOP005', 'WO0010')
+
+INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+VALUES
+	('WOP007', 'WO0002')
+
+INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+VALUES
+	('WOP007', 'WO0003')
+
+INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
+VALUES
+	('WOP008', 'WO0013')
+
+GO
+INSERT INTO Employee(ID,[Name],[Password],UserName,BranchID,[Role]) VALUES('AD0001','admin','admin', 'admin', 'BRRoot', '1')
+INSERT INTO Employee(ID,[Name],[Password],UserName,BranchID,[Role]) VALUES('MG0001','manager','manager', 'manager1', 'BR0001', '2')
+INSERT INTO Employee(ID,[Name],[Password],UserName,BranchID,[Role]) VALUES('MG0002','manager','manager', 'manager2', 'BR0002', '2')
+INSERT INTO Employee(ID,[Name],[Password],UserName,BranchID,[Role]) VALUES('ST0001','employee','employee', 'employee1', 'BR0001', '0')
+INSERT INTO Employee(ID,[Name],[Password],UserName,BranchID,[Role]) VALUES('ST0002','employee','employee', 'employee2', 'BR0002', '0')
+
+GO
+INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000001', 'MB0001', 60, 175, '2023/10/25');
+INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000002', 'MB0002', 70, 180, '2023/10/25');
+INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000003', 'MB0003', 65, 170, '2023/10/25');
+INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000004', 'MB0004', 70, 185, '2023/10/26');
+INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000005', 'MB0005', 75, 175, '2023/10/26');
+INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000006', 'MB0006', 80, 180, '2023/10/26');
+INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000007', 'MB0007', 55, 160, '2023/10/27');
+INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000008', 'MB0008', 65, 170, '2023/10/27');
+INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000009', 'MB0009', 70, 175, '2023/10/27');
+INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000010', 'MB0010', 75, 180, '2023/10/28');
+
+INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000011', 'MB0001', 65, 176, '2023/10/29');
+INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000012', 'MB0002', 71, 178, '2023/10/30');
+INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000013', 'MB0003', 68, 172, '2023/10/31');
+INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000014', 'MB0004', 73, 187, '2023/11/01');
+INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000015', 'MB0005', 78, 177, '2023/11/02');
+INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000016', 'MB0006', 83, 182, '2023/11/03');
+INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000017', 'MB0007', 60, 158, '2023/11/04');
+INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000018', 'MB0008', 70, 168, '2023/11/05');
+INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000019', 'MB0009', 75, 173, '2023/11/06');
+INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000020', 'MB0010', 80, 178, '2023/11/07');
+INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000021', 'MB0001', 66, 177, '2023/11/08');
+INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000022', 'MB0002', 72, 179, '2023/11/09');
+INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000023', 'MB0003', 69, 173, '2023/11/10');
+INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000024', 'MB0004', 74, 188, '2023/11/11');
