@@ -2113,7 +2113,6 @@ INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP008', 'WO0013')
 
-
 GO
 INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000001', 'MB0001', 60, 175, '2023/10/25');
 INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000002', 'MB0002', 70, 180, '2023/10/25');
@@ -2141,15 +2140,11 @@ INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000022', 'MB0002',
 INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000023', 'MB0003', 69, 173, '2023/11/10');
 INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000024', 'MB0004', 74, 188, '2023/11/11');
 
-
 GO
-
-
 CREATE ROLE Staff
 CREATE ROLE BranchManager
 
 GO
-
 GRANT SELECT, INSERT, REFERENCES ON dbo.Member TO Staff
 GRANT SELECT, REFERENCES ON dbo.Branch TO Staff
 GRANT SELECT, REFERENCES ON dbo.Trainer TO Staff
@@ -2169,8 +2164,6 @@ GRANT EXECUTE TO Staff
 GRANT SELECT TO Staff
 
 GO
-
-
 DENY EXECUTE ON PROC_AddBranch TO Staff
 DENY EXECUTE ON PROC_UpdateBranch TO Staff
 DENY EXECUTE ON PROC_DeleteBranch TO Staff
@@ -2195,8 +2188,8 @@ DENY EXECUTE ON PROC_FindListPaymentByPhoneNumber TO Staff
 DENY EXECUTE ON PROC_DeleteWorkout TO Staff
 DENY EXECUTE ON PROC_UpdateWorkout TO Staff
 DENY EXECUTE ON PROC_AddWorkout TO Staff
+	
 GO
-
 GRANT SELECT, INSERT, REFERENCES ON dbo.Member TO BranchManager
 GRANT SELECT, REFERENCES ON dbo.Branch TO BranchManager
 GRANT SELECT, INSERT, DELETE, REFERENCES ON dbo.Trainer TO BranchManager
@@ -2211,8 +2204,6 @@ GRANT SELECT, REFERENCES ON dbo.MembershipType TO BranchManager
 GRANT SELECT, INSERT, REFERENCES ON dbo.Payment TO BranchManager
 GRANT SELECT, INSERT, REFERENCES ON dbo.Employee TO BranchManager
 GRANT SELECT, INSERT, DELETE, REFERENCES ON dbo.MaintenanceData TO BranchManager
-
-
 
 GRANT EXECUTE TO BranchManager
 GRANT SELECT TO BranchManager
@@ -2235,15 +2226,12 @@ DENY EXECUTE ON PROC_UpdateWorkout TO BranchManager
 DENY EXECUTE ON PROC_AddWorkout TO BranchManager
 
 GO
-
 CREATE TRIGGER TR_CreateSQLAccount ON Employee
 AFTER INSERT
 AS
 	DECLARE @UserName VARCHAR(20), @Password varchar(20), @Role CHAR(1);
 	SELECT @UserName=E.UserName, @Password=E.Password, @Role=E.Role
 	FROM inserted E
-
-
 BEGIN
 	DECLARE @sqlString nvarchar(2000)
 	----
@@ -2267,7 +2255,6 @@ BEGIN
 END
 
 GO
-
 CREATE TRIGGER TR_DeleteSQLAccount ON Employee
 AFTER DELETE 
 AS
