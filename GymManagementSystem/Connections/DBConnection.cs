@@ -17,11 +17,11 @@ namespace GymManagementSystem
         {
             if (Employee.Name != "")
             {
-                MessageBox.Show(Employee.UserName);
-                conn = new SqlConnection(@"Data Source=.;Initial Catalog=GymManagerDB;" + Employee.UserName + ";Password=" + Employee.Password + ";");
+                conn = new SqlConnection(@"Data Source=.;Initial Catalog=GymManagerDB; USER ID=" + Employee.UserName + ";Password=" + Employee.Password + ";");
             }
             else
             {
+                
                 conn = new SqlConnection("Data Source=.;Initial Catalog=GymManagerDB;Integrated Security=True");
             }    
         }

@@ -1265,15 +1265,15 @@ RETURN
 );
 
 GO
-  
 CREATE FUNCTION FUNC_DefaultPass()
-RETURNS CHAR(20)
+RETURNS VARCHAR(20)
 AS
 BEGIN
-	DECLARE @pass CHAR(20)
+	DECLARE @pass VARCHAR(20)
 	SET @pass = '123456'
 	RETURN @pass
 END
+
 GO
 
 --PROC thêm nhân viên
@@ -1287,12 +1287,21 @@ CREATE PROCEDURE PROC_AddEmployee
 AS
 BEGIN
 	IF (@YourRole = 2 AND (@Role = 1 OR (SELECT TOP 1 Role FROM Employee WHERE UserName = @UserName) = 1 ))
+	BEGIN
 		RAISERROR ('Bạn không đủ quyền',16,1)
+		RETURN
+	END
 	ELSE
 	IF (@YourRole = 2 AND @BranchID = 'BRRoot')
+	BEGIN
 		RAISERROR ('Bạn không được thêm thành viên vào chi nhánh chính',16,1)
+		RETURN
+	END
 	IF EXISTS (SELECT * FROM Employee WHERE UserName = @UserName)
+	BEGIN
 		RAISERROR('User name đã tồn tại',16 ,1)
+		RETURN
+	END
 	ELSE
     INSERT INTO Employee ([ID], [Name], [UserName], [Password], [Role], [BranchID])
     VALUES (@ID, @Name, @UserName, dbo.FUNC_DefaultPass(), @Role, @BranchID)
@@ -2079,14 +2088,6 @@ END
 GO
 
 
-INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('Admin0','admin','admin', 'admin', 'BRRoot', '1')
-
-INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('mg0001','manager','manager', 'manager1', 'BR0001', '2')
-INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('mg0002','manager','manager', 'manager2', 'BR0002', '2')
-
-INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('st0001','employee','employee', 'employee1', 'BR0001', '0')
-INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('st0002','employee','employee', 'employee2', 'BR0002', '0')
-
 GO
 
 CREATE PROCEDURE PROC_AddMember
@@ -2119,3 +2120,177 @@ BEGIN
 		
 END
 
+
+
+CREATE ROLE Staff
+CREATE ROLE BranchManager
+GO
+
+GRANT SELECT, INSERT, REFERENCES ON dbo.Member TO Staff
+GRANT SELECT, REFERENCES ON dbo.Branch TO Staff
+GRANT SELECT, REFERENCES ON dbo.Trainer TO Staff
+GRANT SELECT, REFERENCES ON dbo.Equipment TO Staff
+GRANT SELECT, REFERENCES ON dbo.WorkOut TO Staff
+GRANT SELECT, INSERT, REFERENCES ON dbo.WorkOutPlan TO Staff
+GRANT SELECT, INSERT, REFERENCES ON dbo.BMI TO Staff
+GRANT SELECT, REFERENCES ON dbo.EquipmentCategory TO Staff
+GRANT SELECT, INSERT, REFERENCES ON dbo.PlanDetails TO Staff
+GRANT SELECT, REFERENCES ON dbo.Package TO Staff
+GRANT SELECT, REFERENCES ON dbo.MembershipType TO Staff
+GRANT SELECT, INSERT, REFERENCES ON dbo.Payment TO Staff
+GRANT SELECT, REFERENCES ON dbo.Employee TO Staff
+GRANT SELECT, INSERT, REFERENCES ON dbo.MaintenanceData TO Staff
+
+GRANT EXECUTE TO Staff
+GRANT SELECT TO Staff
+
+GO
+
+
+DENY EXECUTE ON PROC_AddBranch TO Staff
+DENY EXECUTE ON PROC_UpdateBranch TO Staff
+DENY EXECUTE ON PROC_DeleteBranch TO Staff
+DENY EXECUTE ON PROC_AddEmployee TO Staff
+DENY EXECUTE ON PROC_ResetPasswordToDefault TO Staff
+DENY EXECUTE ON PROC_DeleteEmployee TO Staff
+DENY EXECUTE ON PROC_UpdateEmployeeInfo TO Staff
+DENY EXECUTE ON PROC_AddEquipmentCategory TO Staff
+DENY EXECUTE ON PROC_UpdateEquipmentCategory TO Staff
+DENY EXECUTE ON PROC_DeleteEquipmentCategory TO Staff
+DENY EXECUTE ON PROC_ReplaceEquipment TO Staff
+DENY EXECUTE ON PROC_AddEquipment TO Staff
+DENY EXECUTE ON PROC_UpdateEquipment TO Staff
+DENY EXECUTE ON PROC_DeleteEquipment TO Staff
+DENY EXECUTE ON PROC_NewSeason TO Staff
+DENY EXECUTE ON PROC_AddPackage TO Staff
+DENY EXECUTE ON PROC_UpdatePackage TO Staff
+DENY EXECUTE ON PROC_DeletePackage TO Staff
+DENY EXECUTE ON PROC_PaymentPackageList TO Staff
+DENY EXECUTE ON PROC_PaymentEquipmentMaintenanceList TO Staff
+DENY EXECUTE ON PROC_FindListPaymentByPhoneNumber TO Staff
+DENY EXECUTE ON PROC_DeleteWorkout TO Staff
+DENY EXECUTE ON PROC_UpdateWorkout TO Staff
+DENY EXECUTE ON PROC_AddWorkout TO Staff
+GO
+
+GRANT SELECT, INSERT, REFERENCES ON dbo.Member TO BranchManager
+GRANT SELECT, REFERENCES ON dbo.Branch TO BranchManager
+GRANT SELECT, INSERT, DELETE, REFERENCES ON dbo.Trainer TO BranchManager
+GRANT SELECT, INSERT, DELETE, REFERENCES ON dbo.Equipment TO BranchManager
+GRANT SELECT, REFERENCES ON dbo.WorkOut TO BranchManager
+GRANT SELECT, INSERT, REFERENCES ON dbo.WorkOutPlan TO BranchManager
+GRANT SELECT, INSERT, REFERENCES ON dbo.BMI TO BranchManager
+GRANT SELECT, REFERENCES ON dbo.EquipmentCategory TO BranchManager
+GRANT SELECT, INSERT, REFERENCES ON dbo.PlanDetails TO BranchManager
+GRANT SELECT, REFERENCES ON dbo.Package TO BranchManager
+GRANT SELECT, REFERENCES ON dbo.MembershipType TO BranchManager
+GRANT SELECT, INSERT, REFERENCES ON dbo.Payment TO BranchManager
+GRANT SELECT, INSERT, REFERENCES ON dbo.Employee TO BranchManager
+GRANT SELECT, INSERT, DELETE, REFERENCES ON dbo.MaintenanceData TO BranchManager
+
+
+
+GRANT EXECUTE TO BranchManager
+GRANT SELECT TO BranchManager
+
+DENY EXECUTE ON PROC_AddBranch TO BranchManager
+DENY EXECUTE ON PROC_UpdateBranch TO BranchManager
+DENY EXECUTE ON PROC_DeleteBranch TO BranchManager
+DENY EXECUTE ON PROC_AddEmployee TO BranchManager
+DENY EXECUTE ON PROC_DeleteEmployee TO BranchManager
+DENY EXECUTE ON PROC_AddEquipmentCategory TO BranchManager
+DENY EXECUTE ON PROC_UpdateEquipmentCategory TO BranchManager
+DENY EXECUTE ON PROC_DeleteEquipmentCategory TO BranchManager
+DENY EXECUTE ON PROC_NewSeason TO BranchManager
+DENY EXECUTE ON PROC_AddPackage TO BranchManager
+DENY EXECUTE ON PROC_UpdatePackage TO BranchManager
+DENY EXECUTE ON PROC_DeletePackage TO BranchManager
+DENY EXECUTE ON PROC_PaymentPackageList TO BranchManager
+DENY EXECUTE ON PROC_DeleteWorkout TO BranchManager
+DENY EXECUTE ON PROC_UpdateWorkout TO BranchManager
+DENY EXECUTE ON PROC_AddWorkout TO BranchManager
+
+GO
+
+CREATE TRIGGER TR_CreateSQLAccount ON Employee
+AFTER INSERT
+AS
+	DECLARE @UserName VARCHAR(20), @Password varchar(20), @Role CHAR(1);
+	SELECT @UserName=E.UserName, @Password=E.Password, @Role=E.Role
+	FROM inserted E
+
+
+BEGIN
+	DECLARE @sqlString nvarchar(2000)
+	----
+	SET @sqlString= 'CREATE LOGIN [' + @UserName +'] WITH PASSWORD='''+
+	@Password
+	+''', DEFAULT_DATABASE=[GymManagerDB], CHECK_EXPIRATION=OFF,
+	CHECK_POLICY=OFF'
+	EXEC (@sqlString)
+	----
+	SET @sqlString= 'CREATE USER ' + @UserName +' FOR LOGIN '+ @UserName
+	EXEC (@sqlString)
+	----
+
+	if (@Role = '1')
+		SET @sqlString = 'ALTER SERVER ROLE sysadmin' + ' ADD MEMBER ' + @UserName;
+	else if (@Role = '2')
+		SET @sqlString = 'ALTER ROLE BranchManager ADD MEMBER ' + @UserName;
+	else
+		SET @sqlString = 'ALTER ROLE Staff ADD MEMBER ' + @UserName;
+	EXEC (@sqlString)
+END
+
+GO
+
+CREATE TRIGGER TR_DeleteSQLAccount ON Employee
+AFTER DELETE 
+AS
+BEGIN
+	SET NOCOUNT ON;
+	DECLARE @UserName VARCHAR(20);
+	SELECT @Username = E.UserName 
+	FROM deleted E
+	DECLARE @sql varchar(100), @SessionID INT;
+	SELECT @SessionID = session_id
+	FROM sys.dm_exec_sessions
+	WHERE login_name = @UserName;
+	IF @SessionID IS NOT NULL
+	BEGIN
+		SET @sql = 'kill ' + Convert(NVARCHAR(20), @SessionID)
+		EXEC(@sql)
+	END
+	BEGIN TRANSACTION;
+	BEGIN TRY
+	--
+		SET @sql = 'DROP USER '+ @UserName
+		EXEC (@sql)
+		--
+		SET @sql = 'DROP LOGIN '+ @UserName
+		EXEC (@sql)
+	--
+	END TRY
+	BEGIN CATCH
+		DECLARE @err NVARCHAR(MAX)
+		SELECT @err = N'Lỗi ' + ERROR_MESSAGE()
+		RAISERROR(@err, 16, 1)
+		ROLLBACK TRANSACTION;
+		THROW;
+	END CATCH
+		COMMIT TRANSACTION;
+END
+INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('Admin0','admingym','admin', 'admingym', 'BRRoot', '1')
+
+INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('mg0001','manager','manager', 'manager1', 'BR0001', '2')
+INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('mg0002','manager','manager', 'manager2', 'BR0002', '2')
+
+
+INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('st0001','employee','employee', 'employee1', 'BR0001', '0')
+INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('st0002','employee','employee', 'employee2', 'BR0002', '0')
+
+SELECT *FROM Employee
+
+
+
+	

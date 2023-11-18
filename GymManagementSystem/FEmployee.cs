@@ -395,7 +395,7 @@ namespace GymManagementSystem
         }
 
         private void DeleteEmployee()
-        {
+        {  
             DBConnection connection = new DBConnection();
             string query = "PROC_DeleteEmployee";
             connection.openConnection();
