@@ -15,15 +15,15 @@ namespace GymManagementSystem
         private SqlConnection conn;
         public DBConnection()
         {
-            if (Employee.Role == 3)
+            if (Employee.Name != "")
             {
-                conn = new SqlConnection(@"Data Source=LAPTOP-TSVFN4HJ;Initial Catalog=GymManagementDB;User Id=" + Employee.UserName + ";Password=" + Employee.Password + ";");
-
+                MessageBox.Show(Employee.UserName);
+                conn = new SqlConnection(@"Data Source=.;Initial Catalog=GymManagerDB;" + Employee.UserName + ";Password=" + Employee.Password + ";");
             }
             else
             {
-                conn = new SqlConnection(@"Data Source=.;Initial Catalog=GymManagerDB;Integrated Security=True");
-            }
+                conn = new SqlConnection("Data Source=.;Initial Catalog=GymManagerDB;Integrated Security=True");
+            }    
         }
 
         public SqlConnection GetConnection()

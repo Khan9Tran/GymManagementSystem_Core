@@ -1917,7 +1917,6 @@ AS
 	
 GO
 
-USE GymManagerDB
 CREATE PROCEDURE PROC_AddPackage
     @ID CHAR(6),
     @Name NVARCHAR(100),
@@ -2119,3 +2118,4 @@ BEGIN
 	SELECT N'Thêm thành công' AS Result
 		
 END
+
