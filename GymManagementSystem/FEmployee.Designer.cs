@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.rjPanel1 = new GymManagementSystem.RJPanel();
             this.rjFlowLayoutPanel1 = new GymManagementSystem.RJFlowLayoutPanel();
             this.txtManagement = new GymManagementSystem.RJButton();
@@ -110,6 +110,12 @@
             this.rjPanel30 = new GymManagementSystem.RJPanel();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.rjPanel2 = new GymManagementSystem.RJPanel();
+            this.rjPanel4 = new GymManagementSystem.RJPanel();
+            this.txtPass = new System.Windows.Forms.TextBox();
+            this.rjPanel9 = new GymManagementSystem.RJPanel();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.rjPanel1.SuspendLayout();
             this.rjFlowLayoutPanel1.SuspendLayout();
             this.rjPanel20.SuspendLayout();
@@ -147,6 +153,9 @@
             this.rjPanel35.SuspendLayout();
             this.rjPanel29.SuspendLayout();
             this.rjPanel30.SuspendLayout();
+            this.rjPanel2.SuspendLayout();
+            this.rjPanel4.SuspendLayout();
+            this.rjPanel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // rjPanel1
@@ -509,6 +518,7 @@
             this.pnlInfo.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.pnlInfo.BorderRadius = 40;
             this.pnlInfo.BorderSize = 0;
+            this.pnlInfo.Controls.Add(this.rjPanel2);
             this.pnlInfo.Controls.Add(this.rjFlowLayoutPanel2);
             this.pnlInfo.Controls.Add(this.rjPanel15);
             this.pnlInfo.Controls.Add(this.rjPanel13);
@@ -518,7 +528,7 @@
             this.pnlInfo.ForeColor = System.Drawing.Color.White;
             this.pnlInfo.Location = new System.Drawing.Point(19, 91);
             this.pnlInfo.Name = "pnlInfo";
-            this.pnlInfo.Size = new System.Drawing.Size(939, 322);
+            this.pnlInfo.Size = new System.Drawing.Size(939, 404);
             this.pnlInfo.TabIndex = 19;
             // 
             // rjFlowLayoutPanel2
@@ -596,7 +606,7 @@
             this.rjPanel15.Controls.Add(this.rjPanel17);
             this.rjPanel15.Controls.Add(this.label5);
             this.rjPanel15.ForeColor = System.Drawing.Color.White;
-            this.rjPanel15.Location = new System.Drawing.Point(25, 222);
+            this.rjPanel15.Location = new System.Drawing.Point(25, 214);
             this.rjPanel15.Name = "rjPanel15";
             this.rjPanel15.Size = new System.Drawing.Size(413, 82);
             this.rjPanel15.TabIndex = 8;
@@ -939,9 +949,9 @@
             this.rjPanel12.BorderSize = 0;
             this.rjPanel12.Controls.Add(this.gvEmployee);
             this.rjPanel12.ForeColor = System.Drawing.Color.DimGray;
-            this.rjPanel12.Location = new System.Drawing.Point(16, 439);
+            this.rjPanel12.Location = new System.Drawing.Point(19, 518);
             this.rjPanel12.Name = "rjPanel12";
-            this.rjPanel12.Size = new System.Drawing.Size(942, 466);
+            this.rjPanel12.Size = new System.Drawing.Size(942, 369);
             this.rjPanel12.TabIndex = 18;
             // 
             // gvEmployee
@@ -950,29 +960,29 @@
             this.gvEmployee.AllowUserToDeleteRows = false;
             this.gvEmployee.AllowUserToResizeColumns = false;
             this.gvEmployee.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.gvEmployee.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.gvEmployee.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.gvEmployee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gvEmployee.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.gvEmployee.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gvEmployee.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gvEmployee.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.gvEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.gvEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gvEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gvEmployee.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gvEmployee.DefaultCellStyle = dataGridViewCellStyle3;
             this.gvEmployee.Location = new System.Drawing.Point(-3, 0);
             this.gvEmployee.Name = "gvEmployee";
             this.gvEmployee.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -980,7 +990,7 @@
             this.gvEmployee.RowHeadersWidth = 51;
             this.gvEmployee.RowTemplate.Height = 29;
             this.gvEmployee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gvEmployee.Size = new System.Drawing.Size(942, 441);
+            this.gvEmployee.Size = new System.Drawing.Size(942, 351);
             this.gvEmployee.TabIndex = 1;
             this.gvEmployee.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvEmployee_CellClick);
             this.gvEmployee.Click += new System.EventHandler(this.gvEmployee_Click);
@@ -1243,6 +1253,81 @@
             this.label14.TabIndex = 4;
             this.label14.Text = "Password";
             // 
+            // rjPanel2
+            // 
+            this.rjPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.rjPanel2.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.rjPanel2.BorderRadius = 40;
+            this.rjPanel2.BorderSize = 0;
+            this.rjPanel2.Controls.Add(this.rjPanel4);
+            this.rjPanel2.Controls.Add(this.label2);
+            this.rjPanel2.ForeColor = System.Drawing.Color.White;
+            this.rjPanel2.Location = new System.Drawing.Point(25, 310);
+            this.rjPanel2.Name = "rjPanel2";
+            this.rjPanel2.Size = new System.Drawing.Size(413, 82);
+            this.rjPanel2.TabIndex = 18;
+            // 
+            // rjPanel4
+            // 
+            this.rjPanel4.BackColor = System.Drawing.Color.White;
+            this.rjPanel4.BorderColor = System.Drawing.Color.White;
+            this.rjPanel4.BorderRadius = 40;
+            this.rjPanel4.BorderSize = 0;
+            this.rjPanel4.Controls.Add(this.txtPass);
+            this.rjPanel4.Controls.Add(this.rjPanel9);
+            this.rjPanel4.ForeColor = System.Drawing.Color.White;
+            this.rjPanel4.Location = new System.Drawing.Point(101, 12);
+            this.rjPanel4.Name = "rjPanel4";
+            this.rjPanel4.Size = new System.Drawing.Size(286, 59);
+            this.rjPanel4.TabIndex = 1;
+            // 
+            // txtPass
+            // 
+            this.txtPass.BackColor = System.Drawing.Color.White;
+            this.txtPass.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPass.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(66)))), ((int)(((byte)(67)))));
+            this.txtPass.Location = new System.Drawing.Point(21, 18);
+            this.txtPass.Name = "txtPass";
+            this.txtPass.PasswordChar = '*';
+            this.txtPass.Size = new System.Drawing.Size(240, 29);
+            this.txtPass.TabIndex = 0;
+            // 
+            // rjPanel9
+            // 
+            this.rjPanel9.BackColor = System.Drawing.Color.White;
+            this.rjPanel9.BorderColor = System.Drawing.Color.White;
+            this.rjPanel9.BorderRadius = 40;
+            this.rjPanel9.BorderSize = 0;
+            this.rjPanel9.Controls.Add(this.textBox4);
+            this.rjPanel9.ForeColor = System.Drawing.Color.White;
+            this.rjPanel9.Location = new System.Drawing.Point(-57, -97);
+            this.rjPanel9.Name = "rjPanel9";
+            this.rjPanel9.Size = new System.Drawing.Size(508, 59);
+            this.rjPanel9.TabIndex = 0;
+            // 
+            // textBox4
+            // 
+            this.textBox4.BackColor = System.Drawing.Color.White;
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(66)))), ((int)(((byte)(67)))));
+            this.textBox4.Location = new System.Drawing.Point(21, 11);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(453, 29);
+            this.textBox4.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
+            this.label2.Location = new System.Drawing.Point(8, 30);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 28);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Passwd";
+            // 
             // FEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -1319,6 +1404,12 @@
             this.rjPanel29.PerformLayout();
             this.rjPanel30.ResumeLayout(false);
             this.rjPanel30.PerformLayout();
+            this.rjPanel2.ResumeLayout(false);
+            this.rjPanel2.PerformLayout();
+            this.rjPanel4.ResumeLayout(false);
+            this.rjPanel4.PerformLayout();
+            this.rjPanel9.ResumeLayout(false);
+            this.rjPanel9.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1404,5 +1495,11 @@
         private RJButton btnSearch;
         private TextBox txtSearch;
         private TextBox textBox3;
+        private RJPanel rjPanel2;
+        private RJPanel rjPanel4;
+        private TextBox txtPass;
+        private RJPanel rjPanel9;
+        private TextBox textBox4;
+        private Label label2;
     }
 }

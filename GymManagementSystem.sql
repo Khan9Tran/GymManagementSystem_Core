@@ -1219,7 +1219,8 @@ CREATE PROCEDURE PROC_AddEmployee
     @UserName VARCHAR(20),
     @Role CHAR(1),
     @BranchID CHAR(6),
-	@YourRole CHAR(1)
+	@YourRole CHAR(1),
+	@Password VARCHAR(20)
 AS
 BEGIN
 	IF (@YourRole = 2 AND (@Role = 1 OR (SELECT TOP 1 Role FROM Employee WHERE UserName = @UserName) = 1 ))
@@ -1240,7 +1241,7 @@ BEGIN
 	END
 	ELSE
     INSERT INTO Employee ([ID], [Name], [UserName], [Password], [Role], [BranchID])
-    VALUES (@ID, @Name, @UserName, dbo.FUNC_DefaultPass(), @Role, @BranchID)
+    VALUES (@ID, @Name, @UserName, @Password, @Role, @BranchID)
 END
 GO
 -- PROCEDURE resest mật khẩu
@@ -1262,7 +1263,8 @@ CREATE PROCEDURE PROC_UpdateEmployeeInfo
     @Name NVARCHAR(50),
     @Role CHAR(1),
     @BranchID CHAR(6),
-	@YourRole CHAR(1)
+	@YourRole CHAR(1),
+	@Password VARCHAR(20)
 AS
 BEGIN
 	IF (@YourRole = 2 AND (@Role = 1 OR (SELECT TOP 1 Role FROM Employee WHERE UserName = @UserName) = 1 ))
@@ -1275,7 +1277,8 @@ BEGIN
 		SET
 			[Name] = @Name,
 			[Role] = @Role,
-			[BranchID] = @BranchID
+			[BranchID] = @BranchID,
+			[Password] = @Password
 		WHERE [UserName] = @UserName
 	END
 END

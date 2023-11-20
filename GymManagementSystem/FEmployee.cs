@@ -295,6 +295,7 @@ namespace GymManagementSystem
                 command.Parameters.AddWithValue("@Role", cbxRole.SelectedIndex.ToString());
                 command.Parameters.AddWithValue("@YourRole", Employee.Role);
                 command.Parameters.AddWithValue("@BranchID", (cbxBranch.SelectedItem as DataRowView)["ID"].ToString());
+                command.Parameters.AddWithValue("@Password", txtPass.Text);
                 command.ExecuteNonQuery();
 
             }
@@ -316,6 +317,7 @@ namespace GymManagementSystem
             {
                 txtName.Text = gvEmployee.CurrentRow.Cells["Name"].Value.ToString();
                 txtUSer.Text = gvEmployee.CurrentRow.Cells["UserName"].Value.ToString();
+                txtPass.Text = gvEmployee.CurrentRow.Cells["Password"].Value.ToString();
                 cbxRole.SelectedIndex = int.Parse(gvEmployee.CurrentRow.Cells["Role"].Value.ToString());
 
                 foreach (DataRowView item in cbxBranch.Items)
@@ -379,6 +381,7 @@ namespace GymManagementSystem
                 command.Parameters.AddWithValue("@Role", cbxRole.SelectedIndex.ToString());
                 command.Parameters.AddWithValue("@BranchID", (cbxBranch.SelectedItem as DataRowView)["ID"].ToString());
                 command.Parameters.AddWithValue("@YourRole", Employee.Role);
+                command.Parameters.AddWithValue("@Password", txtPass.Text);
                 command.ExecuteNonQuery();
 
             }
