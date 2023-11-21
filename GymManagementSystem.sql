@@ -2140,7 +2140,10 @@ INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000022', 'MB0002',
 INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000023', 'MB0003', 69, 173, '2023/11/10');
 INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000024', 'MB0004', 74, 188, '2023/11/11');
 
+
 GO
+-- PHÂN QUYỀN NGƯỜI DÙNG
+
 CREATE ROLE Staff
 CREATE ROLE BranchManager
 
@@ -2226,6 +2229,7 @@ DENY EXECUTE ON PROC_UpdateWorkout TO BranchManager
 DENY EXECUTE ON PROC_AddWorkout TO BranchManager
 
 GO
+-- Trigger tạo tài khoản cho nhân viên 
 CREATE TRIGGER TR_CreateSQLAccount ON Employee
 AFTER INSERT
 AS
@@ -2255,6 +2259,7 @@ BEGIN
 END
 
 GO
+-- Trigger xóa tài khoản nhân viên 
 CREATE TRIGGER TR_DeleteSQLAccount ON Employee
 AFTER DELETE 
 AS
@@ -2292,12 +2297,14 @@ BEGIN
 		COMMIT TRANSACTION;
 END
 
-
+GO
 INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('Admin0','admingym','admin', 'admingym', 'BRRoot', '1')
 
+GO
 INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('mg0001','manager','manager', 'manager1', 'BR0001', '2')
 INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('mg0002','manager','manager', 'manager2', 'BR0002', '2')
 
+GO
 INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('st0001','employee','employee', 'employee1', 'BR0001', '0')
 INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('st0002','employee','employee', 'employee2', 'BR0002', '0')
 
