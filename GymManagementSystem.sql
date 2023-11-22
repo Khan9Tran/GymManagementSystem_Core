@@ -1212,6 +1212,7 @@ AS
 
 
 GO
+
 -- PROCEDURE thêm nhân viên
 CREATE PROCEDURE PROC_AddEmployee
     @ID CHAR(6),
@@ -1223,6 +1224,7 @@ CREATE PROCEDURE PROC_AddEmployee
 	@Password VARCHAR(20)
 AS
 BEGIN
+	
 	IF (@YourRole = 2 AND (@Role = 1 OR (SELECT TOP 1 Role FROM Employee WHERE UserName = @UserName) = 1 ))
 	BEGIN
 		RAISERROR ('Bạn không đủ quyền',16,1)
@@ -1240,8 +1242,18 @@ BEGIN
 		RETURN
 	END
 	ELSE
-    INSERT INTO Employee ([ID], [Name], [UserName], [Password], [Role], [BranchID])
-    VALUES (@ID, @Name, @UserName, @Password, @Role, @BranchID)
+	BEGIN TRANSACTION
+	BEGIN TRY
+		INSERT INTO Employee ([ID], [Name], [UserName], [Password], [Role], [BranchID])
+		VALUES (@ID, @Name, @UserName, @Password, @Role, @BranchID)
+		EXEC PROC_CreateSQLAccount @UserName, @Password, @Role;
+	END TRY
+	BEGIN CATCH
+		ROLLBACK TRANSACTION
+		RAISERROR(N'Lỗi khi thêm Login/User SQL',16,1)
+		RETURN
+	END CATCH
+	COMMIT TRANSACTION
 END
 GO
 -- PROCEDURE resest mật khẩu
@@ -2239,15 +2251,13 @@ DENY EXECUTE ON PROC_AddWorkout TO BranchManager
 
 GO
 
-CREATE TRIGGER TR_CreateSQLAccount ON Employee
-AFTER INSERT
+CREATE PROCEDURE PROC_CreateSQLAccount
+@UserName VARCHAR(20), @Password varchar(20), @Role CHAR(1)
 AS
-	DECLARE @UserName VARCHAR(20), @Password varchar(20), @Role CHAR(1);
-	SELECT @UserName=E.UserName, @Password=E.Password, @Role=E.Role
-	FROM inserted E
-
 
 BEGIN
+	BEGIN TRANSACTION
+	BEGIN TRY
 	DECLARE @sqlString nvarchar(2000)
 	----
 	SET @sqlString= 'CREATE LOGIN [' + @UserName +'] WITH PASSWORD='''+
@@ -2267,6 +2277,14 @@ BEGIN
 	else
 		SET @sqlString = 'ALTER ROLE Staff ADD MEMBER ' + @UserName;
 	EXEC (@sqlString)
+	END TRY
+	BEGIN CATCH
+		DECLARE @err NVARCHAR(MAX)
+		SELECT @err = N'Lỗi thêm tài khoản SQL: ' + ERROR_MESSAGE()
+		RAISERROR(@err, 16, 1)
+		ROLLBACK TRANSACTION;
+	END CATCH
+	COMMIT TRANSACTION
 END
 
 GO
@@ -2318,6 +2336,49 @@ INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('st0001','e
 INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('st0002','employee','employee', 'employee2', 'BR0002', '0')
 
 
+GO
 
+CREATE TRIGGER TRG_UpdateSQLAccount
+ON Employee
+AFTER UPDATE
+AS
+BEGIN
+    BEGIN TRANSACTION
+    BEGIN TRY
+        DECLARE @sqlString NVARCHAR(2000)
 
-	
+        -- Lấy thông tin từ bảng Inserted
+        DECLARE @UserName VARCHAR(20)
+        DECLARE @Password VARCHAR(20)
+        DECLARE @Role CHAR(1)
+
+        SELECT @UserName = UserName, @Password = Password, @Role = Role
+        FROM Inserted
+
+        -- Kiểm tra xem tài khoản đã tồn tại chưa
+        IF EXISTS (SELECT 1 FROM sys.sql_logins WHERE name = @UserName)
+        BEGIN
+            -- Nếu đã tồn tại, cập nhật mật khẩu
+            SET @sqlString = 'ALTER LOGIN [' + @UserName + '] WITH PASSWORD = ''' + @Password + ''''
+            EXEC (@sqlString)
+        END
+
+        -- Gán quyền tương ứng
+        IF (@Role = '1')
+            SET @sqlString = 'ALTER SERVER ROLE sysadmin' + ' ADD MEMBER ' + @UserName;
+        ELSE IF (@Role = '2')
+            SET @sqlString = 'ALTER ROLE BranchManager ADD MEMBER ' + @UserName;
+        ELSE
+            SET @sqlString = 'ALTER ROLE Staff ADD MEMBER ' + @UserName;
+
+        EXEC (@sqlString)
+    END TRY
+    BEGIN CATCH
+        DECLARE @err NVARCHAR(MAX)
+        SELECT @err = N'Lỗi cập nhật tài khoản SQL: ' + ERROR_MESSAGE()
+        RAISERROR(@err, 16, 1)
+        ROLLBACK TRANSACTION;
+    END CATCH
+
+    COMMIT TRANSACTION
+END
