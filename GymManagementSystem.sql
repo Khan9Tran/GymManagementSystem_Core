@@ -2128,7 +2128,6 @@ INSERT INTO dbo.PlanDetails (WorkOutPlanID, WorkOutID)
 VALUES
 	('WOP008', 'WO0013')
 
-
 GO
 INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000001', 'MB0001', 60, 175, '2023/10/25');
 INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000002', 'MB0002', 70, 180, '2023/10/25');
@@ -2158,13 +2157,12 @@ INSERT INTO BMI (ID, MemberID, Weight, Height, Date) VALUES ('000024', 'MB0004',
 
 
 GO
-
+-- PHÂN QUYỀN NGƯỜI DÙNG
 
 CREATE ROLE Staff
 CREATE ROLE BranchManager
 
 GO
-
 GRANT SELECT, INSERT, REFERENCES ON dbo.Member TO Staff
 GRANT SELECT, REFERENCES ON dbo.Branch TO Staff
 GRANT SELECT, REFERENCES ON dbo.Trainer TO Staff
@@ -2184,8 +2182,6 @@ GRANT EXECUTE TO Staff
 GRANT SELECT TO Staff
 
 GO
-
-
 DENY EXECUTE ON PROC_AddBranch TO Staff
 DENY EXECUTE ON PROC_UpdateBranch TO Staff
 DENY EXECUTE ON PROC_DeleteBranch TO Staff
@@ -2210,8 +2206,8 @@ DENY EXECUTE ON PROC_FindListPaymentByPhoneNumber TO Staff
 DENY EXECUTE ON PROC_DeleteWorkout TO Staff
 DENY EXECUTE ON PROC_UpdateWorkout TO Staff
 DENY EXECUTE ON PROC_AddWorkout TO Staff
+	
 GO
-
 GRANT SELECT, INSERT, REFERENCES ON dbo.Member TO BranchManager
 GRANT SELECT, REFERENCES ON dbo.Branch TO BranchManager
 GRANT SELECT, INSERT, DELETE, REFERENCES ON dbo.Trainer TO BranchManager
@@ -2226,8 +2222,6 @@ GRANT SELECT, REFERENCES ON dbo.MembershipType TO BranchManager
 GRANT SELECT, INSERT, REFERENCES ON dbo.Payment TO BranchManager
 GRANT SELECT, INSERT, REFERENCES ON dbo.Employee TO BranchManager
 GRANT SELECT, INSERT, DELETE, REFERENCES ON dbo.MaintenanceData TO BranchManager
-
-
 
 GRANT EXECUTE TO BranchManager
 GRANT SELECT TO BranchManager
@@ -2288,7 +2282,7 @@ BEGIN
 END
 
 GO
-
+-- Trigger xóa tài khoản nhân viên 
 CREATE TRIGGER TR_DeleteSQLAccount ON Employee
 AFTER DELETE 
 AS
@@ -2326,12 +2320,14 @@ BEGIN
 		COMMIT TRANSACTION;
 END
 
-
+GO
 INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('Admin0','admingym','admin', 'admingym', 'BRRoot', '1')
 
+GO
 INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('mg0001','manager','manager', 'manager1', 'BR0001', '2')
 INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('mg0002','manager','manager', 'manager2', 'BR0002', '2')
 
+GO
 INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('st0001','employee','employee', 'employee1', 'BR0001', '0')
 INSERT INTO Employee(ID,Name,Password,UserName,BranchID,Role) VALUES('st0002','employee','employee', 'employee2', 'BR0002', '0')
 
